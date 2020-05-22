@@ -7,6 +7,8 @@ import { CenteredContainer } from "../components/Layout/LayoutPrimitives";
 import { useRouter } from "next/router";
 import withApollo from "../lib/apollo";
 
+// demo change
+
 const Home = () => {
   const router = useRouter();
   const client = useApolloClient();
