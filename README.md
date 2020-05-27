@@ -1,3 +1,7 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/e7cfe9947a337fbaf18f/maintainability)](https://codeclimate.com/github/Lambda-School-Labs/nutrition-tracker-fe-pt7/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/e7cfe9947a337fbaf18f/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/nutrition-tracker-fe-pt7/test_coverage)
+
 # Nutrivurv
 
 You can find the deployed project at [Nutrivurv](https://www.nutrivurv.com/).
