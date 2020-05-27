@@ -4,8 +4,6 @@ You can find the deployed project at [Nutrivurv](https://www.nutrivurv.com/).
 
 ## Contributors
 
-
-
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
@@ -34,7 +32,6 @@ Nutrivurv is an application that helps users take control of a healthier lifesty
 
 #### ReactJS
 
-
 #### Apollo Server
 
 - Simplified integration of GraphQL with React
@@ -58,7 +55,6 @@ Nutrivurv is an application that helps users take control of a healthier lifesty
 - Simplified schema and query builder
 - Well documented
 - Widely used alternative to ORM service
-
 
 ## Edamam Food Database API
 
