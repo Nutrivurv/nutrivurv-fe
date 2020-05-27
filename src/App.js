@@ -1,8 +1,9 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.scss";
 import "bootswatch/dist/flatly/bootstrap.min.css";
-import './App.css';
-import Nav from './components/nav/nav'
+import Nav from "./components/nav/nav";
+
 function App() {
   
   return (
