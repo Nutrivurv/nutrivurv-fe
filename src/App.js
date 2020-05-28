@@ -11,6 +11,7 @@ function App() {
   
   return (
     <div className="App container-fluid">
+      <Nav></Nav>
       <Route path="/landing" component={LandingPage} />
     </div>
   );
