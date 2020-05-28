@@ -1,12 +1,17 @@
 
-import React from 'react';
+import React from "react";
 import { Route } from "react-router-dom";
-import LandingPage from "./components/LandingPage/LandingPage.js"
+import LandingPage from "./components/LandingPage/LandingPage.js";
+import "./App.scss";
+import "bootswatch/dist/flatly/bootstrap.min.css";
+import Nav from "./components/nav/nav";
 
 
 function App() {
+  
   return (
-    <div className="App">
+    <div className="App container-fluid">
+      <Nav></Nav>
       <Route path="/landing" component={LandingPage} />
     </div>
   );
