@@ -10,7 +10,7 @@ import Nav from "./components/nav/nav";
 function App() {
   
   return (
-    <div className="App container-fluid">
+    <div className="App container-fluid p-2">
       <Nav></Nav>
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/signup" component={SignUp} />
