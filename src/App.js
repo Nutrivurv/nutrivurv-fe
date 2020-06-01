@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App container-fluid">
       <Nav></Nav>
-      <Route exact path="/landing" component={LandingPage} />
+      <Route exact path="/" component={LandingPage} />
       <Route exact path="/signup" component={SignUp} />
     </div>
   );
