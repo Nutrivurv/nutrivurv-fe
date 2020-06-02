@@ -5,10 +5,10 @@ import { ReactComponent as SignInImage } from "../../assets/GirlComptr.svg";
 const SignIn = () => {
   return (
     <div className="row d-flex justify-content-around ml-5 pl-4">
-      <div className="col-md-4 pt-5">
+      <div className="col-md-5 pt-5">
         <h2 className="text-center"> Sign In </h2>
         <p className="text-center"> Let's start crushing those goals!</p>
-        <form role="form">
+        <form role="form col-md-5">
           <div className="form-group">
             <label htmlFor="inputEmail" className="control-label">
               E-mail
@@ -20,7 +20,6 @@ const SignIn = () => {
               placeholder="email@email.com"
               required
             />
-            <div className="help-block with-errors"></div>
           </div>
 
           <div className="form-group">
