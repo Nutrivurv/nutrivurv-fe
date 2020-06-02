@@ -1,69 +1,100 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { ReactComponent as SignUpImage } from "../assets/GirlComptr.svg";
 
 const SignUp = () => {
+  const { register, errors, handleSubmit, watch } = useForm({});
+  const password = useRef({});
+  password.current = watch("password", "");
+  const onSubmit = async (data) => {
+    alert(JSON.stringify(data));
+  };
   return (
     <div>
-      <h1> Sign Up </h1>
-      <form role="form" data-toggle="validator">
+      <h2> Sign Up </h2>
+      <h5>You&apos;re one step closer to your goals!</h5>
+      <form data-toggle="validator" onSubmit={(e) => e.preventDefault()}>
         <div className="form-group col-sm-6">
-          <label htmlFor="input-name">Your Name</label>
+          <label>Your Name</label>
           <input
-            type="email"
-            className="form-control"
-            id="name"
+            name="username"
             placeholder="First and Last Name"
+            ref={register({
+              required: "Required",
+              pattern: {
+                value: /\b[^\d\W]+\b/g,
+                message: "Invalid name entry",
+              },
+            })}
           />
+          {errors.username && errors.username.message}
         </div>
 
         <div className="form-group col-sm-6">
-          <label htmlFor="inputEmail" className="control-label">
-            E-mail
-          </label>
+          <label>E-mail</label>
           <input
-            type="email"
-            className="form-control"
-            id="inputEmail"
+            name="email"
             placeholder="email@email.com"
-            data-error="Bruh, that email address is invalid"
-            required
+            ref={register({
+              required: "Required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: "invalid email address",
+              },
+            })}
           />
-          <div className="help-block with-errors"></div>
+          {errors.email && errors.email.message}
         </div>
 
         <div className="form-group col-sm-6">
-          <label htmlFor="input-password">Password</label>
+          <label>Password</label>
           <input
+            name="password"
+            placeholder="8-12 characters"
             type="password"
-            data-minlength="8"
-            className="form-control"
-            id="inputPassword"
-            placeholder="8-12 Characters"
-            required
+            ref={register({
+              required: "You must specify a password",
+              minLength: {
+                value: 8,
+                message: "Password must have at least 8 characters",
+              },
+              maxLength: {
+                value: 12,
+                message: "Password cannot have more than 12 characters",
+              },
+            })}
           />
-          <div className="help-block"></div>
+          {errors.password && <p>{errors.password.message}</p>}
         </div>
 
         <div className="form-group col-sm-6">
-          <label htmlFor="input-confirm-password">Confirm Password</label>
+          <label>Confirm Password</label>
           <input
+            name="password_repeat"
+            placeholder="Confirm Password"
             type="password"
-            className="form-control"
-            id="inputPasswordConfirm"
-            data-match="#inputPassword"
-            data-match-error="Whoops, these don't match"
-            placeholder="8-12 Characters"
-            required
+            ref={register({
+              validate: (value) =>
+                value === password.current || "The passwords do not match",
+            })}
           />
-          <div className="help-block with-errors"></div>
+          {errors.password_repeat && <p>{errors.password_repeat.message}</p>}
         </div>
 
-        <button type="submit" className="btn-primary ">
-          Let's Go!
+        <button
+          type="submit"
+          className="btn-primary"
+          onClick={handleSubmit(onSubmit)}
+        >
+          Let&apos;s Go!
         </button>
       </form>
-      <p>Already a member?</p>
-      <Link to="/signin">Sign In</Link>
+
+      <div>
+        <SignUpImage />
+      </div>
+      <Link to="/signin">Already a member?</Link>
     </div>
   );
 };
