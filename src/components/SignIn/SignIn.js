@@ -7,7 +7,7 @@ const SignIn = () => {
     <div className="row d-flex justify-content-around ml-5 pl-4">
       <div className="col-md-5 pt-5">
         <h2 className="text-center"> Sign In </h2>
-        <p className="text-center"> Let's start crushing those goals!</p>
+        <p className="text-center"> Let&apos;s start crushing those goals!</p>
         <form role="form col-md-5">
           <div className="form-group">
             <label htmlFor="inputEmail" className="control-label">
