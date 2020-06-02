@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as LandingImage } from "../../assets/Splash.svg";
+import Marketing from "../Marketing/marketing";
 
 const LandingPage = () => {
   return (
     <div>
+        <Marketing/>
       <h1>Tracking your calories just got easier.</h1>
       <p>Connect with friends, earn badges and crush your goals.</p>
       <Link to="/signin">
