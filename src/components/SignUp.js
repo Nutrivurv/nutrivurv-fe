@@ -3,12 +3,13 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { ReactComponent as SignUpImage } from "../assets/GirlComptr.svg";
 
-const SignUp = () => {
+const SignUp = ({ setStep }) => {
   const { register, errors, handleSubmit, watch } = useForm({});
   const password = useRef({});
   password.current = watch("password", "");
   const onSubmit = async (data) => {
     alert(JSON.stringify(data));
+    setStep("BMI")
   };
   return (
     <div>
