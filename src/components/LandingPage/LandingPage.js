@@ -9,7 +9,9 @@ const LandingPage = () => {
         <Marketing/>
       <h1>Tracking your calories just got easier.</h1>
       <p>Connect with friends, earn badges and crush your goals.</p>
-      <button className="btn-secondary">Sign In</button>
+      <Link to="/signin">
+        <button className="btn-secondary">Sign In</button>
+      </Link>
       <Link to="/signup" className="btn-secondary">
         Sign Up
       </Link>
