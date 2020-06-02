@@ -15,7 +15,7 @@ import Nav from "./components/nav/nav";
 
 function App() {
   return (
-    <div className="App container-fluid">
+    <div className="App container-fluid p-2">
       <Nav></Nav>
       <Route path="/signin" component={SignIn} />
       <Route exact path="/" component={LandingPage} />
