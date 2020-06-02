@@ -7,7 +7,7 @@ import Marketing from "../Marketing/marketing";
 
 const LandingPage = () => {
   return (
-    <div className="container-xl">
+    <div className="container-fluid p-0">
         <Marketing/>
       <h3 className="row justify-content-center">You're one click away from</h3>
       <h3 className="row mb-2 justify-content-center">from a healthier you</h3>
@@ -18,7 +18,7 @@ const LandingPage = () => {
       </h5>
       <div className="row flex-column flex-md-row align-self-center my-0 mx-2">
         <div className="col-4">
-            <Badges width="311px" height="186px"/>
+            <Badges className="badges" width="311px" height="186px"/>
             <h5 className="row justify-content-center pt-3">Connect with friends</h5>
         </div>
         <div className="col-4">
@@ -33,11 +33,11 @@ const LandingPage = () => {
       <div className="d-flex align-items-center flex-column">
         <div className="row">
             <Link type="button" to="/signup" >
-            <button className=" px-4 btn-primary">Join Now!</button>
+            <button id="join-now" className="px-4 btn-primary">Join Now!</button>
             </Link>
         </div>
         <div className="row">
-            <button className="btn-secondary">Sign In</button>
+            <button id="signIn-bttn" className="btn-secondary">Sign In</button>
         </div>
       </div>
     </div>
