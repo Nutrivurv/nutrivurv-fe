@@ -14,14 +14,14 @@ const LandingPage = () => {
           className="row justify-content-center"
           style={{ fontSize: "3.5vw" }}
         >
-          You're one click away from
-          </h3>
+          You're one click away
+        </h3>
         <h3
           className="row mb-2 justify-content-center"
           style={{ fontSize: "3.5vw" }}
         >
           from a healthier you
-          </h3>
+        </h3>
         <div className="pt-1 mb-2 mx-5 bg-warning"></div>
       </div>
       <h5
@@ -32,21 +32,22 @@ const LandingPage = () => {
       </h5>
       <h5
         className="row mb-5 justify-content-center"
-        style={{ fontSize: "2vw" }}>
+        style={{ fontSize: "2vw" }}
+      >
         on your journey to better health
       </h5>
       <div className="row flex-column flex-md-row align-self-center my-0 mx-5">
-        <div className="col-4 my-5">
+        <div className="col-12 col-md-4 my-5">
           <Badges className="badges" width="311px" height="186px" />
           <h5 className="row justify-content-center pt-3">
             Connect with friends
           </h5>
         </div>
-        <div className="col-4 my-5">
+        <div className="col-12 col-md-4 my-5">
           <Goals width="311px" height="186px" />
           <h5 className="row justify-content-center pt-3">Earn badges</h5>
         </div>
-        <div className="col-4 my-5">
+        <div className="col-12 col-md-4 my-5">
           <Friends width="311px" height="186px" />
           <h5 className="row justify-content-center pt-3">Crush your goals</h5>
         </div>
