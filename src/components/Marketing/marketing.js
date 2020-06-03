@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 const Marketing = () => {
   return (
     <div className="marketing">
-      <section className="mt-5 ml-lg-5">
-        <div className="ml-5 ">
-          <h2 className="row-8 ml-5">
+      <section className=" ml-md-5">
+        <div className="ml-5 mt-3">
+          <h1 className="row-8 ml-5" style={{ fontSize: "5.5vw" }}>
             Tracking your calories <br />
             just got easier.
-          </h2>
-          <p className="row-8 ml-5">
+          </h1>
+          <p className="row-8 ml-5" style={{ fontSize: "2.5vw" }}>
             Nutrivurv is an easy to use <br />
             motivating food and nutrition <br />
             tracking app.
@@ -22,8 +22,8 @@ const Marketing = () => {
             </button>
           </Link>
         </div>
-        <figure className="row px-0 ml-5">
-          <LandingImage width="300px" />
+        <figure className="row px-0 mt-5 ml-5">
+          <LandingImage className="lp-img" />
         </figure>
       </section>
     </div>

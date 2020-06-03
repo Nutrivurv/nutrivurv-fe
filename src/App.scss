@@ -2,11 +2,19 @@
 
 $link-color: #363537;
 $font-family-sans-serif: 'Muli', sans-serif;
+$light: #fff;
 
 .img-responsive {
-    max-width: 75%; 
-    max-height: auto; 
-  }
+  max-width: 75%; 
+  max-height: auto; 
+}
+
+.lp-img{
+  width: 50%;
+  height: auto;
+  max-width: 75%;
+  max-height: 450px;
+}
 
 @import "~bootswatch/dist/flatly/variables";
 @import "~bootstrap/scss/bootstrap";
