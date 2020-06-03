@@ -9,7 +9,7 @@ const SignUp = ({ setStep }) => {
   password.current = watch("password", "");
   const onSubmit = async (data) => {
     alert(JSON.stringify(data));
-    setStep("BMI")
+    setStep("BMI");
   };
   return (
     <div className="d-block">

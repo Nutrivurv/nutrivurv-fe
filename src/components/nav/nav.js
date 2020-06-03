@@ -1,16 +1,20 @@
 
 import React from 'react';
 import { Route, Link } from "react-router-dom";
+import Logo from "../../assets/nvlogo.png";
 
 const Nav = () => {
   return (
     <div className="navbar navbar-light bg-light flex-column flex-md-row">
-        <Link to="/" className="navbar-brand" href="#">Nutrivurv</Link>
+      <Link to="/" className="navbar-brand ml-3" href="#">
+        <img id="logo" src={Logo} alt="Nutrivurv logo"></img>
+      </Link>
       <nav className="col-md-4 col-lg-3 col-xl-2 align-self-center">
         <ul className="nav flex-md-row">
           <li className="nav-item col-md-6 align-self-center">
             <Link to="/signin">
               <a
+                id="signIn-link"
                 className="nav-link d-flex justify-content-center px-0"
                 href="#"
               >
@@ -21,6 +25,7 @@ const Nav = () => {
           <li className="nav-item col-md-6 align-self-center">
             <Link to="/signup">
               <a
+                id="signUp-link"
                 className="nav-link d-flex justify-content-center px-0"
                 href="#"
               >
