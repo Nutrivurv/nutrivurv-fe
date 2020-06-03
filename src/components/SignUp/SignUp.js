@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { ReactComponent as SignUpImage } from "../assets/GirlComptr.svg";
+import { ReactComponent as GirlComputerImg } from "../../assets/GirlComptr.svg";
 
 const SignUp = ({ setStep }) => {
   const { register, errors, handleSubmit, watch } = useForm({});
@@ -109,7 +109,7 @@ const SignUp = ({ setStep }) => {
           </div>
         </div>
         <div className="pt-2 mt-4 d-none d-xs-none d-sm-none d-md-block">
-          <SignUpImage className="img-responsive" />
+          <GirlComputerImg className="img-responsive" />
         </div>
       </div>
     </div>
