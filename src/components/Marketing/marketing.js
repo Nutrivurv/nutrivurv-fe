@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 const Marketing = () => {
 
   return(
-    <div className="marketing">
-      <section className="mt-5 ml-lg-5">
+    <div className="marketing" style={{height: "110vh"}}>
+      <section className=" ml-lg-5">
         <div className="ml-5 ">
           <h2 className="row-8 ml-5">
             Tracking your calories <br/>
