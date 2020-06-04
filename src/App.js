@@ -6,6 +6,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage.js";
 import SignIn from "./components/SignIn/SignIn";
+import ActivityLevelForm from "./components/ActivityLevelForm";
 import OnBoarding from "./components/on-boarding/onBoarding";
 import Nav from "./components/nav/nav";
 
@@ -15,6 +16,7 @@ function App() {
       <Nav></Nav>
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/signin" component={SignIn} />
+      <Route exact path="/activity-level" component={ActivityLevelForm} />
       <Route exact path="/signup" component={OnBoarding} />
     </div>
   );

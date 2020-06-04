@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import SignUp from "../SignUp";
+import SignUp from '../SignUp/SignUp';
 import BMI from "./bmi-calc/BMI";
 import Landing from "../LandingPage/LandingPage";
 
