@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Standard = ({ setBmi, bmi }) => {
+const Standard = ({ setBmi, bmi, setUser, user }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     calc(bmi);
@@ -8,6 +8,7 @@ const Standard = ({ setBmi, bmi }) => {
 
   const handleChanges = (e) => {
     setBmi({ ...bmi, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const calc = (bmi) => {

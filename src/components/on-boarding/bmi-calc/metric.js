@@ -1,6 +1,6 @@
 import React from "react";
 
-const Metric = ({ bmi, setBmi }) => {
+const Metric = ({ bmi, setBmi, setUser, user }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     calc(bmi);
@@ -8,6 +8,7 @@ const Metric = ({ bmi, setBmi }) => {
 
   const handleChanges = (e) => {
     setBmi({ ...bmi, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const calc = (bmi) => {

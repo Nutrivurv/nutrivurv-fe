@@ -1,13 +1,15 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { ReactComponent as GettingPersonalImg } from "../assets/GirlComptr.svg";
+import { ReactComponent as GettingPersonalImg } from "../../assets/GirlComptr.svg";
 
-const GettingPersonal = () => {
+const GettingPersonal = ({ setStep, handleChange }) => {
   const { register, handleSubmit, errors } = useForm({});
 
   const onSubmit = async (data) => {
     alert(JSON.stringify(data));
+    setStep("ActivityLevel");
   };
+
   return (
     <div className="row d-flex justify-content-around ml-5 pl-4">
       <div className="col-md-5 pt-5">
@@ -19,6 +21,7 @@ const GettingPersonal = () => {
               className="form-control"
               name="age"
               placeholder="Age"
+              onChange={handleChange}
               ref={register({
                 required: (
                   <small
@@ -43,7 +46,12 @@ const GettingPersonal = () => {
 
           <div className="form-group">
             <label>How do you identify?</label>
-            <select className="form-control" placeholder="Gender" required>
+            <select
+              className="form-control"
+              placeholder="Gender"
+              onChange={handleChange}
+              required
+            >
               <option value="female">Female</option>
               <option value="male">Male</option>
             </select>
@@ -54,6 +62,7 @@ const GettingPersonal = () => {
               className="form-control"
               name="weight"
               placeholder="Enter weight"
+              onChange={handleChange}
               ref={register({
                 required: (
                   <small
@@ -81,6 +90,12 @@ const GettingPersonal = () => {
             onClick={handleSubmit(onSubmit)}
           >
             Continue
+          </button>
+          <button
+            onClick={() => setStep("signUp")}
+            className="btn-secondary form-group col-md-6 rounded-sm mt-2 mr-5"
+          >
+            Back
           </button>
         </form>
       </div>

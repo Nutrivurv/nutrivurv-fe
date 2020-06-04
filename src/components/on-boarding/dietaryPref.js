@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as SignInImage } from "../../assets/GirlComptr.svg";
 
-const DietaryPref = ({ setStep }) => {
+const DietaryPref = ({ setStep, handleChange }) => {
   const customRadio = "custom-control custom-radio mb-2";
   return (
     <div className="row d-flex justify-content-around ml-5 pl-4">
@@ -19,7 +19,8 @@ const DietaryPref = ({ setStep }) => {
               id="customRadio1"
               name="customRadio"
               className="custom-control-input"
-              disabled=""
+              value="0"
+              onChange={handleChange}
             />
             <label className="custom-control-label" htmlFor="customRadio1">
               Keto
@@ -31,6 +32,8 @@ const DietaryPref = ({ setStep }) => {
               id="customRadio2"
               name="customRadio"
               className="custom-control-input"
+              value="1"
+              onChange={handleChange}
             />
             <label className="custom-control-label" htmlFor="customRadio2">
               Paleo
@@ -42,7 +45,8 @@ const DietaryPref = ({ setStep }) => {
               id="customRadio3"
               name="customRadio"
               className="custom-control-input"
-              disabled=""
+              value="2"
+              onChange={handleChange}
             />
             <label className="custom-control-label" htmlFor="customRadio3">
               US. Gov. Nutrition Guidlines
@@ -54,7 +58,8 @@ const DietaryPref = ({ setStep }) => {
               id="customRadio4"
               name="customRadio"
               className="custom-control-input"
-              disabled=""
+              value="3"
+              onChange={handleChange}
             />
             <label className="custom-control-label" htmlFor="customRadio4">
               None
@@ -67,13 +72,13 @@ const DietaryPref = ({ setStep }) => {
           >
             Next
           </button>
+          <button
+            onClick={() => setStep("ActivityLevel")}
+            className="btn-secondary form-group col-md-6 rounded-sm mt-5"
+          >
+            Back
+          </button>
         </form>
-        <button
-          onClick={() => setStep("signUp")}
-          className="btn-secondary form-group col-md-6 rounded-sm mt-5"
-        >
-          Back
-        </button>
       </div>
       <div>
         <SignInImage
