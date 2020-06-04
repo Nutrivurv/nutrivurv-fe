@@ -5,8 +5,12 @@ $font-family-sans-serif: 'Muli', sans-serif;
 $light: #fff;
 
 .img-responsive {
-  max-width: 75%; 
+  max-width: 100%; 
   max-height: auto; 
+}
+
+.ml-6 {
+  margin-right: -20rem;
 }
 
 .lp-img{
