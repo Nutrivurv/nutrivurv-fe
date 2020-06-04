@@ -3,6 +3,7 @@ import SignUp from "../SignUp";
 import BMI from "./bmi-calc/BMI";
 import Landing from "../LandingPage/LandingPage";
 import DietaryPref from "./dietaryPref";
+
 const OnBoarding = () => {
   const [user, setUser] = useState({});
   const [step, setStep] = useState("signUp");

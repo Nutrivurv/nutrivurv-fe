@@ -7,12 +7,10 @@ const SignIn = () => {
     <div className="row d-flex justify-content-around ml-5 pl-4">
       <div className="col-md-5 pt-5">
         <h2 className="text-center"> Sign In </h2>
-        <p className="text-center"> Let's start crushing those goals!</p>
+        <p className="text-center"> Let&apos;s start crushing those goals!</p>
         <form role="form col-md-5">
           <div className="form-group">
-            <label htmlFor="inputEmail" className="control-label">
-              E-mail
-            </label>
+            <label htmlFor="inputEmail">E-mail</label>
             <input
               type="email"
               className="form-control"
@@ -21,7 +19,6 @@ const SignIn = () => {
               required
             />
           </div>
-
           <div className="form-group">
             <label htmlFor="input-password">Password</label>
             <input
@@ -33,7 +30,6 @@ const SignIn = () => {
               required
             />
           </div>
-
           <button
             type="submit"
             className="btn-primary form-group col-md-12 rounded-sm"
