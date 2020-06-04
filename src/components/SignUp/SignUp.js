@@ -13,8 +13,8 @@ const SignUp = ({ setStep }) => {
   };
   return (
     <div>
-      <div className="d-flex justify-content-around mt-5">
-        <div className="mt-5 ml-6 col-md-3">
+      <div className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5">
+        <div className="col-xl-3 pt-5">
           <h1 className="text-center pb-3 font-weight-bolder">Sign Up</h1>
           <h4 className="text-center pb-5">
             You&apos;re one step closer to your goals!
@@ -108,7 +108,7 @@ const SignUp = ({ setStep }) => {
         </div>
         <div>
           <GirlComputerImg
-            className=" col img-responsive mt-5 mr-6 pt-5 pr-5"
+            className=" d-none d-xl-block col img-responsive mt-5 pt-5 "
             alt="Responsive Sign Up image"
           />
         </div>
