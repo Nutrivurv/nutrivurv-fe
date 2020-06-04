@@ -8,11 +8,6 @@ import LandingPage from "./components/LandingPage/LandingPage.js";
 import SignIn from "./components/SignIn/SignIn";
 import ActivityLevelForm from "./components/ActivityLevelForm";
 import OnBoarding from "./components/on-boarding/onBoarding";
-
-import "./App.scss";
-import "bootswatch/dist/flatly/bootstrap.min.css";
-import "./App.scss";
-
 import Nav from "./components/nav/nav";
 
 function App() {
