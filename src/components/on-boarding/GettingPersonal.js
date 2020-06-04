@@ -49,6 +49,7 @@ const GettingPersonal = ({ setStep, handleChange }) => {
             <select
               className="form-control"
               placeholder="Gender"
+              name="gender"
               onChange={handleChange}
               required
             >
@@ -60,7 +61,7 @@ const GettingPersonal = ({ setStep, handleChange }) => {
             <label>Add your goal weight</label>
             <input
               className="form-control"
-              name="weight"
+              name="goalWeight"
               placeholder="Enter weight"
               onChange={handleChange}
               ref={register({
@@ -90,12 +91,6 @@ const GettingPersonal = ({ setStep, handleChange }) => {
             onClick={handleSubmit(onSubmit)}
           >
             Continue
-          </button>
-          <button
-            onClick={() => setStep("signUp")}
-            className="btn-secondary form-group col-md-6 rounded-sm mt-2 mr-5"
-          >
-            Back
           </button>
         </form>
       </div>
