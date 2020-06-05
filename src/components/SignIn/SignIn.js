@@ -4,27 +4,29 @@ import { ReactComponent as SignInImage } from "../../assets/GirlComptr.svg";
 
 const SignIn = () => {
   return (
-    <div className="row d-flex justify-content-around ml-5 pl-4">
-      <div className="col-md-5 pt-5">
-        <h2 className="text-center"> Sign In </h2>
-        <p className="text-center"> Let&apos;s start crushing those goals!</p>
-        <form role="form col-md-5">
+    <div className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5">
+      <div className="mt-5 col-xl-3 pt-5">
+        <h1 className="text-center pb-3 font-weight-bolder mt-5"> Sign In </h1>
+        <h4 className="text-center pb-5">
+          Let&apos;s start crushing those goals!
+        </h4>
+        <form>
           <div className="form-group">
-            <label htmlFor="inputEmail">E-mail</label>
+            <label className="mb-0">E-mail</label>
             <input
               type="email"
-              className="form-control"
+              className="rounded p-3 w-100 border border-primary"
               id="inputEmail"
               placeholder="email@email.com"
               required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="input-password">Password</label>
+            <label className="mb-0">Password</label>
             <input
               type="password"
               data-minlength="8"
-              className="form-control"
+              className="rounded p-3 w-100 border border-primary"
               id="inputPassword"
               placeholder="8-12 Characters"
               required
@@ -32,19 +34,21 @@ const SignIn = () => {
           </div>
           <button
             type="submit"
-            className="btn-primary form-group col-md-12 rounded-sm"
+            className="btn-primary rounded p-2 w-100 border border-primary"
           >
             Sign In
           </button>
         </form>
-        <p className="text-center">
-          Not a member? <Link to="/signup">Sign Up</Link>
-        </p>
+        <div className="d-flex justify-content-center mt-3 p-2">
+          <p className="mr-2">
+            Not a member? <Link to="/signup">Sign Up</Link>
+          </p>
+        </div>
       </div>
-      <div>
+      <div className="">
         <SignInImage
-          className="img-responsive pb-5 ml-3 pl-5"
-          alt="Responsive SignIn image"
+          className=" d-none d-xl-block col img-responsive pb-5 pt-5 "
+          alt="Responsive Sign In image"
         />
       </div>
     </div>
