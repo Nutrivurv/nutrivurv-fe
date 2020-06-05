@@ -1,11 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { ReactComponent as GirlComputerImg } from "../assets/GirlComptr.svg";
+import { ReactComponent as GirlComputerImg } from "../../assets/GirlComptr.svg";
 
-const ActivityLevelForm = () => {
+const ActivityLevelForm = ({ setStep, handleChange }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
+    setStep("DietaryPref");
   };
 
   return (
@@ -22,6 +23,7 @@ const ActivityLevelForm = () => {
                   <input
                     type="radio"
                     name="activity-level"
+                    onChange={handleChange}
                     ref={register}
                     value="0"
                   />
@@ -39,6 +41,7 @@ const ActivityLevelForm = () => {
                   <input
                     type="radio"
                     name="activity-level"
+                    onChange={handleChange}
                     ref={register}
                     value="1"
                   />
@@ -59,6 +62,7 @@ const ActivityLevelForm = () => {
                   <input
                     type="radio"
                     name="activity-level"
+                    onChange={handleChange}
                     ref={register}
                     value="2"
                   />
@@ -79,6 +83,7 @@ const ActivityLevelForm = () => {
                   <input
                     type="radio"
                     name="activity-level"
+                    onChange={handleChange}
                     ref={register}
                     value="3"
                   />

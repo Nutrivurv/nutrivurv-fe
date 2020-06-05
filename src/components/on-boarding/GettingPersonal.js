@@ -1,13 +1,15 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { ReactComponent as GettingPersonalImg } from "../assets/GirlComptr.svg";
+import { ReactComponent as GettingPersonalImg } from "../../assets/GirlComptr.svg";
 
-const GettingPersonal = () => {
+const GettingPersonal = ({ setStep, handleChange }) => {
   const { register, handleSubmit, errors } = useForm({});
 
   const onSubmit = async (data) => {
     alert(JSON.stringify(data));
+    setStep("ActivityLevel");
   };
+
   return (
     <div className="row d-flex justify-content-around ml-5 pl-4">
       <div className="col-md-5 pt-5">
@@ -19,6 +21,7 @@ const GettingPersonal = () => {
               className="form-control"
               name="age"
               placeholder="Age"
+              onChange={handleChange}
               ref={register({
                 required: (
                   <small
@@ -43,7 +46,13 @@ const GettingPersonal = () => {
 
           <div className="form-group">
             <label>How do you identify?</label>
-            <select className="form-control" placeholder="Gender" required>
+            <select
+              className="form-control"
+              placeholder="Gender"
+              name="gender"
+              onChange={handleChange}
+              required
+            >
               <option value="female">Female</option>
               <option value="male">Male</option>
             </select>
@@ -52,8 +61,9 @@ const GettingPersonal = () => {
             <label>Add your goal weight</label>
             <input
               className="form-control"
-              name="weight"
+              name="goalWeight"
               placeholder="Enter weight"
+              onChange={handleChange}
               ref={register({
                 required: (
                   <small

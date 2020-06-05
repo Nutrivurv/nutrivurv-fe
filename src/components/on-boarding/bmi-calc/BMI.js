@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Standard from "./standard";
 import Metric from "./metric";
 import { ReactComponent as GirlComp } from "../../../assets/GirlComptr.svg";
-const BMI = () => {
+const BMI = ({ setUser, user }) => {
   const [bttn, setBttn] = useState(true);
   const [bmi, setBmi] = useState({
     ft: "",
@@ -43,9 +43,9 @@ const BMI = () => {
             </button>
           </div>
           {bttn === true ? (
-            <Standard bmi={bmi} setBmi={setBmi} />
+            <Standard bmi={bmi} setBmi={setBmi} setUser={setUser} user={user} />
           ) : (
-            <Metric bmi={bmi} setBmi={setBmi} />
+            <Metric bmi={bmi} setBmi={setBmi} setUser={setUser} user={user} />
           )}
         </div>
         <div className="text-muted mt-3">

@@ -3,14 +3,15 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { ReactComponent as GirlComputerImg } from "../../assets/GirlComptr.svg";
 
-const SignUp = ({ setStep }) => {
+const SignUp = ({ setStep, handleChange }) => {
   const { register, errors, handleSubmit, watch } = useForm({});
   const password = useRef({});
   password.current = watch("password", "");
   const onSubmit = async (data) => {
     alert(JSON.stringify(data));
-    setStep("DietaryPref");
+    setStep("GettingPersonal");
   };
+
   return (
     <div>
       <div className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5">
@@ -26,6 +27,7 @@ const SignUp = ({ setStep }) => {
                 name="username"
                 className="rounded p-3 w-100 border border-primary"
                 placeholder="First and Last Name"
+                onChange={handleChange}
                 ref={register({
                   required: "Required",
                   pattern: {
@@ -43,6 +45,7 @@ const SignUp = ({ setStep }) => {
                 name="email"
                 className="rounded p-3 w-100 border border-primary"
                 placeholder="email@email.com"
+                onChange={handleChange}
                 ref={register({
                   required: "Required",
                   pattern: {
@@ -60,6 +63,7 @@ const SignUp = ({ setStep }) => {
                 name="password"
                 className="rounded p-3 w-100 border border-primary"
                 placeholder="8-12 characters"
+                onChange={handleChange}
                 type="password"
                 ref={register({
                   required: "You must specify a password",

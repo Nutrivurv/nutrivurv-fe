@@ -1,15 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { ReactComponent as SignInImage } from "../../assets/GirlComptr.svg";
 
-const DietaryPref = ({ setStep }) => {
+const DietaryPref = ({ setStep, handleChange }) => {
   const customRadio = "custom-control custom-radio mb-2";
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    alert(JSON.stringify(data));
+    setStep("BMI");
+  };
   return (
     <div className="row d-flex justify-content-around ml-5 pl-4">
       <div className="col-md-5 pt-5">
         <h2 className="text-center mb-5"> Dietary Preference </h2>
         <form
-          onSubmit={() => setStep("BMI")}
+          onSubmit={handleSubmit(onSubmit)}
           className="form-group"
           role="form col-md-5"
         >
@@ -19,7 +24,9 @@ const DietaryPref = ({ setStep }) => {
               id="customRadio1"
               name="customRadio"
               className="custom-control-input"
-              disabled=""
+              value="0"
+              onChange={handleChange}
+              ref={register}
             />
             <label className="custom-control-label" htmlFor="customRadio1">
               Keto
@@ -31,6 +38,9 @@ const DietaryPref = ({ setStep }) => {
               id="customRadio2"
               name="customRadio"
               className="custom-control-input"
+              value="1"
+              onChange={handleChange}
+              ref={register}
             />
             <label className="custom-control-label" htmlFor="customRadio2">
               Paleo
@@ -42,7 +52,9 @@ const DietaryPref = ({ setStep }) => {
               id="customRadio3"
               name="customRadio"
               className="custom-control-input"
-              disabled=""
+              value="2"
+              onChange={handleChange}
+              ref={register}
             />
             <label className="custom-control-label" htmlFor="customRadio3">
               US. Gov. Nutrition Guidlines
@@ -54,7 +66,9 @@ const DietaryPref = ({ setStep }) => {
               id="customRadio4"
               name="customRadio"
               className="custom-control-input"
-              disabled=""
+              value="3"
+              onChange={handleChange}
+              ref={register}
             />
             <label className="custom-control-label" htmlFor="customRadio4">
               None
@@ -68,12 +82,6 @@ const DietaryPref = ({ setStep }) => {
             Next
           </button>
         </form>
-        <button
-          onClick={() => setStep("signUp")}
-          className="btn-secondary form-group col-md-6 rounded-sm mt-5"
-        >
-          Back
-        </button>
       </div>
       <div>
         <SignInImage
