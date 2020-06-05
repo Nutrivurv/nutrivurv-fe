@@ -8,6 +8,7 @@ import LandingPage from "./components/LandingPage/LandingPage.js";
 import SignIn from "./components/SignIn/SignIn";
 import OnBoarding from "./components/on-boarding/onBoarding";
 import Nav from "./components/nav/nav";
+import Footer from "./components/footer/footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/signup" component={OnBoarding} />
+      <Footer></Footer>
     </div>
   );
 }
