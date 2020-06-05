@@ -8,9 +8,25 @@ const Nav = () => {
       <NavLink to="/" className="navbar-brand ml-3" href="#">
         <Logo />
       </NavLink>
-      <nav className="col-md-4 col-lg-3 col-xl-2 align-self-center">
+      <nav className="col-md-7 col-lg-6 col-xl-6 align-self-center">
         <ul className="nav flex-md-row">
-          <li className="nav-item col-md-6 align-self-center">
+          <li className="nav-item col-md-3 align-self-center">
+            <NavLink
+              to="/"
+              className="nav-link d-flex justify-content-center px-0"
+            >
+              Home
+            </NavLink>
+          </li>
+          <li className="nav-item col-md-3 align-self-center">
+            <NavLink
+              to="/signin"
+              className="nav-link d-flex justify-content-center px-0"
+            >
+              About
+            </NavLink>
+          </li>
+          <li className="nav-item col-md-3 align-self-center">
             <NavLink
               to="/signin"
               className="nav-link d-flex justify-content-center px-0"
@@ -18,7 +34,7 @@ const Nav = () => {
               Sign In
             </NavLink>
           </li>
-          <li className="nav-item col-md-6 align-self-center">
+          <li className="nav-item col-md-3 align-self-center">
             <NavLink
               to="/signup"
               className="nav-link d-flex justify-content-center px-0"
