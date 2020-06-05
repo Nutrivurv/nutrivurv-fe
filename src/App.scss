@@ -4,8 +4,12 @@ $link-color: #363537;
 $font-family-sans-serif: 'Muli', sans-serif;
 $light: #fff;
 
+.justify {
+  justify-content: space-evenly
+}
+
 .img-responsive {
-  max-width: 75%; 
+  max-width: 100%; 
   max-height: auto; 
 }
 
