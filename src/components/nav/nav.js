@@ -4,7 +4,7 @@ import { ReactComponent as Logo } from "../../assets/Logo.svg";
 
 const Nav = () => {
   return (
-    <div className="navbar navbar-expand-md navbar-light bg-light ">
+    <div className="navbar navbarposition navbar-expand-md navbar-light bg-light ">
       <div>
         <NavLink to="/" className="navbar-brand">
           <Logo />
@@ -23,37 +23,37 @@ const Nav = () => {
       </button>
 
       <nav
-        className="collapse navbar-collapse"
+        className="collapse navbar-collapse align-items-end flex-column "
         id="navbarColor03"
       >
-        <ul className="navbar-nav mr-auto">
+        <ul className="navbar-nav">
           <li className="nav-item active">
             <NavLink to="/" className="nav-link d-flex justify-content-center">
-              Home <span className="sr-only">(current)</span>
+              <h5>Home</h5> <span className="sr-only">(current)</span>
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
               to="/about"
-              className="nav-link d-flex justify-content-center "
+              className="nav-link d-flex justify-content-center ml-5 "
             >
-              About Us
+              <h5>About Us</h5>
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
               to="/signin"
-              className="nav-link d-flex justify-content-center"
+              className="nav-link d-flex justify-content-center ml-5"
             >
-              Sign In
+              <h5>Sign In</h5>
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
               to="/signup"
-              className="nav-link d-flex justify-content-center "
+              className="nav-link d-flex justify-content-center ml-5 mr-4"
             >
-              Sign Up
+              <h5>Sign Up</h5>
             </NavLink>
           </li>
         </ul>
