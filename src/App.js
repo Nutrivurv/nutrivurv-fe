@@ -12,7 +12,7 @@ import Footer from "./components/footer/footer";
 
 function App() {
   return (
-    <div className="App ">
+    <div className="App">
       <Nav></Nav>
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/signin" component={SignIn} />

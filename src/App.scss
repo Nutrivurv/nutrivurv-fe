@@ -2,7 +2,7 @@
 
 $link-color: #363537;
 $font-family-sans-serif: 'Muli', sans-serif;
-$light: rgba(219, 208, 208, 0.226);
+$light: rgb(240,240,240);
 
 .justify {
   justify-content: space-evenly
@@ -18,14 +18,6 @@ $light: rgba(219, 208, 208, 0.226);
   height: auto;
   max-width: 75%;
   max-height: 450px;
-}
-
-.navbarposition {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 1000;
 }
 
 @import "~bootswatch/dist/flatly/variables";

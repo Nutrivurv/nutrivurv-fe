@@ -4,7 +4,7 @@ import { ReactComponent as Logo } from "../../assets/Logo.svg";
 
 const Nav = () => {
   return (
-    <div className="navbar navbarposition navbar-expand-md navbar-light bg-light ">
+    <div className="navbar navbar-expand-md navbar-light bg-light sticky-top">
       <div>
         <NavLink to="/" className="navbar-brand">
           <Logo />
