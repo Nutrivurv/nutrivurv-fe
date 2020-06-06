@@ -27,15 +27,15 @@ const Nav = () => {
         id="navbarColor03"
       >
         <ul className="navbar-nav">
-          <li className="nav-item active">
+          <li className="nav-item">
             <NavLink to="/" className="nav-link d-flex justify-content-center">
-              <h5>Home</h5> <span className="sr-only">(current)</span>
+              <h5>Home</h5>
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
               to="/about"
-              className="nav-link d-flex justify-content-center ml-5 "
+              className="nav-link d-flex justify-content-center  ml-xl-5 ml-lg-5 ml-md-5  ml-sm-0 "
             >
               <h5>About Us</h5>
             </NavLink>
@@ -43,7 +43,7 @@ const Nav = () => {
           <li className="nav-item">
             <NavLink
               to="/signin"
-              className="nav-link d-flex justify-content-center ml-5"
+              className="nav-link d-flex justify-content-center ml-xl-5 ml-lg-5  ml-md-5  ml-sm-0 "
             >
               <h5>Sign In</h5>
             </NavLink>
@@ -51,7 +51,7 @@ const Nav = () => {
           <li className="nav-item">
             <NavLink
               to="/signup"
-              className="nav-link d-flex justify-content-center ml-5 mr-4"
+              className="nav-link d-flex justify-content-center ml-xl-5 ml-lg-5 ml-md-5 mr-xl-4 mr-lg-4 mr-md-4 ml-sm-0 mr-sm-0  "
             >
               <h5>Sign Up</h5>
             </NavLink>

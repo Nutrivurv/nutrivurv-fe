@@ -13,11 +13,11 @@ import Footer from "./components/footer/footer";
 function App() {
   return (
     <div className="App">
-      <Nav></Nav>
+      <Nav />
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/signup" component={OnBoarding} />
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }
