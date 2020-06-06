@@ -12,12 +12,12 @@ import Footer from "./components/footer/footer";
 
 function App() {
   return (
-    <div className="App container-fluid p-2">
-      <Nav></Nav>
+    <div className="App">
+      <Nav />
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/signup" component={OnBoarding} />
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }
