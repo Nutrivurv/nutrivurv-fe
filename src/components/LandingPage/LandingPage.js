@@ -14,7 +14,7 @@ const LandingPage = () => {
           className="row justify-content-center"
           style={{ fontSize: "3.5vw" }}
         >
-          You're one click away
+          You&apos;re one click away
         </h3>
         <h3
           className="row mb-2 justify-content-center"
@@ -55,13 +55,19 @@ const LandingPage = () => {
       <div className="d-flex align-items-center flex-column">
         <div className="row mt-5">
           <Link type="button" to="/signup">
-            <button id="join-now" className="px-4 btn-primary">
+            <button
+              id="join-now"
+              className="p-2 btn-primary rounded w-200 border border-secondar"
+            >
               Join Now!
             </button>
           </Link>
         </div>
         <div className="row mt-2 mb-5">
-          <button id="signIn-bttn" className="btn-secondary">
+          <button
+            id="signIn-bttn"
+            className="btn-secondary rounded p-2 w-200 border border-secondary"
+          >
             Sign In
           </button>
         </div>
