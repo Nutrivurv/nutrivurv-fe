@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 
 const Standard = ({ setBmi, bmi, setUser, user, setStep }) => {

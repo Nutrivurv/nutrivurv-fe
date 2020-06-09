@@ -32,7 +32,9 @@ const ActivityLevelForm = ({ setStep, handleChange }) => {
             />
             <label className="custom-control-label" htmlFor="ActivityLevel1">
               <h4 className="ml-3">Not Very Active</h4>
-              <p className="ml-3" >Spend most of the day sitting (little to no exercise)</p>
+              <p className="ml-3">
+                Spend most of the day sitting (little to no exercise)
+              </p>
             </label>
           </div>
           <div className="border-bottom mb-4"></div>
