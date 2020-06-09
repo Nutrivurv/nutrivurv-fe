@@ -103,7 +103,7 @@ const GettingPersonal = ({ setStep, handleChange }) => {
       </div>
       <div>
         <GettingPersonalImg
-          className=" d-none d-xl-block col img-responsive pb-5 pt-5 "
+          className=" d-none d-xl-block col img-responsive pb-2 pt-5 "
           alt="Responsive Getting Personal image"
         />
       </div>
