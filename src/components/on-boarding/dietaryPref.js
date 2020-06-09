@@ -12,7 +12,9 @@ const DietaryPref = ({ setStep, handleChange }) => {
   return (
     <div className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5">
       <div className="mt-5 col-xl-3 pt-3">
-        <h2 className="text-center pb-5 font-weight-bolder mt-5"> Dietary Preference </h2>
+        <h2 className="text-center pb-5 font-weight-bolder mt-5">
+          Dietary Preference{" "}
+        </h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="form-group"
