@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 
 const Standard = ({ setBmi, bmi, setUser, user, setStep }) => {
@@ -80,7 +80,7 @@ const Standard = ({ setBmi, bmi, setUser, user, setStep }) => {
         </div>
         <button
           onClick={handleSubmit(onSubmit)}
-          className="btn btn-outline-info mb-3"
+          className="btn-primary rounded p-2 w-100 border border-primary mt-2 mb-4"
           type="submit"
         >
           Submit

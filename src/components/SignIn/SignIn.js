@@ -45,7 +45,7 @@ const SignIn = () => {
           </p>
         </div>
       </div>
-      <div className="">
+      <div>
         <SignInImage
           className=" d-none d-xl-block col img-responsive pb-5 pt-5 "
           alt="Responsive Sign In image"
