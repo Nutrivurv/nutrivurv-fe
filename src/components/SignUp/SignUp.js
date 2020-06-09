@@ -99,6 +99,7 @@ const SignUp = ({ setStep, handleChange }) => {
 
             <button
               type="submit"
+              data-cy="submit"
               className="btn-primary rounded p-2 w-100 border border-primary"
               onClick={handleSubmit(onSubmit)}
             >
