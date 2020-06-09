@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SignUp from "../SignUp/SignUp";
 import BMI from "./bmi-calc/BMI";
-import Landing from "../LandingPage/LandingPage";
 import DietaryPref from "./dietaryPref";
 import GettingPersonal from "./GettingPersonal";
 import Active from "./ActivityLevelForm";

@@ -28,6 +28,12 @@ $light: rgb(240,240,240);
   max-height: 450px;
 }
 
+.pb-6{
+  padding-bottom: 7rem;
+}
+.mt-6{
+  margin-top: 9rem;
+}
 @import "~bootswatch/dist/flatly/variables";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/flatly/bootswatch";
