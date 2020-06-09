@@ -22,7 +22,7 @@ const Marketing = () => {
             </button>
           </Link>
         </div>
-        <figure className="row px-0 mt-5 ml-5">
+        <figure className="col-12 px-0 mt-5 pl-5">
           <LandingImage className="lp-img" />
         </figure>
       </section>

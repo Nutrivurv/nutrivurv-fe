@@ -38,18 +38,18 @@ const LandingPage = () => {
       </h5>
       <div className="row flex-column flex-md-row align-self-center my-0 mx-5">
         <div className="col-12 col-md-4 my-5">
-          <Badges className="badges" width="311px" height="186px" />
-          <h5 className="row justify-content-center pt-3">
-            Connect with friends
-          </h5>
-        </div>
-        <div className="col-12 col-md-4 my-5">
-          <Goals width="311px" height="186px" />
+          <Badges className="col lp-img-btm align-items-center" />
           <h5 className="row justify-content-center pt-3">Earn badges</h5>
         </div>
         <div className="col-12 col-md-4 my-5">
-          <Friends width="311px" height="186px" />
+          <Goals className="col align-items-center lp-img-btm" />
           <h5 className="row justify-content-center pt-3">Crush your goals</h5>
+        </div>
+        <div className="col-12 col-md-4 my-5">
+          <Friends className="col align-items-center lp-img-btm" />
+          <h5 className="row justify-content-center pt-3">
+            Connect with friends
+          </h5>
         </div>
       </div>
       <div className="d-flex align-items-center flex-column">
