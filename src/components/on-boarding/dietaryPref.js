@@ -3,20 +3,20 @@ import { useForm } from "react-hook-form";
 import { ReactComponent as SignInImage } from "../../assets/GirlComptr.svg";
 
 const DietaryPref = ({ setStep, handleChange }) => {
-  const customRadio = "custom-control custom-radio mb-2";
+  const customRadio = "custom-control custom-radio mb-4";
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
     setStep("BMI");
   };
   return (
-    <div className="row d-flex justify-content-around ml-5 pl-4">
-      <div className="col-md-5 pt-5">
-        <h2 className="text-center mb-5"> Dietary Preference </h2>
+    <div className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5">
+      <div className="mt-5 col-xl-3 pt-5">
+        <h1 className="text-center pb-5 font-weight-bolder mt-5"> Dietary Preference </h1>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="form-group"
-          role="form col-md-5"
+          role="form "
         >
           <div className={customRadio}>
             <input
@@ -77,7 +77,7 @@ const DietaryPref = ({ setStep, handleChange }) => {
 
           <button
             type="submit"
-            className="btn-primary form-group col-md-6 rounded-sm mt-5"
+            className="btn-primary rounded p-2 w-100 border border-primary mt-1"
           >
             Next
           </button>
@@ -85,8 +85,8 @@ const DietaryPref = ({ setStep, handleChange }) => {
       </div>
       <div>
         <SignInImage
-          className="img-responsive pb-5 ml-3 pl-5"
-          alt="Responsive SignIn image"
+          className=" d-none d-xl-block col img-responsive pb-6"
+          alt="Responsive Dietary Preference image"
         />
       </div>
     </div>
