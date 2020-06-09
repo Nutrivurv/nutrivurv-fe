@@ -22,7 +22,7 @@ const ActivityLevelForm = ({ setStep, handleChange }) => {
                 <div className="d-flex flex-row align-items-center">
                   <input
                     type="radio"
-                    name="activity-level"
+                    name="activityLevel"
                     onChange={handleChange}
                     ref={register}
                     value="0"

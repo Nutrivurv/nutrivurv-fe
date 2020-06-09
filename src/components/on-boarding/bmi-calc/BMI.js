@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Standard from "./standard";
 import Metric from "./metric";
 import { ReactComponent as GirlComp } from "../../../assets/GirlComptr.svg";
-const BMI = ({ setUser, user }) => {
+const BMI = ({ setUser, user, handleChange, setStep }) => {
   const [bttn, setBttn] = useState(true);
   const [bmi, setBmi] = useState({
     ft: "",
@@ -43,9 +43,22 @@ const BMI = ({ setUser, user }) => {
             </button>
           </div>
           {bttn === true ? (
-            <Standard bmi={bmi} setBmi={setBmi} setUser={setUser} user={user} />
+            <Standard
+              bmi={bmi}
+              setBmi={setBmi}
+              setUser={setUser}
+              user={user}
+              handleChange={handleChange}
+              setStep={setStep}
+            />
           ) : (
-            <Metric bmi={bmi} setBmi={setBmi} setUser={setUser} user={user} />
+            <Metric
+              bmi={bmi}
+              setStep={setStep}
+              setBmi={setBmi}
+              setUser={setUser}
+              user={user}
+            />
           )}
         </div>
         <div className="text-muted mt-3">
@@ -62,7 +75,6 @@ const BMI = ({ setUser, user }) => {
             </small>
           </p>
         </div>
-        <button className="btn-primary">Next</button>
       </div>
       <div className="col-6 col-md-4">
         <GirlComp width="40vw" height="60vh" />

@@ -5,9 +5,21 @@ import Landing from "../LandingPage/LandingPage";
 import DietaryPref from "./dietaryPref";
 import GettingPersonal from "./GettingPersonal";
 import Active from "./ActivityLevelForm";
-
+import SignIn from "../SignIn/SignIn";
 const OnBoarding = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+    email: "",
+    age: "",
+    gender: "",
+    goalWeight: "",
+    activityLevel: "",
+    customRadio: "",
+    ft: "",
+    inch: "",
+    weight: "",
+  });
   const [step, setStep] = useState("signUp");
 
   function handleChange(e) {
@@ -18,37 +30,22 @@ const OnBoarding = () => {
   return (
     <>
       {step === "signUp" ? (
-        <SignUp
-          setStep={setStep}
-          setUser={setUser}
-          user={user}
-          handleChange={handleChange}
-        />
+        <SignUp setStep={setStep} handleChange={handleChange} />
       ) : step === "GettingPersonal" ? (
-        <GettingPersonal
-          setStep={setStep}
-          setUser={setUser}
-          user={user}
-          handleChange={handleChange}
-        />
+        <GettingPersonal setStep={setStep} handleChange={handleChange} />
       ) : step === "ActivityLevel" ? (
-        <Active
-          setStep={setStep}
-          setUser={setUser}
-          user={user}
-          handleChange={handleChange}
-        />
+        <Active setStep={setStep} handleChange={handleChange} />
       ) : step === "DietaryPref" ? (
-        <DietaryPref
+        <DietaryPref setStep={setStep} handleChange={handleChange} />
+      ) : step === "BMI" ? (
+        <BMI
           setStep={setStep}
           setUser={setUser}
           user={user}
           handleChange={handleChange}
         />
-      ) : step === "BMI" ? (
-        <BMI setUser={setUser} user={user} handleChange={handleChange} />
       ) : (
-        <Landing />
+        <SignIn />
       )}
     </>
   );
