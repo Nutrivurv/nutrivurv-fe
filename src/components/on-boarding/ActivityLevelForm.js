@@ -24,7 +24,7 @@ const ActivityLevelForm = ({ setStep, handleChange }) => {
             <input
               type="radio"
               id="ActivityLevel1"
-              name="activity-level"
+              name="activityLevel"
               className="custom-control-input"
               onChange={handleChange}
               ref={register}

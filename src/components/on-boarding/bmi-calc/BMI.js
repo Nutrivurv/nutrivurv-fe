@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Standard from "./standard";
 import Metric from "./metric";
 import { ReactComponent as GirlComp } from "../../../assets/GirlComptr.svg";
-const BMI = ({ setUser, user }) => {
+const BMI = ({ setUser, user, handleChange, setStep }) => {
   const [bttn, setBttn] = useState(true);
   const [bmi, setBmi] = useState({
     ft: "",
@@ -15,11 +15,9 @@ const BMI = ({ setUser, user }) => {
   });
 
   return (
-    <section className="row flex-md-row flex-column justify-content-center align-items-center">
-      <div className="col-6 col-md-4">
-        <div>
-          <h2>Calculate your BMI</h2>
-        </div>
+    <section className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5">
+      <div className="mt-5 col-xl-3 pt-3">
+          <h2 className="text-center pb-5 font-weight-bolder mt-5">Calculate your BMI</h2>
         <div className="mt-4">
           <h5>Enter Height & Weight</h5>
           <div className="btn-group btn-group-toggle" data-toggle="buttons">
@@ -43,9 +41,22 @@ const BMI = ({ setUser, user }) => {
             </button>
           </div>
           {bttn === true ? (
-            <Standard bmi={bmi} setBmi={setBmi} setUser={setUser} user={user} />
+            <Standard
+              bmi={bmi}
+              setBmi={setBmi}
+              setUser={setUser}
+              user={user}
+              handleChange={handleChange}
+              setStep={setStep}
+            />
           ) : (
-            <Metric bmi={bmi} setBmi={setBmi} setUser={setUser} user={user} />
+            <Metric
+              bmi={bmi}
+              setStep={setStep}
+              setBmi={setBmi}
+              setUser={setUser}
+              user={user}
+            />
           )}
         </div>
         <div className="text-muted mt-3">
@@ -62,7 +73,6 @@ const BMI = ({ setUser, user }) => {
             </small>
           </p>
         </div>
-        <button className="btn-primary">Next</button>
       </div>
       <div className="col-6 col-md-4">
         <GirlComp width="40vw" height="60vh" />
