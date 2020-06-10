@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { ReactComponent as SignInImage } from "../../assets/GirlComptr.svg";
+import OnBoardingImg from "../on-boarding/onBoarding-img";
 
-const DietaryPref = ({ setStep, handleChange }) => {
+const DietaryPref = ({ setStep, handleChange, user }) => {
   const customRadio = "custom-control custom-radio mb-4";
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -10,7 +10,10 @@ const DietaryPref = ({ setStep, handleChange }) => {
     setStep("BMI");
   };
   return (
-    <div className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5">
+    <div
+      className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5"
+      style={{ height: "950px" }}
+    >
       <div className="mt-5 col-xl-3 pt-3">
         <h2 className="text-center pb-5 font-weight-bolder mt-5">
           Dietary Preference{" "}
@@ -19,6 +22,7 @@ const DietaryPref = ({ setStep, handleChange }) => {
           onSubmit={handleSubmit(onSubmit)}
           className="form-group"
           role="form "
+          value={user.DietaryPref}
         >
           <div className={customRadio}>
             <input
@@ -61,7 +65,7 @@ const DietaryPref = ({ setStep, handleChange }) => {
               ref={register}
             />
             <label className="custom-control-label" htmlFor="customRadio3">
-              <h5 className="ml-3">US. Gov. Nutrition Guidlines</h5>
+              <h5 className="ml-3">US. Gov. Nutrition Guidelines</h5>
             </label>
           </div>
           <div className="border-bottom mb-5"></div>
@@ -86,14 +90,15 @@ const DietaryPref = ({ setStep, handleChange }) => {
           >
             Next
           </button>
+          <button
+            onClick={() => setStep("ActivityLevel")}
+            className="mt-3 btn-secondary rounded p-2 w-100"
+          >
+            Back
+          </button>
         </form>
       </div>
-      <div>
-        <SignInImage
-          className=" d-none d-xl-block col img-responsive mt-5 pt-5"
-          alt="Responsive Dietary Preference image"
-        />
-      </div>
+      <OnBoardingImg />
     </div>
   );
 };

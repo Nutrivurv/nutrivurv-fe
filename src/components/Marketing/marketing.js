@@ -7,11 +7,11 @@ const Marketing = () => {
     <div className="marketing">
       <section className=" ml-md-5">
         <div className="ml-5 mt-3">
-          <h1 className="row-8 ml-5" style={{ fontSize: "5.5vw" }}>
+          <h1 className="row-8 ml-5" style={{ fontSize: "4.3vw" }}>
             Tracking your calories <br />
             just got easier.
           </h1>
-          <p className="row-8 ml-5" style={{ fontSize: "2.5vw" }}>
+          <p className="row-8 ml-5" style={{ fontSize: "2vw" }}>
             Nutrivurv is an easy to use <br />
             motivating food and nutrition <br />
             tracking app.
