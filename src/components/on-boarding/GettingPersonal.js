@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
-const GettingPersonal = ({ setStep, handleChange }) => {
+const GettingPersonal = ({ setStep, handleChange, user }) => {
   const { register, handleSubmit, errors } = useForm({});
 
   const onSubmit = async (data) => {
@@ -10,7 +10,10 @@ const GettingPersonal = ({ setStep, handleChange }) => {
   };
 
   return (
-    <div className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5">
+    <div
+      className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5"
+      style={{ height: "950px" }}
+    >
       <div className="mt-5 col-xl-3 pt-5">
         <h1 className="text-center pb-5 font-weight-bolder mt-5">
           Getting Personal
@@ -25,6 +28,7 @@ const GettingPersonal = ({ setStep, handleChange }) => {
               id="age"
               placeholder="Age"
               onChange={handleChange}
+              value={user.age}
               ref={register({
                 required: (
                   <small
@@ -34,6 +38,7 @@ const GettingPersonal = ({ setStep, handleChange }) => {
                     {"required"}
                   </small>
                 ),
+                maxLength: 2,
                 pattern: {
                   value: /^[0-9]+$/,
                   message: "Use numbers only",
@@ -56,6 +61,7 @@ const GettingPersonal = ({ setStep, handleChange }) => {
               placeholder="Gender"
               name="gender"
               onChange={handleChange}
+              value={user.gender}
               required
             >
               <option value="female">Female</option>
@@ -70,6 +76,7 @@ const GettingPersonal = ({ setStep, handleChange }) => {
               id="goalWeight"
               placeholder="Enter weight"
               onChange={handleChange}
+              value={user.goalWeight}
               ref={register({
                 required: (
                   <small
@@ -79,6 +86,7 @@ const GettingPersonal = ({ setStep, handleChange }) => {
                     {"required"}
                   </small>
                 ),
+                maxLength: 3,
                 pattern: {
                   value: /^[0-9]+$/,
                   message: "Use numbers only",
@@ -97,6 +105,12 @@ const GettingPersonal = ({ setStep, handleChange }) => {
             onClick={handleSubmit(onSubmit)}
           >
             Continue
+          </button>
+          <button
+            onClick={() => setStep("signUp")}
+            className="mt-3 btn-secondary rounded p-2 w-100"
+          >
+            Back
           </button>
         </form>
       </div>

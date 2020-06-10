@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
 
-const ActivityLevelForm = ({ setStep, handleChange }) => {
+const ActivityLevelForm = ({ setStep, handleChange, user }) => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
@@ -10,8 +10,11 @@ const ActivityLevelForm = ({ setStep, handleChange }) => {
   };
 
   return (
-    <div className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5">
-      <div className="col-xl-3 mt-3">
+    <div
+      className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5"
+      style={{ height: "950px" }}
+    >
+      <div className="col-xl-5 mt-3">
         <h2 className="text-center pb-5 font-weight-bolder mt-5">
           How active are you?
         </h2>
@@ -116,6 +119,12 @@ const ActivityLevelForm = ({ setStep, handleChange }) => {
             onClick={handleSubmit(onSubmit)}
           >
             Continue
+          </button>
+          <button
+            onClick={() => setStep("GettingPersonal")}
+            className="mt-3 btn-secondary rounded p-2 w-100"
+          >
+            Back
           </button>
         </form>
       </div>

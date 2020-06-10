@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
-const SignUp = ({ setStep, handleChange }) => {
+const SignUp = ({ setStep, handleChange, user }) => {
   const { register, errors, handleSubmit, watch } = useForm({});
   const password = useRef({});
   password.current = watch("password", "");
@@ -12,8 +12,11 @@ const SignUp = ({ setStep, handleChange }) => {
   };
 
   return (
-    <div>
-      <div className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5">
+    <div className=" container align-self-center">
+      <div
+        className="d-flex justify mt-5 mx-lg-5 mx-md-5 mx-sm-5 mx-5"
+        style={{ height: "950px" }}
+      >
         <div className="col-xl-3 pt-5">
           <h1 className="text-center pb-3 font-weight-bolder">Sign Up</h1>
           <h4 className="text-center pb-5">
@@ -27,6 +30,7 @@ const SignUp = ({ setStep, handleChange }) => {
                 className="rounded p-3 w-100 border border-primary"
                 placeholder="First and Last Name"
                 onChange={handleChange}
+                value={user.username}
                 ref={register({
                   required: "Required",
                   pattern: {
@@ -35,7 +39,9 @@ const SignUp = ({ setStep, handleChange }) => {
                   },
                 })}
               />
-              {errors.username && errors.username.message}
+              {errors.username && (
+                <small className="text-danger">{errors.username.message}</small>
+              )}
             </div>
 
             <div className="form-group">
@@ -45,6 +51,7 @@ const SignUp = ({ setStep, handleChange }) => {
                 className="rounded p-3 w-100 border border-primary"
                 placeholder="email@email.com"
                 onChange={handleChange}
+                value={user.email}
                 ref={register({
                   required: "Required",
                   pattern: {
@@ -53,7 +60,9 @@ const SignUp = ({ setStep, handleChange }) => {
                   },
                 })}
               />
-              {errors.email && errors.email.message}
+              {errors.email && (
+                <small className="text-danger">{errors.email.message}</small>
+              )}
             </div>
 
             <div className="form-group">
@@ -76,7 +85,9 @@ const SignUp = ({ setStep, handleChange }) => {
                   },
                 })}
               />
-              {errors.password && <p>{errors.password.message}</p>}
+              {errors.password && (
+                <small className="text-danger">{errors.password.message}</small>
+              )}
             </div>
 
             <div className="form-group mb-5">
@@ -92,7 +103,9 @@ const SignUp = ({ setStep, handleChange }) => {
                 })}
               />
               {errors.password_repeat && (
-                <p>{errors.password_repeat.message}</p>
+                <small className="text-danger">
+                  {errors.password_repeat.message}
+                </small>
               )}
             </div>
 

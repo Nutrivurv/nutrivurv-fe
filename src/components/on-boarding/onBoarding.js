@@ -15,6 +15,7 @@ const OnBoarding = () => {
     goalWeight: "",
     activityLevel: "",
     customRadio: "",
+    DietaryPref: "",
     ft: "",
     inch: "",
     weight: "",
@@ -29,13 +30,21 @@ const OnBoarding = () => {
   return (
     <>
       {step === "signUp" ? (
-        <SignUp setStep={setStep} handleChange={handleChange} />
+        <SignUp user={user} setStep={setStep} handleChange={handleChange} />
       ) : step === "GettingPersonal" ? (
-        <GettingPersonal setStep={setStep} handleChange={handleChange} />
+        <GettingPersonal
+          user={user}
+          setStep={setStep}
+          handleChange={handleChange}
+        />
       ) : step === "ActivityLevel" ? (
-        <Active setStep={setStep} handleChange={handleChange} />
+        <Active user={user} setStep={setStep} handleChange={handleChange} />
       ) : step === "DietaryPref" ? (
-        <DietaryPref setStep={setStep} handleChange={handleChange} />
+        <DietaryPref
+          user={user}
+          setStep={setStep}
+          handleChange={handleChange}
+        />
       ) : step === "BMI" ? (
         <BMI
           setStep={setStep}
