@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { ReactComponent as GettingPersonalImg } from "../../assets/GirlComptr.svg";
-
+import OnBoardingImg from "../on-boarding/onBoarding-img";
 const GettingPersonal = ({ setStep, handleChange }) => {
   const { register, handleSubmit, errors } = useForm({});
 
@@ -101,12 +100,7 @@ const GettingPersonal = ({ setStep, handleChange }) => {
           </button>
         </form>
       </div>
-      <div>
-        <GettingPersonalImg
-          className=" d-none d-xl-block col img-responsive pb-2 pt-5 "
-          alt="Responsive Getting Personal image"
-        />
-      </div>
+      <OnBoardingImg />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Standard from "./standard";
 import Metric from "./metric";
-import { ReactComponent as GirlComp } from "../../../assets/GirlComptr.svg";
+import OnBoardingImg from "../onBoarding-img";
 const BMI = ({ setUser, user, handleChange, setStep }) => {
   const [bttn, setBttn] = useState(true);
   const [bmi, setBmi] = useState({
@@ -76,12 +76,7 @@ const BMI = ({ setUser, user, handleChange, setStep }) => {
           </p>
         </div>
       </div>
-      <div>
-        <GirlComp
-          className=" d-none d-xl-block col img-responsive mt-5 pt-5"
-          alt="Responsive Dietary Preference image"
-        />
-      </div>
+      <OnBoardingImg />
     </section>
   );
 };

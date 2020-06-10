@@ -34,6 +34,25 @@ $light: rgb(240,240,240);
 .mt-6{
   margin-top: 9rem;
 }
+
+.info{
+  @media only screen and (min-width: 576px){
+    overflow: hidden;
+    opacity: 0;
+    height: 0;
+    transition: all 1s;
+  }
+}
+
+.activity{
+  @media only screen and (min-width: 576px){
+    &:hover .info{
+      overflow: visible;
+      opacity: 1;
+      height: auto;
+    }
+  }
+}
 @import "~bootswatch/dist/flatly/variables";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/flatly/bootswatch";

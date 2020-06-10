@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { ReactComponent as GirlComputerImg } from "../../assets/GirlComptr.svg";
+import OnBoardingImg from "../on-boarding/onBoarding-img";
 
 const ActivityLevelForm = ({ setStep, handleChange }) => {
   const { register, handleSubmit } = useForm();
@@ -30,9 +30,12 @@ const ActivityLevelForm = ({ setStep, handleChange }) => {
               ref={register}
               value="0"
             />
-            <label className="custom-control-label" htmlFor="ActivityLevel1">
+            <label
+              className="custom-control-label activity"
+              htmlFor="ActivityLevel1"
+            >
               <h4 className="ml-3">Not Very Active</h4>
-              <p className="ml-3">
+              <p className="ml-3 info">
                 Spend most of the day sitting (little to no exercise)
               </p>
             </label>
@@ -49,9 +52,12 @@ const ActivityLevelForm = ({ setStep, handleChange }) => {
               ref={register}
               value="1"
             />
-            <label className="custom-control-label" htmlFor="ActivityLevel2">
+            <label
+              className="custom-control-label activity"
+              htmlFor="ActivityLevel2"
+            >
               <h4 className="ml-3">Lightly Active</h4>
-              <p className="ml-3">
+              <p className="ml-3 info">
                 Spend a good part of the day on your feet (light exercise 1-3
                 days / week)
               </p>
@@ -69,9 +75,12 @@ const ActivityLevelForm = ({ setStep, handleChange }) => {
               ref={register}
               value="2"
             />
-            <label className="custom-control-label" htmlFor="ActivityLevel3">
+            <label
+              className="custom-control-label activity"
+              htmlFor="ActivityLevel3"
+            >
               <h4 className="ml-3">Active</h4>
-              <p className="ml-3">
+              <p className="ml-3 info">
                 Spend a good part of the day doing some physical activity
                 (moderate exercise 3-5 days / week)
               </p>
@@ -89,9 +98,12 @@ const ActivityLevelForm = ({ setStep, handleChange }) => {
               ref={register}
               value="3"
             />
-            <label className="custom-control-label" htmlFor="ActivityLevel4">
+            <label
+              className="custom-control-label activity"
+              htmlFor="ActivityLevel4"
+            >
               <h4 className="ml-3">Very Active</h4>
-              <p className="ml-3">
+              <p className="ml-3 info">
                 Spend most of the day doing heavy physical activity (very
                 strenuous exercise, or physical job daily)
               </p>
@@ -107,12 +119,7 @@ const ActivityLevelForm = ({ setStep, handleChange }) => {
           </button>
         </form>
       </div>
-      <div>
-        <GirlComputerImg
-          className=" d-none d-xl-block col img-responsive mt-6 "
-          alt="Responsive Activity Level image"
-        />
-      </div>
+      <OnBoardingImg />
     </div>
   );
 };

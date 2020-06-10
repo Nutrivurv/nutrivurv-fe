@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { ReactComponent as SignInImage } from "../../assets/GirlComptr.svg";
+import OnBoardingImg from "../on-boarding/onBoarding-img";
 
 const DietaryPref = ({ setStep, handleChange }) => {
   const customRadio = "custom-control custom-radio mb-4";
@@ -88,12 +88,7 @@ const DietaryPref = ({ setStep, handleChange }) => {
           </button>
         </form>
       </div>
-      <div>
-        <SignInImage
-          className=" d-none d-xl-block col img-responsive mt-5 pt-5"
-          alt="Responsive Dietary Preference image"
-        />
-      </div>
+      <OnBoardingImg />
     </div>
   );
 };

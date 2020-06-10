@@ -1,8 +1,7 @@
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { ReactComponent as GirlComputerImg } from "../../assets/GirlComptr.svg";
-
+import OnBoardingImg from "../on-boarding/onBoarding-img";
 const SignUp = ({ setStep, handleChange }) => {
   const { register, errors, handleSubmit, watch } = useForm({});
   const password = useRef({});
@@ -111,12 +110,7 @@ const SignUp = ({ setStep, handleChange }) => {
             <Link to="/signin"> Sign In </Link>
           </div>
         </div>
-        <div>
-          <GirlComputerImg
-            className=" d-none d-xl-block col img-responsive mt-5 pt-5 "
-            alt="Responsive Sign Up image"
-          />
-        </div>
+        <OnBoardingImg />
       </div>
     </div>
   );
