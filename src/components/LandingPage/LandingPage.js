@@ -7,7 +7,7 @@ import Marketing from "../Marketing/marketing";
 
 const LandingPage = () => {
   return (
-    <div className="container-fluid p-0">
+    <div className="container p-0">
       <Marketing />
       <div className="mt-5 pt-5">
         <h3
