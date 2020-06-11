@@ -12,7 +12,7 @@ const SignUp = ({ setStep, handleChange, user }) => {
   };
 
   return (
-    <div className=" container align-self-center">
+    <div>
       <div
         className="d-flex justify mt-5 mx-lg-5 mx-md-5 mx-sm-5 mx-5"
         style={{ height: "950px" }}

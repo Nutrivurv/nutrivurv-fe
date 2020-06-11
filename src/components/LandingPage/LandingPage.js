@@ -7,17 +7,17 @@ import Marketing from "../Marketing/marketing";
 
 const LandingPage = () => {
   return (
-    <div className="container p-0">
+    <div className="container-fluid p-0">
       <Marketing />
       <div className="mt-5 pt-5">
         <h3
-          className="row justify-content-center"
+          className=""
           style={{ fontSize: "3.5vw" }}
         >
           You&apos;re one click away
         </h3>
         <h3
-          className="row mb-2 justify-content-center"
+          className=""
           style={{ fontSize: "3.5vw" }}
         >
           from a healthier you
@@ -25,13 +25,13 @@ const LandingPage = () => {
         <div className="pt-1 mb-2 mx-5 bg-warning"></div>
       </div>
       <h5
-        className="row mt-3 justify-content-center"
+        className=""
         style={{ fontSize: "2vw" }}
       >
         Nutrivurv is here to help you stay motivated
       </h5>
       <h5
-        className="row mb-5 justify-content-center"
+        className=""
         style={{ fontSize: "2vw" }}
       >
         on your journey to better health
