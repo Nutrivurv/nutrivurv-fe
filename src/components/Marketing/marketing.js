@@ -13,9 +13,8 @@ const Marketing = () => {
             just got easier.
           </h1>
           <p className="second-text-responsive mb-3 ml-xl-5 pl-xl-5">
-            Nutrivurv is an easy to use motivating <br/>
-            food and nutrition
-            tracking app.
+            Nutrivurv is an easy to use motivating <br />
+            food and nutrition tracking app.
           </p>
           <Link type="button" to="/signup" className="pl-xl-5">
             <button
