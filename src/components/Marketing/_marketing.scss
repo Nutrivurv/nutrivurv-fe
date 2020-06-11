@@ -1,10 +1,5 @@
 .marketing{
-  background: linear-gradient(147.75deg, #FFFFFF 34.63%, rgba(255, 255, 255, 0) 90.04%), url("../../assets/hero.jpg");
-  background-position: center; 
-  background-repeat: no-repeat;
-  background-size: contain;
-  @media only screen and (min-width:1200px) {
-    background-size: cover;
-    background-position: right;
-  }
+  background: linear-gradient(147.75deg, #FFFFFF 34.63%, rgba(255, 255, 255, 0) 90.04%), url("../../assets/Hero.jpg");
+  background-size: 100% 130%;
+
 }
