@@ -14,7 +14,7 @@ const SignIn = () => {
           <div className="form-group">
             <label className="mb-0">E-mail</label>
             <input
-              type="email"
+              name="email"
               className="rounded p-3 w-100 border border-primary"
               id="inputEmail"
               placeholder="email@email.com"
@@ -24,7 +24,7 @@ const SignIn = () => {
           <div className="form-group">
             <label className="mb-0">Password</label>
             <input
-              type="password"
+              name="password"
               data-minlength="8"
               className="rounded p-3 w-100 border border-primary"
               id="inputPassword"
@@ -35,6 +35,7 @@ const SignIn = () => {
           <button
             type="submit"
             className="btn-primary rounded p-2 w-100 border border-primary"
+            data-cy="submit"
           >
             Sign In
           </button>
