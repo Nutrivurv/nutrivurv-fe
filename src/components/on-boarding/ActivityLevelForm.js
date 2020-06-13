@@ -31,7 +31,7 @@ const ActivityLevelForm = ({ setStep, handleChange, user }) => {
               className="control-input"
               onChange={handleChange}
               ref={register({ required: true })}
-              value="0"
+              value="1.375"
             />
             <label className="control-label" htmlFor="ActivityLevel1">
               <h4 className="ml-3">Not Very Active</h4>
@@ -50,7 +50,7 @@ const ActivityLevelForm = ({ setStep, handleChange, user }) => {
               className="control-input"
               onChange={handleChange}
               ref={register({ required: true })}
-              value="1"
+              value="1.55"
             />
             <label className="control-label" htmlFor="ActivityLevel2">
               <h4 className="ml-3">Lightly Active</h4>
@@ -70,7 +70,7 @@ const ActivityLevelForm = ({ setStep, handleChange, user }) => {
               className="control-input"
               onChange={handleChange}
               ref={register({ required: true })}
-              value="2"
+              value="1.725"
             />
             <label className="control-label" htmlFor="ActivityLevel3">
               <h4 className="ml-3">Active</h4>
@@ -90,7 +90,7 @@ const ActivityLevelForm = ({ setStep, handleChange, user }) => {
               className="control-input"
               onChange={handleChange}
               ref={register({ required: true })}
-              value="3"
+              value="1.9"
             />
             <label className="control-label" htmlFor="ActivityLevel4">
               <h4 className="ml-3">Very Active</h4>
