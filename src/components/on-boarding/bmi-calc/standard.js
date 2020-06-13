@@ -32,7 +32,7 @@ const Standard = ({ setBmi, bmi, setUser, user, setStep }) => {
               id="feet"
               name="ft"
               placeholder="ft"
-              value={bmi.ft}
+              defaultValue={bmi.ft}
               onChange={handleChanges}
               ref={register({
                 required: true,
@@ -53,7 +53,7 @@ const Standard = ({ setBmi, bmi, setUser, user, setStep }) => {
               id="inches"
               name="inch"
               placeholder="in"
-              value={bmi.inch}
+              defaultValue={bmi.inch}
               onChange={handleChanges}
               ref={register({ required: true, maxLength: 2 })}
             />
@@ -69,7 +69,7 @@ const Standard = ({ setBmi, bmi, setUser, user, setStep }) => {
               id="pounds"
               name="weight"
               placeholder="lbs"
-              value={bmi.weight}
+              defaultValue={bmi.weight}
               onChange={handleChanges}
               ref={register({ required: true, maxLength: 3 })}
             />

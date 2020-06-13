@@ -29,7 +29,7 @@ const Metric = ({ bmi, setBmi, setUser, user, setStep }) => {
               id="centimeters"
               name="cm"
               placeholder="cm"
-              value={bmi.cm}
+              defaultValue={bmi.cm}
               onChange={handleChanges}
               ref={register({ required: true, maxLength: 3 })}
             />
@@ -47,7 +47,7 @@ const Metric = ({ bmi, setBmi, setUser, user, setStep }) => {
               id="kilograms"
               name="kg"
               placeholder="kg"
-              value={bmi.kg}
+              defaultValue={bmi.kg}
               onChange={handleChanges}
               ref={register({ required: true, maxLength: 3 })}
             />
