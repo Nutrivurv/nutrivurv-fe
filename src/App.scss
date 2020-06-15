@@ -4,6 +4,19 @@ $link-color: #363537;
 $font-family-sans-serif: 'Muli', sans-serif;
 $light: rgb(240,240,240);
 
+.text-responsive {
+  font-size: calc(100% + 1.5vw + 1.5vh);
+}
+
+
+.second-text-responsive {
+  font-size: calc(100% + .5vw + .5vh);
+}
+
+.landing-text-responsive {
+  font-size: calc(100% + 1vw + 1vh);
+}
+
 .justify {
   justify-content: space-evenly
 }
@@ -13,11 +26,29 @@ $light: rgb(240,240,240);
   max-height: auto; 
 }
 
+.img-responsive-landing {
+  max-width: 70%; 
+  max-height: auto; 
+}
+
 .lp-img{
   width: 50%;
   height: auto;
-  max-width: 75%;
+  max-width: 100%;
   max-height: 450px;
+}
+
+.pl-6{
+  padding-left: 7rem;
+}
+
+
+
+.pb-6{
+  padding-bottom: 7rem;
+}
+.mt-6{
+  margin-top: 9rem;
 }
 
 @import "~bootswatch/dist/flatly/variables";

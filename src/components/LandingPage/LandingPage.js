@@ -9,64 +9,52 @@ const LandingPage = () => {
   return (
     <div className="container-fluid p-0">
       <Marketing />
-      <div className="mt-5 pt-5">
-        <h3
-          className="row justify-content-center"
-          style={{ fontSize: "3.5vw" }}
-        >
+      <div className="mt-5 pt-5 text-center">
+        <h3 className="font-weight-bold text-responsive">
           You&apos;re one click away
         </h3>
-        <h3
-          className="row mb-2 justify-content-center"
-          style={{ fontSize: "3.5vw" }}
-        >
-          from a healthier you
+        <h3 className="font-weight-bold text-responsive">
+          from a healthier you.
         </h3>
-        <div className="pt-1 mb-2 mx-5 bg-warning"></div>
+        <div className="pt-1 mb-2 mx-5 bg-warning my-5"></div>
       </div>
-      <h5
-        className="row mt-3 justify-content-center"
-        style={{ fontSize: "2vw" }}
-      >
+      <h5 className="text-center landing-text-responsive">
         Nutrivurv is here to help you stay motivated
       </h5>
-      <h5
-        className="row mb-5 justify-content-center"
-        style={{ fontSize: "2vw" }}
-      >
-        on your journey to better health
+      <h5 className="text-center landing-text-responsive mb-5 pb-5">
+        on your journey to better health.
       </h5>
-      <div className="row flex-column flex-md-row align-self-center my-0 mx-5">
-        <div className="col-12 col-md-4 my-5">
-          <Badges className="badges" width="311px" height="186px" />
-          <h5 className="row justify-content-center pt-3">
-            Connect with friends
-          </h5>
+      <div className="d-md-flex mx-5">
+        <div className="text-center mt-4">
+          <Badges className=" img-responsive-landing " />
+          <h4 className="font-weight-bold">Earn badges</h4>
         </div>
-        <div className="col-12 col-md-4 my-5">
-          <Goals width="311px" height="186px" />
-          <h5 className="row justify-content-center pt-3">Earn badges</h5>
+        <div className="text-center mt-4">
+          <Goals className="img-responsive-landing" />
+          <h4 className="font-weight-bold">Crush your goals</h4>
         </div>
-        <div className="col-12 col-md-4 my-5">
-          <Friends width="311px" height="186px" />
-          <h5 className="row justify-content-center pt-3">Crush your goals</h5>
+        <div className="text-center mt-4">
+          <Friends className="img-responsive-landing " />
+          <h4 className="font-weight-bold">Connect with friends</h4>
         </div>
       </div>
-      <div className="d-flex align-items-center flex-column">
-        <div className="row mt-5">
+      <div className="d-flex align-items-center flex-column my-5">
+        <div className="my-4 mt-5">
           <Link type="button" to="/signup">
             <button
               id="join-now"
-              className="p-2 btn-primary rounded w-200 border border-secondar"
+              className="btn-primary py-2  rounded w-200 border border-secondary"
+              style={{ width: "15rem" }}
             >
               Join Now!
             </button>
           </Link>
         </div>
-        <div className="row mt-2 mb-5">
+        <div className=" my-4 mb-5">
           <button
             id="signIn-bttn"
-            className="btn-secondary rounded p-2 w-200 border border-secondary"
+            className="btn-secondary py-2  rounded w-200 border border-secondary"
+            style={{ width: "15rem" }}
           >
             Sign In
           </button>

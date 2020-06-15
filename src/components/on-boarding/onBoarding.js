@@ -1,13 +1,25 @@
 import React, { useState } from "react";
 import SignUp from "../SignUp/SignUp";
 import BMI from "./bmi-calc/BMI";
-import Landing from "../LandingPage/LandingPage";
 import DietaryPref from "./dietaryPref";
 import GettingPersonal from "./GettingPersonal";
 import Active from "./ActivityLevelForm";
-
+import SignIn from "../SignIn/SignIn";
 const OnBoarding = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    username: "",
+    password: "",
+    email: "",
+    age: "",
+    gender: "",
+    goalWeight: "",
+    activityLevel: "",
+    customRadio: "",
+    DietaryPref: "",
+    ft: "",
+    inch: "",
+    weight: "",
+  });
   const [step, setStep] = useState("signUp");
 
   function handleChange(e) {
@@ -18,37 +30,30 @@ const OnBoarding = () => {
   return (
     <>
       {step === "signUp" ? (
-        <SignUp
-          setStep={setStep}
-          setUser={setUser}
-          user={user}
-          handleChange={handleChange}
-        />
+        <SignUp user={user} setStep={setStep} handleChange={handleChange} />
       ) : step === "GettingPersonal" ? (
         <GettingPersonal
-          setStep={setStep}
-          setUser={setUser}
           user={user}
+          setStep={setStep}
           handleChange={handleChange}
         />
       ) : step === "ActivityLevel" ? (
-        <Active
-          setStep={setStep}
-          setUser={setUser}
-          user={user}
-          handleChange={handleChange}
-        />
+        <Active user={user} setStep={setStep} handleChange={handleChange} />
       ) : step === "DietaryPref" ? (
         <DietaryPref
-          setStep={setStep}
-          setUser={setUser}
           user={user}
+          setStep={setStep}
           handleChange={handleChange}
         />
       ) : step === "BMI" ? (
-        <BMI setUser={setUser} user={user} handleChange={handleChange} />
+        <BMI
+          setStep={setStep}
+          setUser={setUser}
+          user={user}
+          handleChange={handleChange}
+        />
       ) : (
-        <Landing />
+        <SignIn />
       )}
     </>
   );

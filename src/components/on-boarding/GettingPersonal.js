@@ -1,8 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { ReactComponent as GettingPersonalImg } from "../../assets/GirlComptr.svg";
-
-const GettingPersonal = ({ setStep, handleChange }) => {
+import OnBoardingImg from "../on-boarding/onBoarding-img";
+const GettingPersonal = ({ setStep, handleChange, user }) => {
   const { register, handleSubmit, errors } = useForm({});
 
   const onSubmit = async (data) => {
@@ -11,17 +10,25 @@ const GettingPersonal = ({ setStep, handleChange }) => {
   };
 
   return (
-    <div className="row d-flex justify-content-around ml-5 pl-4">
-      <div className="col-md-5 pt-5">
-        <h2 className="text-center">Getting Personal</h2>
+    <div
+      className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5"
+      style={{ height: "950px" }}
+    >
+      <div className="mt-5 col-xl-3 pt-5">
+        <h1 className="text-center pb-5 font-weight-bolder mt-5">
+          Getting Personal
+        </h1>
         <form onSubmit={(e) => e.preventDefault()}>
           <div className="form-group">
-            <label>How old are you?</label>
+            <label className="mb-0">How old are you?</label>
             <input
-              className="form-control"
+              type="number"
+              className="rounded p-3 w-100 border border-primary"
               name="age"
+              id="age"
               placeholder="Age"
               onChange={handleChange}
+              value={user.age}
               ref={register({
                 required: (
                   <small
@@ -31,6 +38,7 @@ const GettingPersonal = ({ setStep, handleChange }) => {
                     {"required"}
                   </small>
                 ),
+                maxLength: 2,
                 pattern: {
                   value: /^[0-9]+$/,
                   message: "Use numbers only",
@@ -45,12 +53,15 @@ const GettingPersonal = ({ setStep, handleChange }) => {
           </div>
 
           <div className="form-group">
-            <label>How do you identify?</label>
+            <label className="mb-0">How do you identify?</label>
             <select
-              className="form-control"
+              type="radio"
+              className="rounded p-3 w-100 border border-primary"
+              id="gender"
               placeholder="Gender"
               name="gender"
               onChange={handleChange}
+              value={user.gender}
               required
             >
               <option value="female">Female</option>
@@ -58,12 +69,14 @@ const GettingPersonal = ({ setStep, handleChange }) => {
             </select>
           </div>
           <div className="form-group">
-            <label>Add your goal weight</label>
+            <label className="mb-0">Add your goal weight</label>
             <input
-              className="form-control"
+              className="rounded p-3 w-100 border border-primary"
               name="goalWeight"
+              id="goalWeight"
               placeholder="Enter weight"
               onChange={handleChange}
+              value={user.goalWeight}
               ref={register({
                 required: (
                   <small
@@ -73,6 +86,7 @@ const GettingPersonal = ({ setStep, handleChange }) => {
                     {"required"}
                   </small>
                 ),
+                maxLength: 3,
                 pattern: {
                   value: /^[0-9]+$/,
                   message: "Use numbers only",
@@ -87,19 +101,20 @@ const GettingPersonal = ({ setStep, handleChange }) => {
           </div>
           <button
             type="submit"
-            className="btn-primary form-group col-md-12 rounded-sm"
+            className="btn-primary rounded p-2 w-100 border border-primary"
             onClick={handleSubmit(onSubmit)}
           >
             Continue
           </button>
+          <button
+            onClick={() => setStep("signUp")}
+            className="mt-3 btn-secondary rounded p-2 w-100"
+          >
+            Back
+          </button>
         </form>
       </div>
-      <div>
-        <GettingPersonalImg
-          className="img-responsive pb-5 ml-3 pl-5"
-          alt="Responsive SignIn image"
-        />
-      </div>
+      <OnBoardingImg />
     </div>
   );
 };
