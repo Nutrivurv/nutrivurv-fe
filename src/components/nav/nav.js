@@ -4,10 +4,13 @@ import { ReactComponent as Logo } from "../../assets/Logo.svg";
 
 const Nav = () => {
   return (
-    <div className="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <div
+      id="navbar"
+      className="navbar navbar-expand-md navbar-light bg-light sticky-top"
+    >
       <div>
         <NavLink to="/" className="navbar-brand">
-          <Logo />
+          <Logo className="logo" />
         </NavLink>
       </div>
       <button
@@ -28,13 +31,18 @@ const Nav = () => {
       >
         <ul className="navbar-nav">
           <li className="nav-item">
-            <NavLink to="/" className="nav-link d-flex justify-content-center">
+            <NavLink
+              to="/"
+              id="home"
+              className="nav-link d-flex justify-content-center"
+            >
               <h5>Home</h5>
             </NavLink>
           </li>
           <li className="nav-item">
             <NavLink
               to="/about"
+              id="about"
               className="nav-link d-flex justify-content-center  ml-xl-5 ml-lg-5 ml-md-5  ml-sm-0 "
             >
               <h5>About Us</h5>
@@ -43,6 +51,7 @@ const Nav = () => {
           <li className="nav-item">
             <NavLink
               to="/signin"
+              id="signIn"
               className="nav-link d-flex justify-content-center ml-xl-5 ml-lg-5  ml-md-5  ml-sm-0 "
             >
               <h5>Sign In</h5>
@@ -51,6 +60,7 @@ const Nav = () => {
           <li className="nav-item">
             <NavLink
               to="/signup"
+              id="signUp"
               className="nav-link d-flex justify-content-center ml-xl-5 ml-lg-5 ml-md-5 mr-xl-4 mr-lg-4 mr-md-4 ml-sm-0 mr-sm-0  "
             >
               <h5>Sign Up</h5>
