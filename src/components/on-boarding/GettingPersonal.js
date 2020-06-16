@@ -30,17 +30,17 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
               onChange={handleChange}
               defaultValue={user.age}
               ref={register({
-                required: (
-                  <small
-                    id="passwordHelpBlock"
-                    className="text-danger form-text"
-                  >
-                    {"required"}
-                  </small>
-                ),
+                required: {
+                  value: true,
+                  message: "required",
+                },
                 maxLength: {
                   value: 2,
                   message: "Max length is 2",
+                },
+                min: {
+                  value: 15,
+                  message: "Must be at least 15 years old",
                 },
                 pattern: {
                   value: /^[0-9]+$/,
@@ -49,7 +49,7 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
               })}
             />
             {errors.age && (
-              <small id="passwordHelpBlock" className="text-danger form-text">
+              <small className="text-danger form-text">
                 {errors.age.message}
               </small>
             )}
