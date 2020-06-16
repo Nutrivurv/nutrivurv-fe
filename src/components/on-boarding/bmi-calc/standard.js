@@ -27,51 +27,72 @@ const Standard = ({ setBmi, bmi, setUser, user, setStep }) => {
           <div className={formGroup}>
             <label htmlFor="feet">Feet</label>
             <input
-              className="form-control form-control-sm"
+              className="rounded p-1 w-100 border border-primary"
               type="number"
               id="feet"
               name="ft"
               placeholder="ft"
-              value={bmi.ft}
+              defaultValue={bmi.ft}
               onChange={handleChanges}
               ref={register({
-                required: true,
-                maxLength: 1,
+                required: {
+                  value: true,
+                  message: "Please add height in feet",
+                },
+                maxLength: {
+                  value: 1,
+                  message: "Max length is 1",
+                },
+                max: {
+                  value: 8,
+                  message: "Max Value is 8",
+                },
               })}
             />
             {errors.ft && (
-              <small className="text-danger">
-                {"Please add height in feet"}
-              </small>
+              <small className="text-danger">{errors.ft.message}</small>
             )}
           </div>
           <div className={formGroup}>
             <label htmlFor="inches">Inches</label>
             <input
-              className="form-control form-control-sm"
+              className="rounded p-1 w-100 border border-primary"
               type="number"
               id="inches"
               name="inch"
               placeholder="in"
-              value={bmi.inch}
+              defaultValue={bmi.inch}
               onChange={handleChanges}
-              ref={register({ required: true, maxLength: 2 })}
+              ref={register({
+                required: {
+                  value: true,
+                  message: "Add inches",
+                },
+                maxLength: {
+                  value: 2,
+                  message: "Max length is 2",
+                },
+                max: {
+                  value: 11,
+                  message: "Max value is 11",
+                },
+              })}
             />
             {errors.inch && (
-              <small className="text-danger">{"Add inches"}</small>
+              <small className="text-danger">{errors.inch.message}</small>
             )}
           </div>
           <div className={formGroup}>
             <label htmlFor="pounds">Pounds</label>
             <input
-              className="form-control form-control-sm"
+              className="rounded p-1 w-100 border border-primary"
               type="number"
               id="pounds"
               name="weight"
               placeholder="lbs"
-              value={bmi.weight}
+              defaultValue={bmi.weight}
               onChange={handleChanges}
-              ref={register({ required: true, maxLength: 3 })}
+              ref={register({ required: true, maxLength: 3, max: 999 })}
             />
             {errors.weight && (
               <small className="text-danger">{"Please add weight"}</small>

@@ -3,8 +3,7 @@ import { useForm } from "react-hook-form";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
 
 const DietaryPref = ({ setStep, handleChange, user }) => {
-  const customRadio = "custom-control custom-radio mb-4";
-  const { register, handleSubmit } = useForm();
+  const { errors, register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
     setStep("BMI");
@@ -22,68 +21,72 @@ const DietaryPref = ({ setStep, handleChange, user }) => {
           onSubmit={handleSubmit(onSubmit)}
           className="form-group"
           role="form "
-          value={user.DietaryPref}
         >
-          <div className={customRadio}>
+          <div className="mb-4">
             <input
               type="radio"
-              id="customRadio1"
-              name="customRadio"
-              className="custom-control-input"
+              name="dietaryPref"
+              id="diet1"
               value="0"
+              className="control-input"
               onChange={handleChange}
-              ref={register}
+              ref={register({ required: true })}
             />
-            <label className="custom-control-label" htmlFor="customRadio1">
-              <h5 className="ml-3">Keto</h5>
-            </label>
-          </div>
-          <div className="border-bottom mb-5"></div>
-          <div className={customRadio}>
-            <input
-              type="radio"
-              id="customRadio2"
-              name="customRadio"
-              className="custom-control-input"
-              value="1"
-              onChange={handleChange}
-              ref={register}
-            />
-            <label className="custom-control-label" htmlFor="customRadio2">
-              <h5 className="ml-3">Paleo</h5>
-            </label>
-          </div>
-          <div className="border-bottom mb-5"></div>
-          <div className={customRadio}>
-            <input
-              type="radio"
-              id="customRadio3"
-              name="customRadio"
-              className="custom-control-input"
-              value="2"
-              onChange={handleChange}
-              ref={register}
-            />
-            <label className="custom-control-label" htmlFor="customRadio3">
-              <h5 className="ml-3">US. Gov. Nutrition Guidelines</h5>
-            </label>
-          </div>
-          <div className="border-bottom mb-5"></div>
-          <div className={customRadio}>
-            <input
-              type="radio"
-              id="customRadio4"
-              name="customRadio"
-              className="custom-control-input"
-              value="3"
-              onChange={handleChange}
-              ref={register}
-            />
-            <label className="custom-control-label" htmlFor="customRadio4">
-              <h5 className="ml-3">None</h5>
-            </label>
-          </div>
 
+            <label className="control-label" htmlFor="Keto Dietary Preference">
+              <h4 className="ml-3">Keto</h4>
+            </label>
+          </div>
+          <div className="mb-4">
+            <input
+              type="radio"
+              name="dietaryPref"
+              id="diet2"
+              value="1"
+              className="control-input"
+              onChange={handleChange}
+              ref={register({ required: true })}
+            />
+            <label className="control-label" htmlFor="Paleo Dietary Preference">
+              <h4 className="ml-3">Paleo</h4>
+            </label>
+          </div>
+          <div className="mb-4">
+            <input
+              type="radio"
+              name="dietaryPref"
+              id="diet3"
+              value="2"
+              className="control-input"
+              onChange={handleChange}
+              ref={register({ required: true })}
+            />
+            <label
+              className="control-label"
+              htmlFor="US Gov. Nutrition Guideline Dietary Preference"
+            >
+              <h4 className="ml-3">US Gov. Nutrition Guidelines</h4>
+            </label>
+          </div>
+          <div className="mb-4">
+            <input
+              type="radio"
+              name="dietaryPref"
+              id="diet4"
+              value="3"
+              className="control-input"
+              onChange={handleChange}
+              ref={register({ required: true })}
+            />
+            <label className="control-label" htmlFor="None">
+              <h4 className="ml-3">None</h4>
+            </label>
+          </div>
+          {errors.dietaryPref && (
+            <small className="text-danger">
+              Dietary preference selection is required
+            </small>
+          )}
           <button
             type="submit"
             className="btn-primary rounded p-2 w-100 border border-primary mt-2"
