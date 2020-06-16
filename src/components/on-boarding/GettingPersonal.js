@@ -28,7 +28,7 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
               id="age"
               placeholder="Age"
               onChange={handleChange}
-              value={user.age}
+              defaultValue={user.age}
               ref={register({
                 required: (
                   <small
@@ -59,7 +59,7 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
               id="gender"
               name="gender"
               onChange={handleChange}
-              value={user.gender}
+              defaultValue={user.gender}
               required
             >
               <option disabled value="">
@@ -77,7 +77,7 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
               id="goalWeight"
               placeholder="Enter weight"
               onChange={handleChange}
-              value={user.goalWeight}
+              defaultValue={user.goalWeight}
               ref={register({
                 required: (
                   <small
