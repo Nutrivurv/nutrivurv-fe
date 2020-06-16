@@ -38,7 +38,10 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
                     {"required"}
                   </small>
                 ),
-                maxLength: 2,
+                maxLength: {
+                  value: 2,
+                  message: "Max length is 2",
+                },
                 pattern: {
                   value: /^[0-9]+$/,
                   message: "Use numbers only",
@@ -51,7 +54,6 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
               </small>
             )}
           </div>
-
           <div className="form-group">
             <label className="mb-0">How do you identify?</label>
             <select
@@ -72,31 +74,31 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
           <div className="form-group">
             <label className="mb-0">Add your goal weight</label>
             <input
+              type="number"
               className="rounded p-3 w-100 border border-primary"
               name="goalWeight"
               id="goalWeight"
-              placeholder="Enter weight"
+              placeholder="lbs"
               onChange={handleChange}
               defaultValue={user.goalWeight}
               ref={register({
-                required: (
-                  <small
-                    id="passwordHelpBlock"
-                    className="text-danger form-text"
-                  >
-                    {"required"}
-                  </small>
-                ),
-                maxLength: 3,
+                required: {
+                  value: true,
+                  message: "Please add weight in lbs",
+                },
+                maxLength: {
+                  value: 3,
+                  message: "Max length is 3",
+                },
                 pattern: {
                   value: /^[0-9]+$/,
-                  message: "Use numbers only",
+                  message: "Use numbers only, max length is 3",
                 },
               })}
             />
-            {errors.weight && (
+            {errors.goalWeight && (
               <small id="passwordHelpBlock" className="text-danger form-text">
-                {errors.weight.message}
+                {errors.goalWeight.message}
               </small>
             )}
           </div>
