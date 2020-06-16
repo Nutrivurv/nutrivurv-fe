@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
-const GettingPersonal = ({ setStep, handleChange, user }) => {
+const GettingPersonal = ({ setStep, handleChangeKg, handleChange, user }) => {
   const { register, handleSubmit, errors } = useForm({});
 
   const onSubmit = async (data) => {
@@ -69,11 +69,6 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
                 },
               })}
             >
-              {errors.gender && (
-                <small className="text-danger form-text">
-                  {errors.gender.message}
-                </small>
-              )}
               <option disabled value="">
                 Gender
               </option>
@@ -87,14 +82,14 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
             )}
           </div>
           <div className="form-group">
-            <label className="mb-0">Add your goal weight</label>
+            <label className="mb-0">Add your goal weight (lbs)</label>
             <input
               type="number"
               className="rounded p-3 w-100 border border-primary"
               name="goalWeight"
               id="goalWeight"
               placeholder="lbs"
-              onChange={handleChange}
+              onChange={handleChangeKg}
               defaultValue={user.goalWeight}
               ref={register({
                 required: {
