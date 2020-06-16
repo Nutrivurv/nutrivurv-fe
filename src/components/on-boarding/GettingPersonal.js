@@ -62,14 +62,29 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
               name="gender"
               onChange={handleChange}
               defaultValue={user.gender}
-              required
+              ref={register({
+                required: {
+                  value: true,
+                  message: "required",
+                },
+              })}
             >
+              {errors.gender && (
+                <small className="text-danger form-text">
+                  {errors.gender.message}
+                </small>
+              )}
               <option disabled value="">
                 Gender
               </option>
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
+            {errors.gender && (
+              <small className="text-danger form-text">
+                {errors.gender.message}
+              </small>
+            )}
           </div>
           <div className="form-group">
             <label className="mb-0">Add your goal weight</label>
