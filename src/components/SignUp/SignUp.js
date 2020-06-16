@@ -30,7 +30,7 @@ const SignUp = ({ setStep, handleChange, user }) => {
                 className="rounded p-3 w-100 border border-primary"
                 placeholder="First and Last Name"
                 onChange={handleChange}
-                value={user.username}
+                defaultValue={user.username}
                 ref={register({
                   required: "Required",
                   pattern: {
@@ -51,7 +51,7 @@ const SignUp = ({ setStep, handleChange, user }) => {
                 className="rounded p-3 w-100 border border-primary"
                 placeholder="email@email.com"
                 onChange={handleChange}
-                value={user.email}
+                defaultValue={user.email}
                 ref={register({
                   required: "Required",
                   pattern: {

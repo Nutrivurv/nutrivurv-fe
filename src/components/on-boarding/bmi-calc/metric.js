@@ -24,37 +24,51 @@ const Metric = ({ bmi, setBmi, setUser, user, setStep }) => {
           <div className={formGroup}>
             <label htmlFor="centimeters">Centimeters</label>
             <input
-              className="form-control form-control-sm"
+              className="rounded p-1 w-100 border border-primary"
               type="number"
               id="centimeters"
               name="cm"
               placeholder="cm"
-              value={bmi.cm}
+              defaultValue={bmi.cm}
               onChange={handleChanges}
-              ref={register({ required: true, maxLength: 3 })}
+              ref={register({
+                required: {
+                  value: true,
+                  message: "Please add height in Centimeters",
+                },
+                maxLength: {
+                  value: 3,
+                  message: "Max character length is 3",
+                },
+              })}
             />
             {errors.cm && (
-              <small className="text-danger">
-                {"Please add height in Centimeters"}
-              </small>
+              <small className="text-danger">{errors.cm.message}</small>
             )}
           </div>
           <div className={formGroup}>
             <label htmlFor="kilograms">kilograms</label>
             <input
-              className="form-control form-control-sm"
+              className="rounded p-1 w-100 border border-primary"
               type="number"
               id="kilograms"
               name="kg"
               placeholder="kg"
-              value={bmi.kg}
+              defaultValue={bmi.kg}
               onChange={handleChanges}
-              ref={register({ required: true, maxLength: 3 })}
+              ref={register({
+                required: {
+                  value: true,
+                  message: "Please add weight in Kilograms",
+                },
+                maxLength: {
+                  value: 3,
+                  message: "Max character limit is 3",
+                },
+              })}
             />
             {errors.kg && (
-              <small className="text-danger">
-                {"Please add weight in Kilograms"}
-              </small>
+              <small className="text-danger">{errors.kg.message}</small>
             )}
           </div>
         </div>
