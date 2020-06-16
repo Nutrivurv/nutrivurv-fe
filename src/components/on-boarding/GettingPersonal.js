@@ -55,17 +55,18 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
           <div className="form-group">
             <label className="mb-0">How do you identify?</label>
             <select
-              type="radio"
-              className="rounded p-3 w-100 border border-primary"
+              className="py-3 px-2 w-100 rounded border border-primary no-arrow"
               id="gender"
-              placeholder="Gender"
               name="gender"
               onChange={handleChange}
               value={user.gender}
               required
             >
-              <option value="female">Female</option>
+              <option disabled value="">
+                Gender
+              </option>
               <option value="male">Male</option>
+              <option value="female">Female</option>
             </select>
           </div>
           <div className="form-group">
