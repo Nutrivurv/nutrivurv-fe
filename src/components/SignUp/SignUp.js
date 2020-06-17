@@ -2,6 +2,8 @@ import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
+
+
 const SignUp = ({ setStep, handleChange, user }) => {
   const { register, errors, handleSubmit, watch } = useForm({});
   const password = useRef({});
