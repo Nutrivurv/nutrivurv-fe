@@ -27,6 +27,8 @@ describe("On-Boarding forms", () => {
   it("Should complete the Getting Personal form", () => {
     cy.get("form").within(() => {
       cy.get('input[name="age"]').type("26");
+      cy.get('select')
+        .select("female")
 
     });
   })
