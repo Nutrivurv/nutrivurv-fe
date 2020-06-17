@@ -24,4 +24,14 @@ describe("On-Boarding forms", () => {
       cy.get("[data-cy=submit]").click();
     });
   });
+  it("Should complete the Getting Personal form", () => {
+    cy.get("form").within(() => {
+      cy.get('input[name="age"]').type("26");
+      cy.get("select").select("female");
+      cy.get('input[name="goalWeight"]')
+        .type("130")
+        .should("have.value", "130");
+      cy.get("[data-cy=submit]").click();
+    });
+  });
 });
