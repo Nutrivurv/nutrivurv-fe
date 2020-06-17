@@ -51,6 +51,10 @@ $light: rgb(240,240,240);
   margin-top: 9rem;
 }
 
+.no-arrow {
+  -webkit-appearance: none;
+}
+
 @import "~bootswatch/dist/flatly/variables";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/flatly/bootswatch";
