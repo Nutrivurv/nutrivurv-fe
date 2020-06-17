@@ -1,6 +1,7 @@
-import { configureStore } from "@reduxjs/toolkit";
-import {SignUpSlice as SignUp, LogInSlice as LogIn} from './Slices/slices';
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import {rootReducer} from './Slices/slices';
+
 
 export const store = configureStore({
-    reducer: 
-});
+    reducer: rootReducer,
+})

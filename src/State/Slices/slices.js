@@ -1,6 +1,6 @@
-const { createSlice } = require("@reduxjs/toolkit");
+const { createSlice, combineReducers } = require("@reduxjs/toolkit");
 
-export const SignUpSlice = createSlice({
+const SignUpSlice = createSlice({
   name: "signUp",
   initialState: {
     name: "",
@@ -10,7 +10,7 @@ export const SignUpSlice = createSlice({
   reducers: {},
 });
 
-export const LogInSlice = createSlice({
+const LogInSlice = createSlice({
   name: "signUp",
   initialState: {
     name: "",
@@ -18,4 +18,9 @@ export const LogInSlice = createSlice({
     password: "",
   },
   reducers: {},
+});
+
+export const rootReducer = combineReducers({
+  SignUpSlice,
+  LogInSlice,
 });
