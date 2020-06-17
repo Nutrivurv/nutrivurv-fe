@@ -113,6 +113,7 @@ const GettingPersonal = ({ setStep, handleChangeKg, handleChange, user }) => {
             )}
           </div>
           <button
+            data-cy="submit"
             type="submit"
             className="btn-primary rounded p-2 w-100 border border-primary"
             onClick={handleSubmit(onSubmit)}

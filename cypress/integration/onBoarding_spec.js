@@ -24,4 +24,10 @@ describe("On-Boarding forms", () => {
       cy.get("[data-cy=submit]").click();
     });
   });
+  it("Should complete the Getting Personal form", () => {
+    cy.get("form").within(() => {
+      cy.get('input[name="age"]').type("26");
+
+    });
+  })
 });
