@@ -40,7 +40,9 @@ const SignUp = ({ setStep, handleChange, user }) => {
                 })}
               />
               {errors.username && (
-                <small className="text-danger">{errors.username.message}</small>
+                <small id="usernameErr" className="text-danger">
+                  {errors.username.message}
+                </small>
               )}
             </div>
 
@@ -61,7 +63,9 @@ const SignUp = ({ setStep, handleChange, user }) => {
                 })}
               />
               {errors.email && (
-                <small className="text-danger">{errors.email.message}</small>
+                <small id="emailErr" className="text-danger">
+                  {errors.email.message}
+                </small>
               )}
             </div>
 
@@ -86,7 +90,9 @@ const SignUp = ({ setStep, handleChange, user }) => {
                 })}
               />
               {errors.password && (
-                <small className="text-danger">{errors.password.message}</small>
+                <small id="pwordErr" className="text-danger">
+                  {errors.password.message}
+                </small>
               )}
             </div>
 
@@ -103,7 +109,7 @@ const SignUp = ({ setStep, handleChange, user }) => {
                 })}
               />
               {errors.password_repeat && (
-                <small className="text-danger">
+                <small id="pword2Err" className="text-danger">
                   {errors.password_repeat.message}
                 </small>
               )}
