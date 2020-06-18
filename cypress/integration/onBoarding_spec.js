@@ -87,5 +87,3 @@ describe("On-Boarding forms", () => {
     });
   });
 });
-
-describe;
