@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
-const GettingPersonal = ({ setStep, handleChange, user }) => {
+const GettingPersonal = ({ setStep, handleChangeKg, handleChange, user }) => {
   const { register, handleSubmit, errors } = useForm({});
 
   const onSubmit = async (data) => {
@@ -28,17 +28,20 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
               id="age"
               placeholder="Age"
               onChange={handleChange}
-              value={user.age}
+              defaultValue={user.age}
               ref={register({
-                required: (
-                  <small
-                    id="passwordHelpBlock"
-                    className="text-danger form-text"
-                  >
-                    {"required"}
-                  </small>
-                ),
-                maxLength: 2,
+                required: {
+                  value: true,
+                  message: "required",
+                },
+                maxLength: {
+                  value: 2,
+                  message: "Max length is 2",
+                },
+                min: {
+                  value: 15,
+                  message: "Must be at least 15 years old",
+                },
                 pattern: {
                   value: /^[0-9]+$/,
                   message: "Use numbers only",
@@ -46,60 +49,71 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
               })}
             />
             {errors.age && (
-              <small id="passwordHelpBlock" className="text-danger form-text">
+              <small className="text-danger form-text">
                 {errors.age.message}
               </small>
             )}
           </div>
-
           <div className="form-group">
             <label className="mb-0">How do you identify?</label>
             <select
-              type="radio"
-              className="rounded p-3 w-100 border border-primary"
+              className="py-3 px-2 w-100 rounded border border-primary no-arrow"
               id="gender"
-              placeholder="Gender"
               name="gender"
               onChange={handleChange}
-              value={user.gender}
-              required
+              defaultValue={user.gender}
+              ref={register({
+                required: {
+                  value: true,
+                  message: "required",
+                },
+              })}
             >
-              <option value="female">Female</option>
+              <option disabled value="">
+                Gender
+              </option>
               <option value="male">Male</option>
+              <option value="female">Female</option>
             </select>
+            {errors.gender && (
+              <small className="text-danger form-text">
+                {errors.gender.message}
+              </small>
+            )}
           </div>
           <div className="form-group">
-            <label className="mb-0">Add your goal weight</label>
+            <label className="mb-0">Add your goal weight (lbs)</label>
             <input
+              type="number"
               className="rounded p-3 w-100 border border-primary"
               name="goalWeight"
               id="goalWeight"
-              placeholder="Enter weight"
-              onChange={handleChange}
-              value={user.goalWeight}
+              placeholder="lbs"
+              onChange={handleChangeKg}
+              defaultValue={user.goalWeight}
               ref={register({
-                required: (
-                  <small
-                    id="passwordHelpBlock"
-                    className="text-danger form-text"
-                  >
-                    {"required"}
-                  </small>
-                ),
-                maxLength: 3,
+                required: {
+                  value: true,
+                  message: "Please add weight in lbs",
+                },
+                maxLength: {
+                  value: 3,
+                  message: "Max length is 3",
+                },
                 pattern: {
                   value: /^[0-9]+$/,
-                  message: "Use numbers only",
+                  message: "Use numbers only, max length is 3",
                 },
               })}
             />
-            {errors.weight && (
+            {errors.goalWeight && (
               <small id="passwordHelpBlock" className="text-danger form-text">
-                {errors.weight.message}
+                {errors.goalWeight.message}
               </small>
             )}
           </div>
           <button
+            data-cy="submit"
             type="submit"
             className="btn-primary rounded p-2 w-100 border border-primary"
             onClick={handleSubmit(onSubmit)}

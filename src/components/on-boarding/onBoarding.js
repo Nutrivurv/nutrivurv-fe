@@ -25,6 +25,12 @@ const OnBoarding = () => {
   function handleChange(e) {
     setUser({ ...user, [e.target.name]: e.target.value });
   }
+  function handleChangeKg(e) {
+    setUser({
+      ...user,
+      [e.target.name]: Math.round(e.target.value * 0.45359237),
+    });
+  }
 
   console.log(user);
   return (
@@ -36,6 +42,7 @@ const OnBoarding = () => {
           user={user}
           setStep={setStep}
           handleChange={handleChange}
+          handleChangeKg={handleChangeKg}
         />
       ) : step === "ActivityLevel" ? (
         <Active user={user} setStep={setStep} handleChange={handleChange} />
