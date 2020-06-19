@@ -10,18 +10,18 @@ import OnBoarding from "./components/on-boarding/onBoarding";
 import Nav from "./components/nav/nav";
 import Footer from "./components/footer/footer";
 import About from "./components/About/About";
-import Navigation from "./components/Dashboard/Navigation"
+import Navigation from "./components/Dashboard/Navigation";
 
 function App() {
   return (
     <div className="App">
-      <Nav />
+      {/* <Nav /> */}
       <Route exact path="/" component={LandingPage} />
       <Route exact path="/signin" component={SignIn} />
       <Route exact path="/signup" component={OnBoarding} />
       <Route exact path="/about" component={About} />
       <Route exact path="/nav" component={Navigation} />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
