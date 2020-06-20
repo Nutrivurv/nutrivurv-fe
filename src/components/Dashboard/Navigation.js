@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { ReactComponent as Placeholder } from "../../assets/Placeholder.svg";
 import DailyVibe from "./DailyVibe";
 
 const Navigation = () => {
+  const [toggle, setToggle] = useState(false);
+
   return (
     <div className="wrapper">
-      <nav id="sidebar">
-        <div className="d-flex justify-content-center my-3">
-          <NavLink to="/" className="navbar-brand">
+      <nav id="sidebar" className={toggle ? "sidebar-active" : "sidebar"}>
+        <div className="d-flex justify-content-center my-3 ">
+          <NavLink to="/" className="navbar-brand ">
             <Logo className="logo" />
           </NavLink>
         </div>
@@ -50,28 +52,33 @@ const Navigation = () => {
         <ul className="navbar-nav">
           <li className="side-link mb-3 pl-4">
             <NavLink to="/" className="nav-link">
-              <h4 className="font-weight-bold side-link-color">Food</h4>
+              <h4 className="font-weight-bold primary-color">Food</h4>
             </NavLink>
           </li>
           <li className="side-link mb-3 pl-4">
             <NavLink to="/" className="nav-link">
-              <h4 className="font-weight-bold side-link-color">Progress</h4>
+              <h4 className="font-weight-bold primary-color">Progress</h4>
             </NavLink>
           </li>
           <li className="side-link mb-5 pl-4">
             <NavLink to="/" className="nav-link">
-              <h4 className="font-weight-bold side-link-color">Community</h4>
+              <h4 className="font-weight-bold primary-color">Community</h4>
             </NavLink>
           </li>
         </ul>
-        <div className="mt-5 pl-4">
-          <h5 className="font-weight-bold">Daily Vibes</h5>
+        <div className="mt-5 pl-4 pt-5">
+          <h4 className="font-weight-bold">Daily Vibe</h4>
           <DailyVibe />
         </div>
       </nav>
 
-      <div id="content">
-        <button type="button" id="sidebarCollapse"></button>
+      <div>
+        <button type="button" className="navbar-light bg-light navbar-toggler">
+          <span
+            className="navbar-toggler-icon"
+            onClick={() => setToggle(!toggle)}
+          ></span>
+        </button>
       </div>
     </div>
   );

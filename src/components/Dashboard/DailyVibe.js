@@ -27,9 +27,9 @@ const DailyVibe = () => {
   }, []);
   return (
     <div>
-      <p>{vibe}</p>
-
-      <p>{author}</p>
+      <p className="text-secondary pr-1">
+        {vibe} <span> - {author}</span>
+      </p>
     </div>
   );
 };
