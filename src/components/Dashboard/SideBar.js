@@ -4,7 +4,7 @@ import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { ReactComponent as Placeholder } from "../../assets/Placeholder.svg";
 import DailyVibe from "./DailyVibe";
 
-const Navigation = () => {
+const SideBar = () => {
   const [toggle, setToggle] = useState(false);
 
   return (
@@ -71,7 +71,6 @@ const Navigation = () => {
           <DailyVibe />
         </div>
       </nav>
-
       <div>
         <button type="button" className="navbar-light bg-light navbar-toggler">
           <span
@@ -84,4 +83,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default SideBar;
