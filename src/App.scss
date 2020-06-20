@@ -87,6 +87,16 @@ $light: rgb(240,240,240);
   }
 }
 
+li.side-link:hover {
+  background-color: #95a5a6;
+  color: #2C3E50;
+};
+
+.side-link-color {
+  color: #2C3E50;
+}
+
+
 @import "~bootswatch/dist/flatly/variables";
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/flatly/bootswatch";
