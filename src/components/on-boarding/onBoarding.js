@@ -10,7 +10,7 @@ const OnBoarding = () => {
     username: "",
     password: "",
     email: "",
-    age: "",
+    selected: "",
     gender: "",
     goalWeight: "",
     activityLevel: "",
@@ -32,7 +32,10 @@ const OnBoarding = () => {
     });
   }
 
-  console.log(user);
+  function handleDateChange(date) {
+    setUser({ ...user, selected: date });
+  }
+
   return (
     <>
       {step === "signUp" ? (

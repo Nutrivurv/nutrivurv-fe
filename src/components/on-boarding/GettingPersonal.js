@@ -1,8 +1,17 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { addDays } from 'date-fns';
+import { useForm, Controller } from "react-hook-form";
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
-const GettingPersonal = ({ setStep, handleChangeKg, handleChange, user }) => {
-  const { register, handleSubmit, errors } = useForm({});
+const GettingPersonal = ({
+  setStep,
+  handleChangeKg,
+  handleChange,
+  handleDateChange,
+  user,
+}) => {
+  const { register, handleSubmit, errors, reset, control } = useForm({});
 
   const onSubmit = async (data) => {
     alert(JSON.stringify(data));
@@ -19,45 +28,33 @@ const GettingPersonal = ({ setStep, handleChangeKg, handleChange, user }) => {
           Getting Personal
         </h1>
         <form onSubmit={(e) => e.preventDefault()}>
-          <div className="form-group">
-            <label className="mb-0">How old are you?</label>
-            <input
-              type="number"
-              className="rounded p-3 w-100 border border-primary"
-              name="age"
-              id="age"
-              placeholder="Age"
-              onChange={handleChange}
-              defaultValue={user.age}
-              ref={register({
-                required: {
-                  value: true,
-                  message: "required",
-                },
-                maxLength: {
-                  value: 2,
-                  message: "Max length is 2",
-                },
-                min: {
-                  value: 15,
-                  message: "Must be at least 15 years old",
-                },
-                pattern: {
-                  value: /^[0-9]+$/,
-                  message: "Use numbers only",
-                },
-              })}
-            />
-            {errors.age && (
-              <small className="text-danger form-text">
-                {errors.age.message}
-              </small>
-            )}
+          <div className="form-group d-block">
+            <div>
+              <label className="mb-0">What's your date of birth?</label>
+            </div>
+            <div>
+              <Controller
+                as={ReactDatePicker}
+                control={control}
+                valueName="selected"
+                name="selected"
+                className="datepicker-input py-3 px-2 w-100 rounded border border-primary "
+                defaultValue={user.selected}
+                selected={user.selected}
+                onChange={handleDateChange}
+                placeholderText="--/--/----"
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+                maxDate={addDays(new Date(), -5475)}
+                //earliest birth date you're able to select is 15 years before the current date
+              />
+            </div>
           </div>
           <div className="form-group">
             <label className="mb-0">How do you identify?</label>
             <select
-              className="py-3 px-2 w-100 rounded border border-primary no-arrow"
+              className="py-3 px-2 w-100 rounded border border-primary"
               id="gender"
               name="gender"
               onChange={handleChange}
@@ -78,37 +75,6 @@ const GettingPersonal = ({ setStep, handleChangeKg, handleChange, user }) => {
             {errors.gender && (
               <small className="text-danger form-text">
                 {errors.gender.message}
-              </small>
-            )}
-          </div>
-          <div className="form-group">
-            <label className="mb-0">Add your goal weight (lbs)</label>
-            <input
-              type="number"
-              className="rounded p-3 w-100 border border-primary"
-              name="goalWeight"
-              id="goalWeight"
-              placeholder="lbs"
-              onChange={handleChangeKg}
-              defaultValue={user.goalWeight}
-              ref={register({
-                required: {
-                  value: true,
-                  message: "Please add weight in lbs",
-                },
-                maxLength: {
-                  value: 3,
-                  message: "Max length is 3",
-                },
-                pattern: {
-                  value: /^[0-9]+$/,
-                  message: "Use numbers only, max length is 3",
-                },
-              })}
-            />
-            {errors.goalWeight && (
-              <small id="passwordHelpBlock" className="text-danger form-text">
-                {errors.goalWeight.message}
               </small>
             )}
           </div>
