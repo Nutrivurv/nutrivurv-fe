@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { ReactComponent as Placeholder } from "../../assets/Placeholder.svg";
+import DailyVibe from "./DailyVibe";
 
 const Navigation = () => {
   return (
@@ -46,25 +47,26 @@ const Navigation = () => {
             </div>
           </div>
         </div>
-        <ul className="navbar-nav pl-4">
-          <li className="side-link mb-3">
+        <ul className="navbar-nav">
+          <li className="side-link mb-3 pl-4">
             <NavLink to="/" className="nav-link">
               <h4 className="font-weight-bold side-link-color">Food</h4>
             </NavLink>
           </li>
-          <li className="side-link mb-3">
+          <li className="side-link mb-3 pl-4">
             <NavLink to="/" className="nav-link">
               <h4 className="font-weight-bold side-link-color">Progress</h4>
             </NavLink>
           </li>
-          <li className="side-link">
-            <NavLink to="/" className="nav-link mb-5">
+          <li className="side-link mb-5 pl-4">
+            <NavLink to="/" className="nav-link">
               <h4 className="font-weight-bold side-link-color">Community</h4>
             </NavLink>
           </li>
         </ul>
         <div className="mt-5 pl-4">
-          <h5 className="font-weight-bold">Daily Vibe</h5>
+          <h5 className="font-weight-bold">Daily Vibes</h5>
+          <DailyVibe />
         </div>
       </nav>
 

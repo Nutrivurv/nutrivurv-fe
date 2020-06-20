@@ -11,6 +11,7 @@ import Nav from "./components/nav/nav";
 import Footer from "./components/footer/footer";
 import About from "./components/About/About";
 import Navigation from "./components/Dashboard/Navigation";
+import Daily from "./components/Dashboard/DailyVibe";
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
       <Route exact path="/signup" component={OnBoarding} />
       <Route exact path="/about" component={About} />
       <Route exact path="/nav" component={Navigation} />
+      <Route exact path="/daily" component={Daily} />
+
       {/* <Footer /> */}
     </div>
   );
