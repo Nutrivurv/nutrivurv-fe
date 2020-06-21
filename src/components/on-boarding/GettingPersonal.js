@@ -1,5 +1,5 @@
 import React from "react";
-import { addDays } from 'date-fns';
+import { addDays } from "date-fns";
 import { useForm, Controller } from "react-hook-form";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -87,7 +87,7 @@ const GettingPersonal = ({
             Continue
           </button>
           <button
-            onClick={() => setStep("signUp")}
+            onClick={() => setStep("gettingStarted")}
             className="mt-3 btn-secondary rounded p-2 w-100"
           >
             Back
