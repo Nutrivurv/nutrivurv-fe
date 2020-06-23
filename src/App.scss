@@ -6,30 +6,29 @@ $light: rgb(240,240,240);
 
 .text-responsive {
   font-size: calc(100% + 1.5vw + 1.5vh);
-}
-
+};
 
 .second-text-responsive {
   font-size: calc(100% + .5vw + .5vh);
-}
+};
 
 .landing-text-responsive {
   font-size: calc(100% + 1vw + 1vh);
-}
+};
 
 .justify {
   justify-content: space-evenly
-}
+};
 
 .img-responsive {
   max-width: 100%; 
   max-height: auto; 
-}
+};
 
 .img-responsive-landing {
   max-width: 70%; 
   max-height: auto; 
-}
+};
 
 .lp-img{
   width: 50%;
@@ -60,16 +59,57 @@ $light: rgb(240,240,240);
 .pl-6{
   padding-left: 7rem;
 }
+.react-datepicker-wrapper{
+  display: block!important;
+};
 
 .pb-6{
   padding-bottom: 7rem;
 }
+
 .mt-6{
   margin-top: 9rem;
-}
+};
 
 .no-arrow {
   -webkit-appearance: none;
+};
+
+.wrapper {
+  display: flex;
+  width: 100%;
+};
+
+#sidebar {
+  min-width: 300px;
+  max-width: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  background: rgb(240,240,240);
+  transition: all 0.5s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+  transform-origin: center left; 
+};
+
+@media (max-width: 768px) {
+  .sidebar {
+      margin-left: -250px;
+      transform: rotateY(100deg);
+  }
+  .sidebar-active {
+    transform: rotateY(0deg);
+  }
+};
+
+li.side-link:hover {
+  background-color: #95a5a6;
+  color: #2C3E50;
+};
+
+.primary-color {
+  color: #2C3E50;
 }
 
 @import "~bootswatch/dist/flatly/variables";

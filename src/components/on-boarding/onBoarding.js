@@ -6,6 +6,7 @@ import GettingPersonal from "./GettingPersonal";
 import Active from "./ActivityLevelForm";
 import SignIn from "../SignIn/SignIn";
 import WeightGoals from "./WeightGoals";
+import GettingStarted from "./gettingStarted";
 const OnBoarding = () => {
   const [user, setUser] = useState({
     username: "",
@@ -22,7 +23,7 @@ const OnBoarding = () => {
     weight: "",
     weightChangeRate: "",
   });
-  const [step, setStep] = useState("signUp");
+  const [step, setStep] = useState("gettingStarted");
 
   function handleChange(e) {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -40,7 +41,9 @@ const OnBoarding = () => {
 
   return (
     <>
-      {step === "signUp" ? (
+      {step === "gettingStarted" ? (
+        <GettingStarted setStep={setStep} />
+      ) : step === "signUp" ? (
         <SignUp user={user} setStep={setStep} handleChange={handleChange} />
       ) : step === "GettingPersonal" ? (
         <GettingPersonal
