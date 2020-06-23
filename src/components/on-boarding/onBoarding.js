@@ -5,6 +5,7 @@ import DietaryPref from "./dietaryPref";
 import GettingPersonal from "./GettingPersonal";
 import Active from "./ActivityLevelForm";
 import SignIn from "../SignIn/SignIn";
+import WeightGoals from "./WeightGoals";
 import GettingStarted from "./gettingStarted";
 const OnBoarding = ({ setStep, step, nextStep, prevStep }) => {
   const [user, setUser] = useState({
@@ -20,6 +21,7 @@ const OnBoarding = ({ setStep, step, nextStep, prevStep }) => {
     ft: "",
     inch: "",
     weight: "",
+    weightChangeRate: "",
   });
 
   function handleChange(e) {
@@ -51,7 +53,13 @@ const OnBoarding = ({ setStep, step, nextStep, prevStep }) => {
         />
       ) : step === 4 ? (
         <Active user={user} setStep={setStep} handleChange={handleChange} />
-      ) : step === 5 ? (
+      ) : step === "DietaryPref" ? (
+        <WeightGoals
+          user={user}
+          setStep={setStep}
+          handleChange={handleChange}
+        />
+      ) : step === "WeightGoal" ? (
         <DietaryPref
           user={user}
           setStep={setStep}
