@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Slider from "rc-slider";
 import { useForm, Controller } from "react-hook-form";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
@@ -14,6 +14,9 @@ const WeightGoals = ({ prevStep, nextStep, setStep, handleChange, user }) => {
     1: "1 lbs/week",
     2: "2 lbs/week",
   };
+
+  const [value, setValue] = useState(0);
+  user.weightChangeRate = value.toString();
 
   return (
     <div
@@ -53,11 +56,12 @@ const WeightGoals = ({ prevStep, nextStep, setStep, handleChange, user }) => {
               Rate of Weight Gain or Loss
             </label>
             <Controller
-              name="WeightChange_Slider"
+              name="weightChangeRate"
               control={control}
+              onChange={(value) => setValue(value)}
               as={
                 <Slider
-                  onChange={handleChange}
+                  onUpdate={handleChange}
                   step={1}
                   max={2}
                   min={0}
