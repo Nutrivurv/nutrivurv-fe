@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
 import NextBttn from "../on-boarding/Buttons/NextBttn";
-const SignUp = ({ nextStep, handleChange, user }) => {
+import BackBttn from "../on-boarding/Buttons/BackBttn";
+const SignUp = ({ nextStep, prevStep, handleChange, user }) => {
   const { register, errors, handleSubmit, watch } = useForm({});
   const password = useRef({});
   password.current = watch("password", "");
@@ -116,6 +117,7 @@ const SignUp = ({ nextStep, handleChange, user }) => {
               )}
             </div>
             <NextBttn handleSubmit={handleSubmit} onSubmit={onSubmit} />
+            <BackBttn prevStep={prevStep} />
           </form>
           <div className="d-flex justify-content-center mt-3 p-2">
             <p className="mr-2"> Already a member? </p>

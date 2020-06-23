@@ -4,9 +4,11 @@ import { useForm, Controller } from "react-hook-form";
 import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
+import NextBttn from "./Buttons/NextBttn";
+import BackBttn from "./Buttons/BackBttn";
 const GettingPersonal = ({
-  setStep,
-  handleChangeKg,
+  nextStep,
+  prevStep,
   handleChange,
   handleDateChange,
   user,
@@ -15,7 +17,7 @@ const GettingPersonal = ({
 
   const onSubmit = async (data) => {
     alert(JSON.stringify(data));
-    setStep("ActivityLevel");
+    nextStep();
   };
 
   return (
@@ -39,7 +41,7 @@ const GettingPersonal = ({
                 valueName="selected"
                 name="selected"
                 className="datepicker-input py-3 px-2 w-100 rounded border border-primary "
-                defaultValue={user.selected}
+                value={user.selected}
                 selected={user.selected}
                 onChange={handleDateChange}
                 placeholderText="--/--/----"
@@ -78,20 +80,8 @@ const GettingPersonal = ({
               </small>
             )}
           </div>
-          <button
-            data-cy="submit"
-            type="submit"
-            className="btn-primary rounded p-2 w-100 border border-primary"
-            onClick={handleSubmit(onSubmit)}
-          >
-            Continue
-          </button>
-          <button
-            onClick={() => setStep("gettingStarted")}
-            className="mt-3 btn-secondary rounded p-2 w-100"
-          >
-            Back
-          </button>
+          <NextBttn handleSubmit={handleSubmit} onSubmit={onSubmit} />
+          <BackBttn prevStep={prevStep} />
         </form>
       </div>
       <OnBoardingImg />
