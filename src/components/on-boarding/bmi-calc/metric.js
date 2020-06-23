@@ -9,10 +9,6 @@ const Metric = ({ bmi, setBmi, setUser, user, nextStep, prevStep }) => {
   };
 
   const { register, handleSubmit, errors } = useForm({});
-  const onSubmit = async (data) => {
-    alert(JSON.stringify(data));
-    nextStep();
-  };
 
   let meters = Number(bmi.cm) / 100;
   let height = meters * meters;
@@ -73,7 +69,7 @@ const Metric = ({ bmi, setBmi, setUser, user, nextStep, prevStep }) => {
             )}
           </div>
         </div>
-        <NextBttn handleSubmit={handleSubmit} onSubmit={onSubmit} />
+        <NextBttn handleSubmit={handleSubmit} nextStep={nextStep} />
         <BackBttn prevStep={prevStep} />
         <h5>
           Your BMI:{" "}

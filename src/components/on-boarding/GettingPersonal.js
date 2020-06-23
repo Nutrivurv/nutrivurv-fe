@@ -15,11 +15,6 @@ const GettingPersonal = ({
 }) => {
   const { register, handleSubmit, errors, reset, control } = useForm({});
 
-  const onSubmit = async (data) => {
-    alert(JSON.stringify(data));
-    nextStep();
-  };
-
   return (
     <div
       className="d-flex justify mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5"
@@ -80,7 +75,7 @@ const GettingPersonal = ({
               </small>
             )}
           </div>
-          <NextBttn handleSubmit={handleSubmit} onSubmit={onSubmit} />
+          <NextBttn handleSubmit={handleSubmit} nextStep={nextStep} />
           <BackBttn prevStep={prevStep} />
         </form>
       </div>

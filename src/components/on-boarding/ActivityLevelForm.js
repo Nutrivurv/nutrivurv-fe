@@ -5,10 +5,6 @@ import NextBttn from "./Buttons/NextBttn";
 import BackBttn from "./Buttons/BackBttn";
 const ActivityLevelForm = ({ nextStep, prevStep, handleChange, user }) => {
   const { errors, register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data));
-    nextStep();
-  };
 
   return (
     <div
@@ -20,7 +16,8 @@ const ActivityLevelForm = ({ nextStep, prevStep, handleChange, user }) => {
           How active are you?
         </h2>
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={(e) => e.preventDefault()}
+          // onSubmit={handleSubmit(onSubmit)}
           className="form-group"
           role="form "
         >
@@ -106,7 +103,7 @@ const ActivityLevelForm = ({ nextStep, prevStep, handleChange, user }) => {
               Activity level selection is required
             </small>
           )}
-          <NextBttn handleSubmit={handleSubmit} onSubmit={onSubmit} />
+          <NextBttn handleSubmit={handleSubmit} nextStep={nextStep} />
           <BackBttn prevStep={prevStep} />
         </form>
       </div>

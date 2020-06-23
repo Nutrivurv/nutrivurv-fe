@@ -39,7 +39,11 @@ const OnBoarding = ({ step, nextStep, prevStep }) => {
   }
 
   function handleDateChange(date) {
-    setUser({ ...user, selected: date });
+    date = date[0];
+    setUser({
+      ...user,
+      selected: moment(date).format("MM-DD-YYYY"),
+    });
   }
 
   return (

@@ -8,10 +8,6 @@ const SignUp = ({ nextStep, prevStep, handleChange, user }) => {
   const { register, errors, handleSubmit, watch } = useForm({});
   const password = useRef({});
   password.current = watch("password", "");
-  const onSubmit = async (data) => {
-    alert(JSON.stringify(data));
-    nextStep();
-  };
 
   return (
     <div>
@@ -116,7 +112,7 @@ const SignUp = ({ nextStep, prevStep, handleChange, user }) => {
                 </small>
               )}
             </div>
-            <NextBttn handleSubmit={handleSubmit} onSubmit={onSubmit} />
+            <NextBttn handleSubmit={handleSubmit} nextStep={nextStep} />
             <BackBttn prevStep={prevStep} />
           </form>
           <div className="d-flex justify-content-center mt-3 p-2">
