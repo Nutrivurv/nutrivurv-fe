@@ -27,7 +27,7 @@ const OnBoarding = ({ step, nextStep, prevStep }) => {
   });
 
   function handleChange(e) {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.currentTarget.name]: e.currentTarget.value });
   }
 
   console.log(user);
@@ -50,7 +50,7 @@ const OnBoarding = ({ step, nextStep, prevStep }) => {
     <>
       {step === 1 ? (
         <GettingStarted nextStep={nextStep} />
-      ) : step === 5 ? (
+      ) : step === 6 ? (
         <SignUp
           user={user}
           prevStep={prevStep}
@@ -72,7 +72,7 @@ const OnBoarding = ({ step, nextStep, prevStep }) => {
           nextStep={nextStep}
           handleChange={handleChange}
         />
-      ) : step === "DietaryPref" ? (
+      ) : step === 5 ? (
         <WeightGoals
           user={user}
           nextStep={nextStep}

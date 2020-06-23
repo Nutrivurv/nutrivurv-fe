@@ -2,14 +2,11 @@ import React from "react";
 import Slider from "rc-slider";
 import { useForm, Controller } from "react-hook-form";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
+import NextBttn from "./Buttons/NextBttn";
+import BackBttn from "./Buttons/BackBttn";
 import "rc-slider/assets/index.css";
 
-const WeightGoals = ({ setStep, handleChange, user }) => {
-  const onSubmit = async (data) => {
-    alert(JSON.stringify(data));
-    setStep("weightGoals");
-  };
-
+const WeightGoals = ({ prevStep, nextStep, setStep, handleChange, user }) => {
   const { register, handleSubmit, control, errors } = useForm({});
 
   const marks = {
@@ -28,7 +25,7 @@ const WeightGoals = ({ setStep, handleChange, user }) => {
           Weight Goals{" "}
         </h2>
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={(e) => e.preventDefault()}
           className="form-group"
           role="form "
         >
@@ -72,19 +69,8 @@ const WeightGoals = ({ setStep, handleChange, user }) => {
               }
             />
           </div>
-          <button
-            type="submit"
-            className="btn-primary rounded p-2 w-100 border border-primary mt-1"
-            onClick={handleSubmit(onSubmit)}
-          >
-            Continue
-          </button>
-          <button
-            onClick={() => setStep("BMI")}
-            className="mt-3 btn-secondary rounded p-2 w-100"
-          >
-            Back
-          </button>
+          <NextBttn handleSubmit={handleSubmit} nextStep={nextStep} />
+          <BackBttn prevStep={prevStep} />
         </form>
       </div>
       <OnBoardingImg />
