@@ -41,12 +41,25 @@ $light: rgb(240,240,240);
 .datepicker-input{
   width:250px;
 }
+.slider-horizontal{
+  width:100%;
+  margin-left:1rem;
+  margin-bottom:1rem;
+  display:block;
+}
+
+.rc-slider-with-marks{
+  margin-bottom: 6rem; 
+  display: block;
+}
+
+.rc-slider-mark-text{
+  width: 50px;
+}
 
 .pl-6{
   padding-left: 7rem;
 }
-
-
 
 .pb-6{
   padding-bottom: 7rem;
