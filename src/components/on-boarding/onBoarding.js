@@ -6,7 +6,7 @@ import GettingPersonal from "./GettingPersonal";
 import Active from "./ActivityLevelForm";
 import SignIn from "../SignIn/SignIn";
 import GettingStarted from "./gettingStarted";
-const OnBoarding = () => {
+const OnBoarding = ({ setStep, step, nextStep, prevStep }) => {
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -21,7 +21,6 @@ const OnBoarding = () => {
     inch: "",
     weight: "",
   });
-  const [step, setStep] = useState("gettingStarted");
 
   function handleChange(e) {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -39,26 +38,26 @@ const OnBoarding = () => {
 
   return (
     <>
-      {step === "gettingStarted" ? (
-        <GettingStarted setStep={setStep} />
-      ) : step === "signUp" ? (
-        <SignUp user={user} setStep={setStep} handleChange={handleChange} />
-      ) : step === "GettingPersonal" ? (
+      {step === 1 ? (
+        <GettingStarted nextStep={nextStep} />
+      ) : step === 2 ? (
+        <SignUp user={user} nextStep={nextStep} handleChange={handleChange} />
+      ) : step === 3 ? (
         <GettingPersonal
           user={user}
           setStep={setStep}
           handleChange={handleChange}
           handleChangeKg={handleChangeKg}
         />
-      ) : step === "ActivityLevel" ? (
+      ) : step === 4 ? (
         <Active user={user} setStep={setStep} handleChange={handleChange} />
-      ) : step === "DietaryPref" ? (
+      ) : step === 5 ? (
         <DietaryPref
           user={user}
           setStep={setStep}
           handleChange={handleChange}
         />
-      ) : step === "BMI" ? (
+      ) : step === 6 ? (
         <BMI
           setStep={setStep}
           setUser={setUser}

@@ -1,7 +1,7 @@
 import React from "react";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
 
-const gettingStarted = ({ setStep }) => {
+const gettingStarted = ({ nextStep }) => {
   return (
     <div
       className="d-flex justify-content-center mt-4 mx-lg-5 mx-md-5 mx-sm-5 mx-5"
@@ -25,7 +25,7 @@ const gettingStarted = ({ setStep }) => {
           <button
             type="button"
             className="btn-primary rounded p-2 mt-3 w-50 border border-primary"
-            onClick={() => setStep("GettingPersonal")}
+            onClick={() => nextStep()}
           >
             Continue
           </button>

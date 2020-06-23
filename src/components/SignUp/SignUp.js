@@ -2,13 +2,14 @@ import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
-const SignUp = ({ setStep, handleChange, user }) => {
+import NextBttn from "../on-boarding/Buttons/NextBttn";
+const SignUp = ({ nextStep, handleChange, user }) => {
   const { register, errors, handleSubmit, watch } = useForm({});
   const password = useRef({});
   password.current = watch("password", "");
   const onSubmit = async (data) => {
     alert(JSON.stringify(data));
-    setStep("GettingPersonal");
+    nextStep();
   };
 
   return (
@@ -114,15 +115,7 @@ const SignUp = ({ setStep, handleChange, user }) => {
                 </small>
               )}
             </div>
-
-            <button
-              type="submit"
-              data-cy="submit"
-              className="btn-primary rounded p-2 w-100 border border-primary"
-              onClick={handleSubmit(onSubmit)}
-            >
-              Let&apos;s Go!
-            </button>
+            <NextBttn handleSubmit={handleSubmit} onSubmit={onSubmit} />
           </form>
           <div className="d-flex justify-content-center mt-3 p-2">
             <p className="mr-2"> Already a member? </p>
