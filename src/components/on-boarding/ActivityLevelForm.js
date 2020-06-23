@@ -1,13 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
-
-const ActivityLevelForm = ({ setStep, handleChange, user }) => {
+import NextBttn from "./Buttons/NextBttn";
+import BackBttn from "./Buttons/BackBttn";
+const ActivityLevelForm = ({ nextStep, prevStep, handleChange, user }) => {
   const { errors, register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    alert(JSON.stringify(data));
-    setStep("DietaryPref");
-  };
 
   return (
     <div
@@ -19,7 +16,8 @@ const ActivityLevelForm = ({ setStep, handleChange, user }) => {
           How active are you?
         </h2>
         <form
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={(e) => e.preventDefault()}
+          // onSubmit={handleSubmit(onSubmit)}
           className="form-group"
           role="form "
         >
@@ -105,19 +103,8 @@ const ActivityLevelForm = ({ setStep, handleChange, user }) => {
               Activity level selection is required
             </small>
           )}
-          <button
-            type="submit"
-            className="btn-primary rounded p-2 w-100 border border-primary mt-1"
-            onClick={handleSubmit(onSubmit)}
-          >
-            Continue
-          </button>
-          <button
-            onClick={() => setStep("GettingPersonal")}
-            className="mt-3 btn-secondary rounded p-2 w-100"
-          >
-            Back
-          </button>
+          <NextBttn handleSubmit={handleSubmit} nextStep={nextStep} />
+          <BackBttn prevStep={prevStep} />
         </form>
       </div>
       <OnBoardingImg />

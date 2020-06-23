@@ -1,17 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-
-const Standard = ({ setBmi, bmi, setUser, user, setStep }) => {
+import NextBttn from "../Buttons/NextBttn";
+import BackBttn from "../Buttons/BackBttn";
+const Standard = ({ setBmi, bmi, setUser, user, nextStep, prevStep }) => {
   const handleChanges = (e) => {
     setBmi({ ...bmi, [e.target.name]: e.target.value });
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const { register, handleSubmit, errors } = useForm({});
-  const onSubmit = async (data) => {
-    alert(JSON.stringify(data));
-    setStep("Complete");
-  };
 
   let height = Number(bmi.ft) * 12 + Number(bmi.inch);
   bmi.total = Math.ceil(
@@ -32,7 +29,7 @@ const Standard = ({ setBmi, bmi, setUser, user, setStep }) => {
               id="feet"
               name="ft"
               placeholder="ft"
-              defaultValue={bmi.ft}
+              defaultValue={user.ft}
               onChange={handleChanges}
               ref={register({
                 required: {
@@ -61,7 +58,7 @@ const Standard = ({ setBmi, bmi, setUser, user, setStep }) => {
               id="inches"
               name="inch"
               placeholder="in"
-              defaultValue={bmi.inch}
+              defaultValue={user.inch}
               onChange={handleChanges}
               ref={register({
                 required: {
@@ -90,7 +87,7 @@ const Standard = ({ setBmi, bmi, setUser, user, setStep }) => {
               id="pounds"
               name="weight"
               placeholder="lbs"
-              defaultValue={bmi.weight}
+              defaultValue={user.weight}
               onChange={handleChanges}
               ref={register({ required: true, maxLength: 3, max: 999 })}
             />
@@ -99,13 +96,8 @@ const Standard = ({ setBmi, bmi, setUser, user, setStep }) => {
             )}
           </div>
         </div>
-        <button
-          onClick={handleSubmit(onSubmit)}
-          className="btn-primary rounded p-2 w-100 border border-primary mt-2 mb-4"
-          type="submit"
-        >
-          Submit
-        </button>
+        <NextBttn handleSubmit={handleSubmit} nextStep={nextStep} />
+        <BackBttn prevStep={prevStep} />
         <h5>
           Your BMI:{" "}
           <span className="text-info">

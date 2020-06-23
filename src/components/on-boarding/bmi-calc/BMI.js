@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Standard from "./standard";
 import Metric from "./metric";
 import OnBoardingImg from "../onBoarding-img";
-const BMI = ({ setUser, user, handleChange, setStep }) => {
+const BMI = ({ setUser, user, handleChange, nextStep, prevStep }) => {
   const [bttn, setBttn] = useState(true);
   const [bmi, setBmi] = useState({
     ft: "",
@@ -51,12 +51,14 @@ const BMI = ({ setUser, user, handleChange, setStep }) => {
               setUser={setUser}
               user={user}
               handleChange={handleChange}
-              setStep={setStep}
+              nextStep={nextStep}
+              prevStep={prevStep}
             />
           ) : (
             <Metric
               bmi={bmi}
-              setStep={setStep}
+              nextStep={nextStep}
+              prevStep={prevStep}
               setBmi={setBmi}
               setUser={setUser}
               user={user}
