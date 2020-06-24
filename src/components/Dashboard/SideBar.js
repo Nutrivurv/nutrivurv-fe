@@ -41,6 +41,7 @@ const SideBar = () => {
             </div>
             <div className="mt-5 mb-3">
               <button
+                id="add-journal"
                 className="btn-primary rounded p-2 border border-primary"
                 style={{ width: "250px" }}
               >
