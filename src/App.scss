@@ -88,20 +88,21 @@ $light: rgb(240,240,240);
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   z-index: 999;
   background: rgb(240,240,240);
   transition: all 0.5s cubic-bezier(0.945, 0.020, 0.270, 0.665);
   transform-origin: center left; 
 };
 
+.sidebar-active {
+  transform: rotateY(0deg);
+}
+
 @media (max-width: 768px) {
   .sidebar {
       margin-left: -250px;
       transform: rotateY(100deg);
-  }
-  .sidebar-active {
-    transform: rotateY(0deg);
   }
 };
 
