@@ -41,6 +41,7 @@ const SideBar = () => {
             </div>
             <div className="mt-5 mb-3">
               <button
+                id="add-journal"
                 className="btn-primary rounded p-2 border border-primary"
                 style={{ width: "250px" }}
               >
@@ -51,17 +52,17 @@ const SideBar = () => {
         </div>
         <ul className="navbar-nav">
           <li className="side-link mb-3 pl-4">
-            <NavLink to="/" className="nav-link">
+            <NavLink to="/" id="food" className="nav-link">
               <h4 className="font-weight-bold primary-color">Food</h4>
             </NavLink>
           </li>
           <li className="side-link mb-3 pl-4">
-            <NavLink to="/" className="nav-link">
+            <NavLink to="/" id="progress" className="nav-link">
               <h4 className="font-weight-bold primary-color">Progress</h4>
             </NavLink>
           </li>
           <li className="side-link mb-5 pl-4">
-            <NavLink to="/" className="nav-link">
+            <NavLink to="/" id="community" className="nav-link">
               <h4 className="font-weight-bold primary-color">Community</h4>
             </NavLink>
           </li>
