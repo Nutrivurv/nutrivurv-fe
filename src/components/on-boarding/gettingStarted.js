@@ -24,6 +24,7 @@ const gettingStarted = ({ nextStep }) => {
         <div className="row justify-content-center">
           <button
             type="button"
+            id="getStarted"
             className="btn-primary rounded p-2 mt-3 w-50 border border-primary"
             onClick={() => nextStep()}
           >
