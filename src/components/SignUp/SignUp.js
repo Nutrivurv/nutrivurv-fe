@@ -1,10 +1,14 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import OnBoardingImg from "../on-boarding/onBoarding-img";
+import {connect} from 'react-redux';
+import OnBoardingImg from "../on-boarding/onBoarding-img"
+import {signUp} from '../../State/Slices/slices';
+
+const mapDispatch = { signUp }
 
 
-const SignUp = ({ setStep, handleChange, user }) => {
+const SignUp = ({ setStep, handleChange, user, signUp }) => {
   const { register, errors, handleSubmit, watch } = useForm({});
   const password = useRef({});
   password.current = watch("password", "");
@@ -131,4 +135,7 @@ const SignUp = ({ setStep, handleChange, user }) => {
   );
 };
 
-export default SignUp;
+export default connect(
+  null,
+  mapDispatch
+)(SignUp)

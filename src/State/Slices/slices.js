@@ -1,26 +1,39 @@
+import axios from "axios";
+
 const { createSlice, combineReducers } = require("@reduxjs/toolkit");
 
 const SignUpSlice = createSlice({
-  name: "signUp",
+  name: "auth",
   initialState: {
-    name: "",
-    email: "",
-    password: "",
+    user:{
+      name:'',
+      email:'',
+      password:'',
+    },
+    token:{},
+    isFetchingLogin: false,
+
   },
-  reducers: {},
+  reducers: {
+    signUp(state, action){
+      return{
+        ...state,
+        token: action.payload
+      }
+    },
+    login(state, action){
+      return{
+        ...state,
+        isFetchingLogin: true
+      }
+    }
 });
 
-const LogInSlice = createSlice({
-  name: "signUp",
-  initialState: {
-    name: "",
-    email: "",
-    password: "",
-  },
-  reducers: {},
-});
+export const {signUp, login} = SignUpSlice.actions;
 
-export const rootReducer = combineReducers({
-  SignUpSlice,
-  LogInSlice,
-});
+export default SignUpSlice.reducer
+
+
+// export const rootReducer = combineReducers({
+//   SignUpSlice
+// });

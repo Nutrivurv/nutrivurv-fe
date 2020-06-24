@@ -3,7 +3,7 @@ import "bootswatch/dist/flatly/bootstrap.min.css";
 import "./App.scss";
 
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage.js";
 import SignIn from "./components/SignIn/SignIn";
 import OnBoarding from "./components/on-boarding/onBoarding";
@@ -19,8 +19,10 @@ function App() {
       <div className="App">
         <Nav />
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/signin" component={SignIn} />
-        <Route exact path="/signup" component={OnBoarding} />
+        <Switch>
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path="/signup" component={OnBoarding} />
+        </Switch>
         <Route exact path="/about" component={About} />
         <Footer />
       </div>
