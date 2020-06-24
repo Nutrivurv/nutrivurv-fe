@@ -2,7 +2,6 @@ import React from "react";
 
 const NextBttn = ({ handleSubmit, nextStep }) => {
   const onSubmit = (data) => {
-    // alert(JSON.stringify(data));
     nextStep();
   };
 
