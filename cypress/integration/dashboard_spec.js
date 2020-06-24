@@ -34,5 +34,11 @@ describe("Dashboard", () => {
     });
     cy.go("back");
   });
-  
+});
+
+describe("page on small screen size", () => {
+  it("should set viewport to mobile size", () => {
+    cy.viewport(576, 750);
+
+  });
 });
