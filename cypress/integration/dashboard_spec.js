@@ -18,4 +18,12 @@ describe("Dashboard", () => {
     });
     cy.go("back");
   });
+
+  it("sidebar progress link should work and go to /", () => {
+    cy.get("#progress").click();
+    cy.location().should((loc) => {
+      expect(loc.pathname).to.eq("/");
+    });
+    cy.go("back");
+  });
 });
