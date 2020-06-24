@@ -11,10 +11,11 @@ describe("Dashboard", () => {
     cy.get("#add-journal").click();
   });
 
-  it("navbar sign up link should work and go to /signup", () => {
-    cy.get("#signUp").click();
+  it("sidebar food link should work and go to /", () => {
+    cy.get("#food").click();
     cy.location().should((loc) => {
-      expect(loc.pathname).to.eq("/signup");
+      expect(loc.pathname).to.eq("/");
     });
     cy.go("back");
+  });
 });
