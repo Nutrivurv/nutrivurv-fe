@@ -10,4 +10,11 @@ describe("Dashboard", () => {
   it("Add to Journal button should work", () => {
     cy.get("#add-journal").click();
   });
+
+  it("navbar sign up link should work and go to /signup", () => {
+    cy.get("#signUp").click();
+    cy.location().should((loc) => {
+      expect(loc.pathname).to.eq("/signup");
+    });
+    cy.go("back");
 });
