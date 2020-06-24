@@ -1,21 +1,13 @@
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import {connect} from 'react-redux';
-import OnBoardingImg from "../on-boarding/onBoarding-img"
-import {signUp} from '../../State/Slices/slices';
-
-const mapDispatch = { signUp }
-
-
-const SignUp = ({ setStep, handleChange, user, signUp }) => {
+import OnBoardingImg from "../on-boarding/onBoarding-img";
+import NextBttn from "../on-boarding/Buttons/NextBttn";
+import BackBttn from "../on-boarding/Buttons/BackBttn";
+const SignUp = ({ nextStep, prevStep, handleChange, user }) => {
   const { register, errors, handleSubmit, watch } = useForm({});
   const password = useRef({});
   password.current = watch("password", "");
-  const onSubmit = async (data) => {
-    alert(JSON.stringify(data));
-    setStep("GettingPersonal");
-  };
 
   return (
     <div>
@@ -46,7 +38,9 @@ const SignUp = ({ setStep, handleChange, user, signUp }) => {
                 })}
               />
               {errors.username && (
-                <small className="text-danger">{errors.username.message}</small>
+                <small id="usernameErr" className="text-danger">
+                  {errors.username.message}
+                </small>
               )}
             </div>
 
@@ -67,7 +61,9 @@ const SignUp = ({ setStep, handleChange, user, signUp }) => {
                 })}
               />
               {errors.email && (
-                <small className="text-danger">{errors.email.message}</small>
+                <small id="emailErr" className="text-danger">
+                  {errors.email.message}
+                </small>
               )}
             </div>
 
@@ -92,7 +88,9 @@ const SignUp = ({ setStep, handleChange, user, signUp }) => {
                 })}
               />
               {errors.password && (
-                <small className="text-danger">{errors.password.message}</small>
+                <small id="pwordErr" className="text-danger">
+                  {errors.password.message}
+                </small>
               )}
             </div>
 
@@ -109,20 +107,13 @@ const SignUp = ({ setStep, handleChange, user, signUp }) => {
                 })}
               />
               {errors.password_repeat && (
-                <small className="text-danger">
+                <small id="pword2Err" className="text-danger">
                   {errors.password_repeat.message}
                 </small>
               )}
             </div>
-
-            <button
-              type="submit"
-              data-cy="submit"
-              className="btn-primary rounded p-2 w-100 border border-primary"
-              onClick={handleSubmit(onSubmit)}
-            >
-              Let&apos;s Go!
-            </button>
+            <NextBttn handleSubmit={handleSubmit} nextStep={nextStep} />
+            <BackBttn prevStep={prevStep} />
           </form>
           <div className="d-flex justify-content-center mt-3 p-2">
             <p className="mr-2"> Already a member? </p>

@@ -5,50 +5,85 @@ import DietaryPref from "./dietaryPref";
 import GettingPersonal from "./GettingPersonal";
 import Active from "./ActivityLevelForm";
 import SignIn from "../SignIn/SignIn";
-const OnBoarding = () => {
+import WeightGoals from "./WeightGoals";
+import GettingStarted from "./gettingStarted";
+import moment from "moment";
+const OnBoarding = ({ step, nextStep, prevStep }) => {
   const [user, setUser] = useState({
     username: "",
     password: "",
     email: "",
-    age: "",
     gender: "",
     goalWeight: "",
     activityLevel: "",
-    customRadio: "",
+    selected: "",
     DietaryPref: "",
     ft: "",
     inch: "",
     weight: "",
+    kg: "",
+    cm: "",
+    weightChangeRate: "",
   });
-  const [step, setStep] = useState("signUp");
 
   function handleChange(e) {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.currentTarget.name]: e.currentTarget.value });
   }
 
   console.log(user);
+  function handleChangeKg(e) {
+    setUser({
+      ...user,
+      [e.target.name]: Math.round(e.target.value * 0.45359237),
+    });
+  }
+
+  function handleDateChange(date) {
+    date = date[0];
+    setUser({
+      ...user,
+      selected: moment(date).format("MM-DD-YYYY"),
+    });
+  }
+
   return (
     <>
-      {step === "signUp" ? (
-        <SignUp user={user} setStep={setStep} handleChange={handleChange} />
-      ) : step === "GettingPersonal" ? (
+      {step === 1 ? (
+        <GettingStarted nextStep={nextStep} />
+      ) : step === 6 ? (
+        <SignUp
+          user={user}
+          prevStep={prevStep}
+          nextStep={nextStep}
+          handleChange={handleChange}
+        />
+      ) : step === 2 ? (
         <GettingPersonal
           user={user}
-          setStep={setStep}
+          nextStep={nextStep}
+          prevStep={prevStep}
           handleChange={handleChange}
+          handleDateChange={handleDateChange}
         />
-      ) : step === "ActivityLevel" ? (
-        <Active user={user} setStep={setStep} handleChange={handleChange} />
-      ) : step === "DietaryPref" ? (
-        <DietaryPref
+      ) : step === 3 ? (
+        <Active
           user={user}
-          setStep={setStep}
+          prevStep={prevStep}
+          nextStep={nextStep}
           handleChange={handleChange}
         />
-      ) : step === "BMI" ? (
+      ) : step === 5 ? (
+        <WeightGoals
+          user={user}
+          nextStep={nextStep}
+          prevStep={prevStep}
+          handleChange={handleChange}
+        />
+      ) : step === 4 ? (
         <BMI
-          setStep={setStep}
+          nextStep={nextStep}
           setUser={setUser}
+          prevStep={prevStep}
           user={user}
           handleChange={handleChange}
         />

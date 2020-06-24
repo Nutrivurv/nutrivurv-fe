@@ -1,13 +1,19 @@
 import React from "react";
-import { useForm } from "react-hook-form";
+import { addDays } from "date-fns";
+import { useForm, Controller } from "react-hook-form";
+import ReactDatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
-const GettingPersonal = ({ setStep, handleChange, user }) => {
-  const { register, handleSubmit, errors } = useForm({});
-
-  const onSubmit = async (data) => {
-    alert(JSON.stringify(data));
-    setStep("ActivityLevel");
-  };
+import NextBttn from "./Buttons/NextBttn";
+import BackBttn from "./Buttons/BackBttn";
+const GettingPersonal = ({
+  nextStep,
+  prevStep,
+  handleChange,
+  handleDateChange,
+  user,
+}) => {
+  const { register, handleSubmit, errors, reset, control } = useForm({});
 
   return (
     <div
@@ -19,99 +25,58 @@ const GettingPersonal = ({ setStep, handleChange, user }) => {
           Getting Personal
         </h1>
         <form onSubmit={(e) => e.preventDefault()}>
-          <div className="form-group">
-            <label className="mb-0">How old are you?</label>
-            <input
-              type="number"
-              className="rounded p-3 w-100 border border-primary"
-              name="age"
-              id="age"
-              placeholder="Age"
-              onChange={handleChange}
-              value={user.age}
-              ref={register({
-                required: (
-                  <small
-                    id="passwordHelpBlock"
-                    className="text-danger form-text"
-                  >
-                    {"required"}
-                  </small>
-                ),
-                maxLength: 2,
-                pattern: {
-                  value: /^[0-9]+$/,
-                  message: "Use numbers only",
-                },
-              })}
-            />
-            {errors.age && (
-              <small id="passwordHelpBlock" className="text-danger form-text">
-                {errors.age.message}
-              </small>
-            )}
+          <div className="form-group d-block">
+            <div>
+              <label className="mb-0">What's your date of birth?</label>
+            </div>
+            <div>
+              <Controller
+                as={ReactDatePicker}
+                control={control}
+                valueName="selected"
+                name="selected"
+                className="datepicker-input py-3 px-2 w-100 rounded border border-primary "
+                value={user.selected}
+                selected={user.selected}
+                onChange={handleDateChange}
+                placeholderText="--/--/----"
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+                maxDate={addDays(new Date(), -5475)}
+                //earliest birth date you're able to select is 15 years before the current date
+              />
+            </div>
           </div>
-
           <div className="form-group">
             <label className="mb-0">How do you identify?</label>
             <select
-              type="radio"
-              className="rounded p-3 w-100 border border-primary"
+              className="py-3 px-2 w-100 rounded border border-primary"
               id="gender"
-              placeholder="Gender"
               name="gender"
               onChange={handleChange}
-              value={user.gender}
-              required
-            >
-              <option value="female">Female</option>
-              <option value="male">Male</option>
-            </select>
-          </div>
-          <div className="form-group">
-            <label className="mb-0">Add your goal weight</label>
-            <input
-              className="rounded p-3 w-100 border border-primary"
-              name="goalWeight"
-              id="goalWeight"
-              placeholder="Enter weight"
-              onChange={handleChange}
-              value={user.goalWeight}
+              defaultValue={user.gender}
               ref={register({
-                required: (
-                  <small
-                    id="passwordHelpBlock"
-                    className="text-danger form-text"
-                  >
-                    {"required"}
-                  </small>
-                ),
-                maxLength: 3,
-                pattern: {
-                  value: /^[0-9]+$/,
-                  message: "Use numbers only",
+                required: {
+                  value: true,
+                  message: "required",
                 },
               })}
-            />
-            {errors.weight && (
-              <small id="passwordHelpBlock" className="text-danger form-text">
-                {errors.weight.message}
+            >
+              <option disabled value="">
+                Gender
+              </option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+            {errors.gender && (
+              <small className="text-danger form-text">
+                {errors.gender.message}
               </small>
             )}
           </div>
-          <button
-            type="submit"
-            className="btn-primary rounded p-2 w-100 border border-primary"
-            onClick={handleSubmit(onSubmit)}
-          >
-            Continue
-          </button>
-          <button
-            onClick={() => setStep("signUp")}
-            className="mt-3 btn-secondary rounded p-2 w-100"
-          >
-            Back
-          </button>
+          <NextBttn handleSubmit={handleSubmit} nextStep={nextStep} />
+          <BackBttn prevStep={prevStep} />
         </form>
       </div>
       <OnBoardingImg />

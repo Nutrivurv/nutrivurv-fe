@@ -1,17 +1,14 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-
-const Metric = ({ bmi, setBmi, setUser, user, setStep }) => {
+import NextBttn from "../Buttons/NextBttn";
+import BackBttn from "../Buttons/BackBttn";
+const Metric = ({ bmi, setBmi, setUser, user, nextStep, prevStep }) => {
   const handleChanges = (e) => {
     setBmi({ ...bmi, [e.target.name]: e.target.value });
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
   const { register, handleSubmit, errors } = useForm({});
-  const onSubmit = async (data) => {
-    alert(JSON.stringify(data));
-    setStep("Complete");
-  };
 
   let meters = Number(bmi.cm) / 100;
   let height = meters * meters;
@@ -29,7 +26,7 @@ const Metric = ({ bmi, setBmi, setUser, user, setStep }) => {
               id="centimeters"
               name="cm"
               placeholder="cm"
-              defaultValue={bmi.cm}
+              defaultValue={user.cm}
               onChange={handleChanges}
               ref={register({
                 required: {
@@ -54,7 +51,7 @@ const Metric = ({ bmi, setBmi, setUser, user, setStep }) => {
               id="kilograms"
               name="kg"
               placeholder="kg"
-              defaultValue={bmi.kg}
+              defaultValue={user.kg}
               onChange={handleChanges}
               ref={register({
                 required: {
@@ -72,13 +69,8 @@ const Metric = ({ bmi, setBmi, setUser, user, setStep }) => {
             )}
           </div>
         </div>
-        <button
-          onClick={handleSubmit(onSubmit)}
-          className="btn-primary rounded p-2 w-100 border border-primary mt-2 mb-4"
-          type="submit"
-        >
-          Submit
-        </button>
+        <NextBttn handleSubmit={handleSubmit} nextStep={nextStep} />
+        <BackBttn prevStep={prevStep} />
         <h5>
           Your BMI:{" "}
           <span className="text-info">
