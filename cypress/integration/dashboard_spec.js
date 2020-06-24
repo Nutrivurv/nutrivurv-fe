@@ -40,6 +40,7 @@ describe("page on small screen size", () => {
   it("should set viewport to mobile size", () => {
     cy.viewport(576, 750);
     cy.get(".navbar-toggler").should("be.visible");
-
+    cy.get(".navbar-toggler").click();
+    cy.get("#sidebar").find("a").should("be.visible");
   });
 });
