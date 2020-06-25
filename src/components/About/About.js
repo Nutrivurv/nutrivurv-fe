@@ -1,4 +1,16 @@
 import React from "react";
+import GitHubCalendar from "react-github-calendar";
+import ReactTooltip from "react-tooltip";
+import Footer from "../footer/footer";
+const colorTheme = {
+  background: "transparent",
+  text: "#000",
+  grade4: "#4D8037",
+  grade3: "#9ABA19",
+  grade2: "#1F7DA2",
+  grade1: "#00426C",
+  grade0: "#ebedf0",
+};
 
 const About = () => {
   return (
@@ -136,6 +148,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
