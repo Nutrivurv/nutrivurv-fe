@@ -17,243 +17,133 @@ const About = () => {
     <div>
       <br />
       <br />
-      <br />
-      <br />
-      <div className="d-flex justify-content-center">
+      <div className="d-flex justify-content-center py-4">
         <div>
-          <h2>About Us</h2>
+          <h2>Our Team</h2>
         </div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <div className="d-flex justify-content-center bg-secondary text-light p-2">
-        <h3> Team Lead</h3>
-      </div>
-      <div className="d-flex justify-content-around">
-        <div className="d-flex flex-wrap mb-4 p-5">
-          <div className="d-flex p-2 mb-2 mt-4 justify-content-center">
-            <div className="block">
-              <div className="d-flex justify-content-center">
-                <h4>Dave Vazquez</h4>
+      <div className="d-flex flex-wrap w-75 justify-content-around rounded mx-auto py-4 my-4">
+        <div className="d-flex p-2 my-2 mx-2 pb-4 pt-4 mb-4 justify-content-center bg-light rounded w-25 shadow">
+          <div className="d-block">
+            <div className="d-flex justify-content-center mb-4">
+              <img
+                src="https://github.com/dave-vazquez.png"
+                className="img-responsive rounded-circle"
+                width="150px"
+              />
+            </div>
+            <div className="d-flex justify-content-center">
+              <h5>Dave Vazquez</h5>
+            </div>
+            <div className="d-flex justify-content-center">
+              <div className="w-25">
+                <i className="fa fa-github fa-large text-dark"></i>
               </div>
-
-              <div className="d-flex justify-content-center mb-4">
-                <img
-                  src="https://github.com/dave-vazquez.png"
-                  className="img-responsive"
-                  width="150px"
-                />
-              </div>
-              <div>
-                <GitHubCalendar
-                  username="dave-vazquez"
-                  fontSize={10}
-                  blockSize={5}
-                  theme={colorTheme}
-                >
-                  <ReactTooltip delayShow={50} html />
-                </GitHubCalendar>
-              </div>
+              <a href="https://github.com/dave-vazquez">Github</a>
             </div>
           </div>
         </div>
-      </div>
-      <div className="d-flex justify-content-center bg-secondary text-light p-2">
-        <h3> Front End Web Developers</h3>
-      </div>
-      <div className="d-flex justify-content-around">
-        <div className="d-flex flex-wrap mb-4 p-5">
-          <div className="d-flex p-2 mb-2 mt-4 justify-content-center">
-            <div className="block">
-              <div className="d-flex justify-content-center">
-                <h4>Alessandra Longaretti</h4>
-              </div>
 
-              <div className="d-flex justify-content-center mb-4">
-                <img
-                  src="https://github.com/alesslongaretti.png"
-                  className="img-responsive"
-                  width="150px"
-                />
-              </div>
-              <div>
-                <GitHubCalendar
-                  username="alesslongaretti"
-                  fontSize={10}
-                  blockSize={5}
-                  theme={colorTheme}
-                >
-                  <ReactTooltip delayShow={50} html />
-                </GitHubCalendar>
-              </div>
+        <div className="d-flex p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded w-25 shadow">
+          <div className="d-block">
+            <div className="d-flex justify-content-center mb-4">
+              <img
+                src="https://github.com/alesslongaretti.png"
+                className="img-responsive rounded-circle"
+                width="150px"
+              />
             </div>
-          </div>
-          <div className="d-flex p-2 mb-2 mt-4 justify-content-center">
-            <div className="d-block">
-              <div className="d-flex justify-content-center">
-                <h4>Taty Novell</h4>
-              </div>
-              <div className="d-flex justify-content-center mb-4">
-                <img
-                  src="https://github.com/taty2010.png"
-                  className="img-responsive"
-                  width="150px"
-                />
-              </div>
-              <div>
-                <GitHubCalendar
-                  username="taty2010"
-                  fontSize={10}
-                  blockSize={5}
-                  theme={colorTheme}
-                >
-                  <ReactTooltip delayShow={50} html />
-                </GitHubCalendar>
-              </div>
+            <div className="d-flex justify-content-center">
+              <h5>Alessandra Longaretti</h5>
             </div>
-          </div>
-
-          <div className="d-flex p-2 mb-2 mt-4 justify-content-center">
-            <div className="block">
-              <div className="d-flex justify-content-center">
-                <h4>Christine Smith</h4>
+            <div className="d-flex justify-content-center">
+              <div className="w-25">
+                <i className="fa fa-github fa-large text-dark"></i>
               </div>
-              <div className="d-flex justify-content-center mb-4">
-                <img
-                  src="https://github.com/ccsmith13.png"
-                  className="img-responsive"
-                  width="150px"
-                />
-              </div>
-              <div>
-                <GitHubCalendar
-                  username="ccsmith13"
-                  fontSize={10}
-                  blockSize={5}
-                  theme={colorTheme}
-                >
-                  <ReactTooltip delayShow={50} html />
-                </GitHubCalendar>
-              </div>
+              <a href="https://github.com/alesslongaretti">Github</a>
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="d-flex justify-content-center bg-secondary text-light p-2">
-        <h3> Back End Web Developers</h3>
-      </div>
-      <div className="d-flex justify-content-around">
-        <div className="d-flex flex-wrap mb-4 p-5">
-          <div className="d-flex p-2 mb-2 mt-4 justify-content-center">
-            <div className="block">
-              <div className="d-flex justify-content-center">
-                <h4>Cody Brewer</h4>
-              </div>
-
-              <div className="d-flex justify-content-center mb-4">
-                <img
-                  src="https://github.com/codybrewer.png"
-                  className="img-responsive"
-                  width="150px"
-                />
-              </div>
-              <div>
-                <GitHubCalendar
-                  username="codybrewer"
-                  fontSize={10}
-                  blockSize={5}
-                  theme={colorTheme}
-                >
-                  <ReactTooltip delayShow={50} html />
-                </GitHubCalendar>
-              </div>
+        <div className="d-flex p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded w-25 shadow">
+          <div className="d-block">
+            <div className="d-flex justify-content-center mb-4">
+              <img
+                src="https://github.com/taty2010.png"
+                className="img-responsive rounded-circle"
+                width="150px"
+              />
             </div>
-          </div>
-
-          <div className="d-flex justify-content-center p-2 mb-2 mt-4">
-            <div className="d-block">
-              <div className="d-flex justify-content-center">
-                <h4>Dominic Bridgette</h4>
+            <div className="d-flex justify-content-center">
+              <h5>Taty Novell</h5>
+            </div>
+            <div className="d-flex justify-content-center">
+              <div className="w-25">
+                <i className="fa fa-github fa-large text-dark"></i>
               </div>
-              <div className="d-flex justify-content-center mb-4">
-                <img
-                  src="https://github.com/afrodo1.png"
-                  className="img-responsive"
-                  width="150px"
-                />
-              </div>
-              <div>
-                <GitHubCalendar
-                  username="afrodo1"
-                  fontSize={10}
-                  blockSize={5}
-                  theme={colorTheme}
-                >
-                  <ReactTooltip delayShow={50} html />
-                </GitHubCalendar>
-              </div>
+              <a href="https://github.com/taty2010">Github</a>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="d-flex justify-content-center bg-secondary text-light p-2">
-        <h3> iOS Developers</h3>
-      </div>
-      <div className="d-flex justify-content-around">
-        <div className="d-flex flex-wrap mb-4 p-5">
-          <div className="d-flex p-2 mb-2 mt-4 justify-content-center">
-            <div className="block">
-              <div className="d-flex justify-content-center">
-                <h4>Dillon Petretti</h4>
+        <div className="d-flex p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded w-25 shadow">
+          <div className="block">
+            <div className="d-flex justify-content-center mb-4">
+              <img
+                src="https://github.com/ccsmith13.png"
+                className="img-responsive rounded-circle"
+                width="150px"
+              />
+            </div>
+            <div className="d-flex justify-content-center">
+              <h5>Christine Smith</h5>
+            </div>
+            <div className="d-flex justify-content-center">
+              <div className="w-25">
+                <i className="fa fa-github fa-large text-dark"></i>
               </div>
-
-              <div className="d-flex justify-content-center mb-4">
-                <img
-                  src="https://github.com/dillonp23.png"
-                  className="img-responsive"
-                  width="150px"
-                />
-              </div>
-              <div>
-                <GitHubCalendar
-                  username="dillonp23"
-                  fontSize={10}
-                  blockSize={5}
-                  theme={colorTheme}
-                >
-                  <ReactTooltip delayShow={50} html />
-                </GitHubCalendar>
-              </div>
+              <a href="https://github.com/ccsmith13">Github</a>
             </div>
           </div>
+        </div>
 
-          <div className="d-flex justify-content-center p-2 mb-2 mt-4">
-            <div className="d-block">
-              <div className="d-flex justify-content-center">
-                <h4>Fabiola Saldivar</h4>
+        <div className="d-flex justify-content-center p-2 my-2 mx-2 pt-4 mb-4 pb-4 bg-light rounded w-25 shadow">
+          <div className="d-block">
+            <div className="d-flex justify-content-center mb-4">
+              <img
+                src="https://github.com/afrodo1.png"
+                className="img-responsive rounded-circle"
+                width="150px"
+              />
+            </div>
+            <div className="d-flex justify-content-center">
+              <h5>Dominic Bridgette</h5>
+            </div>
+            <div className="d-flex justify-content-center">
+              <div className="w-25">
+                <i className="fa fa-github fa-large text-dark"></i>
               </div>
-              <div className="d-flex justify-content-center mb-4">
-                <img
-                  src="https://github.com/fabiolasaga.png"
-                  className="img-responsive"
-                  width="150px"
-                />
+              <a href="https://github.com/afrodo1">Github</a>
+            </div>
+          </div>
+        </div>
+
+        <div className="d-flex p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded w-25 shadow">
+          <div className="d-block">
+            <div className="d-flex justify-content-center mb-4">
+              <img
+                src="https://github.com/dillonp23.png"
+                className="img-responsive rounded-circle"
+                width="150px"
+              />
+            </div>
+            <div className="d-flex justify-content-center">
+              <h5>Dillon Petretti</h5>
+            </div>
+            <div className="d-flex justify-content-center">
+              <div className="w-25">
+                <i className="fa fa-github fa-large text-dark"></i>
               </div>
-              <div>
-                <GitHubCalendar
-                  username="fabiolasaga"
-                  fontSize={10}
-                  blockSize={5}
-                  theme={colorTheme}
-                >
-                  <ReactTooltip delayShow={50} html />
-                </GitHubCalendar>
-              </div>
+              <a href="https://github.com/dillonp23">Github</a>
             </div>
           </div>
         </div>
