@@ -4,6 +4,8 @@ import { ReactComponent as Badges } from "../../assets/badges.svg";
 import { ReactComponent as Goals } from "../../assets/goals.svg";
 import { ReactComponent as Friends } from "../../assets/friends.svg";
 import Marketing from "../Marketing/marketing";
+import Carousel from "./Carousel";
+import Footer from "../footer/footer";
 
 const LandingPage = () => {
   return (
@@ -16,7 +18,7 @@ const LandingPage = () => {
         <h3 className="font-weight-bold text-responsive">
           from a healthier you.
         </h3>
-        <div className="pt-1 mb-2 mx-5 bg-warning my-5"></div>
+        <div className="underline pt-1 mb-2 bg-warning my-5"></div>
       </div>
       <h5 className="text-center landing-text-responsive">
         Nutrivurv is here to help you stay motivated
@@ -24,42 +26,32 @@ const LandingPage = () => {
       <h5 className="text-center landing-text-responsive mb-5 pb-5">
         on your journey to better health.
       </h5>
-      <div className="d-md-flex mx-5">
-        <div className="text-center mt-4">
-          <Badges className=" img-responsive-landing " />
-          <h4 className="font-weight-bold">Earn badges</h4>
-        </div>
-        <div className="text-center mt-4">
-          <Goals className="img-responsive-landing" />
-          <h4 className="font-weight-bold">Crush your goals</h4>
-        </div>
-        <div className="text-center mt-4">
-          <Friends className="img-responsive-landing " />
-          <h4 className="font-weight-bold">Connect with friends</h4>
+      <h3 className="text-center landing-text-responsive mb-5 pb-5">
+        Features
+      </h3>
+      <div className="d-flex align-items-center flex-column">
+        <div
+          className="badges d-md-flex mx-5 pb-3"
+          style={{ width: "80vw", maxWidth: "800px" }}
+        >
+          <div className="text-center mt-4">
+            <Badges className=" img-responsive-landing " />
+            <h5 className="font-weight-bold mb-5">Earn badges</h5>
+          </div>
+          <div className="text-center mt-4">
+            <Goals className="img-responsive-landing" />
+            <h5 className="font-weight-bold">Crush your goals</h5>
+          </div>
+          <div className="text-center mt-4">
+            <Friends className="img-responsive-landing " />
+            <h5 className="font-weight-bold mb-5">Connect with friends</h5>
+          </div>
         </div>
       </div>
       <div className="d-flex align-items-center flex-column my-5">
-        <div className="my-4 mt-5">
-          <Link type="button" to="/signup">
-            <button
-              id="join-now"
-              className="btn-primary py-2  rounded w-200 border border-secondary"
-              style={{ width: "15rem" }}
-            >
-              Join Now!
-            </button>
-          </Link>
-        </div>
-        <div className=" my-4 mb-5">
-          <button
-            id="signIn-bttn"
-            className="btn-secondary py-2  rounded w-200 border border-secondary"
-            style={{ width: "15rem" }}
-          >
-            Sign In
-          </button>
-        </div>
+        <Carousel />
       </div>
+      <Footer />
     </div>
   );
 };
