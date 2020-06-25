@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Marketing = () => {
   return (
-    <div className="marketing">
+    <div className="marketing" style={{ marginBottom: "20vh" }}>
       <section className="pl-lg-5">
         <div className="py-5 pl-5 ml-xl-5 mb-2">
           <h1 className="font-weight-bold mt-3 text-responsive mb-3 ml-xl-5 pl-xl-5">
@@ -25,7 +25,7 @@ const Marketing = () => {
             </button>
           </Link>
         </div>
-        <figure className="mt-1 pb-5">
+        <figure className="mt-1 ml-5 pb-5">
           <LandingImage className="lp-img pl-5 pl-lg-0 ml-xl-n5" />
         </figure>
       </section>
