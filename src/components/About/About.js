@@ -1,7 +1,7 @@
 import React from "react";
 import GitHubCalendar from "react-github-calendar";
 import ReactTooltip from "react-tooltip";
-
+import Footer from "../footer/footer";
 const colorTheme = {
   background: "transparent",
   text: "#000",
@@ -258,6 +258,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
