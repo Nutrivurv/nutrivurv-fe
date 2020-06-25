@@ -20,13 +20,13 @@ const Carousel = () => {
         </ul>
         <div className="carousel-inner">
           <div className="carousel-item active">
-            <img src={journal} alt="Los Angeles" />
+            <img src={journal} alt="Journal preview" />
           </div>
           <div className="carousel-item">
-            <img src={progress} alt="Chicago" />
+            <img src={progress} alt="Progress preview" />
           </div>
           <div className="carousel-item">
-            <img src={Community} alt="New York" />
+            <img src={Community} alt="Community preview" />
           </div>
         </div>
         <a className="carousel-control-prev" href="#demo" data-slide="prev">
