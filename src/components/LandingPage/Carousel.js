@@ -9,7 +9,7 @@ const Carousel = () => {
       <h3 className="my-5 landing-text-responsive">User Dashboard</h3>
       <div
         id="demo"
-        className="carousel slide mt-5"
+        className="carousel slide mt-5 mb-5"
         data-ride="carousel"
         data-interval="8000"
       >
