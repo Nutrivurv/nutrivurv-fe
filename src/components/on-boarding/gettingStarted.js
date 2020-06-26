@@ -14,7 +14,7 @@ const gettingStarted = ({ nextStep }) => {
         </h4>
         <h4 className="p-2 text-center">
           Nutrivurv makes achieving those goals easier by curating a custom
-          experience tailored to *you*.
+          experience tailored to <strong>you</strong>.
         </h4>
         <h4 className="p-2 text-center">
           The information collected in the next few screens will be used to
