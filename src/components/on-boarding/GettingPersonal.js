@@ -30,7 +30,7 @@ const GettingPersonal = ({ nextStep, prevStep, handleChange, user }) => {
                 type="date"
                 className="py-3 px-2 w-100 rounded border border-primary"
                 name="dateOfBirth"
-                value={user.dateOfBirth}
+                defaultValue={user.dateOfBirth}
                 onChange={handleChange}
                 ref={register({
                   required: {
