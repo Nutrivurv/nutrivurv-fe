@@ -1,13 +1,25 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { ReactComponent as SignInImage } from "../../assets/GirlComptr.svg";
+import Axios from "axios";
 
-const SignIn = () => {
+
+const SignIn = props => {
   const { register, errors, handleSubmit } = useForm({});
 
   const onSubmit = async (data) => {
     console.log(data);
+    const {email, password} = data;
+    Axios
+      .post(`https://nutrivurv-be.herokuapp.com/api/auth/login`,{email:email,password: password})
+      .then(res => {
+        console.log(res.data);
+        props.history.push('dashboard');
+        
+      })
+      .catch(err => console.log('your username or password are incorrect'))
+
   };
 
   return (

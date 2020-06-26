@@ -8,6 +8,8 @@ import SignIn from "../SignIn/SignIn";
 import WeightGoals from "./WeightGoals";
 import GettingStarted from "./gettingStarted";
 import moment from "moment";
+import history from '../../history';
+
 const OnBoarding = ({ step, nextStep, prevStep }) => {
   const [user, setUser] = useState({
     username: "",
@@ -30,7 +32,7 @@ const OnBoarding = ({ step, nextStep, prevStep }) => {
     setUser({ ...user, [e.currentTarget.name]: e.currentTarget.value });
   }
 
-  console.log(user);
+  // console.log(user);
   function handleChangeKg(e) {
     setUser({
       ...user,
@@ -88,7 +90,7 @@ const OnBoarding = ({ step, nextStep, prevStep }) => {
           handleChange={handleChange}
         />
       ) : (
-        <SignIn />
+        <SignIn history ={history}/>
       )}
     </>
   );

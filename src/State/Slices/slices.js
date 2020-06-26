@@ -26,8 +26,8 @@ const SignUpSlice = createSlice({
         ...state,
         isFetchingLogin: true
       }
-    }
-});
+    },
+}})
 
 export const {signUp, login} = SignUpSlice.actions;
 

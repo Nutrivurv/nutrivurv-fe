@@ -6,6 +6,9 @@ import React from "react";
 import HomeContainer from "./components/Container/HomeContainer";
 import DashboardContainer from "./components/Container/DashboardContainer";
 import { Route, Switch } from "react-router-dom";
+import { Provider } from "react-redux";
+import {store} from './State/configureStore';
+
 
 function App() {
   return (
