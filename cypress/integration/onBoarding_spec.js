@@ -9,14 +9,8 @@ describe("On-Boarding forms", () => {
 
   it("Should complete the Getting Personal form", () => {
     cy.get("form").within(() => {
-      cy.get('input[name="selected"]').click();
-      cy.get(".react-datepicker__month-select").select("December");
-      cy.get(".react-datepicker__year-select").select("1991");
-      cy.get(":nth-child(1) > .react-datepicker__day--003").click();
-      cy.get("#gender").select("female");
-      // cy.get('input[name="goalWeight"]')
-      //   .type("130")
-      //   .should("have.value", "130");
+      cy.get('input[name="dateOfBirth"]').type("1987-09-29");
+      cy.get("select").select("male");
       cy.get("[data-cy=submit]").click();
     });
   });
