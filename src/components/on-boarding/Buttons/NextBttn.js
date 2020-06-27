@@ -1,31 +1,25 @@
 import React from "react";
-import { connect } from "react-redux";
-import {signUp} from '../../../State/Slices/slices'
+import { connect, useSelector } from "react-redux";
+import {login} from '../../../State/Slices/slices'
 import Axios from "axios";
 import { data } from "jquery";
 
 var jwt_decode = require('jwt-decode');
 
-// const mapDispatch = {signUp}
 
-const NextBttn = ({ handleSubmit, nextStep, history}) => {
-
-  // const onSubmit = (data) => {
-  //   console.log(data);
-  //   const {username, email, password} = data;
-  //   Axios
-  //     .post(`https://nutrivurv-be.herokuapp.com/api/auth/register`,{name: username, email: email, password: password})
-  //     .then(res=>{
-  //       console.log(res.data);
-  //       // history.push('/dashboard');
-  //     })
-  //     .catch(err => console.log('your username or password are incorrect'))
-  //   nextStep()
-  // }
-  const onSubmit = (data) => {
-    // alert(JSON.stringify(data));
-    nextStep();
-  };
+const NextBttn = ({ handleSubmit, nextStep}) => {
+  
+  const onSubmit = async (data) => {
+    console.log(data);
+    const {username, email, password} = data;
+    Axios
+      .post(`https://nutrivurv-be.herokuapp.com/api/auth/register`,{name: username, email: email, password: password})
+      .then(res=>{
+        console.log(res.data);
+      })
+      .catch(err => console.log('error',err))
+    nextStep()
+  }
 
   return (
     <>
@@ -43,5 +37,4 @@ const NextBttn = ({ handleSubmit, nextStep, history}) => {
 
 export default connect(
   null,
-  // mapDispatch,
 ) (NextBttn);

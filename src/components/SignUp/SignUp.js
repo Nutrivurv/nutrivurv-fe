@@ -5,20 +5,17 @@ import OnBoardingImg from "../on-boarding/onBoarding-img";
 import NextBttn from "../on-boarding/Buttons/NextBttn";
 import BackBttn from "../on-boarding/Buttons/BackBttn";
 import { connect } from "react-redux";
-import {signUp} from '../../State/Slices/slices'
 import Axios from "axios";
 import { data } from "jquery";
-import history from '../../history'
 
-const mapDispatch = {signUp}
 
-const History = history
 
-const SignUp = ({ nextStep, prevStep, handleChange, user, history}) => {
+
+
+const SignUp = ({ nextStep, prevStep, handleChange, user}) => {
   const { register, errors, handleSubmit, watch,} = useForm({});
   const password = useRef({});
   password.current = watch("password", "");
-
 
 
   return (
@@ -140,6 +137,4 @@ const SignUp = ({ nextStep, prevStep, handleChange, user, history}) => {
 
 export default connect(
   null,
-  mapDispatch,
-  History
 )(SignUp)

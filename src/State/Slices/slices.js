@@ -12,28 +12,19 @@ const SignUpSlice = createSlice({
     },
     token:{},
     isFetchingLogin: false,
+    isLoggedIn: false
 
   },
   reducers: {
-    signUp(state, action){
-      return{
-        ...state,
-        token: action.payload
-      }
-    },
     login(state, action){
       return{
         ...state,
-        isFetchingLogin: true
+        token: action.payload,
+        isFetchingLogin: true,
       }
     },
 }})
 
-export const {signUp, login} = SignUpSlice.actions;
+export const {login} = SignUpSlice.actions;
 
 export default SignUpSlice.reducer
-
-
-// export const rootReducer = combineReducers({
-//   SignUpSlice
-// });
