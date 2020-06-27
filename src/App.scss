@@ -3,6 +3,7 @@
 $link-color: #363537;
 $font-family-sans-serif: 'Muli', sans-serif;
 $light: rgb(240,240,240);
+$secondary: #1f7da2;
 
 .text-responsive {
   font-size: calc(100% + 1.5vw + 1.5vh);
@@ -27,7 +28,7 @@ $light: rgb(240,240,240);
 
 .img-responsive-landing {
   max-width: 70%; 
-  max-height: auto; 
+  max-height: 300px; 
 };
 
 .lp-img{
@@ -88,20 +89,21 @@ $light: rgb(240,240,240);
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   z-index: 999;
   background: rgb(240,240,240);
   transition: all 0.5s cubic-bezier(0.945, 0.020, 0.270, 0.665);
   transform-origin: center left; 
 };
 
+.sidebar-active {
+  transform: rotateY(0deg);
+}
+
 @media (max-width: 768px) {
   .sidebar {
       margin-left: -250px;
       transform: rotateY(100deg);
-  }
-  .sidebar-active {
-    transform: rotateY(0deg);
   }
 };
 

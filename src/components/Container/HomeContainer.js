@@ -4,7 +4,6 @@ import LandingPage from "../LandingPage/LandingPage";
 import SignIn from "../SignIn/SignIn";
 import OnBoarding from "../on-boarding/onBoarding";
 import Nav from "../nav/nav";
-import Footer from "../footer/footer";
 import About from "../About/About";
 
 const HomeContainer = () => {
@@ -30,7 +29,6 @@ const HomeContainer = () => {
         />
       </Route>
       <Route exact path="/about" component={About} />
-      <Footer />
     </div>
   );
 };

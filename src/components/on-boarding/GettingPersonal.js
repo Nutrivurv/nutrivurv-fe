@@ -1,19 +1,15 @@
-import React from "react";
-import { addDays } from "date-fns";
-import { useForm, Controller } from "react-hook-form";
-import ReactDatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
+import { addDays } from "date-fns";
+import React from "react";
+import ReactDatePicker from "react-datepicker";
+import { Controller, useForm } from "react-hook-form";
 import OnBoardingImg from "../on-boarding/onBoarding-img";
-import NextBttn from "./Buttons/NextBttn";
 import BackBttn from "./Buttons/BackBttn";
-const GettingPersonal = ({
-  nextStep,
-  prevStep,
-  handleChange,
-  handleDateChange,
-  user,
-}) => {
-  const { register, handleSubmit, errors, reset, control } = useForm({});
+import NextBttn from "./Buttons/NextBttn";
+
+const GettingPersonal = ({ nextStep, prevStep, handleChange, user }) => {
+  const { register, handleSubmit, errors } = useForm();
 
   return (
     <div
@@ -30,22 +26,24 @@ const GettingPersonal = ({
               <label className="mb-0">What's your date of birth?</label>
             </div>
             <div>
-              <Controller
-                as={ReactDatePicker}
-                control={control}
-                valueName="selected"
-                name="selected"
-                className="datepicker-input py-3 px-2 w-100 rounded border border-primary "
-                value={user.selected}
-                selected={user.selected}
-                onChange={handleDateChange}
-                placeholderText="--/--/----"
-                showMonthDropdown
-                showYearDropdown
-                dropdownMode="select"
-                maxDate={addDays(new Date(), -5475)}
-                //earliest birth date you're able to select is 15 years before the current date
+              <input
+                type="date"
+                className="py-3 px-2 w-100 rounded border border-primary"
+                name="dateOfBirth"
+                defaultValue={user.dateOfBirth}
+                onChange={handleChange}
+                ref={register({
+                  required: {
+                    value: true,
+                    message: "required",
+                  },
+                })}
               />
+              {errors.dateOfBirth && (
+                <small className="text-danger form-text">
+                  {errors.dateOfBirth.message}
+                </small>
+              )}
             </div>
           </div>
           <div className="form-group">

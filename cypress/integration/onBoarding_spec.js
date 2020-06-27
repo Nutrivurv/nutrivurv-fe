@@ -3,15 +3,48 @@ describe("On-Boarding forms", () => {
     cy.visit("http://localhost:3000/signup");
   });
 
-  it("Should show errors under inputs ", () => {
-    cy.get("[data-cy=submit]").click();
+  it("Lets get started page", () => {
+    cy.get("#getStarted").click();
+  });
+
+  it("Should complete the Getting Personal form", () => {
+    cy.get("form").within(() => {
+      cy.get('input[name="dateOfBirth"]').type("1987-09-29");
+      cy.get("select").select("male");
+      cy.get("[data-cy=submit]").click();
+    });
+  });
+
+  it("Should complete How Active are You form", () => {
+    cy.get("form").within(() => {
+      cy.get("#ActivityLevel3").click();
+      cy.get("[data-cy=submit]").click();
+    });
+  });
+
+  it("Should complete BMI Calc", () => {
+    cy.get("form").within(() => {
+      cy.get('input[name="ft"]').type("5");
+      cy.get('input[name="inch"]').type("2");
+      cy.get('input[name="weight"]').type("125");
+      cy.get("[data-cy=submit]").click();
+    });
+  });
+
+  it("Should complete Weight Goal form", () => {
+    cy.get("form").within(() => {
+      cy.get('input[name="goalWeight"]').clear().type("115");
+      cy.get('[style="transform: translateX(-50%); left: 50%;"]').click();
+      cy.get("[data-cy=submit]").click();
+    });
   });
 
   it("Should test the various validations", () => {
     cy.get("form").within(() => {
       cy.get('input[name="username"]')
-        .type("1Testing")
+        .type("12345")
         .then(() => {
+          cy.get("[data-cy=submit]").click();
           cy.get("#usernameErr").should(($usernameErr) => {
             const text = $usernameErr.text();
             expect(text).to.match(/Invalid name entry/);
@@ -73,16 +106,6 @@ describe("On-Boarding forms", () => {
         .clear()
         .type("password")
         .should("have.value", "password");
-      cy.get("[data-cy=submit]").click();
-    });
-  });
-  it("Should complete the Getting Personal form", () => {
-    cy.get("form").within(() => {
-      cy.get('input[name="age"]').type("26");
-      cy.get("select").select("female");
-      cy.get('input[name="goalWeight"]')
-        .type("130")
-        .should("have.value", "130");
       cy.get("[data-cy=submit]").click();
     });
   });
