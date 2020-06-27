@@ -8,7 +8,6 @@ import WeightGoals from "./WeightGoals";
 import BMI from "./bmi-calc/BMI";
 import DietaryPref from "./dietaryPref";
 import GettingStarted from "./gettingStarted";
-import moment from "moment";
 import history from '../../history';
 
 const OnBoarding = ({ step, nextStep, prevStep }) => {
