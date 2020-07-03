@@ -8,6 +8,7 @@ import WeightGoals from "./WeightGoals";
 import BMI from "./bmi-calc/BMI";
 import DietaryPref from "./dietaryPref";
 import GettingStarted from "./gettingStarted";
+import history from '../../history';
 
 const OnBoarding = ({ step, nextStep, prevStep }) => {
   const [user, setUser] = useState({
@@ -31,6 +32,7 @@ const OnBoarding = ({ step, nextStep, prevStep }) => {
     setUser({ ...user, [e.currentTarget.name]: e.currentTarget.value });
   }
 
+  // console.log(user);
   function handleChangeKg(e) {
     setUser({
       ...user,
@@ -79,7 +81,7 @@ const OnBoarding = ({ step, nextStep, prevStep }) => {
           handleChange={handleChange}
         />
       ) : (
-        <SignIn />
+        <SignIn history ={history}/>
       )}
     </>
   );
