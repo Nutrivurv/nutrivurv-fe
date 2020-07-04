@@ -3,9 +3,7 @@ import "bootswatch/dist/flatly/bootstrap.min.css";
 import "./App.scss";
 
 import React from "react";
-import { Provider } from "react-redux";
 import { Route, Switch } from "react-router-dom";
-import { store } from "./State/configureStore";
 import DashboardContainer from "./components/Container/DashboardContainer";
 import HomeContainer from "./components/Container/HomeContainer";
 

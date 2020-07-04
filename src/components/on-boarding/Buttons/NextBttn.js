@@ -1,14 +1,13 @@
+import Axios from "axios";
+import { data } from "jquery";
 import React from "react";
 import { connect, useSelector } from "react-redux";
 import { login } from "../../../State/Slices/slices";
-import Axios from "axios";
-import { data } from "jquery";
 
 var jwt_decode = require("jwt-decode");
 
 const NextBttn = ({ handleSubmit, nextStep }) => {
   const onSubmit = async (data) => {
-    console.log(data);
     const { username, email, password } = data;
     Axios.post(`https://nutrivurv-be.herokuapp.com/api/auth/register`, {
       name: username,
