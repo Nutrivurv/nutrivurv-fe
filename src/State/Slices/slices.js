@@ -1,30 +1,59 @@
 import axios from "axios";
+import { createSlice } from "@reduxjs/toolkit";
 
-const { createSlice, combineReducers } = require("@reduxjs/toolkit");
+const nutrivurvAPI = process.env.REACT_APP_NUTRIVURV_API;
+
+const initialState = {
+  user: {
+    id: 0,
+    name: "",
+    email: "",
+  },
+  isAuthenticated: false,
+  isAuthenticating: false,
+  authError: null,
+};
 
 const SignUpSlice = createSlice({
   name: "auth",
-  initialState: {
-    user: {
-      name: "",
-      email: "",
-      password: "",
-    },
-    token: {},
-    isFetchingLogin: false,
-    isLoggedIn: false,
-  },
+  initialState,
   reducers: {
-    login(state, action) {
-      return {
-        ...state,
-        token: action.payload,
-        isFetchingLogin: true,
-      };
+    authStart: (state) => {
+      state.authError = null;
+      state.isAuthenticating = true;
+      state.isAuthenticated = false;
+    },
+    authSuccess: (state, action) => {
+      state.user = action.payload;
+      state.authError = null;
+      state.isAuthenticating = false;
+      state.isAuthenticated = true;
+    },
+    authFail: (state, action) => {
+      state.authError = action.payload;
+      state.isAuthenticating = false;
+      state.isAuthenticated = false;
     },
   },
 });
 
-export const { login } = SignUpSlice.actions;
+export const { authStart, authSuccess, authFail } = SignUpSlice.actions;
+
+export const authenticate = (creds, type) => async (dispatch) => {
+  dispatch(authStart());
+
+  console.log("dispatching");
+
+  try {
+    const response = await axios.post(
+      `${nutrivurvAPI}/api/auth/${type}`,
+      creds
+    );
+    localStorage.setItem("token", response.data.token);
+    dispatch(authSuccess(response.data.user));
+  } catch (error) {
+    dispatch(authFail(error.response.data.message));
+  }
+};
 
 export default SignUpSlice.reducer;
