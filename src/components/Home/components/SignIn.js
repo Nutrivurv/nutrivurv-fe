@@ -24,7 +24,6 @@ const SignIn = () => {
       email: user.email,
       password: user.password,
     };
-    console.log("creds", creds);
     dispatch(authenticate(creds, "login"));
   };
 

@@ -42,8 +42,6 @@ export const { authStart, authSuccess, authFail } = SignUpSlice.actions;
 export const authenticate = (creds, type) => async (dispatch) => {
   dispatch(authStart());
 
-  console.log("dispatching");
-
   try {
     const response = await axios.post(
       `${nutrivurvAPI}/api/auth/${type}`,
