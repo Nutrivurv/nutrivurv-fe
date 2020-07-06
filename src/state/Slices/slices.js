@@ -14,7 +14,7 @@ const initialState = {
   authError: null,
 };
 
-const SignUpSlice = createSlice({
+const AuthSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
@@ -37,7 +37,7 @@ const SignUpSlice = createSlice({
   },
 });
 
-export const { authStart, authSuccess, authFail } = SignUpSlice.actions;
+export const { authStart, authSuccess, authFail } = AuthSlice.actions;
 
 export const authenticate = (creds, type) => async (dispatch) => {
   dispatch(authStart());
@@ -54,4 +54,4 @@ export const authenticate = (creds, type) => async (dispatch) => {
   }
 };
 
-export default SignUpSlice.reducer;
+export default AuthSlice.reducer;
