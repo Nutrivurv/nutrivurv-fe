@@ -1,4 +1,3 @@
-import React from "react";
 import axios from "axios";
 
 export const axiosWithAuth = () => {
@@ -8,6 +7,6 @@ export const axiosWithAuth = () => {
       "Access-Control-Allow-Origin": "*",
       Authorization: token,
     },
-    baseURL: "https://weddingportfolio.herokuapp.com",
+    baseURL: process.env.REACT_APP_NUTRIVURV_API,
   });
 };
