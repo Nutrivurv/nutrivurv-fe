@@ -106,7 +106,7 @@ const SignIn = () => {
           </form>
           <div className="d-flex justify-content-center mt-3 p-2">
             <p className="mr-2">
-              Not a member? <Link to="/signup">Sign Up</Link>
+              Not a member? <Link to="/onboarding">Sign Up</Link>
             </p>
           </div>
         </div>

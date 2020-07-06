@@ -5,7 +5,7 @@ const NextBttn = ({ handleSubmit, toPath }) => {
   const history = useHistory();
 
   const onSubmit = async (data) => {
-    history.push(`/signup${toPath}`);
+    history.push(`/onboarding${toPath}`);
   };
 
   return (

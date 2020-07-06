@@ -59,8 +59,8 @@ const Navigation = () => {
           </li>
           <li className="nav-item">
             <NavLink
-              to="/signup"
-              id="signUp"
+              to="/onboarding"
+              id="onboarding"
               className="nav-link d-flex justify-content-center ml-xl-5 ml-lg-5 ml-md-5 mr-xl-4 mr-lg-4 mr-md-4 ml-sm-0 mr-sm-0  "
             >
               <h5>Sign Up</h5>

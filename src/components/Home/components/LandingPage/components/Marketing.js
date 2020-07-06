@@ -16,9 +16,9 @@ const Marketing = () => {
             Nutrivurv is an easy to use motivating <br />
             food and nutrition tracking app.
           </p>
-          <Link type="button" to="/signup" className="pl-xl-5">
+          <Link type="button" to="/onboarding" className="pl-xl-5">
             <button
-              id="signup-button"
+              id="onboarding-button"
               className="btn btn-primary ml-xl-5"
               style={{ width: "15rem" }}
             >

@@ -12,7 +12,7 @@ const Home = () => {
       <Navigation />
       <Route exact path="/" component={LandingPage} />
       <Route path="/about" component={About} />
-      <Route path="/signup" component={Onboarding} />
+      <Route path="/onboarding" component={Onboarding} />
       <Route path="/signin" component={SignIn} />
     </div>
   );
