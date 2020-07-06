@@ -4,15 +4,20 @@ import "./App.scss";
 
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import DashboardContainer from "./components/Container/DashboardContainer";
-import HomeContainer from "./components/Container/HomeContainer";
+import DashboardContainer from "./components/Dashboard/DashboardContainer";
+import Home from "./components/Home/Home";
+import ProtectedRoute from "./components/utils/ProtectedRoute";
 
 function App() {
   return (
     <div className="App">
       <Switch>
-        <Route exact path="/dashboard" component={DashboardContainer} />
-        <Route path="/" component={HomeContainer} />
+        <ProtectedRoute
+          exact
+          path="/dashboard"
+          component={DashboardContainer}
+        />
+        <Route path="/" component={Home} />
       </Switch>
     </div>
   );
