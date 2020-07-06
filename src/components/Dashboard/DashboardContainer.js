@@ -1,7 +1,7 @@
 import React from "react";
-import SideBar from "../Dashboard/SideBar";
-import Dashboard from "../Dashboard/Dashboard";
 import { Route } from "react-router-dom";
+import Dashboard from "./components/Dashboard";
+import SideBar from "./components/SideBar";
 // import ProtectedRoute from "../utils/ProtectedRoute";
 
 const DashboardContainer = () => {

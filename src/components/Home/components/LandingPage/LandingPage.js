@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { ReactComponent as Badges } from "../../assets/badges.svg";
-import { ReactComponent as Goals } from "../../assets/goals.svg";
-import { ReactComponent as Friends } from "../../assets/friends.svg";
-import Marketing from "../Marketing/marketing";
-import Carousel from "./Carousel";
-import Footer from "../footer/footer";
+import { ReactComponent as Badges } from "../../../../assets/badges.svg";
+import { ReactComponent as Friends } from "../../../../assets/friends.svg";
+import { ReactComponent as Goals } from "../../../../assets/goals.svg";
+import Carousel from "./components/Carousel";
+import Footer from "./components/Footer";
+import Marketing from "./components/Marketing";
 
 const LandingPage = () => {
   return (

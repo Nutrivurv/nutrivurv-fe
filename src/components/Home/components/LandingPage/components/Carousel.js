@@ -1,7 +1,7 @@
 import React from "react";
-import Community from "../../assets/community.png";
-import journal from "../../assets/food-journal.png";
-import progress from "../../assets/progress.png";
+import Community from "../../../../../assets/community.png";
+import journal from "../../../../../assets/food-journal.png";
+import progress from "../../../../../assets/progress.png";
 
 const Carousel = () => {
   return (

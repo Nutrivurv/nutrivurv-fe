@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { ReactComponent as Logo } from "../../assets/Logo.svg";
+import { ReactComponent as Logo } from "../../../assets/Logo.svg";
 
-const Nav = () => {
+const Navigation = () => {
   return (
     <div
       id="navbar"
@@ -72,4 +72,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Navigation;

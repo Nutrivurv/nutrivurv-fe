@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as LandingImage } from "../../assets/Splash.svg";
 import { Link } from "react-router-dom";
+import { ReactComponent as LandingImage } from "../../../../../assets/Splash.svg";
 
 const Marketing = () => {
   return (
@@ -18,6 +18,7 @@ const Marketing = () => {
           </p>
           <Link type="button" to="/signup" className="pl-xl-5">
             <button
+              id="signup-button"
               className="btn btn-primary ml-xl-5"
               style={{ width: "15rem" }}
             >

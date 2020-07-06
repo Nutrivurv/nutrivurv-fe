@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { ReactComponent as Logo } from "../../assets/Logo.svg";
-import { ReactComponent as Placeholder } from "../../assets/Placeholder.svg";
+import { ReactComponent as Logo } from "../../../assets/Logo.svg";
+import { ReactComponent as Placeholder } from "../../../assets/Placeholder.svg";
 import DailyVibe from "./DailyVibe";
 
 const SideBar = () => {

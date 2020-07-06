@@ -1,16 +1,7 @@
 import React from "react";
-import GitHubCalendar from "react-github-calendar";
-import ReactTooltip from "react-tooltip";
-import Footer from "../footer/footer";
-const colorTheme = {
-  background: "transparent",
-  text: "#000",
-  grade4: "#4D8037",
-  grade3: "#9ABA19",
-  grade2: "#1F7DA2",
-  grade1: "#00426C",
-  grade0: "#ebedf0",
-};
+// import GitHubCalendar from "react-github-calendar";
+// import ReactTooltip from "react-tooltip";
+import Footer from "./LandingPage/components/Footer";
 
 const About = () => {
   return (
@@ -28,6 +19,7 @@ const About = () => {
             <div className="d-flex justify-content-center mb-4">
               <img
                 src="https://github.com/dave-vazquez.png"
+                alt="Dave Vazquez"
                 className="img-responsive rounded-circle"
                 width="150px"
               />
@@ -49,6 +41,7 @@ const About = () => {
             <div className="d-flex justify-content-center mb-4">
               <img
                 src="https://github.com/alesslongaretti.png"
+                alt="Alessandra Longaretti"
                 className="img-responsive rounded-circle"
                 width="150px"
               />
@@ -69,6 +62,7 @@ const About = () => {
             <div className="d-flex justify-content-center mb-4">
               <img
                 src="https://github.com/taty2010.png"
+                alt="Taty Novell"
                 className="img-responsive rounded-circle"
                 width="150px"
               />
@@ -90,6 +84,7 @@ const About = () => {
             <div className="d-flex justify-content-center mb-4">
               <img
                 src="https://github.com/ccsmith13.png"
+                alt="Christine Smith"
                 className="img-responsive rounded-circle"
                 width="150px"
               />
@@ -111,6 +106,7 @@ const About = () => {
             <div className="d-flex justify-content-center mb-4">
               <img
                 src="https://github.com/afrodo1.png"
+                alt="Dominic Bridgette"
                 className="img-responsive rounded-circle"
                 width="150px"
               />
@@ -132,6 +128,7 @@ const About = () => {
             <div className="d-flex justify-content-center mb-4">
               <img
                 src="https://github.com/dillonp23.png"
+                alt="Dillon Petretti"
                 className="img-responsive rounded-circle"
                 width="150px"
               />
