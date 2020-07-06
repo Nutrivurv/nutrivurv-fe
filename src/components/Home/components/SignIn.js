@@ -1,37 +1,38 @@
-import Axios from "axios";
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { connect, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { login } from "../../State/Slices/slices";
-import { RootState } from "../../State/reducers";
-import { ReactComponent as SignInImage } from "../../assets/GirlComptr.svg";
-import history from "../../history";
-import Footer from "../footer/footer";
+import { Redirect } from "react-router-dom";
+import { ReactComponent as SignInImage } from "../../../assets/GirlComptr.svg";
+import { authenticate } from "../../../state/slices/slices";
+import Footer from "./LandingPage/components/Footer";
 
-var jwt_decode = require("jwt-decode");
+const SignIn = () => {
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
 
-const mapDispatch = { login };
+  const dispatch = useDispatch();
 
-const SignIn = ({ login, history }) => {
-  const log = useSelector((state: RootState) => state.auth.isFetchingLogin);
+  const { authError, isAuthenticated } = useSelector((state) => state.auth);
 
   const { register, errors, handleSubmit } = useForm({});
-  const onSubmit = (data) => {
-    const { email, password } = data;
-    Axios.post(`https://nutrivurv-be.herokuapp.com/api/auth/login`, {
-      email: email,
-      password: password,
-    })
-      .then((res) => {
-        let token = jwt_decode(res.data.token);
 
-        login(token);
-        localStorage.setItem("token", res.data.token);
-        history.push("/dashboard");
-      })
-      .catch((err) => console.log("error", err));
+  const onSubmit = () => {
+    const creds = {
+      email: user.email,
+      password: user.password,
+    };
+    console.log("creds", creds);
+    dispatch(authenticate(creds, "login"));
   };
+
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  if (isAuthenticated) return <Redirect to="/dashboard" />;
 
   return (
     <div>
@@ -41,17 +42,20 @@ const SignIn = ({ login, history }) => {
             {" "}
             Sign In{" "}
           </h1>
-          <h4 className="text-center pb-5">
+          <h4 className="text-center">
             Let&apos;s start crushing those goals!
           </h4>
+          <h6 className="text-center pb-3 text-danger">{authError}</h6>
           <form data-toggle="validator" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
               <label className="mb-0">E-mail</label>
               <input
                 name="email"
+                defaultValue={user.email}
                 className="rounded p-3 w-100 border border-primary"
                 id="inputEmail"
                 placeholder="email@email.com"
+                onChange={handleChange}
                 ref={register({
                   required: "Required",
                   pattern: {
@@ -68,10 +72,12 @@ const SignIn = ({ login, history }) => {
               <label className="mb-0">Password</label>
               <input
                 name="password"
+                defaultValue={user.password}
                 data-minlength="8"
                 type="password"
                 className="rounded p-3 w-100 border border-primary"
                 id="inputPassword"
+                onChange={handleChange}
                 placeholder="8-12 Characters"
                 ref={register({
                   required: "You must specify a password",
@@ -91,6 +97,7 @@ const SignIn = ({ login, history }) => {
             </div>
             <button
               type="submit"
+              onClick={handleSubmit(onSubmit)}
               className="btn-primary rounded p-2 w-100 border border-primary"
               data-cy="submit"
             >
@@ -115,4 +122,4 @@ const SignIn = ({ login, history }) => {
   );
 };
 
-export default connect(null, mapDispatch)(SignIn);
+export default SignIn;

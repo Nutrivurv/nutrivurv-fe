@@ -1,17 +1,31 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import OnBoardingImg from "../on-boarding/onBoarding-img";
-import NextBttn from "../on-boarding/Buttons/NextBttn";
-import BackBttn from "../on-boarding/Buttons/BackBttn";
-import { connect } from "react-redux";
-import Axios from "axios";
-import { data } from "jquery";
+import { Redirect } from "react-router-dom";
+import { authenticate } from "../../../state/slices/slices";
+import BackBttn from "./Onboarding/components/Buttons/BackBttn";
+import OnBoardingImg from "./Onboarding/components/onBoarding-img";
 
-const SignUp = ({ nextStep, prevStep, handleChange, user }) => {
+const SignUp = ({ handleChange, user }) => {
+  const dispatch = useDispatch();
+  const { authError, isAuthenticated } = useSelector((state) => state.auth);
   const { register, errors, handleSubmit, watch } = useForm({});
   const password = useRef({});
+
   password.current = watch("password", "");
+
+  const onSubmit = () => {
+    const creds = {
+      name: user.name,
+      email: user.email,
+      password: user.password,
+    };
+
+    dispatch(authenticate(creds, "register"));
+  };
+
+  if (isAuthenticated) return <Redirect to="/dashboard" />;
 
   return (
     <div>
@@ -21,18 +35,19 @@ const SignUp = ({ nextStep, prevStep, handleChange, user }) => {
       >
         <div className="col-xl-3 pt-5">
           <h1 className="text-center pb-3 font-weight-bolder">Sign Up</h1>
-          <h4 className="text-center pb-5">
+          <h4 className="text-center">
             You&apos;re one step closer to your goals!
           </h4>
+          <h6 className="text-center pb-3 text-danger">{authError}</h6>
           <form data-toggle="validator" onSubmit={(e) => e.preventDefault()}>
             <div className="form-group">
               <label className="mb-0">Your Name</label>
               <input
-                name="username"
+                name="name"
                 className="rounded p-3 w-100 border border-primary"
                 placeholder="First and Last Name"
                 onChange={handleChange}
-                defaultValue={user.username}
+                defaultValue={user.name}
                 ref={register({
                   required: "Required",
                   pattern: {
@@ -41,9 +56,9 @@ const SignUp = ({ nextStep, prevStep, handleChange, user }) => {
                   },
                 })}
               />
-              {errors.username && (
-                <small id="usernameErr" className="text-danger">
-                  {errors.username.message}
+              {errors.name && (
+                <small id="name-err" className="text-danger">
+                  {errors.name.message}
                 </small>
               )}
             </div>
@@ -116,8 +131,15 @@ const SignUp = ({ nextStep, prevStep, handleChange, user }) => {
                 </small>
               )}
             </div>
-            <NextBttn handleSubmit={handleSubmit} nextStep={nextStep} />
-            <BackBttn prevStep={prevStep} />
+            <button
+              data-cy="submit"
+              type="submit"
+              className="btn-primary rounded p-2 w-100 border border-primary"
+              onClick={handleSubmit(onSubmit)}
+            >
+              Continue
+            </button>
+            <BackBttn />
           </form>
           <div className="d-flex justify-content-center mt-3 p-2">
             <p className="mr-2"> Already a member? </p>
@@ -130,4 +152,4 @@ const SignUp = ({ nextStep, prevStep, handleChange, user }) => {
   );
 };
 
-export default connect(null)(SignUp);
+export default SignUp;
