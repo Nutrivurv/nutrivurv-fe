@@ -2,8 +2,8 @@ describe("Dashboard", () => {
   it("Should successfully complete the signin form and redirect to /dashboard", () => {
     cy.visit("http://localhost:3000/signin");
     cy.get("form").within(() => {
-      cy.get('input[name="email"]').type("test1@test.com");
-      cy.get('input[name="password"]').type("123456789");
+      cy.get('input[name="email"]').type("test@mail.com");
+      cy.get('input[name="password"]').type("test12345");
       cy.get("[data-cy=submit]").click();
     });
   });
