@@ -11,7 +11,10 @@ const Dashboard = () => {
 
   return (
     <div className="d-flex justify-content-end px-5">
-      <button className="btn-secondary" onClick={() => dispatch(logout())}>
+      <button
+        className="btn-primary rounded px-2 py-1 border border-primary"
+        onClick={() => dispatch(logout())}
+      >
         Log Out
       </button>
     </div>
