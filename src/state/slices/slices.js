@@ -34,10 +34,15 @@ const AuthSlice = createSlice({
       state.isAuthenticating = false;
       state.isAuthenticated = false;
     },
+    logout: (state, action) => {
+      localStorage.removeItem("token");
+      state.isAuthenticated = false;
+      state.user = initialState.user;
+    },
   },
 });
 
-export const { authStart, authSuccess, authFail } = AuthSlice.actions;
+export const { authStart, authSuccess, authFail, logout } = AuthSlice.actions;
 
 export const authenticate = (creds, type) => async (dispatch) => {
   dispatch(authStart());
