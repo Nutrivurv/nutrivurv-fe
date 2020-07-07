@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router";
-import { logout } from "../../../state/slices/slices";
+import { logout } from "../../../state/Slices/slices";
 
 const Dashboard = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);

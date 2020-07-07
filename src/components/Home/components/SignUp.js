@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
-import { authenticate } from "../../../state/slices/slices";
+import { authenticate } from "../../../state/Slices/slices";
 import BackBttn from "./Onboarding/components/Buttons/BackBttn";
 import OnBoardingImg from "./Onboarding/components/onBoarding-img";
 
