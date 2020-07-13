@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory, Redirect } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
 import { ReactComponent as Placeholder } from "../../../assets/Placeholder.svg";
 import DailyVibe from "./DailyVibe";
 
 const SideBar = () => {
   const [toggle, setToggle] = useState(false);
-
+  const history = useHistory();
   return (
-    <div className="wrapper">
+    <div>
       <nav id="sidebar" className={toggle ? "sidebar-active" : "sidebar"}>
         <div className="d-flex justify-content-center my-3 ">
           <NavLink to="/" className="navbar-brand ">
@@ -44,6 +44,7 @@ const SideBar = () => {
                 id="add-journal"
                 className="btn-primary rounded p-2 border border-primary"
                 style={{ width: "250px" }}
+                onClick={() => history.push("/dashboard/addToJournal")}
               >
                 Add to Journal
               </button>

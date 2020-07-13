@@ -26,7 +26,7 @@ const Marketing = () => {
             </button>
           </Link>
         </div>
-        <figure className="mt-1 ml-5 pb-5 img-responsive-landing">
+        <figure className="mt-1 ml-5 pb-5">
           <LandingImage className="lp-img pl-5 pl-lg-0 ml-xl-n5" />
         </figure>
       </section>
