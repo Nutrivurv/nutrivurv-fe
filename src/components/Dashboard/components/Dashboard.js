@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
-import { logout } from "../../../state/Slices/slices";
+import { logout } from "../../../state/slices/slices";
 import SearchBar from "./SearchBar";
 const Dashboard = () => {
   const { isAuthenticated, token } = useSelector((state) => state.auth);

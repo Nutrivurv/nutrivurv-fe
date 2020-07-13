@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Edamam } from "../../../state/Slices/slices";
+import { Edamam } from "../../../state/slices/slices";
 import { useForm } from "react-hook-form";
 
 const SearchBar = () => {
