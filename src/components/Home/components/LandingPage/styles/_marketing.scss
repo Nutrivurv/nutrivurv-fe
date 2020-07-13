@@ -9,11 +9,10 @@ body {
     ),
     url("../../../../../assets/hero.jpg");
   background-size: 100% 100%;
-  background-position: center;
+  background-position: 50%;
   background-repeat: no-repeat;
   @media only screen and (min-width: 1200px) {
     background-size: cover;
-    height: 100vh;
   }
 }
 
