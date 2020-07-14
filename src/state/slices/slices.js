@@ -93,7 +93,7 @@ export const Edamam = (search) => async (dispatch) => {
   dispatch(callItem());
   try {
     const response = await axios.get(
-      `${edamamAPI}/food-database/v2/parser?app_id=${edamamAppID}&app_key=${edamamAppKey}&ingr=${search}`
+      `https://api.edamam.com/api/food-database/v2/parser?app_id=8de772d5&app_key=ba31a7a9230043a9bc36135b1a432184&ingr=${search}`
     );
     // const data = await response.json();
     dispatch(callItemSuccess(response.data.hints));
