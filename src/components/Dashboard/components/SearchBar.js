@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Edamam } from "../../../state/slices/slices";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { searchFood } from "../../../state/slices/slices";
 
 const SearchBar = () => {
   const [search, setSearch] = useState("");
@@ -13,7 +13,7 @@ const SearchBar = () => {
   const { register, errors, handleSubmit } = useForm({});
 
   const onSubmit = () => {
-    dispatch(Edamam(encodeURIComponent(search)));
+    dispatch(searchFood(encodeURIComponent(search)));
   };
 
   const handleChanges = (e) => {
