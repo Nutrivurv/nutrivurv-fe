@@ -11,7 +11,7 @@ const DashboardContainer = () => {
       <SideBar />
       <div className="dashboard mt-4 wrapper flex-column">
         <Route exact path="/dashboard" component={Dashboard} />
-        <SearchBar />
+        {/* <SearchBar /> */}
       </div>
     </div>
   );
