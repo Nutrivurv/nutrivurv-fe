@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, Redirect } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
 import { ReactComponent as Placeholder } from "../../../assets/Placeholder.svg";
@@ -7,6 +8,8 @@ import DailyVibe from "./DailyVibe";
 const SideBar = () => {
   const [toggle, setToggle] = useState(false);
   const history = useHistory();
+  const { user } = useSelector((state) => state.auth);
+  console.log(user);
   return (
     <div>
       <nav id="sidebar" className={toggle ? "sidebar-active" : "sidebar"}>
@@ -17,12 +20,12 @@ const SideBar = () => {
         </div>
         <div>
           <div className="d-flex flex-column align-items-center my-5">
-            <Placeholder />
+            <Placeholder/>
             <h6 className="font-weight-bolder">Daily Intake</h6>
             <div className="d-flex my-3">
               <div>
                 <h3 className="mr-5">
-                  195
+                  {user.weight}195
                   <span className="pl-1" style={{ fontSize: "14px" }}>
                     lbs
                   </span>
@@ -31,7 +34,7 @@ const SideBar = () => {
               </div>
               <div>
                 <h3>
-                  12
+                  {user.streak}12
                   <span className="pl-1" style={{ fontSize: "14px" }}>
                     days
                   </span>
