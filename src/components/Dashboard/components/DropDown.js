@@ -4,7 +4,6 @@ import { Dropdown } from "react-bootstrap";
 const DropDown = (props) => {
   const [label, setLabel] = useState("Serving Size");
   const handleLabelChange = (measure) => {
-    //console.log(measure);
     setLabel(measure.label);
   };
 
@@ -15,19 +14,21 @@ const DropDown = (props) => {
           {label}
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          {props.list.measures.map((measure) => (
-            <Dropdown.Item
-              key={measure.uri}
-              className="dropdown-item"
-              href="#"
-              value={measure.label}
-              onClick={() => {
-                handleLabelChange(measure);
-              }}
-            >
-              {measure.label}
-            </Dropdown.Item>
-          ))}
+          {props.items.map((item) =>
+            item.measures.map((measure) => (
+              <Dropdown.Item
+                key={measure.uri}
+                className="dropdown-item"
+                href="#"
+                value={measure.label}
+                onClick={() => {
+                  handleLabelChange(measure);
+                }}
+              >
+                {measure.label}
+              </Dropdown.Item>
+            ))
+          )}
         </Dropdown.Menu>
       </Dropdown>
     </div>

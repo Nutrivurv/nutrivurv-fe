@@ -1,20 +1,22 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import DropDown from "./DropDown";
+import React, { useState } from "react";
+import NutritionInfo from "./NutritionInfo";
+import SearchResultsList from "./SearchResultsList";
 
 const SearchResults = () => {
-  const { items } = useSelector((state) => state.auth);
+  const [selectedItem, setSelectedItem] = useState("");
 
-  return items.map((list) => (
-    <div key={list.foodId}>
-      <div className="d-flex justify-content-center my-2">
-        <h5 className="mr-5" style={{ width: "45%" }}>
-          {list.food.label}
-        </h5>
-        <DropDown list={list} />
+  const handleItemClick = (l) => {
+    setSelectedItem(l.food);
+  };
+
+  return (
+    <div>
+      <SearchResultsList handleItemClick={handleItemClick} />
+      <div className="d-flex w-50">
+        {selectedItem && <NutritionInfo selectedItem={selectedItem} />}
       </div>
     </div>
-  ));
+  );
 };
 
 export default SearchResults;
