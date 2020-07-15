@@ -20,7 +20,7 @@ const SideBar = () => {
         </div>
         <div>
           <div className="d-flex flex-column align-items-center my-5">
-            <Placeholder/>
+            <Placeholder />
             <h6 className="font-weight-bolder">Daily Intake</h6>
             <div className="d-flex my-3">
               <div>
