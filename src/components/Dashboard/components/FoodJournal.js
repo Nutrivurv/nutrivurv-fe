@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import { Breakfast, Lunch, Dinner } from "./Data";
+import { ReactComponent as Heart } from "../../../assets/HeartOutline.svg";
+import { ReactComponent as FullHeart } from "../../../assets/FullHeart.svg";
 
 const FoodJournal = () => {
   const [breakfast, setBreakfast] = useState(Breakfast);
   const [lunch, setLunch] = useState(Lunch);
   const [dinner, setDinner] = useState(Dinner);
+  const [favorite, setFavorite] = useState(false);
+
+  const toggleFavorite = () => {
+    setFavorite(!favorite);
+  };
   return (
     <div>
       <table className="table-borderless table w-50 border-none">
@@ -21,7 +28,16 @@ const FoodJournal = () => {
           return (
             <tbody key={data.id}>
               <tr>
-                <td scope="row">{data.food}</td>
+                <td scope="row">
+                <span className="mr-2">
+                    {favorite ? (
+                      <FullHeart onClick={toggleFavorite} />
+                    ) : (
+                      <Heart onClick={toggleFavorite} />
+                    )}
+                  </span>
+                  {data.food}
+                </td>
                 <td>{data.fat}</td>
                 <td>{data.protein}</td>
                 <td>{data.carbs}</td>
@@ -37,7 +53,16 @@ const FoodJournal = () => {
           return (
             <tbody key={data.id}>
               <tr>
-                <td scope="row">{data.food}</td>
+                <td scope="row">
+                  <span className="mr-2">
+                    {favorite ? (
+                      <FullHeart onClick={toggleFavorite} />
+                    ) : (
+                      <Heart onClick={toggleFavorite} />
+                    )}
+                  </span>
+                  {data.food}
+                </td>
                 <td>{data.fat}</td>
                 <td>{data.protein}</td>
                 <td>{data.carbs}</td>
@@ -53,7 +78,16 @@ const FoodJournal = () => {
           return (
             <tbody key={data.id}>
               <tr>
-                <td scope="row">{data.food}</td>
+                <td scope="row">
+                <span className="mr-2">
+                    {favorite ? (
+                      <FullHeart onClick={toggleFavorite} />
+                    ) : (
+                      <Heart onClick={toggleFavorite} />
+                    )}
+                  </span>
+                  {data.food}
+                </td>
                 <td>{data.fat}</td>
                 <td>{data.protein}</td>
                 <td>{data.carbs}</td>
