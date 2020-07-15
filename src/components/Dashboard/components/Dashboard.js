@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { logout } from "../../../state/slices/slices";
-import FoodJournal from "./FoodJournal";
+import JournalContainer from "./JournalContainer";
 const Dashboard = () => {
   const { isAuthenticated, token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Dashboard = () => {
           Log Out
         </button>
       </div>
-      <FoodJournal />
+      <JournalContainer />
     </div>
   );
 };
