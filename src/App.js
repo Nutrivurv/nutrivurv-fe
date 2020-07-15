@@ -4,7 +4,7 @@ import "./App.scss";
 
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import DashboardContainer from "./components/Dashboard/DashboardContainer";
+import Dashboard from "./components/Dashboard/Dashboard";
 import Home from "./components/Home/Home";
 import ProtectedRoute from "./components/utils/ProtectedRoute";
 
@@ -12,11 +12,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
-        <ProtectedRoute
-          exact
-          path="/dashboard"
-          component={DashboardContainer}
-        />
+        <ProtectedRoute path="/dashboard" component={Dashboard} />
         <Route path="/" component={Home} />
       </Switch>
     </div>
