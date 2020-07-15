@@ -61,4 +61,5 @@ export const authenticate = (creds, type) => async (dispatch) => {
     dispatch(authFail(error.response.data.message));
   }
 };
+
 export default AuthSlice.reducer;

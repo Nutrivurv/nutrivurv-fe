@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { searchFood } from "../../../state/slices/EdamamSlice";
+import SearchResults from "./SearchResults";
 
 const SearchBar = () => {
   const [search, setSearch] = useState("");
-  const [label, setLabel] = useState("Serving Size");
+
   const dispatch = useDispatch();
 
   const { searchError, isFetching, items } = useSelector((state) => state.auth);
@@ -19,8 +20,6 @@ const SearchBar = () => {
   const handleChanges = (e) => {
     setSearch(e.target.value);
   };
-
-  console.log("items", items);
 
   return (
     <div className="row d-flex justify-content-center mt-5">
@@ -47,34 +46,7 @@ const SearchBar = () => {
             <h4>Searching...</h4>
           </div>
         ) : (
-          items.map((list) => (
-            <>
-              <div className="d-flex justify-content-center my-2">
-                <h5 className="mr-5" style={{ width: "45%" }} key={list.foodId}>
-                  {list.food.label}
-                </h5>
-                <div className="dropdown">
-                  <button
-                    className="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    id="dLabel"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    {label}
-                  </button>
-                  <div className="dropdown-menu" aria-labelledby="dLabel">
-                    {list.measures.map((measure) => (
-                      <a key={measure.uri} className="dropdown-item" href="#">
-                        {measure.label}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </>
-          ))
+          <SearchResults />
         )}
       </div>
     </div>
