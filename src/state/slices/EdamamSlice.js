@@ -8,7 +8,9 @@ const edamamAppKey = process.env.REACT_APP_EDAMAM_APP_KEY;
 const initialState = {
   items: [],
   searchError: null,
-  isFetching: false,
+  searchStart: false,
+  searchSuccess: false,
+  searchFail: false,
 };
 
 const EdamamSlice = createSlice({
@@ -16,16 +18,23 @@ const EdamamSlice = createSlice({
   initialState,
   reducers: {
     callItem: (state, action) => {
-      state.isFetching = true;
+      state.searchStart = true;
+      state.searchSuccess = false;
+      state.searchFail = false;
       state.searchError = "";
     },
     callItemSuccess: (state, action) => {
       state.items = action.payload;
-      state.isFetching = false;
+      state.searchStart = false;
+      state.searchSuccess = true;
+      state.searchFail = false;
       state.searchError = "";
     },
     callItemFail: (state, action) => {
       state.searchError = action.payload;
+      state.searchStart = false;
+      state.searchSuccess = false;
+      state.searchFail = true;
     },
   },
 });
