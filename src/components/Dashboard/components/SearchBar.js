@@ -9,7 +9,13 @@ const SearchBar = () => {
 
   const dispatch = useDispatch();
 
-  const { searchError, isFetching, items } = useSelector((state) => state.auth);
+  const {
+    searchError,
+    searchStart,
+    searchSuccess,
+    searchFail,
+    items,
+  } = useSelector((state) => state.edamam);
 
   const { register, errors, handleSubmit } = useForm({});
 
@@ -41,13 +47,13 @@ const SearchBar = () => {
       </form>
       <div className="flex-column align-items-center w-100">
         <h3 className="pt-4 d-flex justify-content-center">Results</h3>
-        {isFetching ? (
+        {searchStart && (
           <div className="loading d-flex justify-content-center">
             <h4>Searching...</h4>
           </div>
-        ) : (
-          <SearchResults />
         )}
+        {searchSuccess && <SearchResults />}
+        {searchFail && <h4>An error occurred. Please try again later.</h4>}
       </div>
     </div>
   );
