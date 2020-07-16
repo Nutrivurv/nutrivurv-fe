@@ -1,13 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Route, Switch } from "react-router-dom";
-import { logout } from "../../../state/slices/slices";
-import JournalContainer from "./JournalContainer";
-const Dashboard = () => {
+import { Redirect } from "react-router-dom";
+import { logout } from "../../../state/slices/AuthSlice";
+
+const Logout = () => {
   const { isAuthenticated, token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
-  // if (token === null) return <Redirect to="/" />;
+  if (token === null) return <Redirect to="/" />;
 
   return (
     <div >
@@ -24,4 +24,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Logout;
