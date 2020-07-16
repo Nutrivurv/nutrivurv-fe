@@ -9,7 +9,7 @@ const SearchBar = () => {
 
   const dispatch = useDispatch();
 
-  const { searchError, isFetching, items } = useSelector((state) => state.auth);
+  const { searchError, isFetching, items } = useSelector((state) => state.edamam);
 
   const { register, errors, handleSubmit } = useForm({});
 

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import DropDown from "./DropDown";
 
 const NutritionInfo = (props) => {
-  const { items } = useSelector((state) => state.auth);
+  const { items } = useSelector((state) => state.edamam);
   var selectedItemInList = items.filter(function (item) {
     return item.food.foodId === props.selectedFoodId;
   });
