@@ -28,26 +28,6 @@ const Onboarding = ({ match }) => {
     date_of_birth: "",
   });
 
-  console.log("***********************************************");
-  console.log("name: ", user.name);
-  console.log("email: ", user.email);
-  console.log("password: ", user.password);
-  console.log("gender: ", user.gender);
-  console.log("target_weight_lbs: ", user.target_weight_lbs);
-  console.log("activity_level: ", user.activity_level);
-  console.log("standard: ", user.standard);
-  console.log("height_ft: ", user.height_ft);
-  console.log("height_in: ", user.height_in);
-  console.log("height_cm: ", user.height_cm);
-  console.log("weight_lbs: ", user.weight_lbs);
-  console.log("weight_kg: ", user.weight_kg);
-  console.log(
-    "net_weekly_weight_change_kg: ",
-    user.net_weekly_weight_change_kg
-  );
-  console.log("date_of_birth: ", user.date_of_birth);
-  console.log("\n\n");
-
   function handleChange(e) {
     setUser({ ...user, [e.currentTarget.name]: e.currentTarget.value });
   }

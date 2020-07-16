@@ -42,8 +42,6 @@ const SignUp = ({ handleChange, user }) => {
     delete user.height_in;
     delete user.weight_lbs;
 
-    console.log("user before register", user);
-
     dispatch(authenticate(user, "register"));
   };
 
