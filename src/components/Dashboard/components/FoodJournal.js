@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { data } from "./Data";
 import { ReactComponent as Heart } from "../../../assets/HeartOutline.svg";
 import { ReactComponent as FullHeart } from "../../../assets/FullHeart.svg";
+import DatePicker from "react-datepicker";
 
 const FoodJournal = () => {
   const [breakfast, setBreakfast] = useState(data.Breakfast);
   const [lunch, setLunch] = useState(data.Lunch);
   const [dinner, setDinner] = useState(data.Dinner);
   const [favorite, setFavorite] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
 
   const TotalCalories =
     breakfast.reduce((total, meal) => total + meal.calories, 0) +
@@ -18,7 +20,15 @@ const FoodJournal = () => {
     setFavorite(!favorite);
   };
   return (
-    <div className="w-50">
+    <div className="w-75" style={{ margin: "0px auto" }}>
+      <div className="text-center my-3">
+        <DatePicker
+          className="text-center border-0"
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          dateFormat="MMMM d, yyyy"
+        />
+      </div>
       <table className="table-borderless table border-none">
         <thead>
           <tr>
@@ -57,7 +67,7 @@ const FoodJournal = () => {
                   </span>
                   {data.food}
                 </td>
-                <td >{data.fat} g</td>
+                <td>{data.fat} g</td>
                 <td>{data.protein} g</td>
                 <td>{data.carbs} g</td>
                 <td>{data.calories}</td>
@@ -125,7 +135,7 @@ const FoodJournal = () => {
       </table>
       <div className="d-flex justify-content-between">
         <p>Total Water:</p>
-        <p>Total Calories:{TotalCalories}</p>
+        <p className="pr-5"> Total Calories:{TotalCalories}</p>
       </div>
     </div>
   );
