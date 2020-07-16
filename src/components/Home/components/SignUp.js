@@ -15,14 +15,36 @@ const SignUp = ({ handleChange, user }) => {
 
   password.current = watch("password", "");
 
-  const onSubmit = () => {
-    const creds = {
-      name: user.name,
-      email: user.email,
-      password: user.password,
-    };
+  const weightToMetric = (lbs) => {
+    return lbs * 0.453592;
+  };
 
-    dispatch(authenticate(creds, "register"));
+  const heightToMetric = (ft, inches) => {
+    return (Number(ft) * 12 + Number(inches)) * 2.54;
+  };
+
+  const onSubmit = () => {
+    if (user.standard === "true") {
+      user.weight_kg = weightToMetric(user.weight_lbs);
+      user.height_cm = heightToMetric(user.height_ft, user.height_in);
+      user.net_weekly_weight_change_kg =
+        Number(user.net_weekly_weight_change_kg) *
+        (Number(user.target_weight_lbs < user.weight_lbs) ? -1 : 1);
+    } else {
+      user.net_weekly_weight_change_kg =
+        Number(user.net_weekly_weight_change_kg) *
+        (weightToMetric(user.target_weight_lbs) < Number(user.weight_kg)
+          ? -1
+          : 1);
+    }
+    delete user.standard;
+    delete user.height_ft;
+    delete user.height_in;
+    delete user.weight_lbs;
+
+    console.log("user before register", user);
+
+    dispatch(authenticate(user, "register"));
   };
 
   if (isAuthenticated) return <Redirect to="/dashboard" />;
