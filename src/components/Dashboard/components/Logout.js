@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { logout } from "../../../state/slices/AuthSlice";
+import JournalContainer from "../components/JournalContainer";
 
 const Logout = () => {
   const { isAuthenticated, token } = useSelector((state) => state.auth);
