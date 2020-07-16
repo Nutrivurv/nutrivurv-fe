@@ -3,7 +3,6 @@ import NutritionInfo from "./NutritionInfo";
 import SearchResultsList from "./SearchResultsList";
 
 const SearchResults = () => {
-<<<<<<< HEAD
   const [selectedItem, setSelectedItem] = useState("");
   const [selectedFoodId, setSelectedFoodId] = useState(0);
 
@@ -22,17 +21,6 @@ const SearchResults = () => {
             selectedFoodId={selectedFoodId}
           />
         )}
-=======
-  const { items } = useSelector((state) => state.edamam);
-
-  return items.map((list, i) => (
-    <div key={i}>
-      <div className="d-flex justify-content-center my-2">
-        <h5 className="mr-5" style={{ width: "45%" }}>
-          {list.food.label}
-        </h5>
-        <DropDown list={list} />
->>>>>>> master
       </div>
     </div>
   );
