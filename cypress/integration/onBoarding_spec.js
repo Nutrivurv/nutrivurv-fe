@@ -33,7 +33,7 @@ describe("On-Boarding forms", () => {
 
   it("Should complete Weight Goal form", () => {
     cy.get("form").within(() => {
-      cy.get('input[name="target_weight"]').clear().type("115");
+      cy.get('input[name="target_weight_lbs"]').clear().type("115");
       cy.get('[style="transform: translateX(-50%); left: 50%;"]').click();
       cy.get("[data-cy=submit]").click();
     });
