@@ -20,7 +20,7 @@ const Logout = () => {
           Log Out
         </button>
       </div>
-      <JournalContainer />
+{/*       <JournalContainer /> */}
     </div>
   );
 };

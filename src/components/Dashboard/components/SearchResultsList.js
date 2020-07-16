@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const SearchResultsList = (props) => {
-  const { items } = useSelector((state) => state.auth);
+  const { items } = useSelector((state) => state.edamam);
 
   return items.map((list) => (
     <div onClick={() => props.handleItemClick(list)} key={list.foodId}>
