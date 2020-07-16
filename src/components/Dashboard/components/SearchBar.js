@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Edamam } from "../../../state/slices/slices";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { searchFood } from "../../../state/slices/EdamamSlice";
 import SearchResults from "./SearchResults";
 
 const SearchBar = () => {
@@ -9,19 +9,23 @@ const SearchBar = () => {
 
   const dispatch = useDispatch();
 
-  const { searchError, isFetching, items } = useSelector((state) => state.edamam);
+  const {
+    searchError,
+    searchStart,
+    searchSuccess,
+    searchFail,
+    items,
+  } = useSelector((state) => state.edamam);
 
   const { register, errors, handleSubmit } = useForm({});
 
   const onSubmit = () => {
-    dispatch(Edamam(encodeURIComponent(search)));
+    dispatch(searchFood(encodeURIComponent(search)));
   };
 
   const handleChanges = (e) => {
     setSearch(e.target.value);
   };
-
-  console.log("items", items);
 
   return (
     <div className="row d-flex justify-content-center mt-5">
@@ -43,13 +47,13 @@ const SearchBar = () => {
       </form>
       <div className="flex-column align-items-center w-100">
         <h3 className="pt-4 d-flex justify-content-center">Results</h3>
-        {isFetching ? (
+        {searchStart && (
           <div className="loading d-flex justify-content-center">
             <h4>Searching...</h4>
           </div>
-        ) : (
-          <SearchResults />
         )}
+        {searchSuccess && <SearchResults />}
+        {searchFail && <h4>An error occurred. Please try again later.</h4>}
       </div>
     </div>
   );
