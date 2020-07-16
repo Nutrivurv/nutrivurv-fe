@@ -6,6 +6,7 @@ const DropDown = (props) => {
   const handleLabelChange = (measure) => {
     setLabel(measure.label);
   };
+  var measuresList = props.selectedItemObject.measures;
 
   return (
     <div className="dropdown">
@@ -14,21 +15,19 @@ const DropDown = (props) => {
           {label}
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          {props.items.map((item) =>
-            item.measures.map((measure) => (
-              <Dropdown.Item
-                key={measure.uri}
-                className="dropdown-item"
-                href="#"
-                value={measure.label}
-                onClick={() => {
-                  handleLabelChange(measure);
-                }}
-              >
-                {measure.label}
-              </Dropdown.Item>
-            ))
-          )}
+          {measuresList.map((measure) => (
+            <Dropdown.Item
+              key={measure.uri}
+              className="dropdown-item"
+              href="#"
+              value={measure.label}
+              onClick={() => {
+                handleLabelChange(measure);
+              }}
+            >
+              {measure.label}
+            </Dropdown.Item>
+          ))}
         </Dropdown.Menu>
       </Dropdown>
     </div>
