@@ -15,32 +15,36 @@ const SignUp = ({ handleChange, user }) => {
 
   password.current = watch("password", "");
 
-  const weightToMetric = (lbs) => {
-    return lbs * 0.453592;
+  const weightToImperial = (kg) => {
+    return Math.round(kg * 2.205);
   };
 
-  const heightToMetric = (ft, inches) => {
-    return (Number(ft) * 12 + Number(inches)) * 2.54;
+  const heightToImperial = (cm) => {
+    const totalInches = cm / 2.54;
+    const height_ft = Math.floor(totalInches / 12);
+    const height_in = Math.round(totalInches - height_ft * 12);
+
+    return {
+      height_ft,
+      height_in,
+    };
   };
 
   const onSubmit = () => {
-    if (user.standard === "true") {
-      user.weight_kg = weightToMetric(user.weight_lbs);
-      user.height_cm = heightToMetric(user.height_ft, user.height_in);
-      user.net_weekly_weight_change_kg =
-        Number(user.net_weekly_weight_change_kg) *
-        (Number(user.target_weight_lbs < user.weight_lbs) ? -1 : 1);
-    } else {
-      user.net_weekly_weight_change_kg =
-        Number(user.net_weekly_weight_change_kg) *
-        (weightToMetric(user.target_weight_lbs) < Number(user.weight_kg)
-          ? -1
-          : 1);
+    if (user.standard !== "true") {
+      const { height_ft, height_in } = heightToImperial(user.height_cm);
+      user.weight_lbs = weightToImperial(user.weight_kg);
+      user.height_ft = height_ft;
+      user.height_in = height_in;
     }
+
+    user.net_weekly_weight_change_lbs =
+      user.net_weekly_weight_change_lbs *
+      (Number(user.target_weight_lbs < user.weight_lbs) ? -1 : 1);
+
     delete user.standard;
-    delete user.height_ft;
-    delete user.height_in;
-    delete user.weight_lbs;
+    delete user.height_cm;
+    delete user.weight_kg;
 
     dispatch(authenticate(user, "register"));
   };
