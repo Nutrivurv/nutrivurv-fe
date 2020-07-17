@@ -7,7 +7,7 @@ const edamamAppKey = process.env.REACT_APP_EDAMAM_APP_KEY;
 
 const initialState = {
   items: [],
-  itemNutrients: [],
+  currentItem: {},
   searchError: null,
   searchStart: false,
   searchSuccess: false,
@@ -38,7 +38,7 @@ const EdamamSlice = createSlice({
       state.searchFail = true;
     },
     callNutrients: (state, action) => {
-      state.itemNutrients = action.payload;
+      state.currentItem = action.payload;
     },
   },
 });
@@ -66,8 +66,8 @@ export const searchFood = (search) => async (dispatch) => {
 export const getNutrients = (id, uri, quantity) => async (dispatch) => {
   try {
     const response = await axios.post(
-      `${edamamAPI}//food-database/v2/nutrients?app_id=${edamamAppID}&app_key=${edamamAppKey}`,
-      { quantity: quantity, measureURI: uri, foodId: id }
+      `${edamamAPI}/food-database/v2/nutrients?app_id=${edamamAppID}&app_key=${edamamAppKey}`,
+      { ingredients: [{ quantity: quantity, measureURI: uri, foodId: id }] }
     );
     console.log(response.data);
     dispatch(callNutrients(response.data));
