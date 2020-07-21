@@ -15,7 +15,7 @@ const DropDown = (props) => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    setQuantity(e.target.value);
+    setQuantity(Number(e.target.value));
   };
   const handleLabelChange = (measure) => {
     setURI(measure.uri);
