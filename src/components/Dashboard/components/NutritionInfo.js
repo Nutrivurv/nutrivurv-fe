@@ -11,7 +11,9 @@ const NutritionInfo = (props) => {
 
   return (
     <div className="d-block">
-      <p>Current Item: {JSON.stringify(currentItem)}</p>
+      <p style={{ fontSize: "10px", width: "50%" }}>
+        Current Item: {JSON.stringify(currentItem)}
+      </p>
       <DropDown
         items={items}
         selectedItem={props.selectedItem}

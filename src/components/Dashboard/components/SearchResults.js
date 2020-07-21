@@ -10,13 +10,22 @@ const SearchResults = () => {
   const dispatch = useDispatch();
 
   const handleItemClick = (l) => {
+    const quantityInput = document.getElementById("quantity");
+    if (quantityInput !== null) {
+      quantityInput.reset();
+    }
     setSelectedItem(l.food);
     setSelectedFoodId(l.food.foodId);
     dispatch(getNutrients(l.food.foodId, l.food.uri, 1));
   };
 
   return (
-    <div>
+    <div
+      style={{
+        position: "relative",
+        left: "10%",
+      }}
+    >
       <SearchResultsList handleItemClick={handleItemClick} />
       <div className="d-flex w-50">
         {selectedItem && (
