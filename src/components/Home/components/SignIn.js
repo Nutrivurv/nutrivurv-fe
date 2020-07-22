@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import { ReactComponent as SignInImage } from "../../../assets/GirlComptr.svg";
-import { authenticate } from "../../../state/slices/slices";
+import { authenticate } from "../../../state/slices/AuthSlice";
 import Footer from "./LandingPage/components/Footer";
 
 const SignIn = () => {

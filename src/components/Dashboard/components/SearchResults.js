@@ -1,20 +1,33 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import DropDown from "./DropDown";
+import React, { useState } from "react";
+import NutritionInfo from "./NutritionInfo";
+import SearchResultsList from "./SearchResultsList";
+import { useDispatch } from "react-redux";
+import { getNutrients } from "../../../state/slices/EdamamSlice";
 
 const SearchResults = () => {
-  const { items } = useSelector((state) => state.auth);
+  const [selectedItem, setSelectedItem] = useState("");
+  const [selectedFoodId, setSelectedFoodId] = useState(0);
+  const dispatch = useDispatch();
 
-  return items.map((list) => (
-    <div key={list.foodId}>
-      <div className="d-flex justify-content-center my-2">
-        <h5 className="mr-5" style={{ width: "45%" }}>
-          {list.food.label}
-        </h5>
-        <DropDown list={list} />
+  const handleItemClick = (l) => {
+    setSelectedItem(l.food);
+    setSelectedFoodId(l.food.foodId);
+    dispatch(getNutrients(l.food.foodId, l.food.uri, 1));
+  };
+
+  return (
+    <div>
+      <SearchResultsList handleItemClick={handleItemClick} />
+      <div className="d-flex w-50">
+        {selectedItem && (
+          <NutritionInfo
+            selectedItem={selectedItem}
+            selectedFoodId={selectedFoodId}
+          />
+        )}
       </div>
     </div>
-  ));
+  );
 };
 
 export default SearchResults;

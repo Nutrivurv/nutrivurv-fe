@@ -16,7 +16,7 @@ const Onboarding = ({ match }) => {
     email: "",
     password: "",
     gender: "",
-    target_weight: "",
+    target_weight_lbs: "",
     activity_level: "",
     standard: "true",
     height_ft: "",
@@ -24,7 +24,7 @@ const Onboarding = ({ match }) => {
     height_cm: "",
     weight_lbs: "",
     weight_kg: "",
-    net_weekly_change_kg: "",
+    net_weekly_weight_change_lbs: "",
     date_of_birth: "",
   });
 

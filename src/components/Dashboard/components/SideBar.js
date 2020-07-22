@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory, Redirect } from "react-router-dom";
+import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
 import { ReactComponent as Placeholder } from "../../../assets/Placeholder.svg";
 import DailyVibe from "./DailyVibe";
@@ -47,7 +47,7 @@ const SideBar = () => {
                 id="add-journal"
                 className="btn-primary rounded p-2 border border-primary"
                 style={{ width: "250px" }}
-                onClick={() => history.push("/dashboard/addToJournal")}
+                onClick={() => history.push("/dashboard/food-search")}
               >
                 Add to Journal
               </button>

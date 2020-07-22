@@ -18,7 +18,7 @@ const WeightGoals = ({ handleChange, user }) => {
 
   const [value, setValue] = useState(0);
 
-  user.net_weekly_change_kg = value.toString();
+  user.net_weekly_weight_change_lbs = value.toString();
 
   return (
     <div
@@ -39,9 +39,9 @@ const WeightGoals = ({ handleChange, user }) => {
             className="rounded p-1 w-100 border border-primary"
             type="number"
             id="goalWeight"
-            name="target_weight"
+            name="target_weight_lbs"
             placeholder="lbs."
-            defaultValue={user.target_weight}
+            defaultValue={user.target_weight_lbs}
             onChange={handleChange}
             ref={register({
               required: {
@@ -50,9 +50,9 @@ const WeightGoals = ({ handleChange, user }) => {
               },
             })}
           />
-          {errors.target_weight && (
+          {errors.target_weight_lbs && (
             <small className="text-danger">
-              {errors.target_weight.message}
+              {errors.target_weight_lbs.message}
             </small>
           )}
           <div className="mt-4">
@@ -60,7 +60,7 @@ const WeightGoals = ({ handleChange, user }) => {
               Rate of Weight Gain or Loss
             </label>
             <Controller
-              name="net_weekly_change_kg"
+              name="net_weekly_weight_change_lbs"
               control={control}
               onChange={(value) => setValue(value)}
               as={
@@ -71,7 +71,7 @@ const WeightGoals = ({ handleChange, user }) => {
                   min={0}
                   vertical={false}
                   defaultValue=""
-                  value={user.net_weekly_change_kg}
+                  value={user.net_weekly_weight_change_lbs}
                   marks={marks}
                 />
               }
