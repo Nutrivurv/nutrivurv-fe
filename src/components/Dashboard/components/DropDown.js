@@ -27,9 +27,11 @@ const DropDown = (props) => {
   return (
     <div className="dropdown">
       <form onSubmit={handleSubmit} className="form-group">
-        <label htmlFor="quantity input">Quantity</label>
+      <label htmlFor="quantity input" className="w-100">Quantity</label>
+        <div className="d-flex m-0 p-0">
+        <div>
         <input
-          className="rounded p-1 w-100 border border-primary"
+          className="rounded p-1 w-50 border border-primary"
           type="number"
           id="itemQuantity"
           name="item_quantity"
@@ -37,7 +39,8 @@ const DropDown = (props) => {
           defaultValue={newQuantity}
           onChange={handleChange}
         />
-
+        </div>
+        <div>
         <Dropdown>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
             {newMeasure.label}
@@ -58,6 +61,8 @@ const DropDown = (props) => {
             ))}
           </Dropdown.Menu>
         </Dropdown>
+        </div>
+        </div>
         <button>Update</button>
       </form>
     </div>
