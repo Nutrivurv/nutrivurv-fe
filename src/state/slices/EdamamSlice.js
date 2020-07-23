@@ -9,9 +9,13 @@ const initialState = {
   items: [],
   currentItem: {},
   searchError: null,
+  searchNutrientsError: null,
   searchStart: false,
   searchSuccess: false,
   searchFail: false,
+  searchNutrientsStart: false,
+  searchNutrientsSuccess: false,
+  searchNutrientFail: false,
 };
 
 const EdamamSlice = createSlice({
@@ -23,6 +27,10 @@ const EdamamSlice = createSlice({
       state.searchSuccess = false;
       state.searchFail = false;
       state.searchError = "";
+      state.currentItem = {};
+      state.searchNutrientsStart = false;
+      state.searchNutrientsSuccess = false;
+      state.searchNutrientFail = false;
     },
     callItemSuccess: (state, action) => {
       state.items = action.payload;
@@ -37,8 +45,24 @@ const EdamamSlice = createSlice({
       state.searchSuccess = false;
       state.searchFail = true;
     },
-    callNutrients: (state, action) => {
-      state.currentItem = action.payload;
+    callNutrientsStart: (state) => {
+      state.searchNutrientsStart = true;
+      state.searchNutrientsSuccess = false;
+      state.searchNutrientFail = false;
+    },
+    callNutrientsSuccess: (state, action) => {
+      state.currentItem = {
+        ...action.payload.currentItem,
+      };
+      state.searchNutrientsStart = false;
+      state.searchNutrientsSuccess = true;
+      state.searchNutrientFail = false;
+    },
+    callNutrientsFail: (state, action) => {
+      state.searchNutrientsError = action.payload;
+      state.searchNutrientsStart = false;
+      state.searchNutrientsSuccess = false;
+      state.searchNutrientFail = true;
     },
   },
 });
@@ -48,7 +72,9 @@ export const {
   callItemFail,
   callItemSuccess,
   searchError,
-  callNutrients,
+  callNutrientsStart,
+  callNutrientsSuccess,
+  callNutrientsFail,
 } = EdamamSlice.actions;
 
 export const searchFood = (search) => async (dispatch) => {
@@ -63,16 +89,39 @@ export const searchFood = (search) => async (dispatch) => {
   }
 };
 
-export const getNutrients = (id, uri, quantity) => async (dispatch) => {
+export const getNutrients = (
+  quantity,
+  measure,
+  foodId,
+  label = null,
+  image = null,
+  measures = null
+) => async (dispatch, getState) => {
+  dispatch(callNutrientsStart());
+
   try {
     const response = await axios.post(
       `${edamamAPI}/food-database/v2/nutrients?app_id=${edamamAppID}&app_key=${edamamAppKey}`,
-      { ingredients: [{ quantity: quantity, measureURI: uri, foodId: id }] }
+      { ingredients: [{ quantity, measureURI: measure.uri, foodId }] }
     );
-    console.log(response.data);
-    dispatch(callNutrients(response.data));
+
+    const currentItem = getState().edamam.currentItem;
+
+    dispatch(
+      callNutrientsSuccess({
+        currentItem: {
+          quantity,
+          measure,
+          foodId,
+          label: label ? label : currentItem.label,
+          image: image ? image : currentItem.image,
+          measures: measures ? measures : currentItem.measures,
+          nutrition: response.data,
+        },
+      })
+    );
   } catch (error) {
-    dispatch(callItemFail(error.response));
+    dispatch(callNutrientsFail(error.response));
   }
 };
 
