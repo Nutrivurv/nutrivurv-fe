@@ -4,29 +4,24 @@ import { useDispatch } from "react-redux";
 import { getNutrients } from "../../../state/slices/EdamamSlice";
 
 const DropDown = (props) => {
-  var measuresList = props.selectedItemObject.measures;
+  const { measures, foodId, quantity, measure } = props.currentItem;
 
   const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState(1);
-  const [label, setlabel] = useState(measuresList[0].label);
-  const [uri, setURI] = useState("");
-
-  var foodId = props.selectedItemObject.food.foodId;
+  const [newQuantity, setNewQuantity] = useState(quantity);
+  const [newMeasure, setNewMeasure] = useState(measure);
 
   const handleChange = (e) => {
     e.preventDefault();
-    setQuantity(Number(e.target.value));
+    setNewQuantity(Number(e.target.value));
   };
-  const handleLabelChange = (measure) => {
-    setURI(measure.uri);
-    setlabel(measure.label);
-    console.log("measure.uri", measure.uri);
+
+  const handleMeasureChange = (newMeasure) => {
+    setNewMeasure(newMeasure);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("foodId", foodId, "uri", uri, "quantity", quantity);
-    dispatch(getNutrients(foodId, uri, quantity));
+    dispatch(getNutrients(newQuantity, newMeasure, foodId));
   };
 
   return (
@@ -39,23 +34,23 @@ const DropDown = (props) => {
           id="itemQuantity"
           name="item_quantity"
           placeholder="Enter quantity (number)"
-          defaultValue={1}
+          defaultValue={newQuantity}
           onChange={handleChange}
         />
 
         <Dropdown>
           <Dropdown.Toggle variant="success" id="dropdown-basic">
-            {label}
+            {newMeasure.label}
           </Dropdown.Toggle>
           <Dropdown.Menu>
-            {measuresList.map((measure) => (
+            {measures.map((measure) => (
               <Dropdown.Item
                 key={measure.uri}
                 className="dropdown-item"
                 href="#"
                 value={measure.label}
                 onClick={() => {
-                  handleLabelChange(measure);
+                  handleMeasureChange(measure);
                 }}
               >
                 {measure.label}
