@@ -3,12 +3,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
 import { ReactComponent as Placeholder } from "../../../assets/Placeholder.svg";
+import { Journal } from "../../../state/slices/userinfo";
 import DailyVibe from "./DailyVibe";
 
 const SideBar = () => {
   const [toggle, setToggle] = useState(false);
   const history = useHistory();
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
+  const { journal } = useSelector((state)=> state.user);
+  const d = new Date();
+  let year = d.getFullYear();
+  let month = d.getMonth();
+  let day = d.getDate();
+  const date = `${year}-${month}-${day}`;
+  const getJournalInfo = Journal(user.id, date);
+  getJournalInfo();
+  console.log(journal);
   console.log(user);
   return (
     <div>
@@ -21,11 +32,13 @@ const SideBar = () => {
         <div>
           <div className="d-flex flex-column align-items-center my-5">
             <Placeholder />
-            <h6 className="font-weight-bolder">Daily Intake</h6>
+            <h6 className="font-weight-bolder">
+              Daily Intake {user.caloric_budget_kcal} kcal
+            </h6>
             <div className="d-flex my-3">
               <div>
                 <h3 className="mr-5">
-                  {user.weight}195
+                  {user.weight_lbs}
                   <span className="pl-1" style={{ fontSize: "14px" }}>
                     lbs
                   </span>

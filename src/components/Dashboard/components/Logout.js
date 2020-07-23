@@ -11,7 +11,7 @@ const Logout = () => {
   if (token === null) return <Redirect to="/" />;
 
   return (
-    <div >
+    <div>
       <div className="d-flex justify-content-end px-5">
         <button
           className="btn-primary rounded px-2 py-1 border border-primary"
@@ -20,7 +20,7 @@ const Logout = () => {
           Log Out
         </button>
       </div>
-{/*       <JournalContainer /> */}
+      {/*       <JournalContainer /> */}
     </div>
   );
 };
