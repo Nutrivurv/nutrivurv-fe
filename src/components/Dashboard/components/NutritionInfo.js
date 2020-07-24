@@ -27,7 +27,7 @@ const NutritionInfo = (props) => {
               <img
                 alt="food-picture"
                 src={currentItem.image}
-                className="rounded-circle"
+                className="rounded-circle img-responsive"
               />
             </div>
           </div>
