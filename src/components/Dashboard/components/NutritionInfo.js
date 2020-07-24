@@ -9,14 +9,14 @@ const NutritionInfo = (props) => {
   var totalDaily = nutrition.totalDaily;
 
   return (
-    <div>
+    <div className="mr-4 pr-4">
       <div className="card border-primary mb-3">
         <div className="card-header">
-          <p>Nutrition Information</p>
+          <h4>Nutrition Information</h4>
         </div>
-        <div className="card-body">
+        <div className="card-body mx-2">
           <div className="d-flex justify-content-around">
-            <div>
+            <div className="mx-2 px-2">
               <h2 className="card-title font-weight-bold">
                 {currentItem.label.charAt(0).toUpperCase() +
                   currentItem.label.slice(1)}
@@ -27,35 +27,44 @@ const NutritionInfo = (props) => {
               <img
                 alt="food-picture"
                 src={currentItem.image}
-                className="rounded-circle img-responsive"
+                className="rounded-circle img-responsive d-sm-none d-md-block"
               />
             </div>
           </div>
-          <h3 className="font-weight-bold">Health Labels</h3>
-          <div className="d-flex flex-wrap border-bottom border-primary py-2">
+          <h3 className="font-weight-bold d-sm-none d-md-block">
+            Health Labels
+          </h3>
+          <div className="d-flex flex-wrap border-bottom border-primary py-2 d-sm-none d-md-flex">
             {nutrition.healthLabels.map((label) => (
-              <div className="p-1 font-weight-bold">
+              <div className="p-1 font-weight-bold" key={currentItem.foodId}>
                 <span className="badge badge-primary">
                   {label.split("_").join(" ")}
                 </span>
               </div>
             ))}
           </div>
-          <h3 className="font-weight-bold">Nutrition Facts</h3>
-          <h4>Amount Per Serving</h4>
-          <div className="d-flex justify-content-between mx-1 px-2">
+          <div className="mt-4 pb-2">
+            <h3 className="font-weight-bold">Nutrition Facts</h3>
+          </div>
+          <div className="pb-2">
+            <h4>Amount Per Serving</h4>
+          </div>
+          <div className="d-block d-sm-block d-md-flex justify-content-between mx-1 px-2">
             <div>
-              <h4 className="font-weight-bold">Calories</h4>
+              <h3 className="font-weight-bold">Calories</h3>
             </div>
-            <div className="text-right">
-              <h5>{nutrition.calories}</h5>
+            <div className="d-block d-sm-block d-md-none text-left">
+              <h3>{nutrition.calories}</h3>
+              <p>%Daily Value *</p>
+            </div>
+            <div className="d-none d-md-block text-right">
+              <h3>{nutrition.calories}</h3>
               <p>%Daily Value *</p>
             </div>
           </div>
           <div className="px-2 mx-1">
             <div className="d-flex justify-content-between">
               <h4>Total Fat</h4>
-
               {totalNutrients.FAT ? (
                 <div className="text-right">
                   <h5>
@@ -199,7 +208,7 @@ const NutritionInfo = (props) => {
           </div>
         </div>
       </div>
-      <button className="btn-primary rounded px-2 py-1 border border-primary">
+      <button className="btn-primary rounded p-2 border border-primary">
         Back to Journal
       </button>
     </div>
