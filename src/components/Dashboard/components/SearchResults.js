@@ -30,9 +30,11 @@ const SearchResults = () => {
   };
 
   return (
-    <div>
+    <div className="d-flex justify-content-between">
+      <div className="w-50">
       <SearchResultsList handleItemClick={handleItemClick} />
-      <div className="d-flex w-50">
+      </div>
+      <div className="w-50">
         {searchNutrientsSuccess && <NutritionInfo currentItem={currentItem} />}
       </div>
     </div>
