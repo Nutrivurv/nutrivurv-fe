@@ -8,7 +8,7 @@ const edamamAppKey = process.env.REACT_APP_EDAMAM_APP_KEY;
 
 const initialState = {
   user: {},
-  journal:{},
+  journal: {},
 };
 
 const UserSlice = createSlice({
@@ -18,9 +18,9 @@ const UserSlice = createSlice({
     setUser: (state, action) => {
       state.user = action.payload;
     },
-    setJournal:(state, action)=>{
+    setJournal: (state, action) => {
       state.journal = action.payload;
-    }
+    },
   },
 });
 

@@ -11,7 +11,7 @@ const SideBar = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const { journal } = useSelector((state)=> state.user);
+  const { journal } = useSelector((state) => state.user);
   const d = new Date();
   let year = d.getFullYear();
   let month = d.getMonth();
@@ -32,9 +32,21 @@ const SideBar = () => {
         <div>
           <div className="d-flex flex-column align-items-center my-5">
             <Placeholder />
-            <h6 className="font-weight-bolder">
-              Daily Intake {user.caloric_budget_kcal} kcal
-            </h6>
+            <h3 className="font-weight-bolder">
+              Budgets
+            </h3>
+            <h4 className="font-weight-bolder">
+              Calories: {user.caloric_budget_kcal} kcal
+            </h4>
+            <h4 className="font-weight-bolder">
+              Fats: {user.fat_budget_g} kcal
+            </h4>
+            <h4 className="font-weight-bolder">
+              Carbs: {user.carb_budget_g} kcal
+            </h4>
+            <h4 className="font-weight-bolder">
+              Proteins: {user.protein_budget_g} kcal
+            </h4>
             <div className="d-flex my-3">
               <div>
                 <h3 className="mr-5">
