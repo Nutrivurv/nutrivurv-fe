@@ -1,39 +1,41 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getNutrients } from "../../../state/slices/EdamamSlice";
 import NutritionInfo from "./NutritionInfo";
 import SearchResultsList from "./SearchResultsList";
-import { useDispatch } from "react-redux";
-import { getNutrients } from "../../../state/slices/EdamamSlice";
 
 const SearchResults = () => {
-  const [selectedItem, setSelectedItem] = useState("");
-  const [selectedFoodId, setSelectedFoodId] = useState(0);
+  const { searchNutrientsSuccess, currentItem } = useSelector(
+    (state) => state.edamam
+  );
+
   const dispatch = useDispatch();
 
-  const handleItemClick = (l) => {
-    const quantityInput = document.getElementById("quantity");
-    if (quantityInput !== null) {
-      quantityInput.reset();
-    }
-    setSelectedItem(l.food);
-    setSelectedFoodId(l.food.foodId);
-    dispatch(getNutrients(l.food.foodId, l.food.uri, 1));
+  const handleItemClick = (foodItem) => {
+    const { label, foodId, image } = foodItem.food;
+    const measures = foodItem.measures;
+    const defaultMeasure = measures[0];
+    const defaultQuantity = 1;
+
+    dispatch(
+      getNutrients(
+        defaultQuantity,
+        defaultMeasure,
+        foodId,
+        label,
+        image,
+        measures
+      )
+    );
   };
 
   return (
-    <div
-      style={{
-        position: "relative",
-        left: "10%",
-      }}
-    >
-      <SearchResultsList handleItemClick={handleItemClick} />
-      <div className="d-flex w-50">
-        {selectedItem && (
-          <NutritionInfo
-            selectedItem={selectedItem}
-            selectedFoodId={selectedFoodId}
-          />
-        )}
+    <div className="d-flex justify-content-between">
+      <div className="w-50">
+        <SearchResultsList handleItemClick={handleItemClick} />
+      </div>
+      <div className="w-50">
+        {searchNutrientsSuccess && <NutritionInfo currentItem={currentItem} />}
       </div>
     </div>
   );
