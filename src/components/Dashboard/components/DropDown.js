@@ -25,15 +25,15 @@ const DropDown = (props) => {
   };
 
   return (
-    <div className="dropdown">
+    <div className="dropdown mx-2 px-4">
       <form onSubmit={handleSubmit} className="form-group">
         <label htmlFor="quantity input" className="w-100">
           Quantity
         </label>
-        <div className="d-flex m-0 p-0">
+        <div className="d-block d-sm-block d-md-flex">
           <div>
             <input
-              className="rounded p-1 w-50 border border-primary"
+              className="rounded border border-primary p-2"
               type="number"
               id="itemQuantity"
               name="item_quantity"
@@ -65,7 +65,9 @@ const DropDown = (props) => {
             </Dropdown>
           </div>
         </div>
-        <button>Update</button>
+        <div className="py-2 mt-2">
+          <button className="p-2 rounded border border-primary">Update</button>
+        </div>
       </form>
     </div>
   );
