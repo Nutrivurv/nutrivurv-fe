@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Dropdown } from "react-bootstrap";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import FormControl from "react-bootstrap/FormControl";
+import InputGroup from "react-bootstrap/InputGroup";
 import { useDispatch } from "react-redux";
 import { getNutrients } from "../../../state/slices/EdamamSlice";
 

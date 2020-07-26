@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getNutrients } from "../../../state/slices/EdamamSlice";
+import { getNutrients, searchFood } from "../../../state/slices/EdamamSlice";
 import NutritionInfo from "./NutritionInfo";
 import SearchResultsList from "./SearchResultsList";
 
 const SearchResults = () => {
+  const [active, setActive] = useState(false);
   const { searchNutrientsSuccess, currentItem } = useSelector(
     (state) => state.edamam
   );
@@ -16,7 +17,6 @@ const SearchResults = () => {
     const measures = foodItem.measures;
     const defaultMeasure = measures[0];
     const defaultQuantity = 1;
-
     dispatch(
       getNutrients(
         defaultQuantity,
@@ -31,8 +31,11 @@ const SearchResults = () => {
 
   return (
     <div className="d-flex justify-content-between">
-      <div className="w-50">
-        <SearchResultsList handleItemClick={handleItemClick} />
+      <div
+        className="mt-5"
+        style={{ width: "30vw", position: "relative", left: "5%" }}
+      >
+        <SearchResultsList active={active} handleItemClick={handleItemClick} />
       </div>
       <div className="w-50">
         {searchNutrientsSuccess && <NutritionInfo currentItem={currentItem} />}

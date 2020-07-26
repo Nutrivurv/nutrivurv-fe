@@ -8,10 +8,11 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
   const [number, setNumber] = useState(1);
   const [active, setActive] = useState(false);
   const dispatch = useDispatch();
-
+  const background = "#4986b2";
   return (
-    <Pagination className="justify-content-center mt-3">
+    <Pagination bg="light" className="justify-content-center mt-3">
       <Pagination.Item
+        bg="light"
         active={number === pageArr[0]}
         onClick={(e) => {
           setNumber(pageArr[0]);

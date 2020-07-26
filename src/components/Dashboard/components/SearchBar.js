@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { searchFood } from "../../../state/slices/EdamamSlice";
 import SearchResults from "./SearchResults";
-
+import { ReactComponent as Placeholder } from "../../../assets/WomanBubbles.svg";
 const SearchBar = () => {
   const [search, setSearch] = useState("");
 
@@ -28,7 +28,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="row d-flex justify-content-center mt-5">
+    <div className="row d-flex justify-content-center mt-3">
       <h3 className="p-4">Add Food to your Daily Log</h3>
       <form
         className="col-12 d-flex pl-5 justify-content-center"
@@ -45,14 +45,24 @@ const SearchBar = () => {
           Search
         </button>
       </form>
-      <div className="flex-column align-items-center w-100">
-        <h3 className="pt-4 d-flex justify-content-center">Results</h3>
+      <div className="flex-column align-items-center w-100 mt-4">
         {searchStart && (
-          <div className="loading d-flex justify-content-center">
-            <h4>Searching...</h4>
+          <div className="flex-column loading d-flex align-items-center">
+            <h4 className="mt-5">Searching for Food Item...</h4>
+            <div className="loader"></div>
           </div>
         )}
-        {searchSuccess && <SearchResults />}
+        {!searchSuccess && !searchStart && (
+          <div className="my-5 d-flex justify-content-center">
+            <Placeholder style={{ width: "30%" }} />
+          </div>
+        )}
+        {searchSuccess && (
+          <>
+            <h3 className="pt-4 d-flex justify-content-center">Results</h3>{" "}
+            <SearchResults />
+          </>
+        )}
         {searchFail && <h4>An error occurred. Please try again later.</h4>}
       </div>
     </div>
