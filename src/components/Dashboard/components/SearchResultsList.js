@@ -10,7 +10,7 @@ const SearchResultsList = (props) => {
     <>
       {itemArr.map((item, i) => (
         <div
-          className="list-group"
+          className="list-group p-2"
           style={{ cursor: "pointer" }}
           onClick={() => {
             props.handleItemClick(item);
@@ -18,11 +18,12 @@ const SearchResultsList = (props) => {
           key={i}
         >
           <div
-            className={`justify-content-center list-group-item-info list-group-item-action list-group-item d-flex ${
+            className={`border-bottom justify-content-center list-group-item-action list-group-item d-flex ${
               item.food.foodId === currentItem.foodId ? "active" : ""
             }`}
+            style={{ border: "none" }}
           >
-            <h6>
+            <h6 className="text-center">
               {item.food.label
                 .toLowerCase()
                 .split(" ")

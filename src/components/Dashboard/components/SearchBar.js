@@ -57,12 +57,7 @@ const SearchBar = () => {
             <Placeholder style={{ width: "30%" }} />
           </div>
         )}
-        {searchSuccess && (
-          <>
-            <h3 className="pt-4 d-flex justify-content-center">Results</h3>{" "}
-            <SearchResults />
-          </>
-        )}
+        {searchSuccess && <SearchResults />}
         {searchFail && <h4>An error occurred. Please try again later.</h4>}
       </div>
     </div>
