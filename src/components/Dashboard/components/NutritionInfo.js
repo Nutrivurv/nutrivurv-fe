@@ -8,34 +8,44 @@ const NutritionInfo = (props) => {
   console.log("total nutrients", totalNutrients);
   var totalDaily = nutrition.totalDaily;
 
+  var uselessLabel = "FREE";
+  var uselessLabel2 = "NO";
+  var uselessLabel3 = "SPECIFIC";
+  var uselessLabel4 = "CONSCIOUS";
+
+  var nutritionLabels = nutrition.healthLabels.filter(function (label) {
+    return (
+      !label.includes(uselessLabel) &&
+      !label.includes(uselessLabel2) &&
+      !label.includes(uselessLabel3) &&
+      !label.includes(uselessLabel4)
+    );
+  });
   return (
     <div className="mr-4 pr-4">
       <div className="card nutrition border-primary mb-3 mt-5">
-        <div className="card-header-light">
-          <h4>Nutrition Information</h4>
-        </div>
         <div className="card-body justify-content-center mx-2">
           <div className="d-flex justify-content-center">
             <div className="mx-2 px-2 justify-content-center">
-              <h2 className="d-flex justify-content-center card-title font-weight-bold">
+              <h3 className="d-flex justify-content-center font-weight-bold">
                 {currentItem.label.charAt(0).toUpperCase() +
                   currentItem.label.slice(1)}
-              </h2>
+              </h3>
               <div className="d-flex justify-content-center">
                 <img
                   alt="food-picture"
                   src={currentItem.image}
-                  className="w-50 rounded-circle img-responsive d-sm-none d-md-block"
+                  className="w-25 rounded-circle img-responsive d-sm-none d-md-block"
                 />
               </div>
               <DropDown currentItem={currentItem} />
             </div>
           </div>
-          <h3 className="font-weight-bold d-sm-none d-md-block">
+          <h4 className="font-weight-bold d-sm-none d-md-block">
             Health Labels
-          </h3>
+          </h4>
           <div className="d-flex flex-wrap border-bottom border-primary py-2 d-sm-none d-md-flex">
-            {nutrition.healthLabels.map((label) => (
+            {nutritionLabels.map((label) => (
               <div className="p-1 font-weight-bold" key={currentItem.foodId}>
                 <span className="badge badge-primary">
                   {label.split("_").join(" ")}
@@ -43,13 +53,7 @@ const NutritionInfo = (props) => {
               </div>
             ))}
           </div>
-          <div className="mt-4 pb-2">
-            <h3 className="font-weight-bold">Nutrition Facts</h3>
-          </div>
-          <div className="pb-2">
-            <h4>Amount Per Serving</h4>
-          </div>
-          <div className="d-block d-sm-block d-md-flex justify-content-between mx-1 px-2">
+          <div className="d-block d-sm-block d-md-flex justify-content-between mx-1 px-2 mt-4">
             <div>
               <h3 className="font-weight-bold">Calories</h3>
             </div>
