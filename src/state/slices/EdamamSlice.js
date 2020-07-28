@@ -16,6 +16,10 @@ const initialState = {
   searchNutrientsStart: false,
   searchNutrientsSuccess: false,
   searchNutrientFail: false,
+  pagination: "",
+  paginationSuccess: false,
+  prevPage: "",
+  pageArr: [1, 2, 3, 4],
 };
 
 const EdamamSlice = createSlice({
@@ -57,12 +61,22 @@ const EdamamSlice = createSlice({
       state.searchNutrientsStart = false;
       state.searchNutrientsSuccess = true;
       state.searchNutrientFail = false;
+      console.log(state.currentItem);
     },
     callNutrientsFail: (state, action) => {
       state.searchNutrientsError = action.payload;
       state.searchNutrientsStart = false;
       state.searchNutrientsSuccess = false;
       state.searchNutrientFail = true;
+    },
+    Pages: (state, action) => {
+      state.pagination = action.payload;
+      state.prevPage = [...state.prevPage, action.payload];
+      state.paginationSuccess = true;
+      console.log("state", state.pagination, "prevState", state.prevPage);
+    },
+    NextPage: (state, action) => {
+      state.pageArr = action.payload;
     },
   },
 });
@@ -75,18 +89,27 @@ export const {
   callNutrientsStart,
   callNutrientsSuccess,
   callNutrientsFail,
+  callNutrients,
+  Pages,
+  NextPage,
 } = EdamamSlice.actions;
 
-export const searchFood = (search) => async (dispatch) => {
+export const Next = (arr) => (dispatch) => {
+  dispatch(NextPage(arr));
+};
+
+export const searchFood = (search, api) => (dispatch) => {
   dispatch(callItem());
-  try {
-    const response = await axios.get(
-      `${edamamAPI}/food-database/v2/parser?app_id=${edamamAppID}&app_key=${edamamAppKey}&ingr=${search}`
-    );
-    dispatch(callItemSuccess(response.data.hints));
-  } catch (error) {
-    dispatch(callItemFail(error.response));
-  }
+  const edamam = `${edamamAPI}/food-database/v2/parser?app_id=${edamamAppID}&app_key=${edamamAppKey}&ingr=${search}`;
+  axios
+    .get(search === null ? api : edamam)
+    .then((res) => {
+      dispatch(callItemSuccess(res.data.hints));
+      dispatch(Pages(res.data["_links"]));
+    })
+    .catch((error) => {
+      dispatch(callItemFail(error.response));
+    });
 };
 
 export const getNutrients = (

@@ -83,19 +83,6 @@ $secondary: #1f7da2;
   width: 100%;
 }
 
-#sidebar {
-  min-width: 300px;
-  max-width: 300px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  z-index: 999;
-  background: rgb(240, 240, 240);
-  transition: all 0.5s cubic-bezier(0.945, 0.02, 0.27, 0.665);
-  transform-origin: center left;
-}
-
 .sidebar-active {
   transform: rotateY(0deg);
 }

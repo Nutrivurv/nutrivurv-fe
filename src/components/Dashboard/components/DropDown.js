@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Dropdown } from "react-bootstrap";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import FormControl from "react-bootstrap/FormControl";
+import InputGroup from "react-bootstrap/InputGroup";
 import { useDispatch } from "react-redux";
 import { getNutrients } from "../../../state/slices/EdamamSlice";
 
@@ -66,7 +69,7 @@ const DropDown = (props) => {
           </div>
         </div>
         <div className="py-2 mt-2">
-        <button className="p-2 rounded border border-primary">Update</button>
+          <button className="p-2 rounded border border-primary">Update</button>
         </div>
       </form>
     </div>

@@ -10,25 +10,25 @@ const NutritionInfo = (props) => {
 
   return (
     <div className="mr-4 pr-4">
-      <div className="card border-primary mb-3">
-        <div className="card-header">
+      <div className="card nutrition border-primary mb-3 mt-5">
+        <div className="card-header-light">
           <h4>Nutrition Information</h4>
         </div>
-        <div className="card-body mx-2">
-          <div className="d-flex justify-content-around">
-            <div className="mx-2 px-2">
-              <h2 className="card-title font-weight-bold">
+        <div className="card-body justify-content-center mx-2">
+          <div className="d-flex justify-content-center">
+            <div className="mx-2 px-2 justify-content-center">
+              <h2 className="d-flex justify-content-center card-title font-weight-bold">
                 {currentItem.label.charAt(0).toUpperCase() +
                   currentItem.label.slice(1)}
               </h2>
+              <div className="d-flex justify-content-center">
+                <img
+                  alt="food-picture"
+                  src={currentItem.image}
+                  className="w-50 rounded-circle img-responsive d-sm-none d-md-block"
+                />
+              </div>
               <DropDown currentItem={currentItem} />
-            </div>
-            <div>
-              <img
-                alt="food-picture"
-                src={currentItem.image}
-                className="rounded-circle img-responsive d-sm-none d-md-block"
-              />
             </div>
           </div>
           <h3 className="font-weight-bold d-sm-none d-md-block">

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getNutrients } from "../../../state/slices/EdamamSlice";
+import { getNutrients, searchFood } from "../../../state/slices/EdamamSlice";
 import NutritionInfo from "./NutritionInfo";
 import SearchResultsList from "./SearchResultsList";
+import { ReactComponent as Placeholder } from "../../../assets/undraw_breakfast.svg";
 
 const SearchResults = () => {
-  const { searchNutrientsSuccess, currentItem } = useSelector(
+  const [active, setActive] = useState(false);
+  const { searchNutrientsSuccess, currentItem, searchSuccess } = useSelector(
     (state) => state.edamam
   );
 
@@ -16,7 +18,6 @@ const SearchResults = () => {
     const measures = foodItem.measures;
     const defaultMeasure = measures[0];
     const defaultQuantity = 1;
-
     dispatch(
       getNutrients(
         defaultQuantity,
@@ -31,10 +32,21 @@ const SearchResults = () => {
 
   return (
     <div className="d-flex justify-content-between">
-      <div className="w-50">
-      <SearchResultsList handleItemClick={handleItemClick} />
+      <div
+        className="card mt-5 justify-content-center"
+        style={{ width: "30vw", position: "relative", left: "5%" }}
+      >
+        <h3 className="pt-4 d-flex justify-content-center pb-2 border-bottom border-secondary">
+          Results
+        </h3>{" "}
+        <SearchResultsList active={active} handleItemClick={handleItemClick} />
       </div>
       <div className="w-50">
+        {!searchNutrientsSuccess && (
+          <div className="my-5 d-flex justify-content-center">
+            <Placeholder style={{ width: "40%" }} />
+          </div>
+        )}
         {searchNutrientsSuccess && <NutritionInfo currentItem={currentItem} />}
       </div>
     </div>
