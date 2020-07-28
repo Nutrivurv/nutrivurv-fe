@@ -55,11 +55,11 @@ export const authenticate = (creds, type) => async (dispatch) => {
       `${nutrivurvAPI}/api/auth/${type}`,
       creds
     );
-
+    console.log(response);
     localStorage.setItem("token", response.data.token);
     dispatch(authSuccess(response.data.user));
   } catch (error) {
-    dispatch(authFail(error.response.data.message));
+    dispatch(authFail(error));
   }
 };
 

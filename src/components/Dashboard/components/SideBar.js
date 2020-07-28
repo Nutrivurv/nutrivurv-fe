@@ -1,12 +1,26 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
 import { ReactComponent as Placeholder } from "../../../assets/Placeholder.svg";
+import { Journal } from "../../../state/slices/userinfo";
 import DailyVibe from "./DailyVibe";
 
 const SideBar = () => {
   const [toggle, setToggle] = useState(false);
   const history = useHistory();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
+  const { journal } = useSelector((state) => state.user);
+  const d = new Date();
+  let year = d.getFullYear();
+  let month = d.getMonth();
+  let day = d.getDate();
+  const date = `${year}-${month}-${day}`;
+  const getJournalInfo = Journal(user.id, date);
+  getJournalInfo();
+  console.log(journal);
+  console.log(user);
   return (
     <div>
       <nav id="sidebar" className={toggle ? "sidebar-active" : "sidebar"}>
@@ -18,11 +32,37 @@ const SideBar = () => {
         <div>
           <div className="d-flex flex-column align-items-center my-5">
             <Placeholder />
-            <h6 className="font-weight-bolder">Daily Intake</h6>
+            <div className="d-flex flex-column pl-4 w-100">
+              <div>
+                <h3 className="font-weight-bold mb-4">Budgets</h3>
+              </div>
+              <div className="d-flex justify-content-between">
+                <h4 className="font-weight-bolder">Calories</h4>
+                <h4 className="font-weight-bolder">
+                  {user.caloric_budget_kcal}kcal
+                </h4>
+              </div>
+              <div className="d-flex justify-content-between">
+                <h4 className="font-weight-bolder">Fats</h4>
+                <h4 className="font-weight-bolder">{user.fat_budget_g}kcal</h4>
+              </div>
+              <div className="d-flex justify-content-between">
+                <h4 className="font-weight-bolder">Carbs</h4>
+                <h4 className="font-weight-bolder">
+                  {user.carb_budget_g} kcal
+                </h4>
+              </div>
+              <div className="d-flex justify-content-between">
+                <h4 className="font-weight-bolder">Proteins</h4>
+                <h4 className="font-weight-bolder">
+                  {user.protein_budget_g}kcal
+                </h4>
+              </div>
+            </div>
             <div className="d-flex my-3">
               <div>
                 <h3 className="mr-5">
-                  195
+                  {user.weight_lbs}
                   <span className="pl-1" style={{ fontSize: "14px" }}>
                     lbs
                   </span>
@@ -31,7 +71,7 @@ const SideBar = () => {
               </div>
               <div>
                 <h3>
-                  12
+                  {user.streak}12
                   <span className="pl-1" style={{ fontSize: "14px" }}>
                     days
                   </span>
