@@ -4,7 +4,7 @@ import Pagination from "./Pagination";
 
 const SearchResultsList = (props) => {
   const { items, currentItem } = useSelector((state) => state.edamam);
-  const [itemArr, setItemArr] = useState(items.slice(0, 5));
+  const [itemArr, setItemArr] = useState(items.slice(0, 8));
 
   return (
     <>
@@ -19,7 +19,10 @@ const SearchResultsList = (props) => {
         >
           <div
             className={`border-bottom justify-content-center list-group-item-action list-group-item d-flex ${
-              item.food.foodId === currentItem.foodId ? "active" : ""
+              item.food.foodId === currentItem.foodId &&
+              item.food.label === currentItem.label
+                ? "active"
+                : ""
             }`}
             style={{ border: "none" }}
           >
