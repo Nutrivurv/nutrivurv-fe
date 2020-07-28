@@ -11,12 +11,20 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
   const background = "#4986b2";
   return (
     <Pagination bg="light" className="justify-content-center mt-3">
+      <Pagination.Ellipsis
+        onClick={() => {
+          setActive(!active);
+          // dispatch(searchFood(null, pagination.next.href));
+          console.log(pagination);
+          dispatch(Next(Array.from(pageArr, (x) => x - 4)));
+        }}
+      />
       <Pagination.Item
         bg="light"
         active={number === pageArr[0]}
         onClick={(e) => {
           setNumber(pageArr[0]);
-          setItemArr(items.slice(0, 5));
+          setItemArr(items.slice(0, 8));
           console.log(pageArr[0]);
         }}
       >
@@ -26,7 +34,7 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
         active={number === pageArr[1]}
         onClick={(e) => {
           setNumber(pageArr[1]);
-          setItemArr(items.slice(5, 10));
+          setItemArr(items.slice(8, 17));
         }}
       >
         {pageArr[1]}
@@ -35,7 +43,7 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
         active={number === pageArr[2]}
         onClick={(e) => {
           setNumber(pageArr[2]);
-          setItemArr(items.slice(10, 15));
+          setItemArr(items.slice(17, 21));
         }}
       >
         {pageArr[2]}
