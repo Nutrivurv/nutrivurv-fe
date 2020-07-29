@@ -19,7 +19,7 @@ const initialState = {
   pagination: "",
   paginationSuccess: false,
   prevPage: "",
-  pageArr: [1, 2, 3, 4],
+  pageArr: [1, 2, 3],
 };
 
 const EdamamSlice = createSlice({
