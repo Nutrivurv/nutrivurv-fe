@@ -1,8 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link, Router } from "react-router-dom";
 import { logout } from "../../../state/slices/AuthSlice";
-import JournalContainer from "../components/JournalContainer";
 
 const Logout = () => {
   const { isAuthenticated, token } = useSelector((state) => state.auth);
@@ -12,15 +11,29 @@ const Logout = () => {
 
   return (
     <div>
-      <div className="d-flex justify-content-end px-5">
+      <div className="dropdown d-flex justify-content-end px-5">
         <button
-          className="btn-primary rounded px-2 py-1 border border-primary"
-          onClick={() => dispatch(logout())}
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          className="btn-primary dropdown-toggle rounded px-2 py-1 border border-primary"
         >
-          Log Out
+          <i className="fas fa-cog"></i>
         </button>
+        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <Link to="/dashboard/profile" className="dropdown-item" href="#">
+            Edit Profile
+          </Link>
+          <a
+            onClick={() => dispatch(logout())}
+            className="dropdown-item"
+            href="#"
+          >
+            Logout
+          </a>
+        </div>
       </div>
-      {/*       <JournalContainer /> */}
     </div>
   );
 };
