@@ -1,9 +1,9 @@
-import logger from "redux-logger";
 import { createStore } from "redux";
-import { persistStore, persistReducer } from "redux-persist";
+import logger from "redux-logger";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import rootReducer from "./reducers";
-import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
   key: "root",
@@ -17,6 +17,5 @@ const middleware = [...getDefaultMiddleware(), logger];
 export const store = configureStore({
   reducer: persistedReducer,
   middleware,
-  devTools: process.env.NODE_ENV !== "production",
 });
 export const persistor = persistStore(store);
