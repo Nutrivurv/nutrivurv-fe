@@ -6,13 +6,12 @@ describe("Dashboard", () => {
       cy.get('input[name="password"]').type("test12345");
       cy.get("[data-cy=submit]").click();
     });
-  });
-
-  it("Add to Journal button should work", () => {
-    cy.get("#add-journal").click();
-    // cy.location().should((loc) => {
-    //   expect(loc.pathname).to.eq("/");
-    // });
+    it("Add to Journal button should work", () => {
+      cy.get("#add-journal").click();
+      cy.location().should((loc) => {
+        expect(loc.pathname).to.eq("/");
+      });
+    });
   });
 
   it("sidebar food link should work and go to /", () => {
