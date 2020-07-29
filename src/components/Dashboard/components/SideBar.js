@@ -11,15 +11,15 @@ const SideBar = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const { journal } = useSelector((state) => state.user);
-  const d = new Date();
-  let year = d.getFullYear();
-  let month = d.getMonth();
-  let day = d.getDate();
-  const date = `${year}-${month}-${day}`;
-  const getJournalInfo = Journal(user.id, date);
-  getJournalInfo();
-  console.log(journal);
+  // const { journal } = useSelector((state) => state.user);
+  // const d = new Date();
+  // let year = d.getFullYear();
+  // let month = d.getMonth();
+  // let day = d.getDate();
+  // const date = `${year}-${month}-${day}`;
+  // const getJournalInfo = Journal(user.id, date);
+  // getJournalInfo();
+  // console.log(journal);
   console.log(user);
   return (
     <div>
