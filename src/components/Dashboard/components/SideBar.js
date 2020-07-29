@@ -24,92 +24,102 @@ const SideBar = () => {
   return (
     <div>
       <nav id="sidebar" className={toggle ? "sidebar-active" : "sidebar"}>
+        <div className="d-flex justify-content-center exit">
+          <h5 className="exit" onClick={() => setToggle(!toggle)}>
+            X
+          </h5>
+        </div>
         <div className="d-flex justify-content-center my-3 ">
           <NavLink to="/" className="navbar-brand ">
             <Logo className="logo" />
           </NavLink>
         </div>
         <div>
-          <div className="d-flex flex-column align-items-center my-5">
-            <Placeholder />
-            <div className="d-flex flex-column pl-4 w-100">
+          <div className="d-flex flex-column align-items-center my-2">
+            {/* <Placeholder /> */}
+            <div className="d-flex flex-column px-4 budgets">
               <div>
-                <h3 className="font-weight-bold mb-4">Budgets</h3>
-              </div>
-              <div className="d-flex justify-content-between">
-                <h4 className="font-weight-bolder">Calories</h4>
-                <h4 className="font-weight-bolder">
-                  {user.caloric_budget_kcal}kcal
+                <h4 className="font-weight-bold mt-4 mb-4 border-bottom">
+                  Budgets
                 </h4>
               </div>
               <div className="d-flex justify-content-between">
-                <h4 className="font-weight-bolder">Fats</h4>
-                <h4 className="font-weight-bolder">{user.fat_budget_g}kcal</h4>
+                <h5 className="font-weight-bolder">Calories</h5>
+                <h5 className="data font-weight-bolder">
+                  {user.caloric_budget_kcal} kcal
+                </h5>
               </div>
               <div className="d-flex justify-content-between">
-                <h4 className="font-weight-bolder">Carbs</h4>
-                <h4 className="font-weight-bolder">
-                  {user.carb_budget_g} kcal
-                </h4>
+                <h5 className="font-weight-bolder">Fats</h5>
+                <h5 className="data font-weight-bolder">
+                  {user.fat_budget_g} g
+                </h5>
               </div>
               <div className="d-flex justify-content-between">
-                <h4 className="font-weight-bolder">Proteins</h4>
-                <h4 className="font-weight-bolder">
-                  {user.protein_budget_g}kcal
-                </h4>
+                <h5 className="font-weight-bolder">Carbs</h5>
+                <h5 className="data font-weight-bolder">
+                  {user.carb_budget_g} g
+                </h5>
+              </div>
+              <div className="d-flex justify-content-between">
+                <h5 className="font-weight-bolder">Proteins</h5>
+                <h5 className="data font-weight-bolder">
+                  {user.protein_budget_g} g
+                </h5>
               </div>
             </div>
             <div className="d-flex my-3">
               <div>
-                <h3 className="mr-5">
+                <h4 className="mr-5">
                   {user.weight_lbs}
                   <span className="pl-1" style={{ fontSize: "14px" }}>
                     lbs
                   </span>
-                </h3>
-                <h5 className="pl-2 font-weight-bolder">Weight</h5>
+                </h4>
+                <p className="pl-2 font-weight-bolder">Weight</p>
               </div>
               <div>
-                <h3>
+                <h4>
                   {user.streak}12
                   <span className="pl-1" style={{ fontSize: "14px" }}>
                     days
                   </span>
-                </h3>
-                <h5 className="pl-2 font-weight-bolder">Streak</h5>
+                </h4>
+                <p className="pl-2 font-weight-bolder">Streak</p>
               </div>
             </div>
-            <div className="mt-5 mb-3">
-              <button
-                id="add-journal"
-                className="btn-primary rounded p-2 border border-primary"
-                style={{ width: "250px" }}
-                onClick={() => history.push("/dashboard/food-search")}
-              >
-                Add to Journal
-              </button>
+            <div className="mb-1">
+              <NavLink to="/dashboard/food-search" className="nav-link">
+                <button
+                  id="add-journal"
+                  className=" journalBttn rounded p-2 btn-secondary"
+                  style={{ width: "150px" }}
+                >
+                  Add to Journal
+                </button>
+              </NavLink>
             </div>
           </div>
         </div>
         <ul className="navbar-nav">
-          <li className="side-link mb-3 pl-4">
+          <li className="side-link mb-1 pl-4">
             <NavLink to="/" id="food" className="nav-link">
-              <h4 className="font-weight-bold primary-color">Food</h4>
+              <h4 className="font-weight-bold">Food</h4>
             </NavLink>
           </li>
-          <li className="side-link mb-3 pl-4">
+          <li className="side-link mb-1 pl-4">
             <NavLink to="/" id="progress" className="nav-link">
-              <h4 className="font-weight-bold primary-color">Progress</h4>
+              <h4 className="font-weight-bold">Progress</h4>
             </NavLink>
           </li>
-          <li className="side-link mb-5 pl-4">
+          <li className="side-link mb-1 pl-4">
             <NavLink to="/" id="community" className="nav-link">
-              <h4 className="font-weight-bold primary-color">Community</h4>
+              <h4 className="font-weight-bold">Community</h4>
             </NavLink>
           </li>
         </ul>
-        <div className="mt-5 pl-4 pt-5">
-          <h4 className="font-weight-bold">Daily Vibe</h4>
+        <div className="mt-1 pl-4">
+          <h5 className="font-weight-bold">Daily Vibe</h5>
           <DailyVibe />
         </div>
       </nav>

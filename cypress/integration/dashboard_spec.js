@@ -6,6 +6,12 @@ describe("Dashboard", () => {
       cy.get('input[name="password"]').type("test12345");
       cy.get("[data-cy=submit]").click();
     });
+    it("Add to Journal button should work", () => {
+      cy.get("#add-journal").click();
+      cy.location().should((loc) => {
+        expect(loc.pathname).to.eq("/");
+      });
+    });
   });
 
   it("sidebar food link should work and go to /", () => {
@@ -18,10 +24,6 @@ describe("Dashboard", () => {
 
   it("Toggler should not be visibe", () => {
     cy.get("navbar-toggler").should("not.be.visible");
-  });
-
-  it("Add to Journal button should work", () => {
-    cy.get("#add-journal").click();
   });
 });
 

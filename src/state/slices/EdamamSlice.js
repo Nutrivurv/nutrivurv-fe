@@ -19,7 +19,7 @@ const initialState = {
   pagination: "",
   paginationSuccess: false,
   prevPage: "",
-  pageArr: [1, 2, 3, 4],
+  pageArr: [1, 2, 3],
 };
 
 const EdamamSlice = createSlice({
@@ -70,8 +70,8 @@ const EdamamSlice = createSlice({
       state.searchNutrientFail = true;
     },
     Pages: (state, action) => {
-      state.pagination = action.payload;
-      state.prevPage = [...state.prevPage, action.payload];
+      state.pagination = action.payload.data["_links"];
+      state.prevPage = [...state.prevPage, action.payload.config.url];
       state.paginationSuccess = true;
       console.log("state", state.pagination, "prevState", state.prevPage);
     },
@@ -105,7 +105,7 @@ export const searchFood = (search, api) => (dispatch) => {
     .get(search === null ? api : edamam)
     .then((res) => {
       dispatch(callItemSuccess(res.data.hints));
-      dispatch(Pages(res.data["_links"]));
+      dispatch(Pages(res));
     })
     .catch((error) => {
       dispatch(callItemFail(error.response));

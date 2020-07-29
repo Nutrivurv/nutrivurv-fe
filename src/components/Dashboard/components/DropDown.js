@@ -34,44 +34,46 @@ const DropDown = (props) => {
           Quantity
         </label>
         <div className="d-flex justify-content-center align-text-top">
-        <div className="d-block d-sm-block d-md-flex">
-          <div className="mr-2">
-            <input
-              className="rounded border border-primary p-2"
-              type="number"
-              id="itemQuantity"
-              name="item_quantity"
-              placeholder="Enter quantity (number)"
-              defaultValue={newQuantity}
-              onChange={handleChange}
-            />
+          <div className="d-flex flex-column d-sm-block d-md-flex">
+            <div className="mr-2">
+              <input
+                className="rounded border border-primary p-2"
+                type="number"
+                id="itemQuantity"
+                name="item_quantity"
+                placeholder="Enter quantity (number)"
+                defaultValue={newQuantity}
+                onChange={handleChange}
+              />
+            </div>
+            <div className="d-flex w-100">
+              <Dropdown className="w-100">
+                <Dropdown.Toggle variant="success" id="dropdown-basic">
+                  {newMeasure.label}
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
+                  {measures.map((measure) => (
+                    <Dropdown.Item
+                      key={measure.uri}
+                      className="dropdown-item"
+                      href="#"
+                      value={measure.label}
+                      onClick={() => {
+                        handleMeasureChange(measure);
+                      }}
+                    >
+                      {measure.label}
+                    </Dropdown.Item>
+                  ))}
+                </Dropdown.Menu>
+              </Dropdown>
+            </div>
           </div>
-          <div>
-            <Dropdown>
-              <Dropdown.Toggle variant="success" id="dropdown-basic">
-                {newMeasure.label}
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                {measures.map((measure) => (
-                  <Dropdown.Item
-                    key={measure.uri}
-                    className="dropdown-item"
-                    href="#"
-                    value={measure.label}
-                    onClick={() => {
-                      handleMeasureChange(measure);
-                    }}
-                  >
-                    {measure.label}
-                  </Dropdown.Item>
-                ))}
-              </Dropdown.Menu>
-            </Dropdown>
+          <div className="ml-2 button">
+            <button className="p-2 rounded border border-primary">
+              Update
+            </button>
           </div>
-        </div>
-        <div className="ml-2 button">
-          <button className="p-2 rounded border border-primary">Update</button>
-        </div>
         </div>
       </form>
     </div>
