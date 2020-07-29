@@ -20,7 +20,7 @@ const SideBar = () => {
   // const getJournalInfo = Journal(user.id, date);
   // getJournalInfo();
   // console.log(journal);
-  // console.log(user);
+  console.log(user);
   return (
     <div>
       <nav id="sidebar" className={toggle ? "sidebar-active" : "sidebar"}>
