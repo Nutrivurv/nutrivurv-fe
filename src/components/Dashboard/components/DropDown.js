@@ -33,8 +33,9 @@ const DropDown = (props) => {
         <label htmlFor="quantity input" className="w-100">
           Quantity
         </label>
+        <div className="d-flex justify-content-center align-text-top">
         <div className="d-block d-sm-block d-md-flex">
-          <div>
+          <div className="mr-2">
             <input
               className="rounded border border-primary p-2"
               type="number"
@@ -68,8 +69,9 @@ const DropDown = (props) => {
             </Dropdown>
           </div>
         </div>
-        <div className="py-2 mt-2">
+        <div className="ml-2 button">
           <button className="p-2 rounded border border-primary">Update</button>
+        </div>
         </div>
       </form>
     </div>
