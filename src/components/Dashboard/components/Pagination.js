@@ -8,7 +8,6 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
     (state) => state.edamam
   );
   const [number, setNumber] = useState(1);
-  const [active, setActive] = useState(false);
   const dispatch = useDispatch();
   const arr = [1, 2, 3, 6];
   return (
@@ -16,7 +15,6 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
       <Pagination.Ellipsis
         disabled={arr[0] === pageArr[0]}
         onClick={() => {
-          setActive(!active);
           dispatch(searchFood(null, prevPage[0]));
           console.log(pagination);
           dispatch(Next(Array.from(pageArr, (x) => x - 3)));
