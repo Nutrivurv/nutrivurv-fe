@@ -18,7 +18,7 @@ const SearchResultsList = (props) => {
           key={i}
         >
           <div
-            className={`border-bottom justify-content-center list-group-item-action list-group-item d-flex ${
+            className={`display-flex-column border-bottom align-items-center text-center list-group-item-action list-group-item ${
               item.food.foodId === currentItem.foodId &&
               item.food.label === currentItem.label
                 ? "active"
@@ -26,13 +26,19 @@ const SearchResultsList = (props) => {
             }`}
             style={{ border: "none" }}
           >
-            <h6 className="text-center">
+            <h5 className="text-center">
               {item.food.label
                 .toLowerCase()
                 .split(" ")
                 .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
                 .join()
                 .replace(/,/g, " ")}
+            </h5>
+            <h6>
+              {" "}
+              <span className="brand">
+                {!item.food.brand ? null : `Brand: ${item.food.brand}`}
+              </span>
             </h6>
           </div>
         </div>

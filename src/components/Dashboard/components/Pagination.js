@@ -10,7 +10,7 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
   const [number, setNumber] = useState(1);
   const [active, setActive] = useState(false);
   const dispatch = useDispatch();
-  const arr = [1, 2, 3, 8];
+  const arr = [1, 2, 3, 6];
   return (
     <Pagination bg="light" className="justify-content-center mt-3">
       <Pagination.Ellipsis
@@ -51,7 +51,7 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
         {pageArr[2]}
       </Pagination.Item>
       <Pagination.Ellipsis
-        disabled={arr[3] === pageArr[3]}
+        disabled={arr[3] === pageArr[2]}
         onClick={() => {
           dispatch(searchFood(null, pagination.next.href));
           dispatch(Next(Array.from(pageArr, (x) => 3 + x)));

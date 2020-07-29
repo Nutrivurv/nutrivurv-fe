@@ -212,9 +212,9 @@ const NutritionInfo = (props) => {
           </div>
         </div>
       </div>
-      <button className="btn-primary rounded p-2 border border-primary">
+      {/* <button className="btn-primary rounded p-2 border border-primary">
         Back to Journal
-      </button>
+      </button> */}
     </div>
   );
 };
