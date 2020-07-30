@@ -32,30 +32,28 @@ const SideBar = () => {
         <div>
           <div className="d-flex flex-column align-items-center my-5">
             <Placeholder />
-            <div className="d-flex flex-column pl-4 w-100">
+            <div className="d-flex flex-column px-4 w-100">
               <div>
-                <h3 className="font-weight-bold mb-4">Budgets</h3>
+                <h4 className="font-weight-bold mb-4">Budgets</h4>
               </div>
               <div className="d-flex justify-content-between">
                 <h4 className="font-weight-bolder">Calories</h4>
                 <h4 className="font-weight-bolder">
-                  {user.caloric_budget_kcal}kcal
+                  {user.caloric_budget_kcal} kcal
                 </h4>
               </div>
               <div className="d-flex justify-content-between">
                 <h4 className="font-weight-bolder">Fats</h4>
-                <h4 className="font-weight-bolder">{user.fat_budget_g}kcal</h4>
+                <h4 className="font-weight-bolder">{user.fat_budget_g} g</h4>
               </div>
               <div className="d-flex justify-content-between">
                 <h4 className="font-weight-bolder">Carbs</h4>
-                <h4 className="font-weight-bolder">
-                  {user.carb_budget_g} kcal
-                </h4>
+                <h4 className="font-weight-bolder">{user.carb_budget_g} g</h4>
               </div>
               <div className="d-flex justify-content-between">
                 <h4 className="font-weight-bolder">Proteins</h4>
                 <h4 className="font-weight-bolder">
-                  {user.protein_budget_g}kcal
+                  {user.protein_budget_g} g
                 </h4>
               </div>
             </div>
