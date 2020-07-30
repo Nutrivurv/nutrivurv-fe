@@ -37,7 +37,7 @@ const MealTypeDropDown = (props) => {
     dispatch(addFoodToJournal(post));
   };
 
-  const mealTypeList = ["Breakfast", "Lunch", "Dinner"];
+  const mealTypeList = ["Breakfast", "Lunch", "Dinner", "Snack"];
 
   return (
     <div className="dropdown mx-2 px-4">
