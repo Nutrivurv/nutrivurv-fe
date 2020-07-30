@@ -8,7 +8,7 @@ import rootReducer from "./reducers";
 const persistConfig = {
   key: "root",
   storage,
-  // blacklist: ["edamam"],
+  blacklist: ["edamam"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

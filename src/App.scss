@@ -83,17 +83,6 @@ $secondary: #1f7da2;
   width: 100%;
 }
 
-.sidebar-active {
-  transform: rotateY(0deg);
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    margin-left: -250px;
-    transform: rotateY(100deg);
-  }
-}
-
 li.side-link:hover {
   background-color: #95a5a6;
   color: #2c3e50;

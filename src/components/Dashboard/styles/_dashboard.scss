@@ -1,15 +1,64 @@
 
 #sidebar {
-  min-width: 300px;
-  max-width: 300px;
+  width: 250px;
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   z-index: 999;
-  background: #ffffff;
+  background: white;
   transition: all 0.5s cubic-bezier(0.945, 0.02, 0.27, 0.665);
   transform-origin: center left;
+  background-image: linear-gradient(to bottom, #f6f9fa, #f6f9fa);
+  border-radius: 0 5% 5% 0 / 0 5% 5% 0;
+  box-shadow: -15px -15px 15px white, 5px 4px 11px rgba(108, 130 ,168,0.5%);
+  color: #e0798e;
+  font-size: 12px;
+  h4{
+    color: #4986b2;
+    font-size: 18px;
+  }
+
+  h5{
+    font-size: 16px;
+    color: #2c3e50;
+  }
+  .data{
+    color: #e0798e;;
+  }
+  .dailyVibe{
+    color: #2c3e50;
+  }
+  .budgets{
+    box-shadow: -7px -7px 13px #4986b20a, 5px 4px 11px rgba(120, 157, 183 , 0.3);
+    width: 80%;
+    background-image: linear-gradient(-55deg, #f6f9fa , #f6f9fa );
+    margin: 0 auto;
+    border-radius: 25px;
+    padding-bottom: 10%;
+  }
+  .journalBttn{
+    border: none;
+    box-shadow: 4px 2px 6px rgba(121, 167, 214, 0.5);
+  }
+}
+
+.sidebar-active {
+  transform: rotateY(0deg);
+}
+
+.exit{
+  display: none;
+}
+
+@media only screen and (max-width: 768px){
+  .exit{
+    display: block;
+  }
+  .sidebar {
+    margin-left: -250px;
+    transform: rotateY(100deg);
+  }
 }
 
 .dashboard{
@@ -28,7 +77,7 @@
 }
 
 .page-link{
-  background-color: #4986b2;
+  background-color: #1f7da2;
 }
 
 .page-item.active .page-link {
@@ -50,7 +99,7 @@
   // height: fit-content
   padding: 5% 2%;
   border: none;
-  box-shadow: -15px -15px 15px rgba(255, 255, 255, 72%), 15px 15px 15px rgba(158, 182, 225, 0.2);
+  box-shadow: -7px -8px 20px #ffffff40, 15px 15px 15px rgba(158, 182, 225, 0.2);
   @media only screen and (max-width: 750px ){
     width: 50vw;
     position: relative;

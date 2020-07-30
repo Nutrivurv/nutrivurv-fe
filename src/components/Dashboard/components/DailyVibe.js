@@ -26,8 +26,8 @@ const DailyVibe = () => {
     vibesApi();
   }, []);
   return (
-    <div>
-      <p className="text-secondary pr-1">
+    <div className="dailyVibe">
+      <p className="pr-1">
         {vibe} <span> - {author}</span>
       </p>
     </div>
