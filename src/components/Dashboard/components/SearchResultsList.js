@@ -18,6 +18,7 @@ const SearchResultsList = (props) => {
           key={i}
         >
           <div
+            id="searchItem"
             className={`display-flex-column border-bottom align-items-center text-center list-group-item-action list-group-item ${
               item.food.foodId === currentItem.foodId &&
               item.food.label === currentItem.label

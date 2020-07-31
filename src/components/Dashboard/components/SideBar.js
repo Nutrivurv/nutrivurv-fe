@@ -45,25 +45,25 @@ const SideBar = () => {
               </div>
               <div className="d-flex justify-content-between">
                 <h5 className="font-weight-bolder">Calories</h5>
-                <h5 className="data font-weight-bolder">
+                <h5 id="calories" className="data font-weight-bolder">
                   {user.caloric_budget_kcal} kcal
                 </h5>
               </div>
               <div className="d-flex justify-content-between">
                 <h5 className="font-weight-bolder">Fats</h5>
-                <h5 className="data font-weight-bolder">
+                <h5 id="fats" className="data font-weight-bolder">
                   {user.fat_budget_g} g
                 </h5>
               </div>
               <div className="d-flex justify-content-between">
                 <h5 className="font-weight-bolder">Carbs</h5>
-                <h5 className="data font-weight-bolder">
+                <h5 id="carbs" className="data font-weight-bolder">
                   {user.carb_budget_g} g
                 </h5>
               </div>
               <div className="d-flex justify-content-between">
                 <h5 className="font-weight-bolder">Proteins</h5>
-                <h5 className="data font-weight-bolder">
+                <h5 id="protein" className="data font-weight-bolder">
                   {user.protein_budget_g} g
                 </h5>
               </div>
