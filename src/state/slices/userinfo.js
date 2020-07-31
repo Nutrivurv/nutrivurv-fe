@@ -1,4 +1,5 @@
 import axios from "axios";
+import { axiosWithAuth } from "../../components/utils/auth/axioswithAuth";
 import { createSlice } from "@reduxjs/toolkit";
 
 const nutrivurvAPI = process.env.REACT_APP_NUTRIVURV_API;
@@ -37,5 +38,13 @@ export const Journal = (id, day) => async (dispatch) => {
     console.log(err, `error`);
   }
 };
+
+export const addFoodToJournal = (post) => (dispatch) => {
+  console.log('post in addFoodtoJournal', post);
+  axiosWithAuth()
+    .post("https://nutrivurv-be.herokuapp.com/api/log", post)
+    .then((response) => console.log(response.data))
+    .catch((err) => console.dir(err));
+  };
 
 export default UserSlice.reducer;

@@ -1,5 +1,6 @@
 import React from "react";
 import DropDown from "./DropDown";
+import MealTypeDropDown from "./MealTypeDropDown";
 
 const NutritionInfo = (props) => {
   const currentItem = props.currentItem;
@@ -26,8 +27,8 @@ const NutritionInfo = (props) => {
     <div className="mr-4 pr-4">
       <div className="card nutrition border-primary mb-3 mt-5">
         <div className="card-body justify-content-center mx-2">
-          <div className="d-flex justify-content-center">
-            <div className="mx-2 pl-2 justify-content-center">
+          <div className="d-flex justify-content-center pb-2 mb-2">
+            <div className="mx-2 px-2 justify-content-center">
               <h3 className="d-flex justify-content-start font-weight-bold">
                 {currentItem.label.charAt(0).toUpperCase() +
                   currentItem.label.slice(1)}
@@ -39,6 +40,9 @@ const NutritionInfo = (props) => {
                   className="w-25 rounded-circle img-responsive d-sm-none d-md-block"
                 />
                 <DropDown currentItem={currentItem} />
+              </div>
+              <div className="border-top 1px solid black pt-4 mt-4">
+                <MealTypeDropDown currentItem={currentItem} />
               </div>
             </div>
           </div>
