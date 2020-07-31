@@ -35,13 +35,18 @@ const SearchBar = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         <input
+          id="inputSearch"
           type="text"
           placeholder="Search a Food Item"
           value={search}
           onChange={handleChanges}
           className="col-5 mx-3 form-control form-control-lg"
         />
-        <button type="submit" className="col-2 btn btn-primary">
+        <button
+          data-cy="submit"
+          type="submit"
+          className="col-2 btn btn-primary"
+        >
           Search
         </button>
       </form>

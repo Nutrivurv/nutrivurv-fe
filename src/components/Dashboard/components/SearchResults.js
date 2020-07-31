@@ -33,6 +33,7 @@ const SearchResults = () => {
   return (
     <div className="d-flex flex-sm-column flex-md-row justify-content-between">
       <div
+        id="searchList"
         className="card mt-5 justify-content-center"
         style={{ width: "30vw", position: "relative", left: "5%" }}
       >
