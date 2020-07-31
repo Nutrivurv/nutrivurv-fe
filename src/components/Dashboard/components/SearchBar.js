@@ -58,7 +58,10 @@ const SearchBar = () => {
           </div>
         )}
         {!searchSuccess && !searchStart && (
-          <div className="my-5 d-flex justify-content-center">
+          <div
+            id="searchPlaceholder"
+            className="my-5 d-flex justify-content-center"
+          >
             <Placeholder style={{ width: "30%" }} />
           </div>
         )}

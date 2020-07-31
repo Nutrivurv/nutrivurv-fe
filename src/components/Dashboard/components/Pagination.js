@@ -11,8 +11,13 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
   const dispatch = useDispatch();
   const arr = [1, 2, 3, 6];
   return (
-    <Pagination bg="light" className="justify-content-center mt-3">
+    <Pagination
+      id="pagination"
+      bg="light"
+      className="justify-content-center mt-3"
+    >
       <Pagination.Ellipsis
+        id="backPage"
         disabled={arr[0] === pageArr[0]}
         onClick={() => {
           dispatch(searchFood(null, prevPage[0]));
@@ -21,6 +26,7 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
         }}
       />
       <Pagination.Item
+        id="1stPage"
         bg="light"
         active={number === pageArr[0]}
         onClick={(e) => {
@@ -31,6 +37,7 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
         {pageArr[0]}
       </Pagination.Item>
       <Pagination.Item
+        id="2ndPage"
         active={number === pageArr[1]}
         onClick={(e) => {
           setNumber(pageArr[1]);
@@ -40,6 +47,7 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
         {pageArr[1]}
       </Pagination.Item>
       <Pagination.Item
+        id="3rdPage"
         active={number === pageArr[2]}
         onClick={(e) => {
           setNumber(pageArr[2]);
@@ -49,6 +57,7 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
         {pageArr[2]}
       </Pagination.Item>
       <Pagination.Ellipsis
+        id="nextPage"
         disabled={arr[3] === pageArr[2]}
         onClick={() => {
           dispatch(searchFood(null, pagination.next.href));
