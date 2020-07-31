@@ -5,7 +5,7 @@ export const axiosWithAuth = () => {
   return axios.create({
     headers: {
       "Access-Control-Allow-Origin": "*",
-      Authorization: token,
+      Authorization: `Bearer ${token}`,
     },
     baseURL: process.env.REACT_APP_NUTRIVURV_API,
   });
