@@ -27,7 +27,7 @@ const NutritionInfo = (props) => {
       <div className="card nutrition border-primary mb-3 mt-5">
         <div className="card-body justify-content-center mx-2">
           <div className="d-flex justify-content-center">
-            <div className="mx-2 px-2 justify-content-center">
+            <div className="mx-2 pl-2 justify-content-center">
               <h3 className="d-flex justify-content-start font-weight-bold">
                 {currentItem.label.charAt(0).toUpperCase() +
                   currentItem.label.slice(1)}
@@ -51,7 +51,7 @@ const NutritionInfo = (props) => {
               </div>
             ))}
           </div>
-          <div className="d-block d-sm-block d-md-flex justify-content-between mx-1 px-2 mt-4">
+          <div className="d-block d-sm-block d-md-flex justify-content-between mx-1 pl-2 mt-4">
             <div>
               <h3 className="font-weight-bold">Calories</h3>
             </div>
@@ -59,52 +59,107 @@ const NutritionInfo = (props) => {
               <h3 className="font-weight-bold">{nutrition.calories}</h3>
             </div>
           </div>
-          <div className="px-2 mx-1">
-            <div className="d-flex justify-content-between">
-              <h4>Total Fat</h4>
+          <div className="pl-2 mx-1">
+            <div className="d-flex justify-content-between align-items-end">
+              <h3 className="font-weight-bold">Total Fat</h3>
               {totalNutrients.FAT ? (
                 <div className="text-right">
-                  <h4>
+                  <h4 className="font-weight-bold">
                     {Math.round(totalNutrients.FAT.quantity)}
                     {totalNutrients.FAT.unit}
                   </h4>
                 </div>
               ) : null}
             </div>
-            <div className="d-flex justify-content-between">
-              <h4>Sodium</h4>
-              {totalNutrients.NA ? (
+            <div className="d-flex justify-content-between pl-2">
+              <h4>Saturated Fat</h4>
+              {totalNutrients.FASAT ? (
                 <div className="text-right">
                   <h4>
-                    {Math.round(totalNutrients.NA.quantity)}
-                    {totalNutrients.NA.unit}
+                    {Math.round(totalNutrients.FASAT.quantity)}
+                    {totalNutrients.FASAT.unit}
                   </h4>
                 </div>
               ) : null}
             </div>
-            <div className="d-flex justify-content-between">
-              <h4>Total Carbohydrate</h4>
-              {totalNutrients.CHOCDF ? (
+            <div className="d-flex justify-content-between pl-2">
+              <h4>Trans Fat</h4>
+              {totalNutrients.FATRN ? (
                 <div className="text-right">
                   <h4>
-                    {Math.round(totalNutrients.CHOCDF.quantity)}
-                    {totalNutrients.CHOCDF.unit}
+                    {Math.round(totalNutrients.FATRN.quantity)}
+                    {totalNutrients.FATRN.unit}
                   </h4>
                 </div>
               ) : null}
             </div>
-            <div className="d-flex justify-content-between">
-              <h4>Cholesterol</h4>
+            <div className="d-flex justify-content-between pl-2">
+              <h4>Polyunsaturated Fat</h4>
+              {totalNutrients.FAPU ? (
+                <div className="text-right">
+                  <h4>
+                    {Math.round(totalNutrients.FAPU.quantity)}
+                    {totalNutrients.FAPU.unit}
+                  </h4>
+                </div>
+              ) : null}
+            </div>
+            <div className="d-flex justify-content-between pl-2">
+              <h4>Monounsaturated Fat</h4>
+              {totalNutrients.FAPU ? (
+                <div className="text-right">
+                  <h4>
+                    {Math.round(totalNutrients.FAPU.quantity)}
+                    {totalNutrients.FAPU.unit}
+                  </h4>
+                </div>
+              ) : null}
+            </div>
+            <div className="d-flex justify-content-between align-items-end">
+              <h3 className="font-weight-bold">Cholesterol</h3>
               {totalNutrients.CHOLE ? (
                 <div className="text-right">
-                  <h4>
+                  <h4 className="font-weight-bold">
                     {Math.round(totalNutrients.CHOLE.quantity)}
                     {totalNutrients.CHOLE.unit}
                   </h4>
                 </div>
               ) : null}
             </div>
-            <div className="d-flex justify-content-between">
+            <div className="d-flex justify-content-between align-items-end">
+              <h3 className="font-weight-bold">Sodium</h3>
+              {totalNutrients.NA ? (
+                <div className="text-right">
+                  <h4 className="font-weight-bold">
+                    {Math.round(totalNutrients.NA.quantity)}
+                    {totalNutrients.NA.unit}
+                  </h4>
+                </div>
+              ) : null}
+            </div>
+            <div className="d-flex justify-content-between align-items-end">
+              <h3 className="font-weight-bold">Total Carbohydrate</h3>
+              {totalNutrients.CHOCDF ? (
+                <div className="text-right">
+                  <h4 className="font-weight-bold">
+                    {Math.round(totalNutrients.CHOCDF.quantity)}
+                    {totalNutrients.CHOCDF.unit}
+                  </h4>
+                </div>
+              ) : null}
+            </div>
+            <div className="d-flex justify-content-between pl-2">
+              <h4>Dietary Fiber</h4>
+              {totalNutrients.FIBTG ? (
+                <div className="text-right">
+                  <h4>
+                    {Math.round(totalNutrients.FIBTG.quantity)}
+                    {totalNutrients.FIBTG.unit}
+                  </h4>
+                </div>
+              ) : null}
+            </div>
+            <div className="d-flex justify-content-between pl-2">
               <h4>Sugar</h4>
               {totalNutrients.SUGAR ? (
                 <div className="text-right">
@@ -115,55 +170,55 @@ const NutritionInfo = (props) => {
                 </div>
               ) : null}
             </div>
-            <div className="d-flex justify-content-between">
-              <h4>Protein</h4>
+            <div className="d-flex justify-content-between align-items-end">
+              <h3 className="font-weight-bold">Protein</h3>
               {totalNutrients.PROCNT ? (
                 <div className="text-right">
-                  <h4>
+                  <h4 className="font-weight-bold">
                     {Math.round(totalNutrients.PROCNT.quantity)}
                     {totalNutrients.PROCNT.unit}
                   </h4>
                 </div>
               ) : null}
             </div>
-            <div className="d-flex justify-content-between">
-              <h4>Vitamin D</h4>
+            <div className="d-flex justify-content-between align-items-end">
+              <h3 className="font-weight-bold">Vitamin D</h3>
               {totalNutrients.VITD ? (
                 <div className="text-right">
-                  <h4>
+                  <h4 className="font-weight-bold">
                     {Math.round(totalNutrients.VITD.quantity)}
                     {totalNutrients.VITD.unit}
                   </h4>
                 </div>
               ) : null}
             </div>
-            <div className="d-flex justify-content-between">
-              <h4>Calcium</h4>
+            <div className="d-flex justify-content-between align-items-end">
+              <h3 className="font-weight-bold">Calcium</h3>
               {totalNutrients.CA ? (
                 <div className="text-right">
-                  <h4>
+                  <h4 className="font-weight-bold">
                     {Math.round(totalNutrients.CA.quantity)}
                     {totalNutrients.CA.unit}
                   </h4>
                 </div>
               ) : null}
             </div>
-            <div className="d-flex justify-content-between">
-              <h4>Iron</h4>
+            <div className="d-flex justify-content-between align-items-end">
+              <h3 className="font-weight-bold">Iron</h3>
               {totalNutrients.FE ? (
                 <div className="text-right">
-                  <h4>
+                  <h4 className="font-weight-bold">
                     {Math.round(totalNutrients.FE.quantity)}
                     {totalNutrients.FE.unit}
                   </h4>
                 </div>
               ) : null}
             </div>
-            <div className="d-flex justify-content-between">
-              <h4>Potassium</h4>
+            <div className="d-flex justify-content-between align-items-end">
+              <h3 className="font-weight-bold">Potassium</h3>
               {totalNutrients.K ? (
                 <div className="text-right">
-                  <h4>
+                  <h4 className="font-weight-bold">
                     {Math.round(totalNutrients.K.quantity)}
                     {totalNutrients.K.unit}
                   </h4>
