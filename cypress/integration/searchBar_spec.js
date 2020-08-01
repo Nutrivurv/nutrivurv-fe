@@ -1,8 +1,10 @@
 describe("Searchbar", () => {
-  it("Add to Journal button should work", () => {
+  it("login", () => {
     cy.visit("http://localhost:3000/signin");
     cy.typeLogin({ email: "test@mail.com", password: "test12345" });
     cy.get("[data-cy=submit]").click();
+  });
+  it("Add to Journal button should work", () => {
     cy.get("#add-journal").click();
     cy.location().should((loc) => {
       expect(loc.pathname).to.eq("/dashboard/food-search");
