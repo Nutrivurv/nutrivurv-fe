@@ -31,7 +31,7 @@ const SideBar = () => {
         </div>
         <div className="d-flex justify-content-center my-3 ">
           <NavLink to="/" className="navbar-brand ">
-            <Logo className="logo" />
+            <Logo className="logoDash logo" />
           </NavLink>
         </div>
         <div>
