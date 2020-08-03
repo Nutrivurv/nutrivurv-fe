@@ -1,6 +1,6 @@
 describe("Landing page", () => {
   it("should sucessfuly load", () => {
-    cy.visit("http://localhost:3000");
+    cy.visit("http://nutrivurv.com");
   });
 
   it("Toggler should not be visibe", () => {

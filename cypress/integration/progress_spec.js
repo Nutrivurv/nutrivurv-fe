@@ -1,7 +1,7 @@
 describe("Dashboard", () => {
   it("Should successfully complete the signin form and redirect to /dashboard", () => {
-    cy.visit("http://localhost:3000/signin");
-    cy.typeLogin({ email: "test@mail.com", password: "test12345" });
+    cy.visit("http://nutrivurv.com/signin");
+    cy.typeLogin({ email: "test@test.com", password: "123456789" });
     cy.get("[data-cy=submit]").click();
   });
 
