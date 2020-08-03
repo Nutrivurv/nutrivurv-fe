@@ -22,16 +22,10 @@ const Logout = () => {
           <i className="fas fa-cog"></i>
         </button>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <Link
-            id="profile"
-            to="/dashboard/profile"
-            className="dropdown-item"
-            href="#"
-          >
+          <Link to="/dashboard/profile" className="dropdown-item" href="#">
             Edit Profile
           </Link>
           <a
-            id="logout"
             onClick={() => dispatch(logout())}
             className="dropdown-item"
             href="#"

@@ -47,7 +47,7 @@ const DropDown = (props) => {
               />
             </div>
             <div className="d-flex w-100">
-              <Dropdown id="measures" className="w-100">
+              <Dropdown className="w-100">
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
                   {newMeasure.label}
                 </Dropdown.Toggle>
@@ -70,10 +70,7 @@ const DropDown = (props) => {
             </div>
           </div>
           <div className="ml-2 button">
-            <button
-              data-cy="submit2"
-              className="p-2 rounded border border-primary"
-            >
+            <button className="p-2 rounded border border-primary">
               Update
             </button>
           </div>

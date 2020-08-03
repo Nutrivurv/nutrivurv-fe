@@ -45,7 +45,7 @@ const SearchResults = () => {
       <div className="w-50">
         {!searchNutrientsSuccess && (
           <div className="my-5 d-flex justify-content-center">
-            <Placeholder id="ntPlaceholder" style={{ width: "40%" }} />
+            <Placeholder style={{ width: "40%" }} />
           </div>
         )}
         {searchNutrientsSuccess && <NutritionInfo currentItem={currentItem} />}
