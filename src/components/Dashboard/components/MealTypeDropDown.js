@@ -7,6 +7,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as LikeIcon } from "../../../assets/LikeIcon.svg";
 import { addFoodToJournal } from "../../../state/slices/userinfo";
+import moment from "moment";
 
 const MealTypeDropDown = (props) => {
   const {
