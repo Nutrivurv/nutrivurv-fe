@@ -4,7 +4,7 @@ import { Redirect, Link, Router } from "react-router-dom";
 import { logout } from "../../../state/slices/AuthSlice";
 
 const Logout = () => {
-  const { isAuthenticated, token } = useSelector((state) => state.auth);
+  const { isAuthenticated, token, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   if (token === null) return <Redirect to="/" />;
@@ -12,6 +12,11 @@ const Logout = () => {
   return (
     <div>
       <div className="dropdown d-flex justify-content-end px-5">
+        <div>
+          <h3 id="username" className="pr-3">
+            {user.name}
+          </h3>
+        </div>
         <button
           id="dropdownMenuButton"
           data-toggle="dropdown"
