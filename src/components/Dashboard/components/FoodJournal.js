@@ -26,12 +26,16 @@ const FoodJournal = () => {
     const image = null;
     dispatch(getNutrients(quantity, measure, foodId, label, image, null));
   };
+  const { entries } = useSelector((state) => state.user);
+  const [favorite, setFavorite] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
 
   useEffect(() => {
     dispatch(getFoodLogEntries(entries));
   }, [getFoodLogEntries]);
 
   console.log(entries);
+
 
   const toggleFavorite = () => {
     setFavorite(!favorite);
