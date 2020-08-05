@@ -137,9 +137,34 @@ const FoodJournal = () => {
               </tbody>
             );
           })}
-        <th scope="col">
+          <thead>
+            <th scope="col">
           <h5 className="font-weight-bold">Snack</h5>
         </th>
+        </thead>
+        {entries.meals.snack &&
+          entries.meals.snack.map((data) => {
+            return (
+              <tbody key={data.id}>
+                <tr>
+                  <td scope="row">
+                    <span className="mr-2">
+                      {favorite ? (
+                        <FullHeart onClick={toggleFavorite} />
+                      ) : (
+                        <Heart onClick={toggleFavorite} />
+                      )}
+                    </span>
+                    {data.food_name}
+                  </td>
+                  <td>{data.fat_g} g</td>
+                  <td>{data.protein_g} g</td>
+                  <td>{data.carbs_g} g</td>
+                  <td>{data.calories_kcal}</td>
+                </tr>
+              </tbody>
+            );
+          })}
       </table>
       <div className="d-flex justify-content-between">
         <p>Total Water:</p>
