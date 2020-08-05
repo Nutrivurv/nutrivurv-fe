@@ -44,7 +44,7 @@ export const Journal = (id, day) => async (dispatch) => {
 };
 
 export const addFoodToJournal = (post) => (dispatch) => {
-  console.log('post in addFoodtoJournal', post);
+  console.log("post in addFoodtoJournal", post);
   axiosWithAuth()
     .post("https://nutrivurv-be.herokuapp.com/api/log", post)
     .then((response) => console.log(response.data))

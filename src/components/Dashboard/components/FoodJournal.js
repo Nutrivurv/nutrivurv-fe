@@ -8,12 +8,14 @@ import { getFoodLogEntries } from "../../../state/slices/userinfo";
 const FoodJournal = () => {
   const dispatch = useDispatch();
   const { entries } = useSelector((state) => state.user);
+  const [favorite, setFavorite] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+
   useEffect(() => {
     dispatch(getFoodLogEntries(entries));
   }, [getFoodLogEntries]);
+
   console.log(entries);
-  const [favorite, setFavorite] = useState(false);
-  const [startDate, setStartDate] = useState(new Date());
 
   // const TotalCalories =
   // breakfast.reduce((total, meal) => total + meal.calories, 0) +
@@ -57,7 +59,7 @@ const FoodJournal = () => {
             </th>
           </tr>
         </thead>
-        {entries.meals &&
+        {entries.meals.breakfast &&
           entries.meals.breakfast.map((data) => {
             return (
               <tbody key={data.id}>
@@ -85,7 +87,7 @@ const FoodJournal = () => {
             <h5 className="font-weight-bold">Lunch</h5>
           </th>
         </thead>
-        {entries.meals &&
+        {entries.meals.lunch &&
           entries.meals.lunch.map((data) => {
             return (
               <tbody key={data.id}>
@@ -113,7 +115,7 @@ const FoodJournal = () => {
             <h5 className="font-weight-bold">Dinner</h5>
           </th>
         </thead>
-        {entries.meals &&
+        {entries.meals.dinner &&
           entries.meals.dinner.map((data) => {
             return (
               <tbody key={data.id}>
@@ -136,12 +138,12 @@ const FoodJournal = () => {
               </tbody>
             );
           })}
-          <thead>
-            <th scope="col">
-          <h5 className="font-weight-bold">Snack</h5>
-        </th>
+        <thead>
+          <th scope="col">
+            <h5 className="font-weight-bold">Snack</h5>
+          </th>
         </thead>
-        {entries.meals &&
+        {entries.meals.snack &&
           entries.meals.snack.map((data) => {
             return (
               <tbody key={data.id}>
