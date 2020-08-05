@@ -6,13 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getFoodLogEntries } from "../../../state/slices/userinfo";
 
 const FoodJournal = () => {
-  // const dispatch = useDispatch();
-  // const { entries } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const { entries } = useSelector((state) => state.user);
 
-  // useEffect(() => {
-  //   dispatch(getFoodLogEntries(entries));
-  // }, [getFoodLogEntries]);
-  // console.log(entries);
+  useEffect(() => {
+    dispatch(getFoodLogEntries(entries));
+  }, [getFoodLogEntries]);
+  console.log(entries);
 
   const [favorite, setFavorite] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
