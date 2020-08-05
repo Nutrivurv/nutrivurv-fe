@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
-
+import { useSelector } from "react-redux";
 const Navigation = () => {
+  const { isAuthenticated } = useSelector((state) => state.auth);
+  console.log(isAuthenticated);
   return (
     <div
       id="navbar"
@@ -66,6 +68,20 @@ const Navigation = () => {
               <h5>Sign Up</h5>
             </NavLink>
           </li>
+          {isAuthenticated && (
+            <li className="nav-item">
+              {" "}
+              <NavLink
+                to="/dashboard"
+                id="profileLink"
+                className="nav-link d-flex justify-content-center ml-xl-5 ml-lg-5 ml-md-5 mr-xl-4 mr-lg-4 mr-md-4 ml-sm-0 mr-sm-0  "
+              >
+                <h5>
+                  <i className="fas fa-user"></i>
+                </h5>
+              </NavLink>
+            </li>
+          )}
         </ul>
       </nav>
     </div>
