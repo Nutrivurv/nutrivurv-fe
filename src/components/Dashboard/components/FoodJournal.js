@@ -212,6 +212,9 @@ const FoodJournal = () => {
               </div>
             );
           })}
+        <th scope="col">
+          <h5 className="font-weight-bold">Snack</h5>
+        </th>
       </table>
       <div className="d-flex justify-content-between">
         <p>Total Water:</p>
