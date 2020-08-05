@@ -1,6 +1,7 @@
 import axios from "axios";
 import { axiosWithAuth } from "../../components/utils/auth/axioswithAuth";
 import { createSlice } from "@reduxjs/toolkit";
+import { useDispatch } from "react-redux";
 
 const nutrivurvAPI = process.env.REACT_APP_NUTRIVURV_API;
 const edamamAPI = process.env.REACT_APP_EDAMAM_API;
@@ -27,24 +28,23 @@ const UserSlice = createSlice({
 
 export const { setUser, setJournal } = UserSlice.actions;
 
-export const Journal = (id, day) => async (dispatch) => {
-  try {
-    const response = await axios.get(
-      `${nutrivurvAPI}/api/journal/${id}/${day} `
-    );
-    console.log(response.data);
-    dispatch(setJournal(response.data));
-  } catch (err) {
-    console.log(err, `error`);
-  }
+export const Journal = async (id) => {
+  const dispatch = useDispatch();
+  console.log(id);
+  const response = await axiosWithAuth().get(`${nutrivurvAPI}/api/log/${id}`)
+  .then((response)=>{
+    console.log(response);
+    // dispatch(setJournal(response));
+  })
+  .catch((err) => console.dir(err.response.data, 'error log'));
 };
 
 export const addFoodToJournal = (post) => (dispatch) => {
-  console.log('post in addFoodtoJournal', post);
+  console.log("post in addFoodtoJournal", post);
   axiosWithAuth()
     .post("https://nutrivurv-be.herokuapp.com/api/log", post)
     .then((response) => console.log(response.data))
-    .catch((err) => console.dir(err));
-  };
+    .catch((err) => console.dir(err.response.data));
+};
 
 export default UserSlice.reducer;

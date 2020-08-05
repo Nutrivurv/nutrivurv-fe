@@ -5,7 +5,7 @@ import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { addFoodToJournal } from "../../../state/slices/userinfo";
-import moment from 'moment';
+import moment from "moment";
 
 const MealTypeDropDown = (props) => {
   const { foodId, measure, label, quantity, nutrition } = props.currentItem;
@@ -21,17 +21,20 @@ const MealTypeDropDown = (props) => {
     e.preventDefault();
     const post = {
       user_id: user.id,
-      date: moment().format('YYYY-MM-DD'),
+      date: moment().format("YYYY-MM-DD"),
       meal_type: mealType.toLowerCase(),
       edamam_food_id: foodId,
       measurement_uri: measure.uri,
       measurement_name: measure.label.toLowerCase(),
       food_name: label,
       quantity: quantity,
-      calories_kcal: Math.round(nutrition.totalNutrients['ENERC_KCAL']['quantity']),
-      fat_g: Math.round(100*nutrition.totalNutrients.FAT.quantity)/100,
-      carbs_g: Math.round(100*nutrition.totalNutrients.CHOCDF.quantity)/100,
-      protein_g: Math.round(100*nutrition.totalNutrients.PROCNT.quantity)/100,
+      calories_kcal: Math.round(
+        nutrition.totalNutrients["ENERC_KCAL"]["quantity"]
+      ),
+      fat_g: Math.round(100 * nutrition.totalNutrients.FAT.quantity) / 100,
+      carbs_g: Math.round(100 * nutrition.totalNutrients.CHOCDF.quantity) / 100,
+      protein_g:
+        Math.round(100 * nutrition.totalNutrients.PROCNT.quantity) / 100,
     };
 
     dispatch(addFoodToJournal(post));
