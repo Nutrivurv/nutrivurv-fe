@@ -17,11 +17,6 @@ const FoodJournal = () => {
 
   console.log(entries);
 
-  // const TotalCalories =
-  // breakfast.reduce((total, meal) => total + meal.calories, 0) +
-  // lunch.reduce((total, meal) => total + meal.calories, 0) +
-  // dinner.reduce((total, meal) => total + meal.calories, 0);
-
   const toggleFavorite = () => {
     setFavorite(!favorite);
   };
