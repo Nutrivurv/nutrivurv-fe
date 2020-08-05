@@ -98,8 +98,8 @@ const SideBar = () => {
         </div>
         <ul className="navbar-nav">
           <li className="side-link mb-1 pl-4">
-            <NavLink to="/" id="food" className="nav-link">
-              <h4 className="font-weight-bold">Food</h4>
+            <NavLink to="/dashboard" id="food" className="nav-link">
+              <h4 className="font-weight-bold">Food Journal</h4>
             </NavLink>
           </li>
           <li className="side-link mb-1 pl-4">
