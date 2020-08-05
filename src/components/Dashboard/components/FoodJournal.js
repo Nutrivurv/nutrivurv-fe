@@ -8,12 +8,10 @@ import { getFoodLogEntries } from "../../../state/slices/userinfo";
 const FoodJournal = () => {
   const dispatch = useDispatch();
   const { entries } = useSelector((state) => state.user);
-
   useEffect(() => {
     dispatch(getFoodLogEntries(entries));
   }, [getFoodLogEntries]);
   console.log(entries);
-
   const [favorite, setFavorite] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
 
@@ -58,6 +56,34 @@ const FoodJournal = () => {
               <h5 className="font-weight-bold">Calories</h5>{" "}
             </th>
           </tr>
+        </thead>
+        {entries.meals.breakfast &&
+          entries.meals.breakfast.map((data) => {
+            return (
+              <tbody key={data.id}>
+                <tr>
+                  <td scope="row">
+                    <span className="mr-2">
+                      {favorite ? (
+                        <FullHeart onClick={toggleFavorite} />
+                      ) : (
+                        <Heart onClick={toggleFavorite} />
+                      )}
+                    </span>
+                    {data.food_name}
+                  </td>
+                  <td>{data.fat_g} g</td>
+                  <td>{data.protein_g} g</td>
+                  <td>{data.carbs_g} g</td>
+                  <td>{data.calories_kcal}</td>
+                </tr>
+              </tbody>
+            );
+          })}
+        <thead>
+          <th scope="col">
+            <h5 className="font-weight-bold">Lunch</h5>
+          </th>
         </thead>
         <th scope="col">
           <h5 className="font-weight-bold">Snack</h5>
