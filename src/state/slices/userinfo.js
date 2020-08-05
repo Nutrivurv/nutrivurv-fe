@@ -10,6 +10,7 @@ const edamamAppKey = process.env.REACT_APP_EDAMAM_APP_KEY;
 const initialState = {
   user: {},
   journal: {},
+  entries: {},
 };
 
 const UserSlice = createSlice({
@@ -22,10 +23,13 @@ const UserSlice = createSlice({
     setJournal: (state, action) => {
       state.journal = action.payload;
     },
+    setEntries: (state, action) => {
+      state.entries = action.payload;
+    },
   },
 });
 
-export const { setUser, setJournal } = UserSlice.actions;
+export const { setUser, setJournal, setEntries } = UserSlice.actions;
 
 export const Journal = (id, day) => async (dispatch) => {
   try {
@@ -49,13 +53,11 @@ export const addFoodToJournal = (post) => (dispatch) => {
 
 export const getFoodLogEntries = () => (dispatch) => {
   axiosWithAuth()
-    .get(
-      `https://nutrivurv-be.herokuapp.com/api/log/date/${localStorage.getItem(
-        "date"
-      )}`
-    )
-    .then((response) => console.log(response.data))
+    .get("https://nutrivurv-be.herokuapp.com/api/log/date/2020-08-05")
+    .then((response) => {
+      console.log(response.data);
+      dispatch(setEntries(response.data));
+    })
     .catch((err) => console.dir(err));
 };
-
 export default UserSlice.reducer;
