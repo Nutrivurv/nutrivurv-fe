@@ -57,7 +57,7 @@ const FoodJournal = () => {
             </th>
           </tr>
         </thead>
-        {entries.meals.breakfast &&
+        {entries.meals &&
           entries.meals.breakfast.map((data) => {
             return (
               <tbody key={data.id}>
@@ -85,8 +85,7 @@ const FoodJournal = () => {
             <h5 className="font-weight-bold">Lunch</h5>
           </th>
         </thead>
-        {entries.meals.lunch &&
-          entries.meals.lunch &&
+        {entries.meals &&
           entries.meals.lunch.map((data) => {
             return (
               <tbody key={data.id}>
@@ -114,7 +113,7 @@ const FoodJournal = () => {
             <h5 className="font-weight-bold">Dinner</h5>
           </th>
         </thead>
-        {entries.meals.dinner &&
+        {entries.meals &&
           entries.meals.dinner.map((data) => {
             return (
               <tbody key={data.id}>
@@ -142,7 +141,7 @@ const FoodJournal = () => {
           <h5 className="font-weight-bold">Snack</h5>
         </th>
         </thead>
-        {entries.meals.snack &&
+        {entries.meals &&
           entries.meals.snack.map((data) => {
             return (
               <tbody key={data.id}>
