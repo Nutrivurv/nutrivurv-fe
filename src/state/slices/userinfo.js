@@ -45,6 +45,17 @@ export const addFoodToJournal = (post) => (dispatch) => {
     .post("https://nutrivurv-be.herokuapp.com/api/log", post)
     .then((response) => console.log(response.data))
     .catch((err) => console.dir(err));
-  };
+};
+
+export const getFoodLogEntries = () => (dispatch) => {
+  axiosWithAuth()
+    .get(
+      `https://nutrivurv-be.herokuapp.com/api/log/date/${localStorage.getItem(
+        "date"
+      )}`
+    )
+    .then((response) => console.log(response.data))
+    .catch((err) => console.dir(err));
+};
 
 export default UserSlice.reducer;
