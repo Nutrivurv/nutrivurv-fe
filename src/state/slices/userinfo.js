@@ -27,7 +27,6 @@ const UserSlice = createSlice({
     setJournal: (state, action) => {
       state.journal = action.payload;
     },
-
     setEntries: (state, action) => {
       state.entries = action.payload;
       state.fetchEntriesSuccess = true;
