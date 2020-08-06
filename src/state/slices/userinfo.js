@@ -1,6 +1,6 @@
 import axios from "axios";
-import { axiosWithAuth } from "../../components/utils/auth/axioswithAuth";
 import { createSlice } from "@reduxjs/toolkit";
+import { axiosWithAuth } from "../../components/utils/auth/axioswithAuth";
 
 const nutrivurvAPI = process.env.REACT_APP_NUTRIVURV_API;
 const edamamAPI = process.env.REACT_APP_EDAMAM_API;
@@ -11,6 +11,9 @@ const initialState = {
   user: {},
   journal: {},
   entries: {},
+  fetchEntriesStart: false,
+  fetchEntriesSuccess: false,
+  fetchEntriesFail: false,
 };
 
 const UserSlice = createSlice({
@@ -23,8 +26,10 @@ const UserSlice = createSlice({
     setJournal: (state, action) => {
       state.journal = action.payload;
     },
+
     setEntries: (state, action) => {
       state.entries = action.payload;
+      state.fetchEntriesSuccess = true;
     },
   },
 });

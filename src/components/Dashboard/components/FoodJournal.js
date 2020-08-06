@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { ReactComponent as Heart } from "../../../assets/HeartOutline.svg";
-import { ReactComponent as FullHeart } from "../../../assets/FullHeart.svg";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
+import { ReactComponent as FullHeart } from "../../../assets/FullHeart.svg";
+import { ReactComponent as Heart } from "../../../assets/HeartOutline.svg";
 import { getFoodLogEntries } from "../../../state/slices/userinfo";
 
 const FoodJournal = () => {
   const dispatch = useDispatch();
-  const { entries } = useSelector((state) => state.user);
+  const { entries, fetchEntriesSuccess } = useSelector((state) => state.user);
   const [favorite, setFavorite] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
 
@@ -20,6 +20,9 @@ const FoodJournal = () => {
   const toggleFavorite = () => {
     setFavorite(!favorite);
   };
+
+  if (!fetchEntriesSuccess) return null;
+
   return (
     <div className="w-75" style={{ margin: "0px auto" }}>
       <div className="text-center my-3">
