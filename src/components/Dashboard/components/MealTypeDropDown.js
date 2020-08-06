@@ -50,6 +50,7 @@ const MealTypeDropDown = (props) => {
       carbs_g: Math.round(100 * nutrition.totalNutrients.CHOCDF.quantity) / 100,
       protein_g:
         Math.round(100 * nutrition.totalNutrients.PROCNT.quantity) / 100,
+      image_url: image,
     };
 
     dispatch(addFoodToJournal(post));
