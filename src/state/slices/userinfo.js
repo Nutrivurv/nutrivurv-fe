@@ -11,6 +11,7 @@ const initialState = {
   user: {},
   journal: {},
   entries: {},
+  successEntry: false,
 };
 
 const UserSlice = createSlice({
@@ -25,6 +26,7 @@ const UserSlice = createSlice({
     },
     setEntries: (state, action) => {
       state.entries = action.payload;
+      state.successEntry = true;
     },
   },
 });
