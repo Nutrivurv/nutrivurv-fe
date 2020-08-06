@@ -26,8 +26,10 @@ const FoodJournal = () => {
     dispatch(getNutrients(quantity, measure, foodId, label, image, null));
   };
 
+  console.log(startDate);
+
   useEffect(() => {
-    dispatch(getFoodLogEntries(entries));
+    dispatch(getFoodLogEntries(moment(startDate).format('YYYY-MM-DD')));
   }, [getFoodLogEntries]);
 
   console.log(entries);
