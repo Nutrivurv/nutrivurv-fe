@@ -16,8 +16,7 @@ const JournalContainer = () => {
       </div>
 
       <TabContent for="tab1">
-        {" "}
-        <FoodJournal />{" "}
+        <FoodJournal />
       </TabContent>
       <TabContent for="tab2">
         {" "}
