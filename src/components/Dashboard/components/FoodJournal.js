@@ -7,7 +7,7 @@ import { getFoodLogEntries } from "../../../state/slices/userinfo";
 
 const FoodJournal = () => {
   const dispatch = useDispatch();
-  const { entries } = useSelector((state) => state.user);
+  const { entries, successEntry } = useSelector((state) => state.user);
   const [favorite, setFavorite] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
 
@@ -20,6 +20,10 @@ const FoodJournal = () => {
   const toggleFavorite = () => {
     setFavorite(!favorite);
   };
+
+  if (!successEntry) {
+    return null;
+  }
   return (
     <div className="w-75" style={{ margin: "0px auto" }}>
       <div className="text-center my-3">
