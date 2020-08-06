@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as FullHeart } from "../../../assets/FullHeart.svg";
 import { ReactComponent as Heart } from "../../../assets/HeartOutline.svg";
 import { getFoodLogEntries } from "../../../state/slices/userinfo";
+import moment from 'moment';
 
 const FoodJournal = () => {
   const dispatch = useDispatch();
@@ -11,11 +12,11 @@ const FoodJournal = () => {
   const [favorite, setFavorite] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
 
-  useEffect(() => {
-    dispatch(getFoodLogEntries(entries));
-  }, [getFoodLogEntries]);
+  console.log(startDate);
 
-  console.log(entries);
+  useEffect(() => {
+    dispatch(getFoodLogEntries(moment(startDate).format('YYYY-MM-DD')));
+  }, [getFoodLogEntries]);
 
   const toggleFavorite = () => {
     setFavorite(!favorite);
