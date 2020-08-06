@@ -7,7 +7,6 @@ import InputGroup from "react-bootstrap/InputGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as LikeIcon } from "../../../assets/LikeIcon.svg";
 import { addFoodToJournal } from "../../../state/slices/userinfo";
-import moment from "moment";
 
 const MealTypeDropDown = (props) => {
   const {
@@ -51,6 +50,7 @@ const MealTypeDropDown = (props) => {
       carbs_g: Math.round(100 * nutrition.totalNutrients.CHOCDF.quantity) / 100,
       protein_g:
         Math.round(100 * nutrition.totalNutrients.PROCNT.quantity) / 100,
+      image_url: image,
     };
 
     dispatch(addFoodToJournal(post));
