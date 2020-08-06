@@ -9,6 +9,7 @@ import { ReactComponent as LikeIcon } from "../../../assets/LikeIcon.svg";
 import { addFoodToJournal } from "../../../state/slices/userinfo";
 import moment from "moment";
 import { ReactComponent as LikeIcon } from "../../../assets/LikeIcon.svg";
+import { addFoodToJournal } from "../../../state/slices/userinfo";
 
 const MealTypeDropDown = (props) => {
   const {
@@ -104,7 +105,7 @@ const MealTypeDropDown = (props) => {
         >
           <div className="toast-header">
             <div className="p-2">
-            <LikeIcon />
+              <LikeIcon />
             </div>
             <strong className="mr-auto">Food Log Added!</strong>
             <button
