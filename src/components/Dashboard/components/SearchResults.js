@@ -31,12 +31,11 @@ const SearchResults = () => {
   };
 
   return (
-    <div className="d-flex flex-sm-column flex-md-row justify-content-between">
-      <div
-        id="searchList"
-        className="card mt-5 justify-content-center"
-        style={{ width: "30vw", position: "relative", left: "5%" }}
-      >
+    <div
+      id="results"
+      className="d-flex flex-sm-column flex-md-row justify-content-between"
+    >
+      <div id="searchList" className="card mt-5 justify-content-center">
         <h3 className="pt-4 d-flex justify-content-center pb-2 border-bottom border-secondary">
           Results
         </h3>{" "}
