@@ -6,6 +6,7 @@ import { ReactComponent as Heart } from "../../../assets/HeartOutline.svg";
 import { getFoodLogEntries } from "../../../state/slices/userinfo";
 import JournalNutritionInfo from "./JournalNutritionInfo";
 import { getNutrients } from "../../../state/slices/EdamamSlice";
+import moment from "moment";
 
 const FoodJournal = () => {
   const dispatch = useDispatch();
@@ -26,11 +27,11 @@ const FoodJournal = () => {
     dispatch(getNutrients(quantity, measure, foodId, label, image, null));
   };
 
-  console.log(startDate);
-
   useEffect(() => {
     dispatch(getFoodLogEntries(moment(startDate).format('YYYY-MM-DD')));
-  }, [getFoodLogEntries]);
+  }, [getFoodLogEntries, startDate]);
+
+  console.log(startDate);
 
   console.log(entries);
 
