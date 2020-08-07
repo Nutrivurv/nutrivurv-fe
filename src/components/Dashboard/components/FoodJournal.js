@@ -9,7 +9,6 @@ import { getNutrients } from "../../../state/slices/EdamamSlice";
 
 const FoodJournal = () => {
   const dispatch = useDispatch();
-  const { entries, successEntry } = useSelector((state) => state.user);
   const { entries, fetchEntriesSuccess } = useSelector((state) => state.user);
   const [favorite, setFavorite] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
