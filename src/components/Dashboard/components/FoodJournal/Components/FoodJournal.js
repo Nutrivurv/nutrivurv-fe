@@ -44,7 +44,7 @@ const FoodJournal = () => {
   return (
     <div className="w-75" style={{ margin: "0px auto" }}>
       <div className="align-contents-center">
-        <Calendar />
+        <Calendar startDate={startDate} setStartDate={setStartDate} />
       </div>
       <table className="table-borderless table border-none">
         <thead>
