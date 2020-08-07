@@ -7,6 +7,7 @@ import { getFoodLogEntries } from "../../../../../state/slices/userinfo";
 import JournalNutritionInfo from "../../JournalNutritionInfo";
 import { getNutrients } from "../../../../../state/slices/EdamamSlice";
 import Breakfast from "./Breakfast";
+import Lunch from "./Lunch";
 import moment from "moment";
 
 const FoodJournal = () => {
@@ -77,70 +78,21 @@ const FoodJournal = () => {
             </th>
           </tr>
         </thead>
-        <Breakfast entries={entries} handleItemClick={handleItemClick} favorite={favorite} toggleFavorite={toggleFavorite} />
-        {/* {entries.meals.breakfast &&
-          entries.meals.breakfast.map((data) => {
-            return (
-              <tbody
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleItemClick(data);
-                }}
-                key={data.id}
-              >
-                <tr>
-                  <td scope="row">
-                    <span className="mr-2">
-                      {favorite ? (
-                        <FullHeart onClick={toggleFavorite} />
-                      ) : (
-                        <Heart onClick={toggleFavorite} />
-                      )}
-                    </span>
-                    {data.food_name}
-                  </td>
-                  <td>{data.fat_g} g</td>
-                  <td>{data.protein_g} g</td>
-                  <td>{data.carbs_g} g</td>
-                  <td>{data.calories_kcal}</td>
-                </tr>
-              </tbody>
-            );
-          })} */}
+        <Breakfast
+          entries={entries}
+          handleItemClick={handleItemClick}
+          favorite={favorite}
+          toggleFavorite={toggleFavorite}
+        />
         <thead>
           <th scope="col">
             <h5 className="font-weight-bold">Lunch</h5>
           </th>
         </thead>
-        {entries.meals.lunch &&
-          entries.meals.lunch.map((data) => {
-            return (
-              <tbody
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleItemClick(data);
-                }}
-                key={data.id}
-              >
-                <tr>
-                  <td scope="row">
-                    <span className="mr-2">
-                      {favorite ? (
-                        <FullHeart onClick={toggleFavorite} />
-                      ) : (
-                        <Heart onClick={toggleFavorite} />
-                      )}
-                    </span>
-                    {data.food_name}
-                  </td>
-                  <td>{data.fat_g} g</td>
-                  <td>{data.protein_g} g</td>
-                  <td>{data.carbs_g} g</td>
-                  <td>{data.calories_kcal}</td>
-                </tr>
-              </tbody>
-            );
-          })}
+        <Lunch entries={entries}
+          handleItemClick={handleItemClick}
+          favorite={favorite}
+          toggleFavorite={toggleFavorite}/>
         <thead>
           <th scope="col">
             <h5 className="font-weight-bold">Dinner</h5>
