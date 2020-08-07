@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
 import { getFoodLogEntries } from "../../../../../state/slices/userinfo";
-import JournalNutritionInfo from "../../JournalNutritionInfo";
+import JournalNutritionInfo from "../../Nutrition/JournalNutritionInfo";
 import { getNutrients } from "../../../../../state/slices/EdamamSlice";
 import Breakfast from "./Breakfast";
 import Lunch from "./Lunch";

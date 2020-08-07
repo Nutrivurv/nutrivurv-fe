@@ -4,7 +4,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useDispatch } from "react-redux";
-import { getNutrients } from "../../../state/slices/EdamamSlice";
+import { getNutrients } from "../../../../state/slices/EdamamSlice";
 
 const JournalDropDown = (props) => {
   const { measures, foodId, quantity, measure } = props.currentItem;
