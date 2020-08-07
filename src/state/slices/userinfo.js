@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import { axiosWithAuth } from "../../components/utils/auth/axioswithAuth";
 import { useDispatch } from "react-redux";
-import { axiosWithAuth } from "../../components/utils/auth/axioswithAuth";
 
 const nutrivurvAPI = process.env.REACT_APP_NUTRIVURV_API;
 const edamamAPI = process.env.REACT_APP_EDAMAM_API;
