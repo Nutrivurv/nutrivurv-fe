@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getNutrients, searchFood } from "../../../state/slices/EdamamSlice";
-import NutritionInfo from "./NutritionInfo";
+import NutritionInfo from "./Nutrition/NutritionInfo";
 import SearchResultsList from "./SearchResultsList";
 import { ReactComponent as Placeholder } from "../../../assets/undraw_breakfast.svg";
 
