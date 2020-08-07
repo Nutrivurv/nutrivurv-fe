@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
-import { ReactComponent as FullHeart } from "../../../assets/FullHeart.svg";
-import { ReactComponent as Heart } from "../../../assets/HeartOutline.svg";
-import { getFoodLogEntries } from "../../../state/slices/userinfo";
-import JournalNutritionInfo from "./JournalNutritionInfo";
-import { getNutrients } from "../../../state/slices/EdamamSlice";
+import { ReactComponent as FullHeart } from "../../../../../assets/FullHeart.svg";
+import { ReactComponent as Heart } from "../../../../../assets/HeartOutline.svg";
+import { getFoodLogEntries } from "../../../../../state/slices/userinfo";
+import JournalNutritionInfo from "../../JournalNutritionInfo";
+import { getNutrients } from "../../../../../state/slices/EdamamSlice";
+import Breakfast from "./Breakfast";
 import moment from "moment";
 
 const FoodJournal = () => {
@@ -28,7 +29,7 @@ const FoodJournal = () => {
   };
 
   useEffect(() => {
-    dispatch(getFoodLogEntries(moment(startDate).format('YYYY-MM-DD')));
+    dispatch(getFoodLogEntries(moment(startDate).format("YYYY-MM-DD")));
   }, [getFoodLogEntries, startDate]);
 
   console.log(startDate);
@@ -41,7 +42,7 @@ const FoodJournal = () => {
 
   return (
     <div className="w-75" style={{ margin: "0px auto" }}>
-      <div className="text-center my-3">
+      <div className="align-contents-center">
         <DatePicker
           className="text-center border-0"
           selected={startDate}
@@ -73,37 +74,36 @@ const FoodJournal = () => {
             </th>
           </tr>
         </thead>
-        {entries.meals.breakfast &&
+        <Breakfast entries={entries} handleItemClick={handleItemClick} favorite={favorite} toggleFavorite={toggleFavorite} />
+        {/* {entries.meals.breakfast &&
           entries.meals.breakfast.map((data) => {
             return (
-              <div
+              <tbody
                 onClick={(e) => {
                   e.preventDefault();
                   handleItemClick(data);
                 }}
                 key={data.id}
               >
-                <tbody key={data.id}>
-                  <tr>
-                    <td scope="row">
-                      <span className="mr-2">
-                        {favorite ? (
-                          <FullHeart onClick={toggleFavorite} />
-                        ) : (
-                          <Heart onClick={toggleFavorite} />
-                        )}
-                      </span>
-                      {data.food_name}
-                    </td>
-                    <td>{data.fat_g} g</td>
-                    <td>{data.protein_g} g</td>
-                    <td>{data.carbs_g} g</td>
-                    <td>{data.calories_kcal}</td>
-                  </tr>
-                </tbody>
-              </div>
+                <tr>
+                  <td scope="row">
+                    <span className="mr-2">
+                      {favorite ? (
+                        <FullHeart onClick={toggleFavorite} />
+                      ) : (
+                        <Heart onClick={toggleFavorite} />
+                      )}
+                    </span>
+                    {data.food_name}
+                  </td>
+                  <td>{data.fat_g} g</td>
+                  <td>{data.protein_g} g</td>
+                  <td>{data.carbs_g} g</td>
+                  <td>{data.calories_kcal}</td>
+                </tr>
+              </tbody>
             );
-          })}
+          })} */}
         <thead>
           <th scope="col">
             <h5 className="font-weight-bold">Lunch</h5>
@@ -112,32 +112,30 @@ const FoodJournal = () => {
         {entries.meals.lunch &&
           entries.meals.lunch.map((data) => {
             return (
-              <div
+              <tbody
                 onClick={(e) => {
                   e.preventDefault();
                   handleItemClick(data);
                 }}
                 key={data.id}
               >
-                <tbody key={data.id}>
-                  <tr>
-                    <td scope="row">
-                      <span className="mr-2">
-                        {favorite ? (
-                          <FullHeart onClick={toggleFavorite} />
-                        ) : (
-                          <Heart onClick={toggleFavorite} />
-                        )}
-                      </span>
-                      {data.food_name}
-                    </td>
-                    <td>{data.fat_g} g</td>
-                    <td>{data.protein_g} g</td>
-                    <td>{data.carbs_g} g</td>
-                    <td>{data.calories_kcal}</td>
-                  </tr>
-                </tbody>
-              </div>
+                <tr>
+                  <td scope="row">
+                    <span className="mr-2">
+                      {favorite ? (
+                        <FullHeart onClick={toggleFavorite} />
+                      ) : (
+                        <Heart onClick={toggleFavorite} />
+                      )}
+                    </span>
+                    {data.food_name}
+                  </td>
+                  <td>{data.fat_g} g</td>
+                  <td>{data.protein_g} g</td>
+                  <td>{data.carbs_g} g</td>
+                  <td>{data.calories_kcal}</td>
+                </tr>
+              </tbody>
             );
           })}
         <thead>
@@ -148,32 +146,30 @@ const FoodJournal = () => {
         {entries.meals.dinner &&
           entries.meals.dinner.map((data) => {
             return (
-              <div
+              <tbody
                 onClick={(e) => {
                   e.preventDefault();
                   handleItemClick(data);
                 }}
                 key={data.id}
               >
-                <tbody key={data.id}>
-                  <tr>
-                    <td scope="row">
-                      <span className="mr-2">
-                        {favorite ? (
-                          <FullHeart onClick={toggleFavorite} />
-                        ) : (
-                          <Heart onClick={toggleFavorite} />
-                        )}
-                      </span>
-                      {data.food_name}
-                    </td>
-                    <td>{data.fat_g} g</td>
-                    <td>{data.protein_g} g</td>
-                    <td>{data.carbs_g} g</td>
-                    <td>{data.calories_kcal}</td>
-                  </tr>
-                </tbody>
-              </div>
+                <tr>
+                  <td scope="row">
+                    <span className="mr-2">
+                      {favorite ? (
+                        <FullHeart onClick={toggleFavorite} />
+                      ) : (
+                        <Heart onClick={toggleFavorite} />
+                      )}
+                    </span>
+                    {data.food_name}
+                  </td>
+                  <td>{data.fat_g} g</td>
+                  <td>{data.protein_g} g</td>
+                  <td>{data.carbs_g} g</td>
+                  <td>{data.calories_kcal}</td>
+                </tr>
+              </tbody>
             );
           })}
         <thead>
@@ -184,32 +180,30 @@ const FoodJournal = () => {
         {entries.meals.snack &&
           entries.meals.snack.map((data) => {
             return (
-              <div
+              <tbody
                 onClick={(e) => {
                   e.preventDefault();
                   handleItemClick(data);
                 }}
                 key={data.id}
               >
-                <tbody key={data.id}>
-                  <tr>
-                    <td scope="row">
-                      <span className="mr-2">
-                        {favorite ? (
-                          <FullHeart onClick={toggleFavorite} />
-                        ) : (
-                          <Heart onClick={toggleFavorite} />
-                        )}
-                      </span>
-                      {data.food_name}
-                    </td>
-                    <td>{data.fat_g} g</td>
-                    <td>{data.protein_g} g</td>
-                    <td>{data.carbs_g} g</td>
-                    <td>{data.calories_kcal}</td>
-                  </tr>
-                </tbody>
-              </div>
+                <tr>
+                  <td scope="row">
+                    <span className="mr-2">
+                      {favorite ? (
+                        <FullHeart onClick={toggleFavorite} />
+                      ) : (
+                        <Heart onClick={toggleFavorite} />
+                      )}
+                    </span>
+                    {data.food_name}
+                  </td>
+                  <td>{data.fat_g} g</td>
+                  <td>{data.protein_g} g</td>
+                  <td>{data.carbs_g} g</td>
+                  <td>{data.calories_kcal}</td>
+                </tr>
+              </tbody>
             );
           })}
       </table>
