@@ -11,10 +11,9 @@ const SideBar = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-  const { journal } = useSelector((state) => state.user);
+  const { entries } = useSelector((state) => state.user);
   console.log(user.id);
-  Journal(user.id);
-  console.log(journal);
+  console.log(entries);
   console.log(user);
   return (
     <div>

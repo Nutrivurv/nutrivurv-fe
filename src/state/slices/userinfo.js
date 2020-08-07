@@ -51,14 +51,14 @@ export const Journal = async (id) => {
 export const addFoodToJournal = (post) => (dispatch) => {
   console.log("post in addFoodtoJournal", post);
   axiosWithAuth()
-    .post("https://nutrivurv-be.herokuapp.com/api/log", post)
+    .post(`${nutrivurvAPI}/api/log`, post)
     .then((response) => console.log(response.data))
     .catch((err) => console.dir(err.response.data));
 };
 
 export const getFoodLogEntries = () => (dispatch) => {
   axiosWithAuth()
-    .get("https://nutrivurv-be.herokuapp.com/api/log/date/2020-08-05")
+    .get(`${nutrivurvAPI}/api/log/date/2020-08-05`)
     .then((response) => {
       console.log(response.data);
       dispatch(setEntries(response.data));
