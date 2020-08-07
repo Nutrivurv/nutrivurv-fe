@@ -1,5 +1,5 @@
 import React from "react";
-import FoodJournal from "./FoodJournal";
+import FoodJournal from "../components/FoodJournal/Components/FoodJournal";
 import Favorites from "./Favorites";
 import { Tabs, TabLink, TabContent } from "react-tabs-redux";
 
