@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
 import { ReactComponent as Placeholder } from "../../../assets/Placeholder.svg";
-import { Journal } from "../../../state/slices/userinfo";
 import DailyVibe from "./DailyVibe";
 
 const SideBar = () => {

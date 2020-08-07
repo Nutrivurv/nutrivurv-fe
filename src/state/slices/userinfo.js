@@ -37,17 +37,6 @@ const UserSlice = createSlice({
 
 export const { setUser, setJournal, setEntries } = UserSlice.actions;
 
-export const Journal = async (id) => {
-  const dispatch = useDispatch();
-  console.log(id);
-  const response = await axiosWithAuth().get(`${nutrivurvAPI}/api/log/${id}`)
-  .then((response)=>{
-    console.log(response);
-    // dispatch(setJournal(response));
-  })
-  .catch((err) => console.dir(err.response.data, 'error log'));
-};
-
 export const addFoodToJournal = (post) => (dispatch) => {
   console.log("post in addFoodtoJournal", post);
   axiosWithAuth()
