@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as FullHeart } from "../../../assets/FullHeart.svg";
 import { ReactComponent as Heart } from "../../../assets/HeartOutline.svg";
 import { getFoodLogEntries } from "../../../state/slices/userinfo";
-import JournalNutritionInfo from "./JournalNutritionInfo";
+import JournalNutritionInfo from "./Nutrition/JournalNutritionInfo";
 import { getNutrients } from "../../../state/slices/EdamamSlice";
 
 const FoodJournal = () => {
