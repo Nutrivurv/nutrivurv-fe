@@ -1,0 +1,91 @@
+import React from "react";
+import JournalDropDown from "./JournalDropDown";
+import JournalMealTypeDropDown from "./JournalMealTypeDropDown";
+import { Fat, SatFat, TransFat, PolyFat, MonoFat } from "./FatsList";
+import { Sugar, Fiber, Carbs, Sodium, Chol } from "./NutrientsList";
+import { Potassium, Protein, VitaD, Calcium, Iron } from "./NutrientsList2";
+const JournalNutritionInfo = (props) => {
+  console.log("props", props);
+  const currentItem = props.currentItem;
+  var nutrition = currentItem.nutrition;
+  var totalNutrients = nutrition.totalNutrients;
+  console.log("total nutrients", totalNutrients);
+  var totalDaily = nutrition.totalDaily;
+
+  var uselessLabel = "FREE";
+  var uselessLabel2 = "NO";
+  var uselessLabel3 = "SPECIFIC";
+  var uselessLabel4 = "CONSCIOUS";
+
+  var nutritionLabels = nutrition.healthLabels.filter(function (label) {
+    return (
+      !label.includes(uselessLabel) &&
+      !label.includes(uselessLabel2) &&
+      !label.includes(uselessLabel3) &&
+      !label.includes(uselessLabel4)
+    );
+  });
+
+  return (
+    <div className="mr-4 pr-4">
+      <div className="card nutrition border-primary mb-3 mt-5">
+        <div className="card-body justify-content-center mx-2">
+          <div className="d-flex justify-content-center pb-2 mb-2">
+            <div className="mx-2 px-2 justify-content-center">
+              <h3 className="d-flex justify-content-start font-weight-bold">
+                {currentItem.label.charAt(0).toUpperCase() +
+                  currentItem.label.slice(1)}
+              </h3>
+              <div className="d-flex justify-content-start">
+                <img
+                  alt="food-picture"
+                  src={currentItem.image}
+                  className="w-25 rounded-circle img-responsive d-sm-none d-md-block"
+                />
+                <JournalDropDown currentItem={currentItem} />
+              </div>
+              <div className="border-top 1px solid black pt-4 mt-4">
+                <JournalMealTypeDropDown currentItem={currentItem} />
+              </div>
+            </div>
+          </div>
+          <div className="d-flex flex-wrap border-bottom border-primary py-2 d-sm-none d-md-flex">
+            {nutritionLabels.map((label) => (
+              <div className="p-1 font-weight-bold" key={currentItem.foodId}>
+                <span className="badge badge-success">
+                  {label.split("_").join(" ")}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="d-block d-sm-block d-md-flex justify-content-between mx-1 pl-2 mt-4">
+            <div>
+              <h3 className="font-weight-bold">Calories</h3>
+            </div>
+            <div className="d-none d-md-block text-right">
+              <h3 className="font-weight-bold">{nutrition.calories}</h3>
+            </div>
+          </div>
+          <div className="pl-2 mx-1">
+            <Fat totalNutrients={totalNutrients} />
+            <SatFat totalNutrients={totalNutrients} />
+            <TransFat totalNutrients={totalNutrients} />
+            <PolyFat totalNutrients={totalNutrients} />
+            <MonoFat totalNutrients={totalNutrients} />
+            <Chol totalNutrients={totalNutrients} />
+            <Sodium totalNutrients={totalNutrients} />
+            <Carbs totalNutrients={totalNutrients} />
+            <Fiber totalNutrients={totalNutrients} />
+            <Sugar totalNutrients={totalNutrients} />
+            <Protein totalNutrients={totalNutrients} />
+            <VitaD totalNutrients={totalNutrients} />
+            <Calcium totalNutrients={totalNutrients} />
+            <Iron totalNutrients={totalNutrients} />
+            <Potassium totalNutrients={totalNutrients} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+export default JournalNutritionInfo;
