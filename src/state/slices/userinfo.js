@@ -47,7 +47,7 @@ export const addFoodToJournal = (post) => (dispatch) => {
 
 export const getFoodLogEntries = (date) => (dispatch) => {
   axiosWithAuth()
-    .get(`https://nutrivurv-be.herokuapp.com/api/log/date/${date}`)
+    .get(`${nutrivurvAPI}/api/log/date/${date}`)
     .then((response) => {
       console.log(response.data);
       dispatch(setEntries(response.data));

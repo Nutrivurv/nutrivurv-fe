@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
 import { getFoodLogEntries } from "../../../../../state/slices/userinfo";
 import JournalNutritionInfo from "../../JournalNutritionInfo";
@@ -8,6 +7,7 @@ import Breakfast from "./Breakfast";
 import Lunch from "./Lunch";
 import Dinner from "./Dinner";
 import Snack from "./Snack";
+import Calendar from "./Calendar";
 import moment from "moment";
 
 const FoodJournal = () => {
@@ -47,12 +47,7 @@ const FoodJournal = () => {
   return (
     <div className="w-75" style={{ margin: "0px auto" }}>
       <div className="align-contents-center">
-        <DatePicker
-          className="text-center border-0"
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          dateFormat="MMMM d, yyyy"
-        />
+        <Calendar />
       </div>
       <table className="table-borderless table border-none">
         <thead>
