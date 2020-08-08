@@ -44,9 +44,14 @@ const Calendar = (props) => {
 
   return (
     <div className="">
-      <LeftArrow className="mr-3" onClick={backDate} value={props.startDate} type="hover" />
+      <LeftArrow
+        className="mr-3"
+        onClick={backDate}
+        value={props.startDate}
+        type="hover"
+      />
       <input
-        className="border-0"
+        className="border-0 text-center"
         type="date"
         value={moment(props.startDate).format("YYYY-MM-DD")}
         onChange={(e) => props.setStartDate(e.target.value)}
