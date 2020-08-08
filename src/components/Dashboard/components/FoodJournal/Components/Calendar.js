@@ -7,9 +7,9 @@ const Calendar = (props) => {
 
   let backDateArray = [];
   let forwardDateArray = [];
+let a = moment();
 
   const backDate = () => {
-    let a = moment();
     let b = moment("2010-08-07");
     for (let m = a; m.isAfter(b); m.subtract(1, "day")) {
       backDateArray.push(m.format("YYYY-MM-DD"));
@@ -25,7 +25,7 @@ const Calendar = (props) => {
   };
 
   const forwardDate = () => {
-    let a = moment();
+    // let a = moment();
     let b = moment(props.startDate);
     for (let m = b; m.isBefore(a); m.add(1, "day")) {
       forwardDateArray.push(m.format("YYYY-MM-DD"));
