@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import moment from "moment";
+import { ReactComponent as RightArrow } from "../../../../../assets/right-arrow-button.svg";
+import { ReactComponent as LeftArrow } from "../../../../../assets/left-arrow-button.svg";
 
 const Calendar = (props) => {
   const [date, setDate] = useState(1);
@@ -7,7 +9,7 @@ const Calendar = (props) => {
 
   let backDateArray = [];
   let forwardDateArray = [];
-let a = moment();
+  let a = moment();
 
   const backDate = () => {
     let b = moment("2010-08-07");
@@ -25,7 +27,6 @@ let a = moment();
   };
 
   const forwardDate = () => {
-    // let a = moment();
     let b = moment(props.startDate);
     for (let m = b; m.isBefore(a); m.add(1, "day")) {
       forwardDateArray.push(m.format("YYYY-MM-DD"));
@@ -42,15 +43,15 @@ let a = moment();
   };
 
   return (
-    <div>
-      <button onClick={backDate} value={props.startDate} type="hover"></button>
+    <div className="">
+      <LeftArrow className="mr-3" onClick={backDate} value={props.startDate} type="hover" />
       <input
-        className=""
+        className="border-0"
         type="date"
         value={moment(props.startDate).format("YYYY-MM-DD")}
         onChange={(e) => props.setStartDate(e.target.value)}
       />
-      <button onClick={forwardDate} type="hover"></button>
+      <RightArrow className="ml-3" onClick={forwardDate} type="hover" />
     </div>
   );
 };
