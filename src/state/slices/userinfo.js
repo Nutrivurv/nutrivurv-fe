@@ -41,7 +41,7 @@ export const addFoodToJournal = (post) => (dispatch) => {
   axiosWithAuth()
     .post(`${nutrivurvAPI}/api/log`, post)
     .then((response) => console.log(response.data))
-    .catch((err) => console.dir(err));
+    .catch((err) => console.dir(err.response.data));
 };
 
 export const getFoodLogEntries = (date) => (dispatch) => {

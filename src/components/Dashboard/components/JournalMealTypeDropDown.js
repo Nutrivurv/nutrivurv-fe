@@ -5,10 +5,10 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useDispatch, useSelector } from "react-redux";
-import { ReactComponent as LikeIcon } from "../../../../assets/LikeIcon.svg";
-import { addFoodToJournal } from "../../../../state/slices/userinfo";
+import { ReactComponent as LikeIcon } from "../../../assets/LikeIcon.svg";
+import { addFoodToJournal } from "../../../state/slices/userinfo";
 
-const MealTypeDropDown = (props) => {
+const JournalMealTypeDropDown = (props) => {
   const {
     foodId,
     measure,
@@ -123,4 +123,4 @@ const MealTypeDropDown = (props) => {
   );
 };
 
-export default MealTypeDropDown;
+export default JournalMealTypeDropDown;
