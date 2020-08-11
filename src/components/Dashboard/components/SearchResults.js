@@ -14,6 +14,7 @@ const SearchResults = () => {
   const dispatch = useDispatch();
 
   const handleItemClick = (foodItem) => {
+    console.log("searchResult", foodItem);
     const { label, foodId, image } = foodItem.food;
     const measures = foodItem.measures;
     const defaultMeasure = measures[0];
