@@ -3,29 +3,33 @@ import { render } from "react-dom";
 import { Chart } from "react-google-charts";
 import { useSelector } from "react-redux";
 
-export const Budget = ({ totals, user, type, size }) => {
+export const Budget = ({ totals, user, size, pH}) => {
   const total = Math.round(totals);
-  console.log("total", total, "user", user);
+  console.log("total", total, "user", user, "size", size,);
   const data = [
-    ["Task", "Hours per Day"],
+    ["Budget", "Amount"],
     ["Daily Total", total],
     ["Remaining Budget", user - total],
   ];
   const options = {
-    title: type,
-    pieHole: 0.5,
+    pieHole: pH,
     is3D: false,
     legend: {
-      position: 'none'
+      position: "none",
     },
+    chartArea: {
+      width: size,
+      height: size,
+    },
+    backgroundColor: "none",
   };
 
   return (
-    <div className="Calorie_budget">
+    <div>
       <Chart
         chartType="PieChart"
         width={250}
-        height={size}
+        height={300}
         data={data}
         options={options}
       />

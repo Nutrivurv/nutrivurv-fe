@@ -37,7 +37,6 @@ const FoodJournal = () => {
 
   console.log(entries);
 
-
   const toggleFavorite = () => {
     setFavorite(!favorite);
   };
