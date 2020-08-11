@@ -12,7 +12,7 @@ import moment from "moment";
 
 const FoodJournal = () => {
   const dispatch = useDispatch();
-  const { entries, fetchEntriesSuccess } = useSelector((state) => state.user);
+  const { entries, fetchEntriesSuccess, deleteEntries } = useSelector((state) => state.user);
   const [favorite, setFavorite] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const { items, currentItem, searchNutrientsSuccess } = useSelector(
@@ -31,8 +31,8 @@ const FoodJournal = () => {
 
   useEffect(() => {
     dispatch(getFoodLogEntries(moment(startDate).format("YYYY-MM-DD")));
-  }, [getFoodLogEntries, startDate]);
-
+  }, [getFoodLogEntries, startDate, deleteEntries]);
+  console.log(deleteEntries);
   console.log(startDate);
 
   const toggleFavorite = () => {

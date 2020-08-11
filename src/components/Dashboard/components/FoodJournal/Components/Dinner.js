@@ -1,6 +1,8 @@
 import React from "react";
 import { ReactComponent as FullHeart } from "../../../../../assets/FullHeart.svg";
 import { ReactComponent as Heart } from "../../../../../assets/HeartOutline.svg";
+import { deleteFoodLogEntries } from "../../../../../state/slices/userinfo";
+import { useDispatch } from "react-redux";
 
 const Dinner = (props) => {
   return (

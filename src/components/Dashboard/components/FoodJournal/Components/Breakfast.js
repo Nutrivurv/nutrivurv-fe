@@ -1,8 +1,12 @@
 import React from "react";
 import { ReactComponent as FullHeart } from "../../../../../assets/FullHeart.svg";
 import { ReactComponent as Heart } from "../../../../../assets/HeartOutline.svg";
+import { deleteFoodLogEntries } from "../../../../../state/slices/userinfo";
+import { useDispatch } from "react-redux";
 
 const Breakfast = (props) => {
+  const dispatch = useDispatch();
+
   return (
     <tbody>
       {props.entries.meals.breakfast &&
@@ -29,6 +33,13 @@ const Breakfast = (props) => {
               <td>{data.protein_g} g</td>
               <td>{data.carbs_g} g</td>
               <td>{data.calories_kcal}</td>
+              <td>{data.id}</td>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  dispatch(deleteFoodLogEntries(data.id));
+                }}
+              ></button>
             </tr>
           );
         })}
