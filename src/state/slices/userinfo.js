@@ -11,6 +11,7 @@ const initialState = {
   user: {},
   journal: {},
   entries: {},
+  deleteEntries: false,
   fetchEntriesStart: false,
   fetchEntriesSuccess: false,
   fetchEntriesFail: false,
@@ -31,10 +32,19 @@ const UserSlice = createSlice({
       state.entries = action.payload;
       state.fetchEntriesSuccess = true;
     },
+    setDeleteEntries: (state, action) => {
+      state.entries = action.payload;
+      state.deleteEntries = true;
+    },
   },
 });
 
-export const { setUser, setJournal, setEntries } = UserSlice.actions;
+export const {
+  setUser,
+  setJournal,
+  setEntries,
+  setDeleteEntries,
+} = UserSlice.actions;
 
 export const Journal = (id, day) => async (dispatch) => {
   try {
@@ -65,4 +75,15 @@ export const getFoodLogEntries = (date) => (dispatch) => {
     })
     .catch((err) => console.dir(err));
 };
+
+export const deleteFoodLogEntries = (id) => (dispatch) => {
+  axiosWithAuth()
+    .delete(`${nutrivurvAPI}/api/log/${id}`)
+    .then((response) => {
+      console.log(response.data);
+      dispatch(setDeleteEntries(response.data));
+    })
+    .catch((err) => console.dir(err));
+};
+
 export default UserSlice.reducer;
