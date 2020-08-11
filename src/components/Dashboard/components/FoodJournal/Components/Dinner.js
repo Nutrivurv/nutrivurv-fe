@@ -5,6 +5,7 @@ import { deleteFoodLogEntries } from "../../../../../state/slices/userinfo";
 import { useDispatch } from "react-redux";
 
 const Dinner = (props) => {
+  const dispatch = useDispatch();
   return (
     <tbody>
       {props.entries.meals.dinner &&
@@ -31,6 +32,12 @@ const Dinner = (props) => {
               <td>{data.protein_g} g</td>
               <td>{data.carbs_g} g</td>
               <td>{data.calories_kcal}</td>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  dispatch(deleteFoodLogEntries(data.id));
+                }}
+              ></button>
             </tr>
           );
         })}
