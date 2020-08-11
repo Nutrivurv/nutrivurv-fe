@@ -94,8 +94,7 @@ export const deleteFoodLogEntries = (id) => (dispatch) => {
       console.log(response.data);
       dispatch(setDeleteSuccess(response.data));
     })
-    .catch((err) => console.dir(err),
-    dispatch(setDeleteFailure()));
+    .catch((err) => console.dir(err), dispatch(setDeleteFailure()));
 };
 
 export default UserSlice.reducer;
