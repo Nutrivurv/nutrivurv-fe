@@ -3,6 +3,7 @@ import { ReactComponent as FullHeart } from "../../../../../assets/FullHeart.svg
 import { ReactComponent as Heart } from "../../../../../assets/HeartOutline.svg";
 import { deleteFoodLogEntries } from "../../../../../state/slices/userinfo";
 import { useDispatch } from "react-redux";
+import { ReactComponent as TrashCan } from "../../../../../assets/Trash-can.svg";
 
 const Dinner = (props) => {
   const dispatch = useDispatch();
@@ -32,12 +33,13 @@ const Dinner = (props) => {
               <td>{data.protein_g} g</td>
               <td>{data.carbs_g} g</td>
               <td>{data.calories_kcal}</td>
-              <button
+              <TrashCan
+                className="mt-2"
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch(deleteFoodLogEntries(data.id));
                 }}
-              ></button>
+              />
             </tr>
           );
         })}

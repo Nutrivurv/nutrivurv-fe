@@ -34,7 +34,8 @@ const Breakfast = (props) => {
               <td>{data.protein_g} g</td>
               <td>{data.carbs_g} g</td>
               <td>{data.calories_kcal}</td>
-              <TrashCan className="mt-2"
+              <TrashCan
+                className="mt-2"
                 onClick={(e) => {
                   e.preventDefault();
                   dispatch(deleteFoodLogEntries(data.id));
