@@ -144,6 +144,7 @@ export const getNutrients = (
       })
     );
   } catch (error) {
+    console.dir(error);
     dispatch(callNutrientsFail(error.response));
   }
 };

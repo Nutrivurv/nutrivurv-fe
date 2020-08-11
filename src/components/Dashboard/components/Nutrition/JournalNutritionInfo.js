@@ -5,11 +5,9 @@ import { Fat, SatFat, TransFat, PolyFat, MonoFat } from "./FatsList";
 import { Sugar, Fiber, Carbs, Sodium, Chol } from "./NutrientsList";
 import { Potassium, Protein, VitaD, Calcium, Iron } from "./NutrientsList2";
 const JournalNutritionInfo = (props) => {
-  console.log("props", props);
   const currentItem = props.currentItem;
   var nutrition = currentItem.nutrition;
   var totalNutrients = nutrition.totalNutrients;
-  console.log("total nutrients", totalNutrients);
   var totalDaily = nutrition.totalDaily;
 
   var uselessLabel = "FREE";
@@ -42,16 +40,26 @@ const JournalNutritionInfo = (props) => {
                   src={currentItem.image}
                   className="w-25 rounded-circle img-responsive d-sm-none d-md-block"
                 />
-                <JournalDropDown currentItem={currentItem} />
+                <JournalDropDown
+                  journalItem={props.journalItem}
+                  currentItem={currentItem}
+                  newMeasure={props.newMeasure}
+                  setNewMeasure={props.setNewMeasure}
+                />
               </div>
               <div className="border-top 1px solid black pt-4 mt-4">
-                <JournalMealTypeDropDown currentItem={currentItem} />
+                <JournalMealTypeDropDown
+                  mealType={props.mealType}
+                  setNewMealType={props.setNewMealType}
+                  journalItem={props.journalItem}
+                  currentItem={currentItem}
+                />
               </div>
             </div>
           </div>
           <div className="d-flex flex-wrap border-bottom border-primary py-2 d-sm-none d-md-flex">
-            {nutritionLabels.map((label) => (
-              <div className="p-1 font-weight-bold" key={currentItem.foodId}>
+            {nutritionLabels.map((label, i) => (
+              <div className="p-1 font-weight-bold" key={i}>
                 <span className="badge badge-success">
                   {label.split("_").join(" ")}
                 </span>

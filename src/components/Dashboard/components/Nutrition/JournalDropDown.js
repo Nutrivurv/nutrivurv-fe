@@ -8,10 +8,11 @@ import { getNutrients } from "../../../../state/slices/EdamamSlice";
 
 const JournalDropDown = (props) => {
   const { measures, foodId, quantity, measure } = props.currentItem;
-
+  const journalItem = props.journalItem;
+  console.log("dropdown", measure);
   const dispatch = useDispatch();
   const [newQuantity, setNewQuantity] = useState(quantity);
-  const [newMeasure, setNewMeasure] = useState(measure);
+  const [newMeasure, setNewMeasure] = useState(journalItem.measurement_name);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -46,28 +47,30 @@ const JournalDropDown = (props) => {
                 onChange={handleChange}
               />
             </div>
-            {/* <div className="d-flex w-100">
+            <div className="d-flex w-100">
               <Dropdown className="w-100">
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
-                  {newMeasure.label}
+                  {newMeasure === journalItem.measurement_name
+                    ? journalItem.measurement_name
+                    : newMeasure.measurement_name}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   {measures.map((measure) => (
                     <Dropdown.Item
-                      key={measure.uri}
+                      key={measure.measurement_uri}
                       className="dropdown-item"
                       href="#"
-                      value={measure.label}
+                      value={measure.measurement_name}
                       onClick={() => {
                         handleMeasureChange(measure);
                       }}
                     >
-                      {measure.label}
+                      {measure.measurement_name}
                     </Dropdown.Item>
                   ))}
                 </Dropdown.Menu>
               </Dropdown>
-            </div> */}
+            </div>
           </div>
           <div className="ml-2 button">
             <button className="p-2 rounded border border-primary">

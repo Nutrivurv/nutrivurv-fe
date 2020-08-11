@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { useDispatch, useSelector } from "react-redux";
-import { getFoodLogEntries } from "../../../../../state/slices/userinfo";
+import {
+  getFoodLogEntries,
+  editFoodJournal,
+} from "../../../../../state/slices/userinfo";
 import JournalNutritionInfo from "../../Nutrition/JournalNutritionInfo";
 import { getNutrients } from "../../../../../state/slices/EdamamSlice";
 import Breakfast from "./Breakfast";
@@ -15,25 +18,44 @@ const FoodJournal = () => {
   const { entries, fetchEntriesSuccess } = useSelector((state) => state.user);
   const [favorite, setFavorite] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+  const [journalItem, setJournalItem] = useState();
   const { items, currentItem, searchNutrientsSuccess } = useSelector(
     (state) => state.edamam
   );
-
+  const [mealType, setNewMealType] = useState(currentItem.meal_type);
+  const [newMeasure, setNewMeasure] = useState();
+  const [newEntries, setNewEntries] = useState(entries);
   const handleItemClick = (foodItem) => {
-    console.log("clicked item", foodItem);
-    const label = foodItem.food_name;
-    const foodId = foodItem.edamam_food_id;
-    const quantity = parseInt(foodItem.quantity);
-    const measure = foodItem.measurement_uri;
-    const image = null;
-    dispatch(getNutrients(quantity, measure, foodId, label, image, null));
+    setJournalItem(foodItem);
+    setNewMealType(foodItem.meal_type);
+    setNewMeasure(foodItem.all_measurements);
+    setNewEntries(entries);
+    const {
+      quantity,
+      edamam_food_id,
+      measurement_name,
+      food_name,
+      measurement_uri,
+      all_measurements,
+      measures,
+      image_url,
+    } = foodItem;
+    console.log("food item", foodItem);
+    dispatch(
+      getNutrients(
+        Number(quantity),
+        measurement_name,
+        edamam_food_id,
+        food_name,
+        image_url,
+        all_measurements
+      )
+    );
   };
 
   useEffect(() => {
     dispatch(getFoodLogEntries(moment(startDate).format("YYYY-MM-DD")));
   }, [getFoodLogEntries, startDate]);
-
-  console.log(startDate);
 
   const toggleFavorite = () => {
     setFavorite(!favorite);
@@ -76,7 +98,7 @@ const FoodJournal = () => {
           </tr>
         </thead>
         <Breakfast
-          entries={entries}
+          entries={newEntries}
           handleItemClick={handleItemClick}
           favorite={favorite}
           toggleFavorite={toggleFavorite}
@@ -87,7 +109,7 @@ const FoodJournal = () => {
           </th>
         </thead>
         <Lunch
-          entries={entries}
+          entries={newEntries}
           handleItemClick={handleItemClick}
           favorite={favorite}
           toggleFavorite={toggleFavorite}
@@ -98,7 +120,7 @@ const FoodJournal = () => {
           </th>
         </thead>
         <Dinner
-          entries={entries}
+          entries={newEntries}
           handleItemClick={handleItemClick}
           favorite={favorite}
           toggleFavorite={toggleFavorite}
@@ -109,7 +131,7 @@ const FoodJournal = () => {
           </th>
         </thead>
         <Snack
-          entries={entries}
+          entries={newEntries}
           handleItemClick={handleItemClick}
           favorite={favorite}
           toggleFavorite={toggleFavorite}
@@ -121,7 +143,14 @@ const FoodJournal = () => {
       </div>
       <div>
         {searchNutrientsSuccess && (
-          <JournalNutritionInfo currentItem={currentItem} />
+          <JournalNutritionInfo
+            mealType={mealType}
+            setNewMealType={setNewMealType}
+            journalItem={journalItem}
+            currentItem={currentItem}
+            newMeasure={newMeasure}
+            setNewMeasure={setNewMeasure}
+          />
         )}
       </div>
     </div>

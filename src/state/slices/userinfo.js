@@ -11,9 +11,14 @@ const initialState = {
   user: {},
   journal: {},
   entries: {},
+  items: {},
   fetchEntriesStart: false,
   fetchEntriesSuccess: false,
   fetchEntriesFail: false,
+  editEntriesStart: false,
+  editEntriesSuccess: false,
+  editEntriesFail: false,
+  editError: null,
 };
 
 const UserSlice = createSlice({
@@ -26,15 +31,51 @@ const UserSlice = createSlice({
     setJournal: (state, action) => {
       state.journal = action.payload;
     },
-
+    setEntriesStart: (state, action) => {
+      state.fetchEntriesStart = true;
+      state.fetchEntriesSuccess = false;
+      state.fetchEntriesFail = false;
+    },
     setEntries: (state, action) => {
       state.entries = action.payload;
       state.fetchEntriesSuccess = true;
+      state.fetchEntriesStart = false;
+      state.fetchEntriesFail = false;
+    },
+    setEntriesFail: (state, action) => {
+      state.fetchEntriesStart = false;
+      state.fetchEntriesSuccess = false;
+      state.fetchEntriesFail = true;
+    },
+    editJournalStart: (state, action) => {
+      state.editEntriesSuccess = true;
+      state.editEntriesFail = false;
+      state.editEntriesStart = true;
+    },
+    editJournalFail: (state, action) => {
+      state.editError = action.payload;
+      state.editEntriesSuccess = false;
+      state.editEntriesFail = true;
+      state.editEntriesStart = false;
+    },
+    editJournalSuccess: (state, action) => {
+      state.items = action.payload;
+      state.editEntriesSuccess = true;
+      state.editEntriesFail = false;
+      state.editEntriesStart = false;
     },
   },
 });
 
-export const { setUser, setJournal, setEntries } = UserSlice.actions;
+export const {
+  setUser,
+  setJournal,
+  setEntries,
+  editJournalStart,
+  editJournalFail,
+  editJournalSuccess,
+  setEntriesStart,
+} = UserSlice.actions;
 
 export const Journal = (id, day) => async (dispatch) => {
   try {
@@ -56,11 +97,27 @@ export const addFoodToJournal = (post) => (dispatch) => {
     .catch((err) => console.dir(err));
 };
 
+export const editFoodJournal = (id, put) => (dispatch) => {
+  console.log("post in editFoodJournal", put);
+  dispatch(editJournalStart());
+  axiosWithAuth()
+    .put(`https://nutrivurv-be.herokuapp.com/api/log/${id}`, put)
+    .then((response) => {
+      dispatch(editJournalSuccess(response.data));
+      console.log("edit journal response", response);
+    })
+    .catch((err) => {
+      console.dir(err);
+      dispatch(editJournalFail(err.response.data.message));
+    });
+};
+
 export const getFoodLogEntries = (date) => (dispatch) => {
+  dispatch(setEntriesStart());
   axiosWithAuth()
     .get(`https://nutrivurv-be.herokuapp.com/api/log/date/${date}`)
     .then((response) => {
-      console.log(response.data);
+      console.log("get response", response);
       dispatch(setEntries(response.data));
     })
     .catch((err) => console.dir(err));
