@@ -6,7 +6,10 @@ import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as LikeIcon } from "../../../../assets/LikeIcon.svg";
-import { addFoodToJournal } from "../../../../state/slices/userinfo";
+import {
+  addFoodToJournal,
+  editFoodJournal,
+} from "../../../../state/slices/userinfo";
 
 const JournalMealTypeDropDown = (props) => {
   const {
@@ -20,40 +23,41 @@ const JournalMealTypeDropDown = (props) => {
   } = props.currentItem;
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-  const [mealType, setNewMealType] = useState("Breakfast");
   const [logFoodClicked, setLogFoodClicked] = useState(false);
-
+  const journalItem = props.journalItem;
   const handleMealTypeChange = (meal) => {
-    setNewMealType(meal);
+    props.setNewMealType(meal);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setLogFoodClicked(true);
-    const post = {
-      user_id: user.id,
-      date: moment().format("YYYY-MM-DD"),
-      meal_type: mealType.toLowerCase(),
+    const put = {
+      date: journalItem.date,
+      meal_type: props.mealType.toLowerCase(),
       edamam_food_id: foodId,
-      measurement_uri: measure.uri,
-      measurement_name: measure.label.toLowerCase(),
-      all_measurements: measures.map((measure) => ({
-        measurement_uri: measure.uri,
-        measurement_name: measure.label,
-      })),
-      food_name: label,
+      measurement_uri: journalItem.measurement_uri,
+      measurement_name: journalItem.measurement_name,
+      // all_measurements: measures.map((measure) => ({
+      //   measurement_uri: measure.uri,
+      //   measurement_name: measure.label,
+      // })),
+      food_name: journalItem.food_name,
       quantity: quantity,
-      calories_kcal: Math.round(
-        nutrition.totalNutrients["ENERC_KCAL"]["quantity"]
-      ),
-      fat_g: Math.round(100 * nutrition.totalNutrients.FAT.quantity) / 100,
-      carbs_g: Math.round(100 * nutrition.totalNutrients.CHOCDF.quantity) / 100,
-      protein_g:
-        Math.round(100 * nutrition.totalNutrients.PROCNT.quantity) / 100,
-      image_url: image,
+      calories_kcal: Number(journalItem.calories_kcal),
+      fat_g: Number(journalItem.fat_g),
+      carbs_g: Number(journalItem.carbs_g),
+      protein_g: Number(journalItem.protein_g),
+      image_url: journalItem.image_url,
     };
 
-    dispatch(addFoodToJournal(post));
+    dispatch(
+      editFoodJournal(
+        journalItem.id,
+        put,
+        moment(props.startDate).format("YYYY-MM-DD")
+      )
+    );
   };
 
   const mealTypeList = ["Breakfast", "Lunch", "Dinner", "Snack"];
@@ -66,7 +70,7 @@ const JournalMealTypeDropDown = (props) => {
             <div className="d-flex w-100">
               <Dropdown className="w-100">
                 <Dropdown.Toggle variant="success" id="dropdown-basic">
-                  {mealType}
+                  {props.mealType}
                 </Dropdown.Toggle>
                 <Dropdown.Menu>
                   {mealTypeList.map((meal) => (
@@ -88,7 +92,7 @@ const JournalMealTypeDropDown = (props) => {
           </div>
           <div className="ml-2 button">
             <button className="btn-primary rounded p-2 border border-primary">
-              Log Food
+              Update Item
             </button>
           </div>
         </div>
@@ -104,7 +108,7 @@ const JournalMealTypeDropDown = (props) => {
             <div className="p-2">
               <LikeIcon />
             </div>
-            <strong className="mr-auto">Food Log Added!</strong>
+            <strong className="mr-auto">Food Log Updated!</strong>
             <button
               type="button"
               className="ml-2 mb-1 close"
