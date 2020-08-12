@@ -41,7 +41,11 @@ const Dinner = (props) => {
               <td>{data.carbs_g} g</td>
               <td>{data.calories_kcal}</td>
               <TrashCan className="mt-2" onClick={handleShow} />
-              <Modal show={show} onHide={handleClose}>
+              <Modal
+                className="d-flex align-items-center"
+                show={show}
+                onHide={handleClose}
+              >
                 <Modal.Header closeButton>
                   <Modal.Title>
                     Are you sure you want to delete this item?
