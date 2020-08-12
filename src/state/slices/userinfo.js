@@ -108,15 +108,11 @@ export const Journal = (id, day) => async (dispatch) => {
     const response = await axios.get(
       `${nutrivurvAPI}/api/journal/${id}/${day} `
     );
-    console.log(response.data);
     dispatch(setJournal(response.data));
-  } catch (err) {
-    console.log(err, `error`);
-  }
+  } catch (err) {}
 };
 
 export const addFoodToJournal = (post) => (dispatch) => {
-  console.log("post in addFoodtoJournal", post);
   axiosWithAuth()
     .post(`${nutrivurvAPI}/api/log`, post)
     .then((response) => console.log(response.data))
@@ -124,7 +120,6 @@ export const addFoodToJournal = (post) => (dispatch) => {
 };
 
 export const editFoodJournal = (id, put, date) => (dispatch) => {
-  console.log("post in editFoodJournal", put);
   dispatch(editJournalStart());
   axiosWithAuth()
     .put(`https://nutrivurv-be.herokuapp.com/api/log/${id}`, put)
@@ -149,7 +144,6 @@ export const getFoodLogEntries = (date) => (dispatch) => {
   axiosWithAuth()
     .get(`${nutrivurvAPI}/api/log/date/${date}`)
     .then((response) => {
-      console.log("get response", response);
       dispatch(setEntries(response.data));
     })
     .catch((err) => console.dir(err));
@@ -160,7 +154,6 @@ export const deleteFoodLogEntries = (id) => (dispatch) => {
   axiosWithAuth()
     .delete(`${nutrivurvAPI}/api/log/${id}`)
     .then((response) => {
-      console.log(response.data);
       dispatch(setDeleteSuccess(response.data));
     })
     .catch((err) => console.dir(err), dispatch(setDeleteFailure()));

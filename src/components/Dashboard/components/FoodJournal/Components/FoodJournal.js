@@ -1,14 +1,14 @@
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getNutrients } from "../../../../../state/slices/EdamamSlice";
 import { getFoodLogEntries } from "../../../../../state/slices/userinfo";
 import JournalNutritionInfo from "../../Nutrition/JournalNutritionInfo";
-import { getNutrients } from "../../../../../state/slices/EdamamSlice";
 import Breakfast from "./Breakfast";
-import Lunch from "./Lunch";
-import Dinner from "./Dinner";
-import Snack from "./Snack";
 import Calendar from "./Calendar";
-import moment from "moment";
+import Dinner from "./Dinner";
+import Lunch from "./Lunch";
+import Snack from "./Snack";
 
 const FoodJournal = () => {
   const dispatch = useDispatch();
@@ -38,7 +38,6 @@ const FoodJournal = () => {
       measures,
       image_url,
     } = foodItem;
-    // console.log("food item", foodItem);
     dispatch(
       getNutrients(
         Number(quantity),
@@ -54,13 +53,9 @@ const FoodJournal = () => {
   useEffect(() => {
     dispatch(getFoodLogEntries(moment(startDate).format("YYYY-MM-DD")));
   }, [getFoodLogEntries, startDate, deleteEntries]);
-  console.log(deleteEntries);
-  console.log(startDate);
-
   const toggleFavorite = () => {
     setFavorite(!favorite);
   };
-  console.log("re-rendering", entries);
   if (!fetchEntriesSuccess) return null;
 
   return (
