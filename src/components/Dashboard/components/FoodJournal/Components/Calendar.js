@@ -26,6 +26,8 @@ const Calendar = (props) => {
     }
   };
 
+  console.log("back", backDateArray);
+
   const forwardDate = () => {
     let b = moment(props.startDate);
     for (let m = b; m.isBefore(a); m.add(1, "day")) {

@@ -6,7 +6,7 @@ const NutritionInfo = (props) => {
   const currentItem = props.currentItem;
   var nutrition = currentItem.nutrition;
   var totalNutrients = nutrition.totalNutrients;
-  console.log("total nutrients", totalNutrients);
+  // console.log("total nutrients", totalNutrients);
   var totalDaily = nutrition.totalDaily;
 
   var uselessLabel = "FREE";

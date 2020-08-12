@@ -29,8 +29,6 @@ const JournalMealTypeDropDown = (props) => {
     props.setNewMealType(meal);
   };
 
-  console.log("mealDrop", measures);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setLogFoodClicked(true);
@@ -40,10 +38,10 @@ const JournalMealTypeDropDown = (props) => {
       edamam_food_id: foodId,
       measurement_uri: journalItem.measurement_uri,
       measurement_name: journalItem.measurement_name,
-      all_measurements: measures.map((measure) => ({
-        measurement_uri: measure.uri,
-        measurement_name: measure.label,
-      })),
+      // all_measurements: measures.map((measure) => ({
+      //   measurement_uri: measure.uri,
+      //   measurement_name: measure.label,
+      // })),
       food_name: journalItem.food_name,
       quantity: quantity,
       calories_kcal: Number(journalItem.calories_kcal),
@@ -53,7 +51,13 @@ const JournalMealTypeDropDown = (props) => {
       image_url: journalItem.image_url,
     };
 
-    dispatch(editFoodJournal(journalItem.id, put));
+    dispatch(
+      editFoodJournal(
+        journalItem.id,
+        put,
+        moment(props.startDate).format("YYYY-MM-DD")
+      )
+    );
   };
 
   const mealTypeList = ["Breakfast", "Lunch", "Dinner", "Snack"];

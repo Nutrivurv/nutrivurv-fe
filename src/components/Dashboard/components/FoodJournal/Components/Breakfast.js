@@ -3,7 +3,6 @@ import { ReactComponent as FullHeart } from "../../../../../assets/FullHeart.svg
 import { ReactComponent as Heart } from "../../../../../assets/HeartOutline.svg";
 
 const Breakfast = (props) => {
-  console.log("breakfast", props);
   return (
     <tbody>
       {props.entries.meals.breakfast &&
