@@ -3,9 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { axiosWithAuth } from "../../components/utils/auth/axioswithAuth";
 
 const nutrivurvAPI = process.env.REACT_APP_NUTRIVURV_API;
-const edamamAPI = process.env.REACT_APP_EDAMAM_API;
-const edamamAppID = process.env.REACT_APP_EDAMAM_APP_ID;
-const edamamAppKey = process.env.REACT_APP_EDAMAM_APP_KEY;
 
 const initialState = {
   user: {},
