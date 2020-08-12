@@ -15,6 +15,7 @@ const initialState = {
   fetchEntriesStart: false,
   fetchEntriesSuccess: false,
   fetchEntriesFail: false,
+  fetchEntriesLoad: false,
   editEntriesStart: false,
   editEntriesSuccess: false,
   editEntriesFail: false,
@@ -32,6 +33,7 @@ const UserSlice = createSlice({
       state.journal = action.payload;
     },
     setEntriesStart: (state, action) => {
+      state.fetchEntriesLoad = false;
       state.fetchEntriesStart = true;
       state.fetchEntriesSuccess = false;
       state.fetchEntriesFail = false;
@@ -41,6 +43,12 @@ const UserSlice = createSlice({
       state.fetchEntriesSuccess = true;
       state.fetchEntriesStart = false;
       state.fetchEntriesFail = false;
+    },
+    loading: (state, action) => {
+      state.fetchEntriesLoad = true;
+    },
+    stopLoading: (state, action) => {
+      state.fetchEntriesLoad = false;
     },
     setEntriesFail: (state, action) => {
       state.fetchEntriesStart = false;
@@ -75,6 +83,8 @@ export const {
   editJournalFail,
   editJournalSuccess,
   setEntriesStart,
+  loading,
+  stopLoading,
 } = UserSlice.actions;
 
 export const Journal = (id, day) => async (dispatch) => {
@@ -97,14 +107,21 @@ export const addFoodToJournal = (post) => (dispatch) => {
     .catch((err) => console.dir(err));
 };
 
-export const editFoodJournal = (id, put) => (dispatch) => {
+export const editFoodJournal = (id, put, date) => (dispatch) => {
   console.log("post in editFoodJournal", put);
   dispatch(editJournalStart());
   axiosWithAuth()
     .put(`https://nutrivurv-be.herokuapp.com/api/log/${id}`, put)
     .then((response) => {
       dispatch(editJournalSuccess(response.data));
-      console.log("edit journal response", response);
+    })
+    .then(() => {
+      dispatch(loading());
+      setTimeout(function () {
+        dispatch(stopLoading());
+        dispatch(getFoodLogEntries(date));
+        return false;
+      }, 1000);
     })
     .catch((err) => {
       console.dir(err);
