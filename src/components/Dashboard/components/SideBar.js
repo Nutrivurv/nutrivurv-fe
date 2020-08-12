@@ -13,6 +13,10 @@ const SideBar = () => {
   const { user } = useSelector((state) => state.auth);
   const { entries } = useSelector((state) => state.user);
   const totals = entries.dailyTotals[0];
+  const lightpink = '#f6a4b8';
+  const blue = '#97afd1';
+  const green = '#9be0d0';
+  const yellow = '#facab8';
   console.log(user.id);
   console.log("totals", totals);
   console.log(user);
@@ -39,7 +43,9 @@ const SideBar = () => {
                     totals={totals.total_calories_kcal}
                     user={user.caloric_budget_kcal}
                     size='500'
-                    pH={0.81}
+                    pH={0.085}
+                    c1 = {lightpink}
+
                   />
                 ) : (
                   <Placeholder />
@@ -51,8 +57,9 @@ const SideBar = () => {
                     id="Fat_Budget"
                     totals={totals.total_fat_g}
                     user={user.fat_budget_g}
-                    size="200"
-                    pH={0.73}
+                    size="500"
+                    pH={0.20}
+                    c1 = {yellow}
                   />
                 ) : (
                   <Placeholder />
@@ -64,8 +71,9 @@ const SideBar = () => {
                     id="Protein_Budget"
                     totals={totals.total_protein_g}
                     user={user.protein_budget_g}
-                    size="145"
-                    pH={0.50}
+                    size="500"
+                    pH={0.40}
+                    c1 = {green}
                   />
                 ) : (
                   <Placeholder />
@@ -77,8 +85,9 @@ const SideBar = () => {
                     id="Carbs_Budget"
                     totals={totals.total_carbs_g}
                     user={user.carb_budget_g}
-                    size="80"
-                    pH={0.0}
+                    size="500"
+                    pH={0.70}
+                    c1 ={blue}
                   />
                 ) : (
                   <Placeholder />

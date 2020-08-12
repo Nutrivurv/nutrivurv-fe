@@ -3,7 +3,7 @@ import { render } from "react-dom";
 import { Chart } from "react-google-charts";
 import { useSelector } from "react-redux";
 
-export const Budget = ({ totals, user, size, pH}) => {
+export const Budget = ({ totals, user, size, pH, c1, c2}) => {
   const total = Math.round(totals);
   console.log("total", total, "user", user, "size", size,);
   const data = [
@@ -15,21 +15,23 @@ export const Budget = ({ totals, user, size, pH}) => {
     pieHole: pH,
     is3D: false,
     legend: {
-      position: "none",
+      position: 'none'
     },
     chartArea: {
       width: size,
       height: size,
     },
     backgroundColor: "none",
+    fontSize: 1,
+    colors: [c1, 'white']
   };
 
   return (
     <div>
       <Chart
         chartType="PieChart"
-        width={250}
-        height={300}
+        width={200}
+        height={200}
         data={data}
         options={options}
       />

@@ -6,7 +6,6 @@ import FormControl from "react-bootstrap/FormControl";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as LikeIcon } from "../../../../assets/LikeIcon.svg";
-import { addFoodToJournal } from "../../../../state/slices/userinfo";
 import {
   addFoodToJournal,
   editFoodJournal,
