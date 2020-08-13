@@ -1,6 +1,6 @@
 describe("On-Boarding forms", () => {
   it("should sucessfuly load signup page", () => {
-    cy.visit("http://localhost:3000/onboarding");
+    cy.visit("http://nutrivurv.com/onboarding");
   });
 
   it("Lets get started page", () => {
