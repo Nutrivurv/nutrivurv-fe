@@ -61,7 +61,6 @@ const EdamamSlice = createSlice({
       state.searchNutrientsStart = false;
       state.searchNutrientsSuccess = true;
       state.searchNutrientFail = false;
-      console.log(state.currentItem);
     },
     callNutrientsFail: (state, action) => {
       state.searchNutrientsError = action.payload;
@@ -73,7 +72,6 @@ const EdamamSlice = createSlice({
       state.pagination = action.payload.data["_links"];
       state.prevPage = [...state.prevPage, action.payload.config.url];
       state.paginationSuccess = true;
-      console.log("state", state.pagination, "prevState", state.prevPage);
     },
     NextPage: (state, action) => {
       state.pageArr = action.payload;

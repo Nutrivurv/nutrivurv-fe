@@ -1,10 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
-import { useSelector } from "react-redux";
 const Navigation = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
-  console.log(isAuthenticated);
+
   return (
     <div
       id="navbar"
