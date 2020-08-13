@@ -13,10 +13,10 @@ const SideBar = () => {
   const { user } = useSelector((state) => state.auth);
   const { entries } = useSelector((state) => state.user);
   const totals = entries.dailyTotals[0];
-  const lightpink = '#f6a4b8';
-  const blue = '#97afd1';
-  const green = '#9be0d0';
-  const yellow = '#facab8';
+  const lightpink = "#f6a4b8";
+  const blue = "#97afd1";
+  const green = "#9be0d0";
+  const yellow = "#facab8";
   console.log(user.id);
   console.log("totals", totals);
   console.log(user);
@@ -36,61 +36,97 @@ const SideBar = () => {
         <div>
           <div className="d-flex flex-column align-items-center my-2">
             <div>
-              <div  className='Calorie_Budget'>
-                {totals ? (
+              <div className="Calorie_Budget">
+                {!totals ? (
+                  <Placeholder />
+                ) : 0 <
+                  user.caloric_budget_kcal - totals.total_calories_kcal ? (
                   <Budget
                     id="Calorie_Budget"
                     totals={totals.total_calories_kcal}
                     user={user.caloric_budget_kcal}
-                    size='500'
+                    size="500"
                     pH={0.085}
-                    c1 = {lightpink}
-
+                    c1={lightpink}
                   />
                 ) : (
-                  <Placeholder />
+                  <Budget
+                  id="Calorie_Budget"
+                  totals={1}
+                  user={1}
+                  size="500"
+                  pH={0.085}
+                  c1={lightpink}
+                />
                 )}
               </div>
-              <div  className='Fat_Budget'>
-                {totals ? (
+              <div className="Fat_Budget">
+                {!totals ? (
+                  <Placeholder />
+                ) : 0 < user.fat_budget_g - totals.total_fat_g ? (
                   <Budget
                     id="Fat_Budget"
                     totals={totals.total_fat_g}
                     user={user.fat_budget_g}
                     size="500"
-                    pH={0.20}
-                    c1 = {yellow}
+                    pH={0.2}
+                    c1={yellow}
                   />
                 ) : (
-                  <Placeholder />
+                  <Budget
+                  id="Fat_Budget"
+                  totals={1}
+                  user={1}
+                  size="500"
+                  pH={0.2}
+                  c1={yellow}
+                />
                 )}
               </div>
-              <div className='Protein_Budget'>
-                {totals ? (
+              <div className="Protein_Budget">
+                {!totals ? (
+                  <Placeholder />
+                ) : 0 < user.protein_budget_g - totals.total_protein_g ? (
                   <Budget
                     id="Protein_Budget"
                     totals={totals.total_protein_g}
                     user={user.protein_budget_g}
                     size="500"
-                    pH={0.40}
-                    c1 = {green}
+                    pH={0.4}
+                    c1={green}
                   />
                 ) : (
-                  <Placeholder />
+                  <Budget
+                  id="Protein_Budget"
+                  totals={1}
+                  user={1}
+                  size="500"
+                  pH={0.4}
+                  c1={green}
+                />
                 )}
               </div>
-              <div  className='Carbs_Budget'>
-                {totals ? (
+              <div className="Carbs_Budget">
+                {!totals ? (
+                  <Placeholder />
+                ) : 0 < user.carb_budget_g - totals.total_carbs_g ? (
                   <Budget
                     id="Carbs_Budget"
                     totals={totals.total_carbs_g}
                     user={user.carb_budget_g}
                     size="500"
-                    pH={0.70}
-                    c1 ={blue}
+                    pH={0.7}
+                    c1={blue}
                   />
                 ) : (
-                  <Placeholder />
+                  <Budget
+                  id="Carbs_Budget"
+                  totals={1}
+                  user={1}
+                  size="500"
+                  pH={0.7}
+                  c1={blue}
+                />
                 )}
               </div>
             </div>
@@ -101,7 +137,9 @@ const SideBar = () => {
                 </h4>
               </div>
               <div className="d-flex justify-content-between">
-                <h5 className="font-weight-bolder">Calories</h5>
+                <h5 className="font-weight-bolder" id="Cal">
+                  Calories
+                </h5>
                 <h5 id="calories" className="data font-weight-bolder">
                   {totals
                     ? user.caloric_budget_kcal - totals.total_calories_kcal
@@ -110,28 +148,34 @@ const SideBar = () => {
                 </h5>
               </div>
               <div className="d-flex justify-content-between">
-                <h5 className="font-weight-bolder">Fats</h5>
+                <h5 className="font-weight-bolder" id="Fa">
+                  Fats
+                </h5>
                 <h5 id="fats" className="data font-weight-bolder">
                   {totals
-                    ? user.fat_budget_g - totals.total_fat_g
+                    ? Math.round(user.fat_budget_g - totals.total_fat_g)
                     : user.fat_budget_g}{" "}
                   g
                 </h5>
               </div>
               <div className="d-flex justify-content-between">
-                <h5 className="font-weight-bolder">Carbs</h5>
+                <h5 className="font-weight-bolder" id="Car">
+                  Carbs
+                </h5>
                 <h5 id="carbs" className="data font-weight-bolder">
                   {totals
-                    ? user.carb_budget_g - totals.total_carbs_g
+                    ? Math.round(user.carb_budget_g - totals.total_carbs_g)
                     : user.carb_budget_g}{" "}
                   g
                 </h5>
               </div>
               <div className="d-flex justify-content-between">
-                <h5 className="font-weight-bolder">Proteins</h5>
+                <h5 className="font-weight-bolder" id="Pro">
+                  Proteins
+                </h5>
                 <h5 id="protein" className="data font-weight-bolder">
                   {totals
-                    ? user.protein_budget_g - totals.total_protein_g
+                    ? Math.round(user.protein_budget_g - totals.total_protein_g)
                     : user.protein_budget_g}{" "}
                   g
                 </h5>

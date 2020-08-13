@@ -12,7 +12,6 @@
   background-image: linear-gradient(to bottom, #f6f9fa, #f6f9fa);
   border-radius: 0 5% 5% 0 / 0 5% 5% 0;
   box-shadow: -15px -15px 15px white, 5px 4px 11px rgba(108, 130 ,168,0.5%);
-  color: #e0798e;
   font-size: 12px;
   h4{
     color: #4986b2;
@@ -21,10 +20,9 @@
 
   h5{
     font-size: 16px;
-    color: #2c3e50;
   }
   .data{
-    color: #e0798e;;
+    color: #020202;;
   }
   .dailyVibe{
     color: #2c3e50;
@@ -206,5 +204,21 @@
 .Protein_Budget{
   position: absolute;
 
+}
+
+#Cal{
+  color: #f6a4b8;
+}
+
+#Fa{
+  color: #facab8;
+}
+
+#Pro{
+  color: #9be0d0;
+}
+
+#Car{
+  color: #97afd1;
 }
 
