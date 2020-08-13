@@ -25,8 +25,9 @@ const MealEntries = (props) => {
                     <Heart onClick={props.toggleFavorite} />
                   )}
                 </span>
-                {entry.food_name}
+                <span className="text-bold">{entry.food_name},</span> {entry.measurement_name}
               </td>
+              <td>{entry.quantity}</td>
               <td>{entry.fat_g} g</td>
               <td>{entry.protein_g} g</td>
               <td>{entry.carbs_g} g</td>

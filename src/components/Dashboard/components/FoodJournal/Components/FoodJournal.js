@@ -87,6 +87,10 @@ const FoodJournal = () => {
                 </th>
                 <th scope="col">
                   {" "}
+                  <h5 className="font-weight-bold">Qty</h5>
+                </th>
+                <th scope="col">
+                  {" "}
                   <h5 className="font-weight-bold">Fat</h5>
                 </th>
                 <th scope="col">
