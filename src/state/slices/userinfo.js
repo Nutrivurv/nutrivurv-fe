@@ -116,12 +116,7 @@ export const editFoodJournal = (id, put, date) => (dispatch) => {
       dispatch(editJournalSuccess(response.data));
     })
     .then(() => {
-      dispatch(loading());
-      setTimeout(function () {
-        dispatch(stopLoading());
-        dispatch(getFoodLogEntries(date));
-        return false;
-      }, 1000);
+      dispatch(getFoodLogEntries(date));
     })
     .catch((err) => {
       console.dir(err);
@@ -130,7 +125,7 @@ export const editFoodJournal = (id, put, date) => (dispatch) => {
 };
 
 export const getFoodLogEntries = (date) => (dispatch) => {
-  dispatch(setEntriesStart());
+  // dispatch(setEntriesStart());
   axiosWithAuth()
     .get(`${nutrivurvAPI}/api/log/date/${date}`)
     .then((response) => {
