@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getFoodLogEntries } from "../../../../../state/slices/userinfo";
-import JournalNutritionInfo from "../../Nutrition/JournalNutritionInfo";
-import { getNutrients } from "../../../../../state/slices/EdamamSlice";
-import Breakfast from "./Breakfast";
-import Lunch from "./Lunch";
-import Dinner from "./Dinner";
-import Snack from "./Snack";
-import Calendar from "./Calendar";
 import moment from "moment";
+import React, { useEffect, useState } from "react";
+import { Button, Modal } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { getNutrients } from "../../../../../state/slices/EdamamSlice";
+import { getFoodLogEntries } from "../../../../../state/slices/userinfo";
+import { deleteFoodLogEntries } from "../../../../../state/slices/userinfo";
+import JournalNutritionInfo from "../../Nutrition/JournalNutritionInfo";
+import Calendar from "./Calendar";
+import MealEntries from "./MealEntries";
 
 const FoodJournal = () => {
   const dispatch = useDispatch();
-  const { entries, fetchEntriesSuccess, fetchEntriesLoad } = useSelector(
-    (state) => state.user
-  );
+  const {
+    entries,
+    fetchEntriesSuccess,
+    deleteEntries,
+    fetchEntriesLoad,
+  } = useSelector((state) => state.user);
   const [favorite, setFavorite] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [journalItem, setJournalItem] = useState();
@@ -23,6 +25,16 @@ const FoodJournal = () => {
   );
   const [mealType, setNewMealType] = useState(currentItem.meal_type);
   const [newMeasure, setNewMeasure] = useState();
+
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [entryIdForDeletion, setEntryIdForDeletion] = useState(null);
+
+  const handleClose = () => setShowDeleteModal(false);
+  const handleShow = (entry) => {
+    setShowDeleteModal(true);
+    setEntryIdForDeletion(entry);
+  };
+
   const handleItemClick = (foodItem) => {
     setJournalItem(foodItem);
     setNewMealType(foodItem.meal_type);
@@ -35,7 +47,6 @@ const FoodJournal = () => {
       measures,
       image_url,
     } = foodItem;
-    // console.log("food item", foodItem);
     dispatch(
       getNutrients(
         Number(quantity),
@@ -50,12 +61,10 @@ const FoodJournal = () => {
 
   useEffect(() => {
     dispatch(getFoodLogEntries(moment(startDate).format("YYYY-MM-DD")));
-  }, [getFoodLogEntries, startDate]);
-
+  }, [getFoodLogEntries, startDate, deleteEntries]);
   const toggleFavorite = () => {
     setFavorite(!favorite);
   };
-  console.log("re-rendering", entries);
   if (!fetchEntriesSuccess) return null;
 
   return (
@@ -94,50 +103,84 @@ const FoodJournal = () => {
                 </th>
               </tr>
             </thead>
-            <Breakfast
-              entries={entries}
+            <MealEntries
+              entries={entries.meals.breakfast}
               handleItemClick={handleItemClick}
               favorite={favorite}
               toggleFavorite={toggleFavorite}
+              handleShow={handleShow}
+              date={startDate}
             />
             <thead>
               <th scope="col">
                 <h5 className="font-weight-bold">Lunch</h5>
               </th>
             </thead>
-            <Lunch
-              entries={entries}
+            <MealEntries
+              entries={entries.meals.lunch}
               handleItemClick={handleItemClick}
               favorite={favorite}
               toggleFavorite={toggleFavorite}
+              handleShow={handleShow}
+              date={startDate}
             />
             <thead>
               <th scope="col">
                 <h5 className="font-weight-bold">Dinner</h5>
               </th>
             </thead>
-            <Dinner
-              entries={entries}
+            <MealEntries
+              entries={entries.meals.dinner}
               handleItemClick={handleItemClick}
               favorite={favorite}
               toggleFavorite={toggleFavorite}
+              handleShow={handleShow}
+              date={startDate}
             />
             <thead>
               <th scope="col">
                 <h5 className="font-weight-bold">Snack</h5>
               </th>
             </thead>
-            <Snack
-              entries={entries}
+            <MealEntries
+              entries={entries.meals.snack}
               handleItemClick={handleItemClick}
               favorite={favorite}
               toggleFavorite={toggleFavorite}
+              handleShow={handleShow}
+              date={startDate}
             />
           </table>
           <div className="d-flex justify-content-between">
             <p>Total Water:</p>
             <p className="pr-5"> Total Calories:</p>
           </div>
+          <Modal
+            className="d-flex align-items-center"
+            show={showDeleteModal}
+            onHide={handleClose}
+          >
+            <Modal.Header closeButton>
+              <Modal.Title>
+                Are you sure you want to delete this item?
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleClose}>
+                Cancel
+              </Button>
+              <Button
+                variant="primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  dispatch(deleteFoodLogEntries(entryIdForDeletion));
+                  handleClose();
+                }}
+              >
+                Delete
+              </Button>
+            </Modal.Footer>
+          </Modal>
           <div>
             {searchNutrientsSuccess && (
               <JournalNutritionInfo

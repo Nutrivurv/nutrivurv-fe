@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ReactComponent as Placeholder } from "../../../assets/undraw_breakfast.svg";
 import { getNutrients, searchFood } from "../../../state/slices/EdamamSlice";
 import NutritionInfo from "./Nutrition/NutritionInfo";
 import SearchResultsList from "./SearchResultsList";
-import { ReactComponent as Placeholder } from "../../../assets/undraw_breakfast.svg";
 
 const SearchResults = () => {
   const [active, setActive] = useState(false);
@@ -14,7 +14,6 @@ const SearchResults = () => {
   const dispatch = useDispatch();
 
   const handleItemClick = (foodItem) => {
-    console.log("searchResult", foodItem);
     const { label, foodId, image } = foodItem.food;
     const measures = foodItem.measures;
     const defaultMeasure = measures[0];

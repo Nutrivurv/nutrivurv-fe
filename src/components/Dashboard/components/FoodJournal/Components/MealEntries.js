@@ -1,19 +1,21 @@
 import React from "react";
 import { ReactComponent as FullHeart } from "../../../../../assets/FullHeart.svg";
 import { ReactComponent as Heart } from "../../../../../assets/HeartOutline.svg";
+import { ReactComponent as TrashCan } from "../../../../../assets/Trash-can.svg";
 
-const Dinner = (props) => {
+const MealEntries = (props) => {
   return (
     <tbody>
-      {props.entries.meals.dinner &&
-        props.entries.meals.dinner.map((data) => {
+      {props.entries &&
+        props.entries.map((entry) => {
+          console.log("entry", entry);
           return (
             <tr
+              key={entry.id}
               onClick={(e) => {
                 e.preventDefault();
-                props.handleItemClick(data);
+                props.handleItemClick(entry);
               }}
-              key={data.id}
             >
               <td scope="row">
                 <span className="mr-2">
@@ -23,12 +25,16 @@ const Dinner = (props) => {
                     <Heart onClick={props.toggleFavorite} />
                   )}
                 </span>
-                {data.food_name}
+                {entry.food_name}
               </td>
-              <td>{data.fat_g} g</td>
-              <td>{data.protein_g} g</td>
-              <td>{data.carbs_g} g</td>
-              <td>{data.calories_kcal}</td>
+              <td>{entry.fat_g} g</td>
+              <td>{entry.protein_g} g</td>
+              <td>{entry.carbs_g} g</td>
+              <td>{entry.calories_kcal}</td>
+              <TrashCan
+                className="mt-2"
+                onClick={() => props.handleShow(entry.id)}
+              />
             </tr>
           );
         })}
@@ -36,4 +42,4 @@ const Dinner = (props) => {
   );
 };
 
-export default Dinner;
+export default MealEntries;
