@@ -53,6 +53,7 @@ const JournalNutritionInfo = (props) => {
                   setNewMealType={props.setNewMealType}
                   journalItem={props.journalItem}
                   currentItem={currentItem}
+                  startDate={props.startDate}
                 />
               </div>
             </div>

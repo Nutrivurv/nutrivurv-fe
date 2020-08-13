@@ -1,7 +1,7 @@
-import React, { useState } from "react";
 import moment from "moment";
-import { ReactComponent as RightArrow } from "../../../../../assets/right-arrow-button.svg";
+import React, { useState } from "react";
 import { ReactComponent as LeftArrow } from "../../../../../assets/left-arrow-button.svg";
+import { ReactComponent as RightArrow } from "../../../../../assets/right-arrow-button.svg";
 
 const Calendar = (props) => {
   const [date, setDate] = useState(1);
@@ -19,7 +19,6 @@ const Calendar = (props) => {
 
     for (let i = 0; i < backDateArray.length; i++) {
       if (date === i) {
-        console.log(date);
         setDate(date + 1);
         props.setStartDate(backDateArray[i]);
       }

@@ -3,18 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 import { axiosWithAuth } from "../../components/utils/auth/axioswithAuth";
 
 const nutrivurvAPI = process.env.REACT_APP_NUTRIVURV_API;
-const edamamAPI = process.env.REACT_APP_EDAMAM_API;
-const edamamAppID = process.env.REACT_APP_EDAMAM_APP_ID;
-const edamamAppKey = process.env.REACT_APP_EDAMAM_APP_KEY;
 
 const initialState = {
   user: {},
   journal: {},
   entries: {},
+  deleteEntries: false,
   items: {},
   fetchEntriesStart: false,
   fetchEntriesSuccess: false,
   fetchEntriesFail: false,
+  fetchEntriesLoad: false,
   editEntriesStart: false,
   editEntriesSuccess: false,
   editEntriesFail: false,
@@ -32,6 +31,7 @@ const UserSlice = createSlice({
       state.journal = action.payload;
     },
     setEntriesStart: (state, action) => {
+      state.fetchEntriesLoad = false;
       state.fetchEntriesStart = true;
       state.fetchEntriesSuccess = false;
       state.fetchEntriesFail = false;
@@ -41,6 +41,12 @@ const UserSlice = createSlice({
       state.fetchEntriesSuccess = true;
       state.fetchEntriesStart = false;
       state.fetchEntriesFail = false;
+    },
+    loading: (state, action) => {
+      state.fetchEntriesLoad = true;
+    },
+    stopLoading: (state, action) => {
+      state.fetchEntriesLoad = false;
     },
     setEntriesFail: (state, action) => {
       state.fetchEntriesStart = false;
@@ -64,6 +70,18 @@ const UserSlice = createSlice({
       state.editEntriesFail = false;
       state.editEntriesStart = false;
     },
+    setDeleteStart: (state) => {
+      state.fetchEntriesStart = true;
+      state.deleteEntries = false;
+    },
+    setDeleteSuccess: (state) => {
+      state.fetchEntriesStart = false;
+      state.deleteEntries = true;
+    },
+    setDeleteFailure: (state) => {
+      state.fetchEntriesStart = false;
+      state.deleteEntries = false;
+    },
   },
 });
 
@@ -71,10 +89,15 @@ export const {
   setUser,
   setJournal,
   setEntries,
+  setDeleteStart,
+  setDeleteSuccess,
+  setDeleteFailure,
   editJournalStart,
   editJournalFail,
   editJournalSuccess,
   setEntriesStart,
+  loading,
+  stopLoading,
 } = UserSlice.actions;
 
 export const Journal = (id, day) => async (dispatch) => {
@@ -82,29 +105,31 @@ export const Journal = (id, day) => async (dispatch) => {
     const response = await axios.get(
       `${nutrivurvAPI}/api/journal/${id}/${day} `
     );
-    console.log(response.data);
     dispatch(setJournal(response.data));
-  } catch (err) {
-    console.log(err, `error`);
-  }
+  } catch (err) {}
 };
 
 export const addFoodToJournal = (post) => (dispatch) => {
-  console.log("post in addFoodtoJournal", post);
   axiosWithAuth()
     .post(`${nutrivurvAPI}/api/log`, post)
     .then((response) => console.log(response.data))
     .catch((err) => console.dir(err));
 };
 
-export const editFoodJournal = (id, put) => (dispatch) => {
-  console.log("post in editFoodJournal", put);
+export const editFoodJournal = (id, put, date) => (dispatch) => {
   dispatch(editJournalStart());
   axiosWithAuth()
     .put(`https://nutrivurv-be.herokuapp.com/api/log/${id}`, put)
     .then((response) => {
       dispatch(editJournalSuccess(response.data));
-      console.log("edit journal response", response);
+    })
+    .then(() => {
+      dispatch(loading());
+      setTimeout(function () {
+        dispatch(stopLoading());
+        dispatch(getFoodLogEntries(date));
+        return false;
+      }, 1000);
     })
     .catch((err) => {
       console.dir(err);
@@ -113,13 +138,24 @@ export const editFoodJournal = (id, put) => (dispatch) => {
 };
 
 export const getFoodLogEntries = (date) => (dispatch) => {
-  dispatch(setEntriesStart());
   axiosWithAuth()
     .get(`${nutrivurvAPI}/api/log/date/${date}`)
     .then((response) => {
-      console.log("get response", response);
       dispatch(setEntries(response.data));
     })
     .catch((err) => console.dir(err));
 };
+
+export const deleteFoodLogEntries = (id) => (dispatch) => {
+  dispatch(setDeleteStart());
+  axiosWithAuth()
+    .delete(`${nutrivurvAPI}/api/log/${id}`)
+    .then((response) => {
+      dispatch(setDeleteSuccess(response.data));
+    })
+    .catch((error) => {
+      dispatch(setDeleteFailure(error.response.data.message));
+    });
+};
+
 export default UserSlice.reducer;

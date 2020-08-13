@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 const DailyVibe = () => {
   const [vibe, setVibe] = useState("");
@@ -10,16 +10,12 @@ const DailyVibe = () => {
     try {
       const data = await axios.get("https://api.quotable.io/random");
       arrayOfVibes = data.data;
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
 
     try {
       setVibe(arrayOfVibes.content);
       setAuthor(arrayOfVibes.author);
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {

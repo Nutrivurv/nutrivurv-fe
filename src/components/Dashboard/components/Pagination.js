@@ -16,7 +16,6 @@ const ItemPagination = ({ itemArr, setItemArr }) => {
         disabled={arr[0] === pageArr[0]}
         onClick={() => {
           dispatch(searchFood(null, prevPage[0]));
-          console.log(pagination);
           dispatch(Next(Array.from(pageArr, (x) => x - 3)));
         }}
       />
