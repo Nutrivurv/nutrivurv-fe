@@ -39,7 +39,7 @@ const SideBar = () => {
               <div className="Calorie_Budget">
                 {!totals ? (
                   <Placeholder />
-                ) : 0 <
+                ) : 0 <=
                   user.caloric_budget_kcal - totals.total_calories_kcal ? (
                   <Budget
                     id="Calorie_Budget"
@@ -63,7 +63,7 @@ const SideBar = () => {
               <div className="Fat_Budget">
                 {!totals ? (
                   <Placeholder />
-                ) : 0 < user.fat_budget_g - totals.total_fat_g ? (
+                ) : 0 <= user.fat_budget_g - totals.total_fat_g ? (
                   <Budget
                     id="Fat_Budget"
                     totals={totals.total_fat_g}
@@ -86,7 +86,7 @@ const SideBar = () => {
               <div className="Protein_Budget">
                 {!totals ? (
                   <Placeholder />
-                ) : 0 < user.protein_budget_g - totals.total_protein_g ? (
+                ) : 0 <= user.protein_budget_g - totals.total_protein_g ? (
                   <Budget
                     id="Protein_Budget"
                     totals={totals.total_protein_g}
@@ -109,7 +109,7 @@ const SideBar = () => {
               <div className="Carbs_Budget">
                 {!totals ? (
                   <Placeholder />
-                ) : 0 < user.carb_budget_g - totals.total_carbs_g ? (
+                ) : 0 <= user.carb_budget_g - totals.total_carbs_g ? (
                   <Budget
                     id="Carbs_Budget"
                     totals={totals.total_carbs_g}
@@ -140,7 +140,7 @@ const SideBar = () => {
                 <h5 className="font-weight-bolder" id="Cal">
                   Calories
                 </h5>
-                <h5 id="calories" className="data font-weight-bolder">
+                <h5 className="data font-weight-bolder">
                   {totals
                     ? user.caloric_budget_kcal - totals.total_calories_kcal
                     : user.caloric_budget_kcal}{" "}
@@ -151,7 +151,7 @@ const SideBar = () => {
                 <h5 className="font-weight-bolder" id="Fa">
                   Fats
                 </h5>
-                <h5 id="fats" className="data font-weight-bolder">
+                <h5 className="data font-weight-bolder">
                   {totals
                     ? Math.round(user.fat_budget_g - totals.total_fat_g)
                     : user.fat_budget_g}{" "}
@@ -162,7 +162,7 @@ const SideBar = () => {
                 <h5 className="font-weight-bolder" id="Car">
                   Carbs
                 </h5>
-                <h5 id="carbs" className="data font-weight-bolder">
+                <h5 className="data font-weight-bolder">
                   {totals
                     ? Math.round(user.carb_budget_g - totals.total_carbs_g)
                     : user.carb_budget_g}{" "}
@@ -173,7 +173,7 @@ const SideBar = () => {
                 <h5 className="font-weight-bolder" id="Pro">
                   Proteins
                 </h5>
-                <h5 id="protein" className="data font-weight-bolder">
+                <h5 className="data font-weight-bolder">
                   {totals
                     ? Math.round(user.protein_budget_g - totals.total_protein_g)
                     : user.protein_budget_g}{" "}
