@@ -1,6 +1,6 @@
 describe("Landing page", () => {
   it("should sucessfuly load", () => {
-    cy.visit("http://nutrivurv.com/");
+    cy.visit("https://nutrivurv.herokuapp.com/");
   });
 
   it("Toggler should not be visibe", () => {

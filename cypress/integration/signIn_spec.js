@@ -1,6 +1,6 @@
 describe("Sign In forms", () => {
   it("should sucessfuly load sign in page", () => {
-    cy.visit("http://nutrivurv.com//signin");
+    cy.visit("https://nutrivurv.herokuapp.com//signin");
   });
 
   it("Should show errors under inputs ", () => {
