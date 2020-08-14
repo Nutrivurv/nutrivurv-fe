@@ -63,8 +63,8 @@
 
 .dashboard{
   position: relative;
-  width: 75%;
-  left: 20%;
+  width: 80%;
+  left: 15%;
   overflow: hidden;
   @media only screen and (max-width: 750px ){
     width: 100%;
@@ -112,7 +112,8 @@
 
 .card{
   border-radius: 25px;
-  height: 120vh;
+  height: 90vh;
+  min-height: 900px;
   padding: 5% 2%;
   border: none;
   box-shadow: -7px -8px 20px #ffffff40, 15px 15px 15px rgba(158, 182, 225, 0.2);
@@ -124,7 +125,7 @@
 
 .nutrition{
   overflow-y: scroll;
-  height: 120vh;
+  height: 90vh;
   @media only screen and (max-width: 750px ){
     width: 80vw;
     position: relative;
@@ -191,5 +192,44 @@
 
   .profile-inputs{
     width: 40%;
+  }
+}
+
+.calendar{
+  width: 50vw;
+}
+
+.journal-nutrition{
+  position: absolute;
+  top: 10%;
+  left: 58%;
+  @media only screen and (max-width: 750px ){
+    position: initial;
+  }
+  .card{
+    height: 90vh;
+  }
+}
+
+.journal-nutrients{
+  display: flex;
+  @media only screen and (max-width: 750px ){
+    flex-flow: column;
+  }
+}
+
+.mealType-th{
+  box-shadow: 10px 3px 10px rgba(158, 182, 225, 0.17);
+  border-radius: 25px;
+}
+
+.table{
+  width: 45vw !important;
+}
+
+.foodJournal-tab{
+  height: 110vh;
+  @media only screen and (max-width: 750px ){
+    height: auto;
   }
 }
