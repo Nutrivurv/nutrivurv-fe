@@ -24,13 +24,12 @@ const About = () => {
                 width="150px"
               />
             </div>
-            <div className="d-flex justify-content-center">
-              <h5>Dave Vazquez</h5>
+            <div className="d-flex flex-column justify-content-center text-center">
+              <h5 className="text-center">Dave Vazquez</h5>
+              <h6 className="font-weight-bold my-2">Team Lead / Full Stack Web Developer</h6>
             </div>
             <div className="d-flex justify-content-center">
-              <div className="w-25">
-                <i className="fa fa-github fa-large text-dark"></i>
-              </div>
+                <i className="fa fa-github fa-large text-dark mt-1 mr-3"></i>
               <a href="https://github.com/dave-vazquez">Github</a>
             </div>
           </div>
