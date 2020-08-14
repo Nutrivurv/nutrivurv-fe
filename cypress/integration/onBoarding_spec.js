@@ -1,6 +1,6 @@
 describe("On-Boarding forms", () => {
   it("should sucessfuly load signup page", () => {
-    cy.visit("http://nutrivurv.com/onboarding");
+    cy.visit("https://nutrivurv.herokuapp.com/onboarding");
   });
 
   it("Lets get started page", () => {
