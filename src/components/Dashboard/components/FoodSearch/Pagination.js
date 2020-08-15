@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Pagination from "react-bootstrap/Pagination";
 import { useDispatch, useSelector } from "react-redux";
-import { Next, searchFood } from "../../../state/slices/EdamamSlice";
+import { Next, searchFood } from "../../../../state/slices/EdamamSlice";
 
 const ItemPagination = ({ itemArr, setItemArr }) => {
   const { items, pagination, pageArr, prevPage } = useSelector(

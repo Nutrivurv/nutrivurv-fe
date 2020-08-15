@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
-import Email from "./Email";
-import Name from "./Name";
-import Gender from "./Gender";
-import WeightGoals from "./WeightGoals";
-import Height from "./Height";
-import Weight from "./weight";
-import WeeklyLoss from "./WeeklyLoss";
+import Email from "./components/Email";
+import Gender from "./components/Gender";
+import Height from "./components/Height";
+import Name from "./components/Name";
+import WeeklyLoss from "./components/WeeklyLoss";
+import Weight from "./components/Weight";
+import WeightGoals from "./components/WeightGoals";
+
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();

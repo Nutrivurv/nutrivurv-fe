@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import { searchFood } from "../../../state/slices/EdamamSlice";
+import { ReactComponent as Placeholder } from "../../../../assets/WomanBubbles.svg";
+import { searchFood } from "../../../../state/slices/EdamamSlice";
 import SearchResults from "./SearchResults";
-import { ReactComponent as Placeholder } from "../../../assets/WomanBubbles.svg";
-const SearchBar = () => {
+
+const FoodSearch = () => {
   const [search, setSearch] = useState("");
 
   const dispatch = useDispatch();
@@ -69,4 +70,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default FoodSearch;

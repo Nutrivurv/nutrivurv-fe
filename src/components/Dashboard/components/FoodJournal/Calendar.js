@@ -1,7 +1,7 @@
 import moment from "moment";
 import React, { useState } from "react";
-import { ReactComponent as LeftArrow } from "../../../../../assets/left-arrow-button.svg";
-import { ReactComponent as RightArrow } from "../../../../../assets/right-arrow-button.svg";
+import { ReactComponent as LeftArrow } from "../../../../assets/left-arrow-button.svg";
+import { ReactComponent as RightArrow } from "../../../../assets/right-arrow-button.svg";
 
 const Calendar = (props) => {
   const [date, setDate] = useState(1);

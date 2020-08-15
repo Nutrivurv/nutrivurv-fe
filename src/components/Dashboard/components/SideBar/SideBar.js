@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Redirect, useHistory } from "react-router-dom";
-import { ReactComponent as Logo } from "../../../assets/Logo.svg";
-import { ReactComponent as Placeholder } from "../../../assets/Placeholder.svg";
-import { NutrientEnd } from "../../../state/slices/EdamamSlice";
-import { Journal } from "../../../state/slices/userinfo";
+import { NavLink } from "react-router-dom";
+import { ReactComponent as Logo } from "../../../../assets/Logo.svg";
+import { ReactComponent as Placeholder } from "../../../../assets/Placeholder.svg";
+import { NutrientEnd } from "../../../../state/slices/EdamamSlice";
+import { BudgetRing } from "./BudgetRing";
 import DailyVibe from "./DailyVibe";
-import { Budget } from "./googleChar";
 
 const SideBar = () => {
   const [toggle, setToggle] = useState(false);
-  const history = useHistory();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
   const { entries } = useSelector((state) => state.user);
@@ -19,10 +17,7 @@ const SideBar = () => {
   const blue = "#97afd1";
   const green = "#9be0d0";
   const yellow = "#facab8";
-  console.log(user.id);
-  console.log("totals", totals);
-  console.log(user);
-  const { callNutrientsStart } = useSelector((state) => state.edamam);
+
   return (
     <div>
       <nav id="sidebar" className={toggle ? "sidebar-active" : "sidebar"}>
@@ -44,7 +39,7 @@ const SideBar = () => {
                   <Placeholder />
                 ) : 0 <=
                   user.caloric_budget_kcal - totals.total_calories_kcal ? (
-                  <Budget
+                  <BudgetRing
                     id="Calorie_Budget"
                     totals={totals.total_calories_kcal}
                     user={user.caloric_budget_kcal}
@@ -53,7 +48,7 @@ const SideBar = () => {
                     c1={lightpink}
                   />
                 ) : (
-                  <Budget
+                  <BudgetRing
                     id="Calorie_Budget"
                     totals={1}
                     user={1}
@@ -67,7 +62,7 @@ const SideBar = () => {
                 {!totals ? (
                   <Placeholder />
                 ) : 0 <= user.fat_budget_g - totals.total_fat_g ? (
-                  <Budget
+                  <BudgetRing
                     id="Fat_Budget"
                     totals={totals.total_fat_g}
                     user={user.fat_budget_g}
@@ -76,7 +71,7 @@ const SideBar = () => {
                     c1={yellow}
                   />
                 ) : (
-                  <Budget
+                  <BudgetRing
                     id="Fat_Budget"
                     totals={1}
                     user={1}
@@ -90,7 +85,7 @@ const SideBar = () => {
                 {!totals ? (
                   <Placeholder />
                 ) : 0 <= user.protein_budget_g - totals.total_protein_g ? (
-                  <Budget
+                  <BudgetRing
                     id="Protein_Budget"
                     totals={totals.total_protein_g}
                     user={user.protein_budget_g}
@@ -99,7 +94,7 @@ const SideBar = () => {
                     c1={green}
                   />
                 ) : (
-                  <Budget
+                  <BudgetRing
                     id="Protein_Budget"
                     totals={1}
                     user={1}
@@ -113,7 +108,7 @@ const SideBar = () => {
                 {!totals ? (
                   <Placeholder />
                 ) : 0 <= user.carb_budget_g - totals.total_carbs_g ? (
-                  <Budget
+                  <BudgetRing
                     id="Carbs_Budget"
                     totals={totals.total_carbs_g}
                     user={user.carb_budget_g}
@@ -122,7 +117,7 @@ const SideBar = () => {
                     c1={blue}
                   />
                 ) : (
-                  <Budget
+                  <BudgetRing
                     id="Carbs_Budget"
                     totals={1}
                     user={1}

@@ -1,10 +1,11 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import Journal from "./components/JournalContainer";
+import Journal from "./components/FoodJournal/JournalContainer";
+import FoodSearch from "./components/FoodSearch/FoodSearch";
 import Logout from "./components/Logout";
-import SearchBar from "./components/SearchBar";
-import SideBar from "./components/SideBar";
-import Profile from "./components/Profile/profile";
+import SideBar from "./components/SideBar/SideBar";
+import Profile from "./components/UserProfile/UserProfile";
+
 const Dashboard = () => {
   return (
     <>
@@ -13,7 +14,7 @@ const Dashboard = () => {
         <div className="dashboard mt-4 wrapper flex-column">
           <Logout />
           <Route exact path="/dashboard" component={Journal} />
-          <Route path="/dashboard/food-search" component={SearchBar} />
+          <Route path="/dashboard/food-search" component={FoodSearch} />
           <Route path="/dashboard/profile" component={Profile} />
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
 
 const Weight = ({ user, users, setUser, handleChange }) => {
   const [weight, setWeight] = useState(false);

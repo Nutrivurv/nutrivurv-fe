@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import FoodJournal from "../components/FoodJournal/Components/FoodJournal";
-import Favorites from "./Favorites";
-import { Tabs, TabLink, TabContent } from "react-tabs-redux";
+import { TabContent, TabLink, Tabs } from "react-tabs-redux";
+import Favorites from "./Favorites/Favorites";
+import FoodJournal from "./FoodJournal";
 
 const JournalContainer = () => {
   const [active, setActive] = useState(true);

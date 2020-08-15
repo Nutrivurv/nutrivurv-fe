@@ -2,13 +2,13 @@ import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { getNutrients } from "../../../../../state/slices/EdamamSlice";
-import { getFoodLogEntries } from "../../../../../state/slices/userinfo";
-import { deleteFoodLogEntries } from "../../../../../state/slices/userinfo";
-import JournalNutritionInfo from "../../Nutrition/JournalNutritionInfo";
+import { ReactComponent as Placeholder } from "../../../../assets/undraw_breakfast.svg";
+import { getNutrients } from "../../../../state/slices/EdamamSlice";
+import { getFoodLogEntries } from "../../../../state/slices/userinfo";
+import { deleteFoodLogEntries } from "../../../../state/slices/userinfo";
+import JournalNutritionInfo from "../Nutrition/JournalNutritionInfo";
 import Calendar from "./Calendar";
 import MealEntries from "./MealEntries";
-import { ReactComponent as Placeholder } from "../../../../../assets/undraw_breakfast.svg";
 
 const FoodJournal = () => {
   const dispatch = useDispatch();

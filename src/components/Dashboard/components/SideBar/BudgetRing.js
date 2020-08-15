@@ -1,9 +1,7 @@
 import * as React from "react";
-import { render } from "react-dom";
 import { Chart } from "react-google-charts";
-import { useSelector } from "react-redux";
 
-export const Budget = ({ totals, user, size, pH, c1, c2 }) => {
+export const BudgetRing = ({ totals, user, size, pH, c1, c2 }) => {
   const total = Math.round(totals);
   console.log("total", total, "user", user, "size", size);
   const data = [
