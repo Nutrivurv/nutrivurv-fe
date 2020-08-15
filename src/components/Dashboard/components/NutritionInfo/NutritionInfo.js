@@ -1,6 +1,6 @@
 import React from "react";
-import MealTypeDropDown from "../Nutrition/MealTypeDropDown";
 import DropDown from "./DropDown";
+import MealTypeDropDown from "./MealTypeDropDown";
 
 const NutritionInfo = (props) => {
   const currentItem = props.currentItem;

@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import Journal from "./components/FoodJournal/JournalContainer";
+import FoodJournal from "./components/FoodJournal/FoodJournal";
 import FoodSearch from "./components/FoodSearch/FoodSearch";
 import Logout from "./components/Logout";
 import SideBar from "./components/SideBar/SideBar";
@@ -13,7 +13,7 @@ const Dashboard = () => {
         <SideBar />
         <div className="dashboard mt-4 wrapper flex-column">
           <Logout />
-          <Route exact path="/dashboard" component={Journal} />
+          <Route exact path="/dashboard" component={FoodJournal} />
           <Route path="/dashboard/food-search" component={FoodSearch} />
           <Route path="/dashboard/profile" component={Profile} />
         </div>

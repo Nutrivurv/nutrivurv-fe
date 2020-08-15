@@ -1,9 +1,24 @@
 import React from "react";
 import JournalDropDown from "./JournalDropDown";
 import JournalMealTypeDropDown from "./JournalMealTypeDropDown";
-import { Fat, SatFat, TransFat, PolyFat, MonoFat } from "./FatsList";
-import { Sugar, Fiber, Carbs, Sodium, Chol } from "./NutrientsList";
-import { Potassium, Protein, VitaD, Calcium, Iron } from "./NutrientsList2";
+import {
+  Calcium,
+  Carbs,
+  Chol,
+  Fat,
+  Fiber,
+  Iron,
+  MonoFat,
+  PolyFat,
+  Potassium,
+  Protein,
+  SatFat,
+  Sodium,
+  Sugar,
+  TransFat,
+  VitaD,
+} from "./NutrientsList";
+
 const JournalNutritionInfo = (props) => {
   const currentItem = props.currentItem;
   var nutrition = currentItem.nutrition;

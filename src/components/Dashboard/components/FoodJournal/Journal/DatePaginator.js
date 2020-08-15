@@ -1,9 +1,9 @@
 import moment from "moment";
 import React, { useState } from "react";
-import { ReactComponent as LeftArrow } from "../../../../assets/left-arrow-button.svg";
-import { ReactComponent as RightArrow } from "../../../../assets/right-arrow-button.svg";
+import { ReactComponent as LeftArrow } from "../../../../../assets/left-arrow-button.svg";
+import { ReactComponent as RightArrow } from "../../../../../assets/right-arrow-button.svg";
 
-const Calendar = (props) => {
+const DatePaginator = (props) => {
   const [date, setDate] = useState(1);
   const [fwdDate, setFwdDate] = useState(0);
 
@@ -60,4 +60,4 @@ const Calendar = (props) => {
   );
 };
 
-export default Calendar;
+export default DatePaginator;

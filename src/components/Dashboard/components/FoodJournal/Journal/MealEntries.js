@@ -1,7 +1,7 @@
 import React from "react";
-import { ReactComponent as FullHeart } from "../../../../assets/FullHeart.svg";
-import { ReactComponent as Heart } from "../../../../assets/HeartOutline.svg";
-import { ReactComponent as TrashCan } from "../../../../assets/Trash-can.svg";
+import { ReactComponent as FullHeart } from "../../../../../assets/FullHeart.svg";
+import { ReactComponent as Heart } from "../../../../../assets/HeartOutline.svg";
+import { ReactComponent as TrashCan } from "../../../../../assets/Trash-can.svg";
 
 const MealEntries = (props) => {
   return (
