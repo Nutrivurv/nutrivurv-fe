@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Email from "./components/Email";
 import Gender from "./components/Gender";
 import Height from "./components/Height";
@@ -10,7 +10,6 @@ import WeightGoals from "./components/WeightGoals";
 
 const Profile = () => {
   const { user } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
   const [users, setUser] = useState();
   function handleChange(e) {
     setUser({ ...users, [e.currentTarget.name]: e.currentTarget.value });

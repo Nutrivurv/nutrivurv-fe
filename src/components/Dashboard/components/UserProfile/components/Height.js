@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-const Height = ({ user, users, setUser, handleChange }) => {
+
+const Height = ({ user, handleChange }) => {
   const [height, setHeight] = useState(false);
   const { register, handleSubmit, errors } = useForm();
 

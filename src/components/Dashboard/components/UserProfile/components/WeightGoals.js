@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 
 const Weight = ({ user, users, setUser, handleChange }) => {
   const [weight, setWeight] = useState(false);
   const { register, handleSubmit, errors } = useForm();
+
   window.addEventListener("click", function (e) {
     setWeight(false);
   });
@@ -24,11 +24,7 @@ const Weight = ({ user, users, setUser, handleChange }) => {
           ></i>
         </h4>
       ) : (
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className="form-group"
-          role="form "
-        >
+        <form onSubmit={(e) => e.preventDefault()} className="form-group">
           <input
             onClick={(e) => e.stopPropagation()}
             className="rounded p-1 w-100 border border-primary"

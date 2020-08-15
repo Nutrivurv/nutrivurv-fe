@@ -1,6 +1,5 @@
 import React from "react";
 
-import React from "react";
 export const Fat = ({ totalNutrients }) => {
   return (
     <div className="d-flex justify-content-between align-items-end">

@@ -1,27 +1,12 @@
 import moment from "moment";
 import React, { useState } from "react";
 import { Dropdown } from "react-bootstrap";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import FormControl from "react-bootstrap/FormControl";
-import InputGroup from "react-bootstrap/InputGroup";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ReactComponent as LikeIcon } from "../../../../assets/LikeIcon.svg";
-import {
-  addFoodToJournal,
-  editFoodJournal,
-} from "../../../../state/slices/userinfo";
+import { editFoodJournal } from "../../../../state/slices/userinfo";
 
 const JournalMealTypeDropDown = (props) => {
-  const {
-    foodId,
-    measure,
-    measures,
-    label,
-    quantity,
-    nutrition,
-    image,
-  } = props.currentItem;
-  const { user } = useSelector((state) => state.auth);
+  const { foodId, quantity } = props.currentItem;
   const dispatch = useDispatch();
   const [logFoodClicked, setLogFoodClicked] = useState(false);
   const journalItem = props.journalItem;

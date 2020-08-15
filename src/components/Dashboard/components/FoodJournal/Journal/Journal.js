@@ -6,7 +6,7 @@ import { ReactComponent as Placeholder } from "../../../../../assets/undraw_brea
 import { getNutrients } from "../../../../../state/slices/EdamamSlice";
 import { getFoodLogEntries } from "../../../../../state/slices/userinfo";
 import { deleteFoodLogEntries } from "../../../../../state/slices/userinfo";
-import JournalNutritionInfo from "../../Nutrition/JournalNutritionInfo";
+import JournalNutritionInfo from "../../NutritionInfo/JournalNutritionInfo";
 import DatePaginator from "./DatePaginator";
 import Meal from "./MealEntries";
 
@@ -21,7 +21,7 @@ const Journal = () => {
   const [favorite, setFavorite] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
   const [journalItem, setJournalItem] = useState();
-  const { callNutrientsEnd, currentItem, searchNutrientsSuccess } = useSelector(
+  const { currentItem, searchNutrientsSuccess } = useSelector(
     (state) => state.edamam
   );
   const [mealType, setNewMealType] = useState(currentItem.meal_type);
@@ -62,7 +62,7 @@ const Journal = () => {
 
   useEffect(() => {
     dispatch(getFoodLogEntries(moment(startDate).format("YYYY-MM-DD")));
-  }, [getFoodLogEntries, startDate, deleteEntries]);
+  }, [dispatch, startDate, deleteEntries]);
   const toggleFavorite = () => {
     setFavorite(!favorite);
   };
@@ -118,10 +118,12 @@ const Journal = () => {
                   handleShow={handleShow}
                   date={startDate}
                 />
-                <thead className="mealType-th">
-                  <th scope="col">
-                    <h5 className="font-weight-bold">Lunch</h5>
-                  </th>
+                <thead>
+                  <tr className="mealType-th">
+                    <th scope="col">
+                      <h5 className="font-weight-bold">Lunch</h5>
+                    </th>
+                  </tr>
                 </thead>
                 <Meal
                   entries={entries.meals.lunch}
@@ -131,10 +133,12 @@ const Journal = () => {
                   handleShow={handleShow}
                   date={startDate}
                 />
-                <thead className="mealType-th">
-                  <th scope="col">
-                    <h5 className="font-weight-bold">Dinner</h5>
-                  </th>
+                <thead>
+                  <tr className="mealType-th">
+                    <th scope="col">
+                      <h5 className="font-weight-bold">Dinner</h5>
+                    </th>
+                  </tr>
                 </thead>
                 <Meal
                   entries={entries.meals.dinner}
@@ -144,10 +148,12 @@ const Journal = () => {
                   handleShow={handleShow}
                   date={startDate}
                 />
-                <thead className="mealType-th">
-                  <th scope="col">
-                    <h5 className="font-weight-bold">Snack</h5>
-                  </th>
+                <thead>
+                  <tr className="mealType-th">
+                    <th scope="col">
+                      <h5 className="font-weight-bold">Snack</h5>
+                    </th>
+                  </tr>
                 </thead>
                 <Meal
                   entries={entries.meals.snack}

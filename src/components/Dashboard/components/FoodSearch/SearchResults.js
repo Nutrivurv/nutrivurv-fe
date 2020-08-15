@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as Placeholder } from "../../../../assets/undraw_breakfast.svg";
 import { getNutrients } from "../../../../state/slices/EdamamSlice";
-import NutritionInfo from "../Nutrition/NutritionInfo";
+import NutritionInfo from "../NutritionInfo/NutritionInfo";
 import SearchResultsList from "./SearchResultsList";
 
 const SearchResults = () => {

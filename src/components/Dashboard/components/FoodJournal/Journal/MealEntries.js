@@ -17,7 +17,7 @@ const MealEntries = (props) => {
                 props.handleItemClick(entry);
               }}
             >
-              <td scope="row">
+              <td>
                 <span className="mr-2">
                   {props.favorite ? (
                     <FullHeart onClick={props.toggleFavorite} />
@@ -35,10 +35,12 @@ const MealEntries = (props) => {
               <td>{entry.protein_g} g</td>
               <td>{entry.carbs_g} g</td>
               <td>{entry.calories_kcal}</td>
-              <TrashCan
-                className="mt-2"
-                onClick={() => props.handleShow(entry.id)}
-              />
+              <td>
+                <TrashCan
+                  className="mt-2"
+                  onClick={() => props.handleShow(entry.id)}
+                />
+              </td>
             </tr>
           );
         })}

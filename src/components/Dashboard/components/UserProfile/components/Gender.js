@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-const Gender = ({ user, users, setUser, handleChange }) => {
+
+const Gender = ({ user, handleChange }) => {
   const [gender, setGender] = useState(false);
   const { register, handleSubmit, errors } = useForm();
   window.addEventListener("click", function (e) {

@@ -4,16 +4,15 @@ import MealTypeDropDown from "./MealTypeDropDown";
 
 const NutritionInfo = (props) => {
   const currentItem = props.currentItem;
-  var nutrition = currentItem.nutrition;
-  var totalNutrients = nutrition.totalNutrients;
-  var totalDaily = nutrition.totalDaily;
+  const nutrition = currentItem.nutrition;
+  const totalNutrients = nutrition.totalNutrients;
 
-  var uselessLabel = "FREE";
-  var uselessLabel2 = "NO";
-  var uselessLabel3 = "SPECIFIC";
-  var uselessLabel4 = "CONSCIOUS";
+  const uselessLabel = "FREE";
+  const uselessLabel2 = "NO";
+  const uselessLabel3 = "SPECIFIC";
+  const uselessLabel4 = "CONSCIOUS";
 
-  var nutritionLabels = nutrition.healthLabels.filter(function (label) {
+  const nutritionLabels = nutrition.healthLabels.filter(function (label) {
     return (
       !label.includes(uselessLabel) &&
       !label.includes(uselessLabel2) &&
@@ -34,7 +33,7 @@ const NutritionInfo = (props) => {
               </h3>
               <div className="d-flex justify-content-start">
                 <img
-                  alt="food-picture"
+                  alt="food"
                   src={
                     currentItem.image
                       ? currentItem.image

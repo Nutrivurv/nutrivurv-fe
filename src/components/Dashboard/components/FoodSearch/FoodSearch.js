@@ -10,13 +10,9 @@ const FoodSearch = () => {
 
   const dispatch = useDispatch();
 
-  const {
-    searchError,
-    searchStart,
-    searchSuccess,
-    searchFail,
-    items,
-  } = useSelector((state) => state.edamam);
+  const { searchStart, searchSuccess, searchFail } = useSelector(
+    (state) => state.edamam
+  );
 
   const { register, errors, handleSubmit } = useForm({});
 
