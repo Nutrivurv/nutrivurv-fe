@@ -25,7 +25,7 @@ const JournalNutritionInfo = (props) => {
   });
 
   return (
-    <div className="mr-4 pr-4">
+    <div className="mr-4 pr-4 journal-nutrition">
       <div className="card nutrition border-primary mb-3 mt-5">
         <div className="card-body justify-content-center mx-2">
           <div className="d-flex justify-content-center pb-2 mb-2">

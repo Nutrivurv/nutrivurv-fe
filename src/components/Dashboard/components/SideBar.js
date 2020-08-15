@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
 import { ReactComponent as Placeholder } from "../../../assets/Placeholder.svg";
+import { NutrientEnd } from "../../../state/slices/EdamamSlice";
+import { Journal } from "../../../state/slices/userinfo";
 import DailyVibe from "./DailyVibe";
 import { Budget } from "./googleChar";
 
@@ -20,6 +22,7 @@ const SideBar = () => {
   console.log(user.id);
   console.log("totals", totals);
   console.log(user);
+  const { callNutrientsStart } = useSelector((state) => state.edamam);
   return (
     <div>
       <nav id="sidebar" className={toggle ? "sidebar-active" : "sidebar"}>
@@ -51,13 +54,13 @@ const SideBar = () => {
                   />
                 ) : (
                   <Budget
-                  id="Calorie_Budget"
-                  totals={1}
-                  user={1}
-                  size="500"
-                  pH={0.085}
-                  c1={lightpink}
-                />
+                    id="Calorie_Budget"
+                    totals={1}
+                    user={1}
+                    size="500"
+                    pH={0.085}
+                    c1={lightpink}
+                  />
                 )}
               </div>
               <div className="Fat_Budget">
@@ -74,13 +77,13 @@ const SideBar = () => {
                   />
                 ) : (
                   <Budget
-                  id="Fat_Budget"
-                  totals={1}
-                  user={1}
-                  size="500"
-                  pH={0.2}
-                  c1={yellow}
-                />
+                    id="Fat_Budget"
+                    totals={1}
+                    user={1}
+                    size="500"
+                    pH={0.2}
+                    c1={yellow}
+                  />
                 )}
               </div>
               <div className="Protein_Budget">
@@ -97,13 +100,13 @@ const SideBar = () => {
                   />
                 ) : (
                   <Budget
-                  id="Protein_Budget"
-                  totals={1}
-                  user={1}
-                  size="500"
-                  pH={0.4}
-                  c1={green}
-                />
+                    id="Protein_Budget"
+                    totals={1}
+                    user={1}
+                    size="500"
+                    pH={0.4}
+                    c1={green}
+                  />
                 )}
               </div>
               <div className="Carbs_Budget">
@@ -120,13 +123,13 @@ const SideBar = () => {
                   />
                 ) : (
                   <Budget
-                  id="Carbs_Budget"
-                  totals={1}
-                  user={1}
-                  size="500"
-                  pH={0.7}
-                  c1={blue}
-                />
+                    id="Carbs_Budget"
+                    totals={1}
+                    user={1}
+                    size="500"
+                    pH={0.7}
+                    c1={blue}
+                  />
                 )}
               </div>
             </div>
@@ -216,7 +219,12 @@ const SideBar = () => {
         </div>
         <ul className="navbar-nav">
           <li className="side-link mb-1 pl-4">
-            <NavLink to="/dashboard" id="food" className="nav-link">
+            <NavLink
+              onClick={() => dispatch(NutrientEnd())}
+              to="/dashboard"
+              id="food"
+              className="nav-link"
+            >
               <h4 className="font-weight-bold">Food Journal</h4>
             </NavLink>
           </li>

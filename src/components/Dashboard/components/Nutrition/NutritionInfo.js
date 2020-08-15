@@ -35,7 +35,11 @@ const NutritionInfo = (props) => {
               <div className="d-flex justify-content-start">
                 <img
                   alt="food-picture"
-                  src={currentItem.image}
+                  src={
+                    currentItem.image
+                      ? currentItem.image
+                      : "https://assets.materialup.com/uploads/b03b23aa-aa69-4657-aa5e-fa5fef2c76e8/preview.png"
+                  }
                   className="w-25 rounded-circle img-responsive d-sm-none d-md-block"
                 />
                 <DropDown currentItem={currentItem} />

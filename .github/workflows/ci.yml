@@ -13,9 +13,9 @@ jobs:
     # The steps for the job, executed in sequence
     steps:
       # A GitHub action for checking out the current branch
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       # A GitHub action to setup Node.js
-      - uses: actions/setup-node@master
+      - uses: actions/setup-node@main
         with:
           node-version: "12"
       # Run the NPM install command before proceeding

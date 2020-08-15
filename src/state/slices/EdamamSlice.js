@@ -16,6 +16,7 @@ const initialState = {
   searchNutrientsStart: false,
   searchNutrientsSuccess: false,
   searchNutrientFail: false,
+  searchNutrientsEnd: false,
   pagination: "",
   paginationSuccess: false,
   prevPage: "",
@@ -53,6 +54,7 @@ const EdamamSlice = createSlice({
       state.searchNutrientsStart = true;
       state.searchNutrientsSuccess = false;
       state.searchNutrientFail = false;
+      state.searchNutrientsEnd = false;
     },
     callNutrientsSuccess: (state, action) => {
       state.currentItem = {
@@ -60,6 +62,13 @@ const EdamamSlice = createSlice({
       };
       state.searchNutrientsStart = false;
       state.searchNutrientsSuccess = true;
+      state.searchNutrientFail = false;
+      state.searchNutrientsEnd = false;
+    },
+    callNutrientsEnd: (state) => {
+      state.searchNutrientsEnd = true;
+      state.searchNutrientsStart = true;
+      state.searchNutrientsSuccess = false;
       state.searchNutrientFail = false;
     },
     callNutrientsFail: (state, action) => {
@@ -88,6 +97,7 @@ export const {
   callNutrientsSuccess,
   callNutrientsFail,
   callNutrients,
+  callNutrientsEnd,
   Pages,
   NextPage,
 } = EdamamSlice.actions;
@@ -145,6 +155,10 @@ export const getNutrients = (
     console.dir(error);
     dispatch(callNutrientsFail(error.response));
   }
+};
+
+export const NutrientEnd = () => (dispatch) => {
+  dispatch(callNutrientsEnd());
 };
 
 export default EdamamSlice.reducer;
