@@ -4,6 +4,7 @@ import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
 import { ReactComponent as Placeholder } from "../../../assets/Placeholder.svg";
 import { Journal } from "../../../state/slices/userinfo";
+import { NutrientEnd } from "../../../state/slices/EdamamSlice";
 import DailyVibe from "./DailyVibe";
 
 const SideBar = () => {
@@ -11,7 +12,7 @@ const SideBar = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-
+  const { callNutrientsStart } = useSelector((state) => state.edamam);
   return (
     <div>
       <nav id="sidebar" className={toggle ? "sidebar-active" : "sidebar"}>
@@ -94,7 +95,12 @@ const SideBar = () => {
         </div>
         <ul className="navbar-nav">
           <li className="side-link mb-1 pl-4">
-            <NavLink to="/dashboard" id="food" className="nav-link">
+            <NavLink
+              onClick={() => dispatch(NutrientEnd())}
+              to="/dashboard"
+              id="food"
+              className="nav-link"
+            >
               <h4 className="font-weight-bold">Food Journal</h4>
             </NavLink>
           </li>
