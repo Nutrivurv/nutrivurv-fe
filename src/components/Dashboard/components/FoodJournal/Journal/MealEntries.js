@@ -8,7 +8,6 @@ const MealEntries = (props) => {
     <tbody>
       {props.entries &&
         props.entries.map((entry) => {
-          console.log("entry", entry);
           return (
             <tr
               key={entry.id}

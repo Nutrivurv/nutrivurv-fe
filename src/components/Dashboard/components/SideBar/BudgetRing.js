@@ -3,7 +3,6 @@ import { Chart } from "react-google-charts";
 
 export const BudgetRing = ({ totals, user, size, pH, c1, c2 }) => {
   const total = Math.round(totals);
-  console.log("total", total, "user", user, "size", size);
   const data = [
     ["Budget", "Amount"],
     ["Daily Total", total],
