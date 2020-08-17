@@ -9,11 +9,6 @@ export const BudgetRing = ({ totals, user, size, pH, c1, c2 }) => {
     ["Remaining", user - total],
   ];
 
-  console.log("user", user);
-  console.log("total", total);
-
-  // ];
-
   const options = {
     pieHole: pH,
     is3D: false,
