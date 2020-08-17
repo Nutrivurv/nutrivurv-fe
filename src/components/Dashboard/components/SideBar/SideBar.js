@@ -58,7 +58,7 @@ const SideBar = () => {
                 <BudgetRing
                   id="carb-budget"
                   totals={totals.total_carbs_g}
-                  user={user.carbs_budget_g}
+                  user={user.carb_budget_g}
                   size="95"
                   pH={0.55}
                   c1={blue}
