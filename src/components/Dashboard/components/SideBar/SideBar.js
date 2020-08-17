@@ -1,3 +1,5 @@
+import "../../styles/_dashboard.scss";
+
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
@@ -13,10 +15,17 @@ const SideBar = () => {
   const { user } = useSelector((state) => state.auth);
   const { entries } = useSelector((state) => state.user);
   const totals = entries.dailyTotals[0];
-  const lightpink = "#f6a4b8";
-  const blue = "#97afd1";
-  const green = "#9be0d0";
-  const yellow = "#facab8";
+  const green = "#CAF1E8";
+  const lightGreen = "#F0FFFC";
+
+  const yellow = "#FAF3B8";
+  const lightYellow = "#FFFDED";
+
+  const blue = "#97AFD1";
+  const lightBlue = "#E8F1FF";
+
+  const red = "#F6A4B8";
+  const lightRed = "#FFEBF0";
 
   return (
     <div>
@@ -33,99 +42,50 @@ const SideBar = () => {
         </div>
         <div>
           <div className="d-flex flex-column align-items-center my-2">
-            <div>
-              <div className="Calorie_Budget">
-                {!totals ? (
-                  <Placeholder />
-                ) : 0 <=
-                  user.caloric_budget_kcal - totals.total_calories_kcal ? (
-                  <BudgetRing
-                    id="Calorie_Budget"
-                    totals={totals.total_calories_kcal}
-                    user={user.caloric_budget_kcal}
-                    size="500"
-                    pH={0.085}
-                    c1={lightpink}
-                  />
-                ) : (
-                  <BudgetRing
-                    id="Calorie_Budget"
-                    totals={1}
-                    user={1}
-                    size="500"
-                    pH={0.085}
-                    c1={lightpink}
-                  />
-                )}
+            <div className="budget-rings">
+              <div className="protein-budget">
+                <BudgetRing
+                  id="protein-budget"
+                  totals={totals.total_protein_g}
+                  user={user.protein_budget_g}
+                  size="55"
+                  pH={0.35}
+                  c1={red}
+                  c2={lightRed}
+                />
               </div>
-              <div className="Fat_Budget">
-                {!totals ? (
-                  <Placeholder />
-                ) : 0 <= user.fat_budget_g - totals.total_fat_g ? (
-                  <BudgetRing
-                    id="Fat_Budget"
-                    totals={totals.total_fat_g}
-                    user={user.fat_budget_g}
-                    size="500"
-                    pH={0.2}
-                    c1={yellow}
-                  />
-                ) : (
-                  <BudgetRing
-                    id="Fat_Budget"
-                    totals={1}
-                    user={1}
-                    size="500"
-                    pH={0.2}
-                    c1={yellow}
-                  />
-                )}
+              <div className="carb-budget">
+                <BudgetRing
+                  id="carb-budget"
+                  totals={totals.total_carbs_g}
+                  user={user.carbs_budget_g}
+                  size="95"
+                  pH={0.55}
+                  c1={blue}
+                  c2={lightBlue}
+                />
               </div>
-              <div className="Protein_Budget">
-                {!totals ? (
-                  <Placeholder />
-                ) : 0 <= user.protein_budget_g - totals.total_protein_g ? (
-                  <BudgetRing
-                    id="Protein_Budget"
-                    totals={totals.total_protein_g}
-                    user={user.protein_budget_g}
-                    size="500"
-                    pH={0.4}
-                    c1={green}
-                  />
-                ) : (
-                  <BudgetRing
-                    id="Protein_Budget"
-                    totals={1}
-                    user={1}
-                    size="500"
-                    pH={0.4}
-                    c1={green}
-                  />
-                )}
+              <div className="fat-budget">
+                <BudgetRing
+                  id="fat-budget"
+                  totals={totals.total_fat_g}
+                  user={user.fat_budget_g}
+                  size="140"
+                  pH={0.65}
+                  c1={yellow}
+                  c2={lightYellow}
+                />
               </div>
-              <div className="Carbs_Budget">
-                {!totals ? (
-                  <Placeholder />
-                ) : 0 <= user.carb_budget_g - totals.total_carbs_g ? (
-                  <BudgetRing
-                    id="Carbs_Budget"
-                    totals={totals.total_carbs_g}
-                    user={user.carb_budget_g}
-                    size="500"
-                    pH={0.7}
-                    c1={blue}
-                  />
-                ) : (
-                  <BudgetRing
-                    id="Carbs_Budget"
-                    totals={1}
-                    user={1}
-                    size="500"
-                    pH={0.7}
-                    c1={blue}
-                  />
-                )}
+              <div className="calorie-budget">
+                <BudgetRing
+                  id="calorie-budget"
+                  totals={totals.total_calories_kcal}
+                  user={user.caloric_budget_kcal}
+                  size="185"
+                  pH={0.75}
+                  c1={green}
+                  c2={lightGreen}
+                />
               </div>
             </div>
             <div className="d-flex flex-column px-4 budgets">
@@ -169,7 +129,7 @@ const SideBar = () => {
               </div>
               <div className="d-flex justify-content-between">
                 <h5 className="font-weight-bolder" id="Pro">
-                  Proteins
+                  Protein
                 </h5>
                 <h5 className="data font-weight-bolder">
                   {totals

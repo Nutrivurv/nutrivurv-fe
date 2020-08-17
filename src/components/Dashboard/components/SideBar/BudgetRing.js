@@ -5,9 +5,15 @@ export const BudgetRing = ({ totals, user, size, pH, c1, c2 }) => {
   const total = Math.round(totals);
   const data = [
     ["Budget", "Amount"],
-    ["Daily Total", total],
-    ["Remaining Budget", user - total],
+    ["Total Consumed", total],
+    ["Remaining", user - total],
   ];
+
+  console.log("user", user);
+  console.log("total", total);
+
+  // ];
+
   const options = {
     pieHole: pH,
     is3D: false,
@@ -19,17 +25,18 @@ export const BudgetRing = ({ totals, user, size, pH, c1, c2 }) => {
       height: size,
     },
     backgroundColor: "none",
-    fontSize: 1,
-    colors: [c1, "white"],
+    enableInteractivity: false,
+    fontSize: 12,
+    colors: [c1, c2],
     pieSliceText: "none",
   };
 
   return (
-    <div>
+    <div style={{ margin: "10px 0" }}>
       <Chart
         chartType="PieChart"
-        width={200}
-        height={200}
+        width={185}
+        height={185}
         data={data}
         options={options}
       />

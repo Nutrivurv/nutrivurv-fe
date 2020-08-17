@@ -196,20 +196,62 @@
   }
 }
 
-.Calorie_Budget {
+.calorie-budget {
   position: absolute;
+  svg {
+    g {
+      path {
+        stroke: #b3d3cc;
+        stroke-width: 2;
+      }
+    }
+  }
 }
 
-.Fat_Budget {
+.fat-budget {
   position: absolute;
+  svg {
+    g {
+      path {
+        stroke: #d4cfa1;
+        stroke-width: 2;
+      }
+    }
+  }
 }
 
-.Protein_Budget {
+.protein-budget {
   position: absolute;
+  svg {
+    g {
+      path {
+        stroke: #be8c98;
+        stroke-width: 2;
+      }
+    }
+  }
+}
+
+.carb-budget {
+  position: absolute;
+
+  svg {
+    g {
+      path {
+        stroke: #7688a1;
+        stroke-width: 2;
+      }
+    }
+  }
+}
+
+.budget-rings {
+  width: 190px;
+  height: 210px;
 }
 
 #Cal {
-  color: #f6a4b8;
+  color: #9be0d0;
 }
 
 #Fa {
@@ -217,7 +259,7 @@
 }
 
 #Pro {
-  color: #9be0d0;
+  color: #f6a4b8;
 }
 
 #Car {
