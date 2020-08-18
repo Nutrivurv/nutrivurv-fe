@@ -45,7 +45,7 @@ const Navigation = () => {
             <NavLink
               to="/about"
               id="about"
-              className="nav-link d-flex justify-content-center  ml-xl-5 ml-lg-5 ml-md-5  ml-sm-0 "
+              className="nav-link d-flex justify-content-center  ml-xl-5 ml-lg-5 ml-md-4  ml-sm-0 "
             >
               <h5>About Us</h5>
             </NavLink>
@@ -54,7 +54,7 @@ const Navigation = () => {
             <NavLink
               to="/signin"
               id="signIn"
-              className="nav-link d-flex justify-content-center ml-xl-5 ml-lg-5  ml-md-5  ml-sm-0 "
+              className="nav-link d-flex justify-content-center ml-xl-5 ml-lg-5  ml-md-3  ml-sm-0 "
             >
               <h5>Sign In</h5>
             </NavLink>
@@ -63,7 +63,7 @@ const Navigation = () => {
             <NavLink
               to="/onboarding"
               id="onboarding"
-              className="nav-link d-flex justify-content-center ml-xl-5 ml-lg-5 ml-md-5 mr-xl-4 mr-lg-4 mr-md-4 ml-sm-0 mr-sm-0  "
+              className="nav-link d-flex justify-content-center ml-xl-5 ml-lg-5 ml-md-3 mr-xl-4 mr-lg-4 mr-md-3 ml-sm-0 mr-sm-0  "
             >
               <h5>Sign Up</h5>
             </NavLink>
@@ -74,7 +74,7 @@ const Navigation = () => {
               <NavLink
                 to="/dashboard"
                 id="profileLink"
-                className="nav-link d-flex justify-content-center ml-xl-5 ml-lg-5 ml-md-5 mr-xl-4 mr-lg-4 mr-md-4 ml-sm-0 mr-sm-0  "
+                className="nav-link d-flex justify-content-center ml-lg-4 mr-xl-4 mr-lg-3 mr-md-3 ml-sm-0 mr-sm-0  "
               >
                 <h5>
                   <i className="fas fa-user"></i>
