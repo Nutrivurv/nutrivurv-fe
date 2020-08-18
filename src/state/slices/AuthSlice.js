@@ -58,7 +58,6 @@ export const authenticate = (creds, type) => async (dispatch) => {
     localStorage.setItem("token", response.data.token);
     dispatch(authSuccess(response.data.user));
   } catch (error) {
-    console.dir(error.response.data.message, "error");
     dispatch(authFail(error.response.data.message));
   }
 };
