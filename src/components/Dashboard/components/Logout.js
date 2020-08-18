@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Link, Router } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { logout } from "../../../state/slices/AuthSlice";
 
 const Logout = () => {
-  const { isAuthenticated, token, user } = useSelector((state) => state.auth);
+  const { token, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   if (token === null) return <Redirect to="/" />;
@@ -27,16 +27,12 @@ const Logout = () => {
           <i className="fas fa-cog"></i>
         </button>
         <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <Link to="/dashboard/profile" className="dropdown-item" href="#">
+          {/* <Link to="/dashboard/profile" className="dropdown-item" href="#">
             Edit Profile
-          </Link>
-          <a
-            onClick={() => dispatch(logout())}
-            className="dropdown-item"
-            href="#"
-          >
+          </Link> */}
+          <button onClick={() => dispatch(logout())} className="dropdown-item">
             Logout
-          </a>
+          </button>
         </div>
       </div>
     </div>
