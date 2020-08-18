@@ -13,8 +13,8 @@ const About = () => {
           <h2>Our Team</h2>
         </div>
       </div>
-      <div className="d-flex flex-wrap w-75 justify-content-around rounded mx-auto py-4 my-4">
-        <div className="d-flex p-2 my-2 mx-2 pb-4 pt-4 mb-4 justify-content-center bg-light rounded w-25 shadow">
+      <div className="d-flex flex-wrap justify-content-around rounded mx-auto py-4 my-4 about-div">
+        <div className="p-2 my-2 mx-2 pb-4 pt-4 mb-4 justify-content-center bg-light rounded about-img shadow">
           <div className="d-block">
             <div className="d-flex justify-content-center mb-4">
               <img
@@ -24,19 +24,18 @@ const About = () => {
                 width="150px"
               />
             </div>
-            <div className="d-flex justify-content-center">
-              <h5>Dave Vazquez</h5>
+            <div className="d-flex flex-column justify-content-center text-center">
+              <h4>Dave Vazquez</h4>
+              <h6 className="font-weight-bold my-2">Team Lead / Full Stack Web Developer</h6>
             </div>
             <div className="d-flex justify-content-center">
-              <div className="w-25">
-                <i className="fa fa-github fa-large text-dark"></i>
-              </div>
+                <i className="fa fa-github fa-large text-dark mt-1 mr-3"></i>
               <a href="https://github.com/dave-vazquez">Github</a>
             </div>
           </div>
         </div>
 
-        <div className="d-flex p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded w-25 shadow">
+        <div className=" p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded about-img  shadow">
           <div className="d-block">
             <div className="d-flex justify-content-center mb-4">
               <img
@@ -46,18 +45,17 @@ const About = () => {
                 width="150px"
               />
             </div>
-            <div className="d-flex justify-content-center">
-              <h5>Alessandra Longaretti</h5>
+            <div className="d-flex justify-content-center flex-column text-center">
+              <h4>Alessandra Longaretti</h4>
+              <h6 className="font-weight-bold my-2">Full Stack Web Developer</h6>
             </div>
             <div className="d-flex justify-content-center">
-              <div className="w-25">
-                <i className="fa fa-github fa-large text-dark"></i>
-              </div>
+                <i className="fa fa-github fa-large text-dark mt-1 mr-3"></i>
               <a href="https://github.com/alesslongaretti">Github</a>
             </div>
           </div>
         </div>
-        <div className="d-flex p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded w-25 shadow">
+        <div className="p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded about-img shadow">
           <div className="d-block">
             <div className="d-flex justify-content-center mb-4">
               <img
@@ -67,19 +65,18 @@ const About = () => {
                 width="150px"
               />
             </div>
-            <div className="d-flex justify-content-center">
-              <h5>Taty Novell</h5>
+            <div className="d-flex justify-content-center flex-column text-center">
+              <h4>Taty Novell</h4>
+              <h6 className="font-weight-bold my-2">Full Stack Web Developer</h6>
             </div>
             <div className="d-flex justify-content-center">
-              <div className="w-25">
-                <i className="fa fa-github fa-large text-dark"></i>
-              </div>
+                <i className="fa fa-github fa-large text-dark mt-1 mr-3"></i>
               <a href="https://github.com/taty2010">Github</a>
             </div>
           </div>
         </div>
 
-        <div className="d-flex p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded w-25 shadow">
+        <div className=" p-2 mt-3 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded about-img  shadow">
           <div className="block">
             <div className="d-flex justify-content-center mb-4">
               <img
@@ -89,19 +86,18 @@ const About = () => {
                 width="150px"
               />
             </div>
-            <div className="d-flex justify-content-center">
-              <h5>Christine Smith</h5>
+            <div className="d-flex justify-content-center flex-column text-center">
+              <h4>Christine Smith</h4>
+              <h6 className="font-weight-bold my-2">Full Stack Web Developer</h6>
             </div>
             <div className="d-flex justify-content-center">
-              <div className="w-25">
-                <i className="fa fa-github fa-large text-dark"></i>
-              </div>
+                <i className="fa fa-github fa-large text-dark mt-1 mr-3"></i>
               <a href="https://github.com/ccsmith13">Github</a>
             </div>
           </div>
         </div>
 
-        <div className="d-flex justify-content-center p-2 my-2 mx-2 pt-4 mb-4 pb-4 bg-light rounded w-25 shadow">
+        <div className="p-2 mt-3 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded about-img  shadow">
           <div className="d-block">
             <div className="d-flex justify-content-center mb-4">
               <img
@@ -111,19 +107,18 @@ const About = () => {
                 width="150px"
               />
             </div>
-            <div className="d-flex justify-content-center">
-              <h5>Dominic Bridgette</h5>
+            <div className="d-flex justify-content-center flex-column text-center">
+              <h4>Dominic Bridgette</h4>
+              <h6 className="font-weight-bold my-2">Full Stack Web Developer</h6>
             </div>
             <div className="d-flex justify-content-center">
-              <div className="w-25">
-                <i className="fa fa-github fa-large text-dark"></i>
-              </div>
+                <i className="fa fa-github fa-large text-dark mt-1 mr-3"></i>
               <a href="https://github.com/afrodo1">Github</a>
             </div>
           </div>
         </div>
 
-        <div className="d-flex p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded w-25 shadow">
+        <div className="p-2 mt-3 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded about-img  shadow">
           <div className="d-block">
             <div className="d-flex justify-content-center mb-4">
               <img
@@ -133,13 +128,12 @@ const About = () => {
                 width="150px"
               />
             </div>
-            <div className="d-flex justify-content-center">
-              <h5>Dillon Petretti</h5>
+            <div className="d-flex justify-content-center flex-column text-center">
+              <h4>Dillon Petretti</h4>
+              <h6 className="font-weight-bold my-2">iOS Developer</h6>
             </div>
             <div className="d-flex justify-content-center">
-              <div className="w-25">
-                <i className="fa fa-github fa-large text-dark"></i>
-              </div>
+                <i className="fa fa-github fa-large text-dark mt-1 mr-3"></i>
               <a href="https://github.com/dillonp23">Github</a>
             </div>
           </div>
