@@ -10,7 +10,7 @@ import Calendar from "./Calendar";
 import MealEntries from "./MealEntries";
 import { ReactComponent as Placeholder } from "../../../../../assets/undraw_breakfast.svg";
 
-const FoodJournal = () => {
+const FoodJournal = (props) => {
   const dispatch = useDispatch();
   const {
     entries,
@@ -66,8 +66,10 @@ const FoodJournal = () => {
   const toggleFavorite = () => {
     setFavorite(!favorite);
   };
-  if (!fetchEntriesSuccess) return null;
 
+  console.log("hellloooo", entries.dailyTotals[0].total_calories_kcal);
+
+  if (!fetchEntriesSuccess) return null;
   return (
     <div className="w-50 mt-5">
       {fetchEntriesLoad ? (
@@ -158,9 +160,11 @@ const FoodJournal = () => {
                   date={startDate}
                 />
               </table>
-              <div className="d-flex justify-content-between mt-5">
-                <p>Total Water:</p>
-                <p className="pr-5"> Total Calories:</p>
+              <div className="d-flex justify-content-end mt-5">
+                <p className="pr-5">
+                  {" "}
+                  Total Calories: {entries.dailyTotals[0].total_calories_kcal}
+                </p>
               </div>
             </div>
             <Modal
