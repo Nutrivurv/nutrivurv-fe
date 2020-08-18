@@ -70,9 +70,11 @@ const BudgetOverview = ({ user }) => {
           />
         </div>
       </div>
-      <div className="d-flex flex-column px-4 budgets">
+      <div className="d-flex flex-column px-3 budgets">
         <div>
-          <h4 className="font-weight-bold mt-4 mb-4 border-bottom">Budgets</h4>
+          <h4 className="font-weight-bold mt-4 mb-4 border-bottom text-align-center">
+            Total Remaining
+          </h4>
         </div>
         <div className="d-flex justify-content-between">
           <h5 className="font-weight-bolder" id="Cal">

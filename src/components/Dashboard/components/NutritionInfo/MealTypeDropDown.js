@@ -50,7 +50,7 @@ const MealTypeDropDown = (props) => {
       image_url: image,
     };
 
-    dispatch(addFoodToJournal(post));
+    dispatch(addFoodToJournal(post, moment().format("YYYY-MM-DD")));
   };
 
   const mealTypeList = ["Breakfast", "Lunch", "Dinner", "Snack"];

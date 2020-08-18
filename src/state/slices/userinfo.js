@@ -109,10 +109,13 @@ export const Journal = (id, day) => async (dispatch) => {
   } catch (err) {}
 };
 
-export const addFoodToJournal = (post) => (dispatch) => {
+export const addFoodToJournal = (post, date) => (dispatch) => {
   axiosWithAuth()
     .post(`${nutrivurvAPI}/api/log`, post)
     .then((response) => console.log(response.data))
+    .then(() => {
+      dispatch(getFoodLogEntries(date));
+    })
     .catch((err) => console.dir(err));
 };
 

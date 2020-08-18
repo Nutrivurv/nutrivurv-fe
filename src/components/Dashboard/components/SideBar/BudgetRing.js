@@ -6,7 +6,7 @@ export const BudgetRing = ({ totals, user, size, pH, c1, c2 }) => {
   const data = [
     ["Budget", "Amount"],
     ["Total Consumed", total],
-    ["Remaining", user - total],
+    ["Remaining", user - total < 0 ? 0 : user - total],
   ];
 
   const options = {
