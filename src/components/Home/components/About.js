@@ -14,7 +14,7 @@ const About = () => {
         </div>
       </div>
       <div className="d-flex flex-wrap w-75 justify-content-around rounded mx-auto py-4 my-4">
-        <div className="d-flex p-2 my-2 mx-2 pb-4 pt-4 mb-4 justify-content-center bg-light rounded w-25 shadow">
+        <div className="p-2 my-2 mx-2 pb-4 pt-4 mb-4 justify-content-center bg-light rounded about-img shadow">
           <div className="d-block">
             <div className="d-flex justify-content-center mb-4">
               <img
@@ -35,7 +35,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="d-flex p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded w-25 shadow">
+        <div className=" p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded about-img  shadow">
           <div className="d-block">
             <div className="d-flex justify-content-center mb-4">
               <img
@@ -55,7 +55,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="d-flex p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded w-25 shadow">
+        <div className="p-2 my-2 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded about-img shadow">
           <div className="d-block">
             <div className="d-flex justify-content-center mb-4">
               <img
@@ -76,7 +76,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="d-flex p-2 mt-3 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded w-25 shadow">
+        <div className=" p-2 mt-3 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded about-img  shadow">
           <div className="block">
             <div className="d-flex justify-content-center mb-4">
               <img
@@ -97,7 +97,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="d-flex justify-content-center p-2 my-2 mt-3 pt-4 mb-4 pb-4 bg-light rounded w-25 shadow">
+        <div className="p-2 mt-3 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded about-img  shadow">
           <div className="d-block">
             <div className="d-flex justify-content-center mb-4">
               <img
@@ -118,7 +118,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className="d-flex p-2 mt-3 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded w-25 shadow">
+        <div className="p-2 mt-3 mx-2 pt-4 mb-4 pb-4 justify-content-center bg-light rounded about-img  shadow">
           <div className="d-block">
             <div className="d-flex justify-content-center mb-4">
               <img

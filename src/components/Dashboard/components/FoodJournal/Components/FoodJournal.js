@@ -67,8 +67,6 @@ const FoodJournal = (props) => {
     setFavorite(!favorite);
   };
 
-  console.log("hellloooo", entries.dailyTotals[0].total_calories_kcal);
-
   if (!fetchEntriesSuccess) return null;
   return (
     <div className="w-50 mt-5">
@@ -162,7 +160,6 @@ const FoodJournal = (props) => {
               </table>
               <div className="d-flex justify-content-end mt-5">
                 <p className="pr-5">
-                  {" "}
                   Total Calories: {entries.dailyTotals[0].total_calories_kcal}
                 </p>
               </div>
