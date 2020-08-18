@@ -3,15 +3,26 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect, useHistory } from "react-router-dom";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
 import { ReactComponent as Placeholder } from "../../../assets/Placeholder.svg";
+import { NutrientEnd } from "../../../state/slices/EdamamSlice";
 import { Journal } from "../../../state/slices/userinfo";
 import DailyVibe from "./DailyVibe";
+import { Budget } from "./googleChar";
 
 const SideBar = () => {
   const [toggle, setToggle] = useState(false);
   const history = useHistory();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
-
+  const { entries } = useSelector((state) => state.user);
+  const totals = entries.dailyTotals[0];
+  const lightpink = "#f6a4b8";
+  const blue = "#97afd1";
+  const green = "#9be0d0";
+  const yellow = "#facab8";
+  console.log(user.id);
+  console.log("totals", totals);
+  console.log(user);
+  const { callNutrientsStart } = useSelector((state) => state.edamam);
   return (
     <div>
       <nav id="sidebar" className={toggle ? "sidebar-active" : "sidebar"}>
@@ -27,7 +38,101 @@ const SideBar = () => {
         </div>
         <div>
           <div className="d-flex flex-column align-items-center my-2">
-            {/* <Placeholder /> */}
+            <div>
+              <div className="Calorie_Budget">
+                {!totals ? (
+                  <Placeholder />
+                ) : 0 <=
+                  user.caloric_budget_kcal - totals.total_calories_kcal ? (
+                  <Budget
+                    id="Calorie_Budget"
+                    totals={totals.total_calories_kcal}
+                    user={user.caloric_budget_kcal}
+                    size="500"
+                    pH={0.085}
+                    c1={lightpink}
+                  />
+                ) : (
+                  <Budget
+                    id="Calorie_Budget"
+                    totals={1}
+                    user={1}
+                    size="500"
+                    pH={0.085}
+                    c1={lightpink}
+                  />
+                )}
+              </div>
+              <div className="Fat_Budget">
+                {!totals ? (
+                  <Placeholder />
+                ) : 0 <= user.fat_budget_g - totals.total_fat_g ? (
+                  <Budget
+                    id="Fat_Budget"
+                    totals={totals.total_fat_g}
+                    user={user.fat_budget_g}
+                    size="500"
+                    pH={0.2}
+                    c1={yellow}
+                  />
+                ) : (
+                  <Budget
+                    id="Fat_Budget"
+                    totals={1}
+                    user={1}
+                    size="500"
+                    pH={0.2}
+                    c1={yellow}
+                  />
+                )}
+              </div>
+              <div className="Protein_Budget">
+                {!totals ? (
+                  <Placeholder />
+                ) : 0 <= user.protein_budget_g - totals.total_protein_g ? (
+                  <Budget
+                    id="Protein_Budget"
+                    totals={totals.total_protein_g}
+                    user={user.protein_budget_g}
+                    size="500"
+                    pH={0.4}
+                    c1={green}
+                  />
+                ) : (
+                  <Budget
+                    id="Protein_Budget"
+                    totals={1}
+                    user={1}
+                    size="500"
+                    pH={0.4}
+                    c1={green}
+                  />
+                )}
+              </div>
+              <div className="Carbs_Budget">
+                {!totals ? (
+                  <Placeholder />
+                ) : 0 <= user.carb_budget_g - totals.total_carbs_g ? (
+                  <Budget
+                    id="Carbs_Budget"
+                    totals={totals.total_carbs_g}
+                    user={user.carb_budget_g}
+                    size="500"
+                    pH={0.7}
+                    c1={blue}
+                  />
+                ) : (
+                  <Budget
+                    id="Carbs_Budget"
+                    totals={1}
+                    user={1}
+                    size="500"
+                    pH={0.7}
+                    c1={blue}
+                  />
+                )}
+              </div>
+            </div>
             <div className="d-flex flex-column px-4 budgets">
               <div>
                 <h4 className="font-weight-bold mt-4 mb-4 border-bottom">
@@ -35,27 +140,47 @@ const SideBar = () => {
                 </h4>
               </div>
               <div className="d-flex justify-content-between">
-                <h5 className="font-weight-bolder">Calories</h5>
-                <h5 id="calories" className="data font-weight-bolder">
-                  {user.caloric_budget_kcal} kcal
+                <h5 className="font-weight-bolder" id="Cal">
+                  Calories
+                </h5>
+                <h5 className="data font-weight-bolder">
+                  {totals
+                    ? user.caloric_budget_kcal - totals.total_calories_kcal
+                    : user.caloric_budget_kcal}{" "}
+                  kcal
                 </h5>
               </div>
               <div className="d-flex justify-content-between">
-                <h5 className="font-weight-bolder">Fats</h5>
-                <h5 id="fats" className="data font-weight-bolder">
-                  {user.fat_budget_g} g
+                <h5 className="font-weight-bolder" id="Fa">
+                  Fats
+                </h5>
+                <h5 className="data font-weight-bolder">
+                  {totals
+                    ? Math.round(user.fat_budget_g - totals.total_fat_g)
+                    : user.fat_budget_g}{" "}
+                  g
                 </h5>
               </div>
               <div className="d-flex justify-content-between">
-                <h5 className="font-weight-bolder">Carbs</h5>
-                <h5 id="carbs" className="data font-weight-bolder">
-                  {user.carb_budget_g} g
+                <h5 className="font-weight-bolder" id="Car">
+                  Carbs
+                </h5>
+                <h5 className="data font-weight-bolder">
+                  {totals
+                    ? Math.round(user.carb_budget_g - totals.total_carbs_g)
+                    : user.carb_budget_g}{" "}
+                  g
                 </h5>
               </div>
               <div className="d-flex justify-content-between">
-                <h5 className="font-weight-bolder">Proteins</h5>
-                <h5 id="protein" className="data font-weight-bolder">
-                  {user.protein_budget_g} g
+                <h5 className="font-weight-bolder" id="Pro">
+                  Proteins
+                </h5>
+                <h5 className="data font-weight-bolder">
+                  {totals
+                    ? Math.round(user.protein_budget_g - totals.total_protein_g)
+                    : user.protein_budget_g}{" "}
+                  g
                 </h5>
               </div>
             </div>
@@ -94,7 +219,12 @@ const SideBar = () => {
         </div>
         <ul className="navbar-nav">
           <li className="side-link mb-1 pl-4">
-            <NavLink to="/dashboard" id="food" className="nav-link">
+            <NavLink
+              onClick={() => dispatch(NutrientEnd())}
+              to="/dashboard"
+              id="food"
+              className="nav-link"
+            >
               <h4 className="font-weight-bold">Food Journal</h4>
             </NavLink>
           </li>
