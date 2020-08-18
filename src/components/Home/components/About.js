@@ -13,7 +13,7 @@ const About = () => {
           <h2>Our Team</h2>
         </div>
       </div>
-      <div className="d-flex flex-wrap w-75 justify-content-around rounded mx-auto py-4 my-4">
+      <div className="d-flex flex-wrap justify-content-around rounded mx-auto py-4 my-4 about-div">
         <div className="p-2 my-2 mx-2 pb-4 pt-4 mb-4 justify-content-center bg-light rounded about-img shadow">
           <div className="d-block">
             <div className="d-flex justify-content-center mb-4">
