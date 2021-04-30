@@ -1,7 +1,7 @@
 import axios from "axios";
 import { createSlice } from "@reduxjs/toolkit";
 
-const nutrivurvAPI = "https://nutrivurv-be.herokuapp.com/";
+const nutrivurvAPI = "https://nutrivurv-be.herokuapp.com";
 
 const initialState = {
   user: {

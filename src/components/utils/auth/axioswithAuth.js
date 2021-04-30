@@ -7,6 +7,6 @@ export const axiosWithAuth = () => {
       "Access-Control-Allow-Origin": "*",
       Authorization: `Bearer ${token}`,
     },
-    baseURL: "https://nutrivurv-be.herokuapp.com/",
+    baseURL: "https://nutrivurv-be.herokuapp.com",
   });
 };
