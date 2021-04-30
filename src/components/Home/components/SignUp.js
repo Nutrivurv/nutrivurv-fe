@@ -15,6 +15,8 @@ const SignUp = ({ handleChange, user }) => {
 
   password.current = watch("password", "");
 
+ 
+
   const weightToImperial = (kg) => {
     return Math.round(kg * 2.205);
   };
